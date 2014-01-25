@@ -1,4 +1,7 @@
 tentative-leap
 ==============
 
-iOS sound novel game
+iPhone向けサウンドノベルゲーム Leap ~ ときをこえて ~
+
+サークルあおひげ
+http://aohige.me/
