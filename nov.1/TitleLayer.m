@@ -9,6 +9,7 @@
 #import "TitleLayer.h"
 #import "MainGameScene.h"
 #import "SettingsScene.h"
+#import "SimpleAudioEngine.h"
 
 @implementation TitleLayer
 
@@ -28,6 +29,14 @@
 	CGSize size = [[CCDirector sharedDirector] winSize];
     
 	if((self=[super init])){
+        NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+        [ud setInteger:0 forKey:@"script_index"];
+        [ud synchronize];
+
+        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"time_leap.mp3"];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"time_leap.mp3" loop:YES];
+        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.5];
+        
         self.isTouchEnabled = YES;
         
         // 背景画像

@@ -44,12 +44,7 @@
         self.back_bg          = [[CCSprite alloc] init];
         self.back_bg.position = ccp(size.width/2, size.height/2);
         [self addChild:self.back_bg];
-/*
-        self.home_btn = [[CCSprite alloc] initWithFile:@"button.png"];
-        self.home_btn.position = ccp(size.width-(self.home_btn.contentSize.width/2), size.height-(self.home_btn.contentSize.height/2));
-        [self addChild:self.home_btn];
-        self.home_btn.zOrder  = 998;
-*/
+
         NSMutableArray *instruct = [self.engine readScript];
         [self doInstruct:instruct spriteSize:size];
     }
@@ -135,20 +130,22 @@
             }else{
                 [self.msgLabel setString:text];
             }
+        }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WHITE;"]){
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"EOF;"]){
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BGM"]){
             //BGM開始
-            NSUserDefaults* ud           = [NSUserDefaults standardUserDefaults];
-            CGFloat         volume_value = [ud floatForKey:@"volume"];
-/*
+            CGFloat         volume_value = 0.5;
+
             if([[dictionary objectForKey:@"action"] isEqualToString:@"LOAD"]){
-                [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[dictionary objectForKey:@"bgm_name"] loop:YES];
+                [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:[dictionary objectForKey:@"bgm_name"]];
             }else if([[dictionary objectForKey:@"action"] isEqualToString:@"PLAY"]){
                 [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[dictionary objectForKey:@"bgm_name"] loop:YES];
-                [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:volume_value];            
+                [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:volume_value];
+            }else if([[dictionary objectForKey:@"action"] isEqualToString:@"STOP"]){
+                [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
             }
-*/
         }
 
         self.msgLabel.zOrder  = 998;
@@ -230,4 +227,46 @@
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
+
+-(void)runTextAnimation : (NSString *) text dimensions : (CGSize) size isFirstRender : (BOOL) flag{
+    //文字数を確認
+    int len = [text length];
+    
+    if(flag){
+        // ラベルを作成する（後でテクスチャーとして使用する）
+        self.msgLabel = [CCLabelTTF labelWithString:text
+                                         dimensions:size
+                                         hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:13];
+        [self.msgLabel setAnchorPoint:ccp(0,0)];
+        // self.msgLabel.position = ccp(10 , size.height/self.msgWindow.position.y-10.0f);
+        
+        // 表示位置を決定する
+        self.msgLabel.position =  ccp(10 , (size.height/2)+self.msgWindow.position.y-20.f);
+        
+        // NSlayerの子要素にlabel表示を追加
+        [self addChild:self.msgLabel];
+    }else{
+        [self.msgLabel setString:text];
+    }
+    
+    //追加可能な配列NSMutableArrayを定義する
+    NSMutableArray *animFrames = [[NSMutableArray alloc] init];
+	
+	//文字数毎にラベルで作成したテクスチャーから表示範囲を決定、アニメーションフレーム配列に格納する
+	for (int i=1; i<=len; i++) {
+		CCSpriteFrame* frame = [CCSpriteFrame frameWithTexture:self.msgLabel.texture rect:CGRectMake(0,0,13*i,13)];
+		[animFrames addObject:frame];
+	}
+    
+	//アニメーションを定義（NSArrayの中身を順に表示する）
+	float delay = 0.1f;
+	CCAnimation *animation = [CCAnimation animationWithSpriteFrames:animFrames delay:delay];
+	
+	//idつけてアクション定義
+	id action1 = [CCAnimate actionWithAnimation:animation];
+    
+	//アクション実行
+	[self.msgLabel runAction:action1];
+}
+
 @end
