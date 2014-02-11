@@ -76,40 +76,40 @@
                 if(!self.center){
                     self.center          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
                     self.center.position = ccp(size.width/2, size.height/2);
-                    [self.center runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.center runAction:[CCFadeIn actionWithDuration:0.3f]];
                     [self addChild:self.center];
                 }else{
-                    [self.center runAction:[CCFadeOut actionWithDuration:1.0f]];
+                    [self.center runAction:[CCFadeOut actionWithDuration:0.3f]];
                     tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                     [self.center setTexture:tex];
                     [self.center setTextureRect:CGRectMake(0, 0, self.center.contentSize.width, self.center.contentSize.height)];
-                    [self.center runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.center runAction:[CCFadeIn actionWithDuration:0.3f]];
                 }
             }else if([[dictionary objectForKey:@"position"] isEqualToString:@"right"]){
                 if(!self.right){
                     self.right          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
                     self.right.position = ccp(((size.width/4)*3)+24.0f, size.height/2);
-                    [self.right runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.right runAction:[CCFadeIn actionWithDuration:0.3f]];
                     [self addChild:self.right];
                 }else{
-                    [self.right runAction:[CCFadeOut actionWithDuration:1.0f]];
+                    [self.right runAction:[CCFadeOut actionWithDuration:0.3f]];
                     tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                     [self.right setTexture:tex];
                     [self.right setTextureRect:CGRectMake(0, 0, self.right.contentSize.width, self.right.contentSize.height)];
-                    [self.right runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.right runAction:[CCFadeIn actionWithDuration:0.3f]];
                 }
             }else if([[dictionary objectForKey:@"position"] isEqualToString:@"left"]){
                 if(!self.left){
                     self.left          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
                     self.left.position = ccp(((size.width/2)/2)-24.0f, size.height/2);
-                    [self.left runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.left runAction:[CCFadeIn actionWithDuration:0.3f]];
                     [self addChild:self.left];
                 }else{
-                    [self.left runAction:[CCFadeOut actionWithDuration:1.0f]];
+                    [self.left runAction:[CCFadeOut actionWithDuration:0.3f]];
                     tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                     [self.left setTexture:tex];
                     [self.left setTextureRect:CGRectMake(0, 0, self.left.contentSize.width, self.left.contentSize.height)];
-                    [self.left runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.left runAction:[CCFadeIn actionWithDuration:0.3f]];
                 }
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# MSG"]){
