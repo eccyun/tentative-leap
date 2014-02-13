@@ -114,28 +114,103 @@
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# MSG"]){
             // ラベルを作成する（後でテクスチャーとして使用する
-            NSString *text=[[dictionary objectForKey:@"message"] stringByReplacingOccurrencesOfString: @"#BR#" withString: @"\n"];
-            
-            if([self.msgLabel.string isEqualToString:@""] || !self.msgLabel.string){
-                self.msgWindow          = [[CCSprite alloc] initWithFile:@"msg_window.png"];
-                self.msgWindow.position = ccp(size.width/2, size.height/6);
-                [self addChild:self.msgWindow];
+            NSString       *text       =[[dictionary objectForKey:@"message"] stringByReplacingOccurrencesOfString: @"#BR#" withString: @"\n"];
 
-                self.msgLabel = [CCLabelTTF labelWithString:text
-                                                 dimensions:CGSizeMake(self.msgWindow.contentSize.width-10.0f,self.msgWindow.contentSize.height)
-                                                 hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:13];            
-                [self.msgLabel setAnchorPoint:ccp(0,0)];
-                
-                // iPhone 5 以降との切り分け
-                if([[CCDirector sharedDirector] winSize].width == 480.f){
-                    self.msgLabel.position = ccp(10 , size.height/self.msgWindow.position.y-10.0f);
-                }else{
-                    self.msgLabel.position = ccp(48 , size.height/self.msgWindow.position.y-10.0f);
+            [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:4510] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:4511] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:4512] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:4513] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:4514] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:4515] removeFromParentAndCleanup:(true)];
+
+            
+            self.msgWindow          = [[CCSprite alloc] initWithFile:@"msg_window.png"];
+            self.msgWindow.position = ccp(size.width/2, size.height/6);
+            self.msgWindow.tag      = 4500;
+            [self addChild:self.msgWindow];
+            
+            int len          = [text length];
+            int base_length  = [text length];
+            int _size        = 13;
+            int _font        = @"HiraKakuProN-W6";
+            int _line_height = 5;
+
+            // テキスチャを切り出して配列で保存する
+            NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
+            NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
+            
+            // 文字情報を取得する
+            for (int i=0; i<len; i++) {
+                // 改行 1行あたりの文字列が36文字なので
+                if(i%36==0 && i > 0){
+                    [aLineString addObject:_string];
+
+                    // 残り文字数を更新
+                    base_length = base_length - [_string length];
+
+                    _string = [[NSString alloc] init];
+                    _string = [NSString stringWithFormat:@"%@%@",_string,[text substringWithRange:NSMakeRange(i, 1)]];
+                    continue;
                 }
+
+                _string = [NSString stringWithFormat:@"%@%@",_string,[text substringWithRange:NSMakeRange(i, 1)]];
+            }
+            
+            
+            // 後処理　もし残りがあれば
+            if(base_length < 36){
+                [aLineString addObject:_string];
+            }
+
+            // アニメーションに向けた仕込み
+            for(int i=0; i<[aLineString count]; i++){
+                // ラベルの定義
+                NSString   *data  = [aLineString objectAtIndex:i];
+
+                CCLabelTTF *label = [CCLabelTTF labelWithString:data
+                                                     dimensions:CGSizeMake(_size*[data length],_size)
+                                                     hAlignment:UITextAlignmentLeft fontName:_font fontSize:_size];
+                [label setAnchorPoint:ccp(0,0)];
+                label.tag = 4510+i;
+
+                // iPhone 5 以降との切り分けを行ったらラベルを追加
+                if([[CCDirector sharedDirector] winSize].width == 480.f){
+                    label.position = ccp(20 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
+                }else{
+                    label.position = ccp(50 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
+                }
+
+                label.zOrder  = 998;
+                [self addChild:label];
+            
+                // テキスチャのセット
+                NSMutableArray *textureMap = [[NSMutableArray alloc] init];
                 
-                [self addChild:self.msgLabel];
-            }else{
-                [self.msgLabel setString:text];
+                
+                for(int k=1; k<=[data length]; k++){
+                    CCSpriteFrame* frame = [CCSpriteFrame frameWithTexture:label.texture rect:CGRectMake(0,0, _size*k,_size)];
+                    [textureMap addObject:frame];
+                }
+
+                float        delay     = 0.05f;
+                
+                
+                NSMutableArray *dummyMap = [[NSMutableArray alloc] init];
+                [dummyMap addObject:[CCSpriteFrame frameWithTexture:label.texture rect:CGRectMake(0,0,1,1)]];
+
+                CCAnimation *animation = [CCAnimation animationWithSpriteFrames:textureMap delay:delay];
+                CCAnimation *dummy     = [CCAnimation animationWithSpriteFrames:dummyMap delay:delay];
+                
+                // アクションの定義
+                id _action         = [CCAnimate actionWithAnimation:animation];
+                id actionDelayTime = [CCDelayTime actionWithDuration:1.7f];
+                id dummyAnimation  = [CCAnimate actionWithAnimation:dummy];
+                
+                id sequence = (i>0)?[CCSequence actions:dummyAnimation ,actionDelayTime, _action, nil]:[CCSequence actions:_action, nil];
+                
+                //アクション実行
+                [label runAction:sequence];
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WHITE;"]){
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccWHITE]];
@@ -155,7 +230,6 @@
             }
         }
 
-        self.msgLabel.zOrder  = 998;
         self.msgWindow.zOrder = 997;
     }
 }
