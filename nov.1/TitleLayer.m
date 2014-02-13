@@ -45,8 +45,8 @@
         [self addChild:self.back_bg];
 
         // メニューラベル
-        CCLabelTTF *title_name = [CCLabelTTF labelWithString:@"みそかつ(仮)"
-                                                  dimensions:CGSizeMake(180.0f, 180.0f)
+        CCLabelTTF *title_name = [CCLabelTTF labelWithString:@"Leap 〜ときをこえて〜"
+                                                  dimensions:CGSizeMake(305.0f, 180.0f)
                                                   hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:28];
         
         self.new_label  = [CCLabelTTF labelWithString:@"はじめから"

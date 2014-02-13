@@ -158,7 +158,7 @@
 		1BEAC32518AA6DC400BC22DA /* aruku_cry-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC30F18AA6DC400BC22DA /* aruku_cry-hd.png */; };
 		1BEAC32618AA6DC400BC22DA /* aruku_laugh-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC31018AA6DC400BC22DA /* aruku_laugh-hd.png */; };
 		1BEAC32718AA6DC400BC22DA /* aruku_laugh2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC31118AA6DC400BC22DA /* aruku_laugh2-hd.png */; };
-		1BEAC32818AA6DC400BC22DA /* aruku_normal-hd_.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC31218AA6DC400BC22DA /* aruku_normal-hd_.png */; };
+		1BEAC32818AA6DC400BC22DA /* aruku_normal-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC31218AA6DC400BC22DA /* aruku_normal-hd.png */; };
 		1BEAC32918AA6DC400BC22DA /* aruku_puzzle-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC31318AA6DC400BC22DA /* aruku_puzzle-hd.png */; };
 		1BEAC32A18AA6DC400BC22DA /* aruku_puzzle2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC31418AA6DC400BC22DA /* aruku_puzzle2-hd.png */; };
 		1BEAC32B18AA6DC400BC22DA /* aruku_puzzle3-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC31518AA6DC400BC22DA /* aruku_puzzle3-hd.png */; };
@@ -462,7 +462,7 @@
 		1BEAC30F18AA6DC400BC22DA /* aruku_cry-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aruku_cry-hd.png"; sourceTree = "<group>"; };
 		1BEAC31018AA6DC400BC22DA /* aruku_laugh-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aruku_laugh-hd.png"; sourceTree = "<group>"; };
 		1BEAC31118AA6DC400BC22DA /* aruku_laugh2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aruku_laugh2-hd.png"; sourceTree = "<group>"; };
-		1BEAC31218AA6DC400BC22DA /* aruku_normal-hd_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aruku_normal-hd_.png"; sourceTree = "<group>"; };
+		1BEAC31218AA6DC400BC22DA /* aruku_normal-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aruku_normal-hd.png"; sourceTree = "<group>"; };
 		1BEAC31318AA6DC400BC22DA /* aruku_puzzle-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aruku_puzzle-hd.png"; sourceTree = "<group>"; };
 		1BEAC31418AA6DC400BC22DA /* aruku_puzzle2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aruku_puzzle2-hd.png"; sourceTree = "<group>"; };
 		1BEAC31518AA6DC400BC22DA /* aruku_puzzle3-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aruku_puzzle3-hd.png"; sourceTree = "<group>"; };
@@ -974,7 +974,7 @@
 				1BEAC30F18AA6DC400BC22DA /* aruku_cry-hd.png */,
 				1BEAC31018AA6DC400BC22DA /* aruku_laugh-hd.png */,
 				1BEAC31118AA6DC400BC22DA /* aruku_laugh2-hd.png */,
-				1BEAC31218AA6DC400BC22DA /* aruku_normal-hd_.png */,
+				1BEAC31218AA6DC400BC22DA /* aruku_normal-hd.png */,
 				1BEAC31318AA6DC400BC22DA /* aruku_puzzle-hd.png */,
 				1BEAC31418AA6DC400BC22DA /* aruku_puzzle2-hd.png */,
 				1BEAC31518AA6DC400BC22DA /* aruku_puzzle3-hd.png */,
@@ -1041,7 +1041,7 @@
 				1B7A7A0D1674D49F003DFCEE /* Default.png in Resources */,
 				1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */,
 				1BEAC2FC18AA6DB900BC22DA /* bar_theme.mp3 in Resources */,
-				1BEAC32818AA6DC400BC22DA /* aruku_normal-hd_.png in Resources */,
+				1BEAC32818AA6DC400BC22DA /* aruku_normal-hd.png in Resources */,
 				1BEAC2FE18AA6DB900BC22DA /* fes.mp3 in Resources */,
 				1B7A7A0F1674D49F003DFCEE /* Default-Landscape~ipad.png in Resources */,
 				1BEAC32E18AA6DC400BC22DA /* mary_laugh-hd.png in Resources */,
@@ -1252,8 +1252,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryo Tajima";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ryo Tajima";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ryo Tajima (9FXVFCUTL5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ryo Tajima (9FXVFCUTL5)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1265,8 +1265,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "087024C2-E198-4DA6-B75D-537B7172CA29";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "087024C2-E198-4DA6-B75D-537B7172CA29";
+				PROVISIONING_PROFILE = "9168FC75-521C-45B4-9C9F-41D40B5C3259";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9168FC75-521C-45B4-9C9F-41D40B5C3259";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1275,8 +1275,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryo Tajima";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ryo Tajima";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryo Tajima (QKGC4WB884)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ryo Tajima (QKGC4WB884)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = nov.1/Prefix.pch;
@@ -1287,8 +1287,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "087024C2-E198-4DA6-B75D-537B7172CA29";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "087024C2-E198-4DA6-B75D-537B7172CA29";
+				PROVISIONING_PROFILE = "524CEBD8-6C9C-4BB0-B8D4-7DBB1A4547D4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "524CEBD8-6C9C-4BB0-B8D4-7DBB1A4547D4";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

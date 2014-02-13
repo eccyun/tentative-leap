@@ -120,12 +120,19 @@
                 self.msgWindow          = [[CCSprite alloc] initWithFile:@"msg_window.png"];
                 self.msgWindow.position = ccp(size.width/2, size.height/6);
                 [self addChild:self.msgWindow];
-            
+
                 self.msgLabel = [CCLabelTTF labelWithString:text
                                                  dimensions:CGSizeMake(self.msgWindow.contentSize.width-10.0f,self.msgWindow.contentSize.height)
                                                  hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:13];            
                 [self.msgLabel setAnchorPoint:ccp(0,0)];
-                self.msgLabel.position = ccp(10 , size.height/self.msgWindow.position.y-10.0f);
+                
+                // iPhone 5 以降との切り分け
+                if([[CCDirector sharedDirector] winSize].width == 480.f){
+                    self.msgLabel.position = ccp(10 , size.height/self.msgWindow.position.y-10.0f);
+                }else{
+                    self.msgLabel.position = ccp(48 , size.height/self.msgWindow.position.y-10.0f);
+                }
+                
                 [self addChild:self.msgLabel];
             }else{
                 [self.msgLabel setString:text];

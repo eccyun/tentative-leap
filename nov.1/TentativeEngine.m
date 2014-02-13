@@ -95,10 +95,6 @@ static struct{
         [ret insertObject:set atIndex:k];
     }
 
-    NSLog(@"----");
-    NSLog(@"%@", [ret description]);
-    NSLog(@"----");
-
     return ret;
 }
 
