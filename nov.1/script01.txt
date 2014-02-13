@@ -1,5 +1,0 @@
-# BG:park_day.png
-# IMG:aruku_normal.png:center
-# MSG:開発テスト
-STOP;
-EOF;

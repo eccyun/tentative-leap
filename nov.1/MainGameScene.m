@@ -44,12 +44,7 @@
         self.back_bg          = [[CCSprite alloc] init];
         self.back_bg.position = ccp(size.width/2, size.height/2);
         [self addChild:self.back_bg];
-/*
-        self.home_btn = [[CCSprite alloc] initWithFile:@"button.png"];
-        self.home_btn.position = ccp(size.width-(self.home_btn.contentSize.width/2), size.height-(self.home_btn.contentSize.height/2));
-        [self addChild:self.home_btn];
-        self.home_btn.zOrder  = 998;
-*/
+
         NSMutableArray *instruct = [self.engine readScript];
         [self doInstruct:instruct spriteSize:size];
     }
@@ -81,40 +76,40 @@
                 if(!self.center){
                     self.center          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
                     self.center.position = ccp(size.width/2, size.height/2);
-                    [self.center runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.center runAction:[CCFadeIn actionWithDuration:0.3f]];
                     [self addChild:self.center];
                 }else{
-                    [self.center runAction:[CCFadeOut actionWithDuration:1.0f]];
+                    [self.center runAction:[CCFadeOut actionWithDuration:0.3f]];
                     tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                     [self.center setTexture:tex];
                     [self.center setTextureRect:CGRectMake(0, 0, self.center.contentSize.width, self.center.contentSize.height)];
-                    [self.center runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.center runAction:[CCFadeIn actionWithDuration:0.3f]];
                 }
             }else if([[dictionary objectForKey:@"position"] isEqualToString:@"right"]){
                 if(!self.right){
                     self.right          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
                     self.right.position = ccp(((size.width/4)*3)+24.0f, size.height/2);
-                    [self.right runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.right runAction:[CCFadeIn actionWithDuration:0.3f]];
                     [self addChild:self.right];
                 }else{
-                    [self.right runAction:[CCFadeOut actionWithDuration:1.0f]];
+                    [self.right runAction:[CCFadeOut actionWithDuration:0.3f]];
                     tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                     [self.right setTexture:tex];
                     [self.right setTextureRect:CGRectMake(0, 0, self.right.contentSize.width, self.right.contentSize.height)];
-                    [self.right runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.right runAction:[CCFadeIn actionWithDuration:0.3f]];
                 }
             }else if([[dictionary objectForKey:@"position"] isEqualToString:@"left"]){
                 if(!self.left){
                     self.left          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
                     self.left.position = ccp(((size.width/2)/2)-24.0f, size.height/2);
-                    [self.left runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.left runAction:[CCFadeIn actionWithDuration:0.3f]];
                     [self addChild:self.left];
                 }else{
-                    [self.left runAction:[CCFadeOut actionWithDuration:1.0f]];
+                    [self.left runAction:[CCFadeOut actionWithDuration:0.3f]];
                     tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                     [self.left setTexture:tex];
                     [self.left setTextureRect:CGRectMake(0, 0, self.left.contentSize.width, self.left.contentSize.height)];
-                    [self.left runAction:[CCFadeIn actionWithDuration:1.0f]];
+                    [self.left runAction:[CCFadeIn actionWithDuration:0.3f]];
                 }
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# MSG"]){
@@ -125,30 +120,39 @@
                 self.msgWindow          = [[CCSprite alloc] initWithFile:@"msg_window.png"];
                 self.msgWindow.position = ccp(size.width/2, size.height/6);
                 [self addChild:self.msgWindow];
-            
+
                 self.msgLabel = [CCLabelTTF labelWithString:text
                                                  dimensions:CGSizeMake(self.msgWindow.contentSize.width-10.0f,self.msgWindow.contentSize.height)
                                                  hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:13];            
                 [self.msgLabel setAnchorPoint:ccp(0,0)];
-                self.msgLabel.position = ccp(10 , size.height/self.msgWindow.position.y-10.0f);
+                
+                // iPhone 5 以降との切り分け
+                if([[CCDirector sharedDirector] winSize].width == 480.f){
+                    self.msgLabel.position = ccp(10 , size.height/self.msgWindow.position.y-10.0f);
+                }else{
+                    self.msgLabel.position = ccp(48 , size.height/self.msgWindow.position.y-10.0f);
+                }
+                
                 [self addChild:self.msgLabel];
             }else{
                 [self.msgLabel setString:text];
             }
+        }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WHITE;"]){
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"EOF;"]){
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BGM"]){
             //BGM開始
-            NSUserDefaults* ud           = [NSUserDefaults standardUserDefaults];
-            CGFloat         volume_value = [ud floatForKey:@"volume"];
-/*
+            CGFloat         volume_value = 0.5;
+
             if([[dictionary objectForKey:@"action"] isEqualToString:@"LOAD"]){
-                [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[dictionary objectForKey:@"bgm_name"] loop:YES];
+                [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:[dictionary objectForKey:@"bgm_name"]];
             }else if([[dictionary objectForKey:@"action"] isEqualToString:@"PLAY"]){
                 [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[dictionary objectForKey:@"bgm_name"] loop:YES];
-                [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:volume_value];            
+                [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:volume_value];
+            }else if([[dictionary objectForKey:@"action"] isEqualToString:@"STOP"]){
+                [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
             }
-*/
         }
 
         self.msgLabel.zOrder  = 998;
@@ -230,4 +234,46 @@
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
+
+-(void)runTextAnimation : (NSString *) text dimensions : (CGSize) size isFirstRender : (BOOL) flag{
+    //文字数を確認
+    int len = [text length];
+    
+    if(flag){
+        // ラベルを作成する（後でテクスチャーとして使用する）
+        self.msgLabel = [CCLabelTTF labelWithString:text
+                                         dimensions:size
+                                         hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:13];
+        [self.msgLabel setAnchorPoint:ccp(0,0)];
+        // self.msgLabel.position = ccp(10 , size.height/self.msgWindow.position.y-10.0f);
+        
+        // 表示位置を決定する
+        self.msgLabel.position =  ccp(10 , (size.height/2)+self.msgWindow.position.y-20.f);
+        
+        // NSlayerの子要素にlabel表示を追加
+        [self addChild:self.msgLabel];
+    }else{
+        [self.msgLabel setString:text];
+    }
+    
+    //追加可能な配列NSMutableArrayを定義する
+    NSMutableArray *animFrames = [[NSMutableArray alloc] init];
+	
+	//文字数毎にラベルで作成したテクスチャーから表示範囲を決定、アニメーションフレーム配列に格納する
+	for (int i=1; i<=len; i++) {
+		CCSpriteFrame* frame = [CCSpriteFrame frameWithTexture:self.msgLabel.texture rect:CGRectMake(0,0,13*i,13)];
+		[animFrames addObject:frame];
+	}
+    
+	//アニメーションを定義（NSArrayの中身を順に表示する）
+	float delay = 0.1f;
+	CCAnimation *animation = [CCAnimation animationWithSpriteFrames:animFrames delay:delay];
+	
+	//idつけてアクション定義
+	id action1 = [CCAnimate actionWithAnimation:animation];
+    
+	//アクション実行
+	[self.msgLabel runAction:action1];
+}
+
 @end

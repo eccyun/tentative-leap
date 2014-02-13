@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>56F6551A-3039-430E-B377-32617552EB96</string>
+	<key>IDESourceControlProjectName</key>
+	<string>nov.1</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0F2667CD-7CCF-467B-8EF3-91AFE386747C</key>
+		<string>https://github.com/eccyun/tentative-leap.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>nov.1.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0F2667CD-7CCF-467B-8EF3-91AFE386747C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/eccyun/tentative-leap.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0F2667CD-7CCF-467B-8EF3-91AFE386747C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0F2667CD-7CCF-467B-8EF3-91AFE386747C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>tentative-leap</string>
+		</dict>
+	</array>
+</dict>
+</plist>

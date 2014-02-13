@@ -22,7 +22,7 @@ static struct{
     if(self){
         // メンバの初期化
         self.structureIndex  = 0;
-        self.scriptReadIndex = 0;
+        self.scriptReadIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"script_index"] integerValue];
         self.scriptArray     = [[NSArray alloc] init];
         
         [self scriptFileReader];
@@ -56,6 +56,10 @@ static struct{
         [tmp insertObject:[self.scriptArray objectAtIndex:self.scriptReadIndex] atIndex:i];
         self.scriptReadIndex++;
         i++;
+
+        if([data isEqualToString:@"# WHITE;"]){
+            break;
+        }
     }
 
     // 命令をパースする
@@ -80,14 +84,17 @@ static struct{
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"bgm_name"];
             [set setValue:[split objectAtIndex:2] forKey:@"action"];
+        }else if([instruct_name isEqualToString:@"# WHITE;"]){
+            [set setValue:instruct_name           forKey:@"instruct_name"];
+            
+            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+            [ud setInteger:self.scriptReadIndex forKey:@"script_index"];
+            [ud synchronize];
         }
 
         [ret insertObject:set atIndex:k];
     }
 
-    NSLog(@"----");
-    NSLog(@"%@", [ret description]);
-    NSLog(@"----");
     return ret;
 }
 
