@@ -38,6 +38,7 @@
 
 	if((self=[super init])){
         self.isTouchEnabled = YES;
+        self.isCheck        = NO;
         // スクリプトエンジンの初期化
         self.engine              = [[TentativeEngine alloc] init];
 
@@ -45,6 +46,8 @@
         self.back_bg.position = ccp(size.width/2, size.height/2);
         [self addChild:self.back_bg];
 
+        self.message_text = [[NSString alloc] init];
+        
         NSMutableArray *instruct = [self.engine readScript];
         [self doInstruct:instruct spriteSize:size];
     }
@@ -114,8 +117,9 @@
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# MSG"]){
             // ラベルを作成する（後でテクスチャーとして使用する
-            NSString       *text       =[[dictionary objectForKey:@"message"] stringByReplacingOccurrencesOfString: @"#BR#" withString: @"\n"];
-
+            NSString *text    = [[dictionary objectForKey:@"message"] stringByReplacingOccurrencesOfString: @"#BR#" withString: @"\n"];
+            self.message_text = text;
+            
             [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:4510] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:4511] removeFromParentAndCleanup:(true)];
@@ -124,12 +128,11 @@
             [[self getChildByTag:4514] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:4515] removeFromParentAndCleanup:(true)];
 
-            
             self.msgWindow          = [[CCSprite alloc] initWithFile:@"msg_window.png"];
             self.msgWindow.position = ccp(size.width/2, size.height/6);
             self.msgWindow.tag      = 4500;
             [self addChild:self.msgWindow];
-            
+
             int len          = [text length];
             int base_length  = [text length];
             int _size        = 13;
@@ -207,10 +210,31 @@
                 id actionDelayTime = [CCDelayTime actionWithDuration:1.7f];
                 id dummyAnimation  = [CCAnimate actionWithAnimation:dummy];
                 
-                id sequence = (i>0)?[CCSequence actions:dummyAnimation ,actionDelayTime, _action, nil]:[CCSequence actions:_action, nil];
-                
-                //アクション実行
-                [label runAction:sequence];
+                id callFunc   = [CCCallFunc actionWithTarget:self selector:@selector(isAnimationCheck)];
+                id callFunced = [CCCallFunc actionWithTarget:self selector:@selector(isAnimationChecked)];
+
+                if(i==0){
+                    id sequence;
+
+                    if(1==[aLineString count]){
+                        sequence = [CCSequence actions: callFunc, _action, callFunced, nil];
+                    }else{
+                        sequence = [CCSequence actions: callFunc, _action, nil];
+                    }
+
+                    [label runAction:sequence];
+                }else{
+                    id sequence = [CCSequence actions: dummyAnimation, actionDelayTime, _action, callFunced, nil];
+                    [label runAction:sequence];
+                }
+/*
+                else{
+                    NSLog(@"i - %d  limit - %d", i, [aLineString count]);
+                    
+                    id sequence = [CCSequence actions: dummyAnimation, actionDelayTime, _action, nil];
+                    [label runAction:sequence];
+                }
+*/
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WHITE;"]){
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccWHITE]];
@@ -232,6 +256,14 @@
 
         self.msgWindow.zOrder = 997;
     }
+}
+
+- (void) isAnimationCheck{
+    self.isCheck = YES;
+}
+
+- (void) isAnimationChecked{
+    self.isCheck = NO;
 }
 
 // on "dealloc" you need to release all your retained objects
@@ -257,6 +289,84 @@
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+    if(self.isCheck){
+        CGSize size   = [[CCDirector sharedDirector] winSize];
+
+        [[self getChildByTag:4500] stopAllActions];
+        [[self getChildByTag:4510] stopAllActions];
+        [[self getChildByTag:4511] stopAllActions];
+        [[self getChildByTag:4512] stopAllActions];
+
+        [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:4510] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:4511] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:4512] removeFromParentAndCleanup:(true)];
+
+        self.msgWindow          = [[CCSprite alloc] initWithFile:@"msg_window.png"];
+        self.msgWindow.position = ccp(size.width/2, size.height/6);
+        self.msgWindow.tag      = 4500;
+        [self addChild:self.msgWindow];
+
+        self.isCheck = NO;
+
+        int len          = [self.message_text length];
+        int base_length  = [self.message_text length];
+        int _size        = 13;
+        int _font        = @"HiraKakuProN-W6";
+        int _line_height = 5;
+        
+        // テキスチャを切り出して配列で保存する
+        NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
+        NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
+        
+        // 文字情報を取得する
+        for (int i=0; i<len; i++) {
+            // 改行 1行あたりの文字列が36文字なので
+            if(i%36==0 && i > 0){
+                [aLineString addObject:_string];
+                
+                // 残り文字数を更新
+                base_length = base_length - [_string length];
+                
+                _string = [[NSString alloc] init];
+                _string = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
+                continue;
+            }
+            
+            _string = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
+        }
+        
+        
+        // 後処理　もし残りがあれば
+        if(base_length < 36){
+            [aLineString addObject:_string];
+        }
+
+        // アニメーションに向けた仕込み
+        for(int i=0; i<[aLineString count]; i++){
+            // ラベルの定義
+            NSString   *data  = [aLineString objectAtIndex:i];
+            
+            CCLabelTTF *label = [CCLabelTTF labelWithString:data
+                                                 dimensions:CGSizeMake(_size*[data length],_size)
+                                                 hAlignment:UITextAlignmentLeft fontName:_font fontSize:_size];
+            [label setAnchorPoint:ccp(0,0)];
+            label.tag = 4510+i;
+            
+            // iPhone 5 以降との切り分けを行ったらラベルを追加
+            if([[CCDirector sharedDirector] winSize].width == 480.f){
+                label.position = ccp(20 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
+            }else{
+                label.position = ccp(50 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
+            }
+            
+            label.zOrder  = 998;
+            [self addChild:label];
+        }
+
+        return YES;
+    }
+    
     CGSize size = [[CCDirector sharedDirector] winSize];
 
     if([self checkSettingsButtonCollision:touch]){

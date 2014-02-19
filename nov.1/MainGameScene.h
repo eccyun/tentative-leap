@@ -14,22 +14,9 @@
 
 // HelloWorldLayer
 @interface MainGameScene : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>{
-    CCSprite *_hyper;
-    CCSprite *_back_bg;
-    CCSprite *_msgWindow;
-
-    CCSprite *_right;
-    CCSprite *_center;
-    CCSprite *_left;
-    
-    NSInteger _counter;
-    CCLabelTTF *_msgLabel;
-
-    TentativeEngine *_engine;
-
-    CCSprite *_home_btn;
 }
 
+@property(nonatomic)         BOOL             isCheck;
 @property(nonatomic, retain) CCSprite        *home_btn;
 @property(nonatomic,retain)  TentativeEngine *engine;
 @property(nonatomic,retain)  CCSprite        *back_bg;
@@ -40,6 +27,7 @@
 @property(nonatomic, retain) CCSprite        *right;
 @property(nonatomic, retain) CCSprite        *msgWindow;
 @property(nonatomic, retain) CCSprite        *hyper;
+@property(nonatomic, retain) NSString        *message_text;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
