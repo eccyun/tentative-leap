@@ -119,7 +119,7 @@
             // ラベルを作成する（後でテクスチャーとして使用する
             NSString *text    = [[dictionary objectForKey:@"message"] stringByReplacingOccurrencesOfString: @"#BR#" withString: @"\n"];
             self.message_text = text;
-            
+
             [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:4510] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:4511] removeFromParentAndCleanup:(true)];
@@ -179,7 +179,7 @@
 
                 // iPhone 5 以降との切り分けを行ったらラベルを追加
                 if([[CCDirector sharedDirector] winSize].width == 480.f){
-                    label.position = ccp(20 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
+                    label.position = ccp(5 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
                 }else{
                     label.position = ccp(50 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
                 }
@@ -355,7 +355,7 @@
             
             // iPhone 5 以降との切り分けを行ったらラベルを追加
             if([[CCDirector sharedDirector] winSize].width == 480.f){
-                label.position = ccp(20 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
+                label.position = ccp(5 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
             }else{
                 label.position = ccp(50 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
             }
