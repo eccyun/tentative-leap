@@ -29,7 +29,7 @@ STOP;
 # MSG:完成を思うと俄然やる気も入る。完成がとても楽しみだった。
 STOP;
 # BGM:aruku_theme.mp3:LOAD
-# BGM:time_leap.mp3:STOP
+# BGM:bell_leap.mp3:STOP
 # MSG:「へー、すごいね。上手に描けてるじゃん」
 STOP;
 # MSG:「えっ？」
@@ -153,5 +153,8 @@ STOP;
 # MSG:「うん！」
 STOP;
 # MSG:そう言って、ぼくたちは公園をあとにした。
+STOP;
+# BGM:aruku_theme.mp3:STOP
+LOADING;
 STOP;
 EOF;

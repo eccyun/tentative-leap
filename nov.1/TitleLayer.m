@@ -16,7 +16,7 @@
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene{
 	CCScene *scene = [CCScene node];
-    
+
 	TitleLayer *layer = [TitleLayer node];
 	[scene addChild: layer];
     

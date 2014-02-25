@@ -15,6 +15,7 @@
 #import "SimpleAudioEngine.h"
 #import "SettingsScene.h"
 #import "TitleLayer.h"
+#import "LoadScene.h"
 
 #define character_width 332
 
@@ -27,7 +28,7 @@
 
 	MainGameScene *layer = [MainGameScene node];
 	[scene addChild: layer];
-    
+
 	// return the scene
 	return scene;
 }
@@ -189,16 +190,14 @@
             
                 // テキスチャのセット
                 NSMutableArray *textureMap = [[NSMutableArray alloc] init];
-                
-                
+
                 for(int k=1; k<=[data length]; k++){
                     CCSpriteFrame* frame = [CCSpriteFrame frameWithTexture:label.texture rect:CGRectMake(0,0, _size*k,_size)];
                     [textureMap addObject:frame];
                 }
 
                 float        delay     = 0.05f;
-                
-                
+
                 NSMutableArray *dummyMap = [[NSMutableArray alloc] init];
                 [dummyMap addObject:[CCSpriteFrame frameWithTexture:label.texture rect:CGRectMake(0,0,1,1)]];
 
@@ -227,17 +226,11 @@
                     id sequence = [CCSequence actions: dummyAnimation, actionDelayTime, _action, callFunced, nil];
                     [label runAction:sequence];
                 }
-/*
-                else{
-                    NSLog(@"i - %d  limit - %d", i, [aLineString count]);
-                    
-                    id sequence = [CCSequence actions: dummyAnimation, actionDelayTime, _action, nil];
-                    [label runAction:sequence];
-                }
-*/
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WHITE;"]){
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccWHITE]];
+        }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"LOADING;"]){
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:3.0 scene:[LoadScene scene] withColor:ccBLACK]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"EOF;"]){
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BGM"]){
@@ -269,17 +262,6 @@
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc{
 	[super dealloc];
-/*
-    [self.hyper dealloc];
-    [self.back_bg dealloc];
-    [self.msgWindow dealloc];
-    
-    [self.right dealloc];
-    [self.center dealloc];
-    [self.left dealloc];
-    [self.msgLabel dealloc];
-    [self.home_btn dealloc];
-*/
 }
 
 #pragma mark GameKit delegate
@@ -332,7 +314,7 @@
                 _string = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
                 continue;
             }
-            
+
             _string = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
         }
         

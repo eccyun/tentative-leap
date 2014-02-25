@@ -40,6 +40,13 @@ static struct{
     while(true){
         NSString *data = [self.scriptArray objectAtIndex:self.scriptReadIndex];
         // STOPの場合一旦離脱する
+        if([data isEqualToString:@"LOADING;"]){
+            NSMutableDictionary *set = [[NSMutableDictionary alloc] init];
+            [set setValue:@"LOADING;" forKey:@"instruct_name"];
+            [ret insertObject:set atIndex:0];
+            break;
+        }
+
         if([data isEqualToString:@"EOF;"]){
             NSMutableDictionary *set = [[NSMutableDictionary alloc] init];
             [set setValue:@"EOF;" forKey:@"instruct_name"];

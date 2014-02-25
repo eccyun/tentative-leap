@@ -12,6 +12,8 @@
 		1B0E2EA716CD1D070097D11A /* TitleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E2EA616CD1D070097D11A /* TitleLayer.m */; };
 		1B0E2EAB16CD21810097D11A /* bg_title-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B0E2EAA16CD21800097D11A /* bg_title-hd.png */; };
 		1B0E2EFB16D653BE0097D11A /* SettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E2EFA16D653BC0097D11A /* SettingsScene.m */; };
+		1B1CD9B018BCE4C7001648C6 /* LoadScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CD9AF18BCE4C7001648C6 /* LoadScene.m */; };
+		1B1CD9B318BCE72A001648C6 /* aohige_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B1CD9B218BCE72A001648C6 /* aohige_logo.png */; };
 		1B26A979167B7456002EB7D7 /* msg_window.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B26A978167B7456002EB7D7 /* msg_window.png */; };
 		1B7A79F91674D49F003DFCEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A79F81674D49F003DFCEE /* QuartzCore.framework */; };
 		1B7A79FB1674D49F003DFCEE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A79FA1674D49F003DFCEE /* OpenGLES.framework */; };
@@ -180,6 +182,9 @@
 		1B0E2EAA16CD21800097D11A /* bg_title-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_title-hd.png"; sourceTree = "<group>"; };
 		1B0E2EF916D653BA0097D11A /* SettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScene.h; sourceTree = "<group>"; };
 		1B0E2EFA16D653BC0097D11A /* SettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScene.m; sourceTree = "<group>"; };
+		1B1CD9AE18BCE4C7001648C6 /* LoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadScene.h; sourceTree = "<group>"; };
+		1B1CD9AF18BCE4C7001648C6 /* LoadScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadScene.m; sourceTree = "<group>"; };
+		1B1CD9B218BCE72A001648C6 /* aohige_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aohige_logo.png; sourceTree = "<group>"; };
 		1B26A978167B7456002EB7D7 /* msg_window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = msg_window.png; sourceTree = "<group>"; };
 		1B7A79F41674D49F003DFCEE /* nov.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nov.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7A79F81674D49F003DFCEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -502,6 +507,15 @@
 			name = script;
 			sourceTree = "<group>";
 		};
+		1B1CD9B118BCE72A001648C6 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				1B1CD9B218BCE72A001648C6 /* aohige_logo.png */,
+			);
+			name = image;
+			path = Resources/image;
+			sourceTree = "<group>";
+		};
 		1B7A79E91674D49F003DFCEE = {
 			isa = PBXGroup;
 			children = (
@@ -548,6 +562,8 @@
 				1B0E2E9116C284680097D11A /* TentativeEngine.m */,
 				1B7A7B851674D4A3003DFCEE /* MainGameScene.h */,
 				1B7A7B861674D4A3003DFCEE /* MainGameScene.m */,
+				1B1CD9AE18BCE4C7001648C6 /* LoadScene.h */,
+				1B1CD9AF18BCE4C7001648C6 /* LoadScene.m */,
 				1B0E2E9316C2865B0097D11A /* IntroLayer.h */,
 				1B0E2E9416C2865B0097D11A /* IntroLayer.m */,
 				1B7A7A0B1674D49F003DFCEE /* Resources */,
@@ -560,6 +576,7 @@
 		1B7A7A0B1674D49F003DFCEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B1CD9B118BCE72A001648C6 /* image */,
 				1BEAC30318AA6DC400BC22DA /* background */,
 				1BEAC30D18AA6DC400BC22DA /* character */,
 				1BEAC2F218AA6DB900BC22DA /* music */,
@@ -1081,6 +1098,7 @@
 				1BEAC32118AA6DC400BC22DA /* road_day-hd.png in Resources */,
 				1BEAC30118AA6DB900BC22DA /* road_theme.mp3 in Resources */,
 				1BEAC31E18AA6DC400BC22DA /* park_festa-hd.png in Resources */,
+				1B1CD9B318BCE72A001648C6 /* aohige_logo.png in Resources */,
 				1BEAC32D18AA6DC400BC22DA /* mary_cry-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1187,6 +1205,7 @@
 				1B7A7B6E1674D4A3003DFCEE /* neon_matrix_impl.c in Sources */,
 				1B7A7B701674D4A3003DFCEE /* plane.c in Sources */,
 				1B7A7B721674D4A3003DFCEE /* quaternion.c in Sources */,
+				1B1CD9B018BCE4C7001648C6 /* LoadScene.m in Sources */,
 				1B7A7B741674D4A3003DFCEE /* ray2.c in Sources */,
 				1B7A7B761674D4A3003DFCEE /* utility.c in Sources */,
 				1B7A7B781674D4A3003DFCEE /* vec2.c in Sources */,

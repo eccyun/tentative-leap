@@ -33,6 +33,7 @@
 }
 
 -(void) makeTransition:(ccTime)dt{
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccWHITE]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccBLACK]];
 }
+
 @end
