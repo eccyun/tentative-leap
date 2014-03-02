@@ -38,37 +38,31 @@
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.5];
         
         self.isTouchEnabled = YES;
-        
+
         // 背景画像
-        self.back_bg          = [[CCSprite alloc] initWithFile:@"bg_title.png"];
+        self.back_bg          = [[CCSprite alloc] initWithFile : @"menu_background.png"];
         self.back_bg.position = ccp(size.width/2, size.height/2);
         [self addChild:self.back_bg];
 
-        // メニューラベル
-        CCLabelTTF *title_name = [CCLabelTTF labelWithString:@"Leap 〜ときをこえて〜"
-                                                  dimensions:CGSizeMake(305.0f, 180.0f)
-                                                  hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:28];
-        
-        self.new_label  = [CCLabelTTF labelWithString:@"はじめから"
-                                           dimensions:CGSizeMake(65.0f, 65.0f)
-                                           hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:13];
-        self.load_label = [CCLabelTTF labelWithString:@"つづきから"
-                                           dimensions:CGSizeMake(65.0f, 65.0f)
-                                           hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:13];
-        self.opt_label  = [CCLabelTTF labelWithString:@"オプション"
-                                           dimensions:CGSizeMake(65.0f, 65.0f)
-                                           hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:13];
+        // タイトルロゴ
+        self.title_logo = [[CCSprite alloc] initWithFile:@"title_logo.png"];
+        self.title_logo.position = ccp(size.width/2, size.height/2+30.f);
+        [self addChild:self.title_logo];
 
-        self.new_label.position  = ccp(size.width/2-140.0f, size.height/6);
-        self.load_label.position = ccp(size.width/2, size.height/6);
-        self.opt_label.position  = ccp(size.width/2+140.0f, size.height/6);
-        
-        title_name.position = ccp(size.width/2, size.height - 180.0f);
+        // はじめから
+        self.start_logo          = [[CCSprite alloc] initWithFile:@"menu_start_off.png"];
+        self.start_logo.position = ccp(size.width/2-160.0f, size.height/6);
+        [self addChild:self.start_logo];
 
-        [self addChild:self.new_label];
-        [self addChild:self.load_label];
-        [self addChild:self.opt_label];
-        [self addChild:title_name];
+        // つづきから
+        self.restart_logo          = [[CCSprite alloc] initWithFile:@"menu_restart_off.png"];
+        self.restart_logo.position = ccp(size.width/2+160.0f, size.height/6);
+        [self addChild:self.restart_logo];
+
+        // クイックスタート
+        self.quick_logo          = [[CCSprite alloc] initWithFile:@"menu_quick_start_off.png"];
+        self.quick_logo.position = ccp(size.width/2+8.f, size.height/6);
+        [self addChild:self.quick_logo];
     }
     
 	return self;
@@ -97,10 +91,10 @@
 	CGPoint location = [touch locationInView:[touch view]];
 	location         = [[CCDirector sharedDirector] convertToGL:location];
 
-    if(location.x > self.new_label.position.x-(self.new_label.contentSize.width/2)&&
-       location.x < self.new_label.position.x+(self.new_label.contentSize.width/2)&&
-       location.y > self.new_label.position.y-(self.new_label.contentSize.height/2)&&
-       location.y < self.new_label.position.y+(self.new_label.contentSize.height/2)){
+    if(location.x > self.start_logo.position.x-(self.start_logo.contentSize.width/2)&&
+       location.x < self.start_logo.position.x+(self.start_logo.contentSize.width/2)&&
+       location.y > self.start_logo.position.y-(self.start_logo.contentSize.height/2)&&
+       location.y < self.start_logo.position.y+(self.start_logo.contentSize.height/2)){
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
     }else if(location.x > self.opt_label.position.x-(self.opt_label.contentSize.width/2)&&
              location.x < self.opt_label.position.x+(self.opt_label.contentSize.width/2)&&

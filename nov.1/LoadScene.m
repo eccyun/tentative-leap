@@ -34,8 +34,8 @@
 
     if((self=[super init])){
         // 背景画像
-        self.logo_image          = [[CCSprite alloc] initWithFile:@"aohige_logo.png"];
-        self.logo_image.position = ccp(size.width-(self.logo_image.contentSize.width/2), size.height/10);
+        self.logo_image          = [[CCSprite alloc] initWithFile:@"load_logo.png"];
+        self.logo_image.position = ccp(size.width-(self.logo_image.contentSize.width/2+10.f), size.height/10+15.f);
         [self addChild:self.logo_image];
     }
 
