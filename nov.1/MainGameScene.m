@@ -230,6 +230,13 @@
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WHITE;"]){
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"LOADING;"]){
+            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+            [ud setInteger:[[ud objectForKey:@"structure_index"] integerValue]+1 forKey:@"structure_index"];
+            [ud setInteger:0 forKey:@"script_index"];
+
+            [ud synchronize];
+
+            // 削除処理
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:3.0 scene:[LoadScene scene] withColor:ccBLACK]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"EOF;"]){
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccWHITE]];
@@ -365,13 +372,15 @@
     // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
 	CGPoint location = [touch locationInView:[touch view]];
 	location         = [[CCDirector sharedDirector] convertToGL:location];
-    
+
+/*
     CGSize  size = self.home_btn.contentSize;
     CGPoint pos  = self.home_btn.position;
-    
+
     if(location.x > pos.x-(size.width/2) && location.x < pos.x+(size.width/2)&&location.y > pos.y-(size.height/2) && location.y < pos.y+(size.height/2)){
         return YES;
     }
+*/
     return NO;
 }
     

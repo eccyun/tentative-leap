@@ -17,7 +17,6 @@
 }
 
 @property(nonatomic)         BOOL             isCheck;
-@property(nonatomic, retain) CCSprite        *home_btn;
 @property(nonatomic,retain)  TentativeEngine *engine;
 @property(nonatomic,retain)  CCSprite        *back_bg;
 @property(nonatomic,retain)  CCLabelTTF      *msgLabel;

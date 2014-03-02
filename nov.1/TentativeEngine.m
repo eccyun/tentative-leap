@@ -23,7 +23,7 @@ static struct{
     self = [super init];
     if(self){
         // メンバの初期化
-        self.structureIndex  = [[NSUserDefaults standardUserDefaults] objectForKey:@"structure_index"];
+        self.structureIndex  = [[[NSUserDefaults standardUserDefaults] objectForKey:@"structure_index"] integerValue];
         self.scriptReadIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"script_index"] integerValue];
         self.scriptArray     = [[NSArray alloc] init];
 
@@ -113,17 +113,12 @@ static struct{
     args        :
     remarks     : スクリプトファイル取得用関数
    ******************************************/
-    
     NSString *path       = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:FileList[self.structureIndex].fileName];
     NSString *scriptText = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 
     // 参照スクリプトの更新
     self.scriptArray = [scriptText componentsSeparatedByString:@"\n"];
     self.structureIndex++;
-
-    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    [ud setInteger:self.structureIndex forKey:@"structure_index"];
-    [ud synchronize];
 }
 
 
