@@ -14,17 +14,19 @@
 static struct{
     NSString *fileName;
 }FileList[] = {
-    {@"script01.txt"}
+    {@"script01.txt"},
+    {@"script02.txt"},
+    {@"script03.txt"}
 };
 
 - (id)init{
     self = [super init];
     if(self){
         // メンバの初期化
-        self.structureIndex  = 0;
+        self.structureIndex  = [[NSUserDefaults standardUserDefaults] objectForKey:@"structure_index"];
         self.scriptReadIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"script_index"] integerValue];
         self.scriptArray     = [[NSArray alloc] init];
-        
+
         [self scriptFileReader];
     }
     
@@ -118,6 +120,10 @@ static struct{
     // 参照スクリプトの更新
     self.scriptArray = [scriptText componentsSeparatedByString:@"\n"];
     self.structureIndex++;
+
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+    [ud setInteger:self.structureIndex forKey:@"structure_index"];
+    [ud synchronize];
 }
 
 

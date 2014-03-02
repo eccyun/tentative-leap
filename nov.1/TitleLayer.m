@@ -31,6 +31,7 @@
 	if((self=[super init])){
         NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
         [ud setInteger:0 forKey:@"script_index"];
+        [ud setInteger:0 forKey:@"structure_index"];
         [ud synchronize];
 
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"time_leap.mp3"];
