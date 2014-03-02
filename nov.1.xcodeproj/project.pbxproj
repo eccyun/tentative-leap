@@ -22,6 +22,7 @@
 		1B5F030718C3753900710F44 /* menu_restart_off-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F030318C3753900710F44 /* menu_restart_off-hd.png */; };
 		1B5F030818C3753900710F44 /* menu_restart_on-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F030418C3753900710F44 /* menu_restart_on-hd.png */; };
 		1B5F030A18C37B6F00710F44 /* load_logo-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F030918C37B6F00710F44 /* load_logo-hd.png */; };
+		1B5F030C18C37E7D00710F44 /* script02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F030B18C37E7D00710F44 /* script02.txt */; };
 		1B7A79F91674D49F003DFCEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A79F81674D49F003DFCEE /* QuartzCore.framework */; };
 		1B7A79FB1674D49F003DFCEE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A79FA1674D49F003DFCEE /* OpenGLES.framework */; };
 		1B7A79FD1674D49F003DFCEE /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A79FC1674D49F003DFCEE /* OpenAL.framework */; };
@@ -200,6 +201,7 @@
 		1B5F030318C3753900710F44 /* menu_restart_off-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_restart_off-hd.png"; sourceTree = "<group>"; };
 		1B5F030418C3753900710F44 /* menu_restart_on-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_restart_on-hd.png"; sourceTree = "<group>"; };
 		1B5F030918C37B6F00710F44 /* load_logo-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "load_logo-hd.png"; sourceTree = "<group>"; };
+		1B5F030B18C37E7D00710F44 /* script02.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = script02.txt; path = Resources/script/script02.txt; sourceTree = "<group>"; };
 		1B7A79F41674D49F003DFCEE /* nov.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nov.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7A79F81674D49F003DFCEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1B7A79FA1674D49F003DFCEE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -517,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				1BEAC33118AA6DED00BC22DA /* script01.txt */,
+				1B5F030B18C37E7D00710F44 /* script02.txt */,
 			);
 			name = script;
 			sourceTree = "<group>";
@@ -1085,6 +1088,7 @@
 				1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */,
 				1BEAC2FC18AA6DB900BC22DA /* bar_theme.mp3 in Resources */,
 				1B5F030818C3753900710F44 /* menu_restart_on-hd.png in Resources */,
+				1B5F030C18C37E7D00710F44 /* script02.txt in Resources */,
 				1B5F030718C3753900710F44 /* menu_restart_off-hd.png in Resources */,
 				1BEAC32818AA6DC400BC22DA /* aruku_normal-hd.png in Resources */,
 				1B5F030A18C37B6F00710F44 /* load_logo-hd.png in Resources */,
