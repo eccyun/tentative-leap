@@ -117,7 +117,7 @@ STOP;
 STOP;
 # MSG:ぼくの方はというと少し考えてみたけれど、さっぱりわからなかったし思い出せない。
 STOP;
-# BGM:aruku_theme.mp3:PLAY
+# BGM:aruku_theme.mp3:RESUME
 # MSG:「じゃあ、それはあとで教えてあげるよ」
 STOP;
 # MSG:「うわっ、そう来たかー...」
