@@ -222,6 +222,18 @@
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WHITE;"]){
             [super onEnterTransitionDidFinish];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccWHITE]];
+        }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BLACK;"]){
+            [super onEnterTransitionDidFinish];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
+        }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# REMOVE;"]){
+            [self.hyper removeFromParentAndCleanup:YES];
+            [self.center removeFromParentAndCleanup:YES];
+            [self.right removeFromParentAndCleanup:YES];
+            [self.left removeFromParentAndCleanup:YES];
+
+            // 除去して次に送る
+            NSMutableArray *instruct = [self.engine readScript];
+            [self doInstruct:instruct spriteSize:size];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"LOADING;"]){
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:[[ud objectForKey:@"structure_index"] integerValue]+1 forKey:@"structure_index"];

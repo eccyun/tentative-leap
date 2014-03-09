@@ -16,7 +16,11 @@ static struct{
 }FileList[] = {
     {@"script01.txt"},
     {@"script02.txt"},
-    {@"script03.txt"}
+    {@"script03.txt"},
+    {@"script04.txt"},
+    {@"script05.txt"},
+    {@"script06.txt"},
+
 };
 
 - (id)init{
@@ -66,7 +70,7 @@ static struct{
         self.scriptReadIndex++;
         i++;
 
-        if([data isEqualToString:@"# WHITE;"]){
+        if([data isEqualToString:@"# WHITE;"]||[data isEqualToString:@"# REMOVE;"]||[data isEqualToString:@"# BLACK;"]){
             break;
         }
     }
@@ -93,7 +97,7 @@ static struct{
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"bgm_name"];
             [set setValue:[split objectAtIndex:2] forKey:@"action"];
-        }else if([instruct_name isEqualToString:@"# WHITE;"]){
+        }else if([instruct_name isEqualToString:@"# WHITE;"] || [instruct_name isEqualToString:@"# REMOVE;"] || [instruct_name isEqualToString:@"# BLACK;"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
