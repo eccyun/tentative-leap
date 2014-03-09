@@ -178,6 +178,7 @@
 		1BEAC32F18AA6DC400BC22DA /* mary_normal-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC31918AA6DC400BC22DA /* mary_normal-hd.png */; };
 		1BEAC33018AA6DC400BC22DA /* mary_puzzle-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC31A18AA6DC400BC22DA /* mary_puzzle-hd.png */; };
 		1BEAC33218AA6DED00BC22DA /* script01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC33118AA6DED00BC22DA /* script01.txt */; };
+		1BFEA6A618CC892B0059640E /* rest-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BFEA6A518CC892B0059640E /* rest-hd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -493,6 +494,7 @@
 		1BEAC31918AA6DC400BC22DA /* mary_normal-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mary_normal-hd.png"; sourceTree = "<group>"; };
 		1BEAC31A18AA6DC400BC22DA /* mary_puzzle-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mary_puzzle-hd.png"; sourceTree = "<group>"; };
 		1BEAC33118AA6DED00BC22DA /* script01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = script01.txt; path = Resources/script/script01.txt; sourceTree = "<group>"; };
+		1BFEA6A518CC892B0059640E /* rest-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rest-hd.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -994,6 +996,7 @@
 		1BEAC30318AA6DC400BC22DA /* background */ = {
 			isa = PBXGroup;
 			children = (
+				1BFEA6A518CC892B0059640E /* rest-hd.png */,
 				1BEAC30418AA6DC400BC22DA /* bar-hd.png */,
 				1BEAC30518AA6DC400BC22DA /* park-hd.png */,
 				1BEAC30618AA6DC400BC22DA /* park_day-hd.png */,
@@ -1105,6 +1108,7 @@
 				1BEAC32A18AA6DC400BC22DA /* aruku_puzzle2-hd.png in Resources */,
 				1BEAC31B18AA6DC400BC22DA /* bar-hd.png in Resources */,
 				1B5F02FF18C36CBB00710F44 /* menu_start_on-hd.png in Resources */,
+				1BFEA6A618CC892B0059640E /* rest-hd.png in Resources */,
 				1BEAC2FD18AA6DB900BC22DA /* bell_leap.mp3 in Resources */,
 				1BEAC32618AA6DC400BC22DA /* aruku_laugh-hd.png in Resources */,
 				1BEAC32718AA6DC400BC22DA /* aruku_laugh2-hd.png in Resources */,

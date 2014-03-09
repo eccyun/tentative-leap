@@ -156,5 +156,3 @@ STOP;
 STOP;
 # BGM:aruku_theme.mp3:STOP
 LOADING;
-STOP;
-EOF;
