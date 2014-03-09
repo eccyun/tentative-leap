@@ -48,6 +48,7 @@
         [self addChild:self.back_bg];
 
         self.message_text = [[NSString alloc] init];
+        self.line_count   = 0;
         
         NSMutableArray *instruct = [self.engine readScript];
         [self doInstruct:instruct spriteSize:size];
@@ -64,17 +65,9 @@
         NSMutableDictionary *dictionary = [instruct objectAtIndex:i];
 
         if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BG"]){
-            if(!self.hyper){
-                self.hyper          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"bg_name"]];
-                self.hyper.position = ccp(size.width/2, size.height/2);
-                [self addChild:self.hyper];
-            }else{
-                tex = [[CCTextureCache sharedTextureCache] addImage:@"BG_fan_03.jpg"];
-                [self.back_bg setTexture:tex];
-                [self.back_bg setTextureRect:CGRectMake(0, 0, self.hyper.contentSize.width, self.hyper.contentSize.height)];
-                [self.msgLabel setString:@"[仁]すげえだろ！？"];
-                [self.hyper runAction:[CCFadeOut actionWithDuration:1.0f]];
-            }
+            self.hyper          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"bg_name"]];
+            self.hyper.position = ccp(size.width/2, size.height/2);
+            [self addChild:self.hyper];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# IMG"]){
             if([[dictionary objectForKey:@"position"] isEqualToString:@"center"]){
                 if(!self.center){
@@ -122,12 +115,9 @@
             self.message_text = text;
 
             [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
-            [[self getChildByTag:4510] removeFromParentAndCleanup:(true)];
-            [[self getChildByTag:4511] removeFromParentAndCleanup:(true)];
-            [[self getChildByTag:4512] removeFromParentAndCleanup:(true)];
-            [[self getChildByTag:4513] removeFromParentAndCleanup:(true)];
-            [[self getChildByTag:4514] removeFromParentAndCleanup:(true)];
-            [[self getChildByTag:4515] removeFromParentAndCleanup:(true)];
+            for(int i=0; i < self.line_count; i++){
+                [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
+            }
 
             self.msgWindow          = [[CCSprite alloc] initWithFile:@"msg_window.png"];
             self.msgWindow.position = ccp(size.width/2, size.height/6);
@@ -227,18 +217,22 @@
                     [label runAction:sequence];
                 }
             }
+            
+            self.line_count = [aLineString count];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WHITE;"]){
+            [super onEnterTransitionDidFinish];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"LOADING;"]){
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:[[ud objectForKey:@"structure_index"] integerValue]+1 forKey:@"structure_index"];
             [ud setInteger:0 forKey:@"script_index"];
-
             [ud synchronize];
 
-            // 削除処理
+            // ロード処理
+            [super onEnterTransitionDidFinish];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:3.0 scene:[LoadScene scene] withColor:ccBLACK]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"EOF;"]){
+            [super onEnterTransitionDidFinish];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BGM"]){
             //BGM開始
@@ -250,7 +244,9 @@
                 [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[dictionary objectForKey:@"bgm_name"] loop:YES];
                 [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:volume_value];
             }else if([[dictionary objectForKey:@"action"] isEqualToString:@"STOP"]){
-                [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+                [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+            }else if([[dictionary objectForKey:@"action"] isEqualToString:@"RESUME"]){
+                [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
             }
         }
 
@@ -282,14 +278,12 @@
         CGSize size   = [[CCDirector sharedDirector] winSize];
 
         [[self getChildByTag:4500] stopAllActions];
-        [[self getChildByTag:4510] stopAllActions];
-        [[self getChildByTag:4511] stopAllActions];
-        [[self getChildByTag:4512] stopAllActions];
-
         [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
-        [[self getChildByTag:4510] removeFromParentAndCleanup:(true)];
-        [[self getChildByTag:4511] removeFromParentAndCleanup:(true)];
-        [[self getChildByTag:4512] removeFromParentAndCleanup:(true)];
+
+        for(int i=0; i < self.line_count; i++){
+            [[self getChildByTag:4510+i] stopAllActions];
+            [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
+        }
 
         self.msgWindow          = [[CCSprite alloc] initWithFile:@"msg_window.png"];
         self.msgWindow.position = ccp(size.width/2, size.height/6);
@@ -357,14 +351,14 @@
     }
     
     CGSize size = [[CCDirector sharedDirector] winSize];
-
+    
     if([self checkSettingsButtonCollision:touch]){
         [[CCDirector sharedDirector] pushScene: [SettingsScene scene]];
     }else{
         NSMutableArray *instruct = [self.engine readScript];
         [self doInstruct:instruct spriteSize:size];
     }
-    
+
     return YES;
 }
 

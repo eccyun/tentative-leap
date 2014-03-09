@@ -20,13 +20,14 @@
 @property(nonatomic,retain)  TentativeEngine *engine;
 @property(nonatomic,retain)  CCSprite        *back_bg;
 @property(nonatomic,retain)  CCLabelTTF      *msgLabel;
-@property(nonatomic)         NSInteger        counter;
+@property(nonatomic)         NSInteger        counter,line_count;
 @property(nonatomic, retain) CCSprite        *center;
 @property(nonatomic, retain) CCSprite        *left;
 @property(nonatomic, retain) CCSprite        *right;
 @property(nonatomic, retain) CCSprite        *msgWindow;
 @property(nonatomic, retain) CCSprite        *hyper;
 @property(nonatomic, retain) NSString        *message_text;
+
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
