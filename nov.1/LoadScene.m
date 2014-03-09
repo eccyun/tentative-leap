@@ -7,7 +7,7 @@
 //
 
 #import "LoadScene.h"
-
+#import "MainGameScene.h"
 
 @interface LoadScene ()
 
@@ -30,18 +30,40 @@
 
 // on "init" you need to initialize your instance
 -(id) init{
-    CGSize size = [[CCDirector sharedDirector] winSize];
-
     if((self=[super init])){
-        // 背景画像
-        self.logo_image          = [[CCSprite alloc] initWithFile:@"load_logo.png"];
-        self.logo_image.position = ccp(size.width-(self.logo_image.contentSize.width/2+10.f), size.height/10+15.f);
-        [self addChild:self.logo_image];
     }
 
 	return self;
 }
 
+-(void) onEnter{
+	[super onEnter];
+
+    CGSize size = [[CCDirector sharedDirector] winSize];
+
+    // 背景画像
+    self.logo_image          = [[CCSprite alloc] initWithFile:@"load_logo.png"];
+    self.logo_image.position = ccp(size.width-(self.logo_image.contentSize.width/2+10.f), size.height/10+15.f);
+    [self addChild:self.logo_image];
+
+	[self scheduleOnce:@selector(makeTransition:) delay:5.f];
+}
+
+-(void) makeTransition:(ccTime)dt{
+    [super onEnterTransitionDidFinish];
+    // [self.logo_image removeFromParentAndCleanup:YES];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
+}
+
+
+/*
+ 次のシナリオへと遷移する
+ */
+
+- (void)performComplete{
+    [super onEnterTransitionDidFinish];
+
+}
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc{
