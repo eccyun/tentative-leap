@@ -26,6 +26,13 @@ static struct{
     {@"script10.txt"},
     {@"script11.txt"},
     {@"script12.txt"},
+    {@"script13.txt"},
+    {@"script14.txt"},
+    {@"script15.txt"},
+    {@"script16.txt"},
+    {@"script17.txt"},
+    {@"script18.txt"},
+    {@"script19.txt"},
 };
 
 - (id)init{

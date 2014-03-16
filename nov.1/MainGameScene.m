@@ -119,8 +119,8 @@
                 [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
             }
 
-            self.msgWindow          = [[CCSprite alloc] initWithFile:@"msg_window.png"];
-            self.msgWindow.position = ccp(size.width/2, size.height/6);
+            self.msgWindow          = [[CCSprite alloc] initWithFile:@"message_window.png"];
+            self.msgWindow.position = ccp(size.width/2, size.height/5);
             self.msgWindow.tag      = 4500;
             [self addChild:self.msgWindow];
 
@@ -170,9 +170,9 @@
 
                 // iPhone 5 以降との切り分けを行ったらラベルを追加
                 if([[CCDirector sharedDirector] winSize].width == 480.f){
-                    label.position = ccp(5 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
+                    label.position = ccp(5 , ((size.height/2)-self.msgWindow.position.y)-(_size*i)-(_line_height*i));
                 }else{
-                    label.position = ccp(50 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
+                    label.position = ccp(50 , ((size.height/2)-self.msgWindow.position.y)-(_size*i)-(_line_height*i));
                 }
 
                 label.zOrder  = 998;
@@ -297,8 +297,8 @@
             [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
         }
 
-        self.msgWindow          = [[CCSprite alloc] initWithFile:@"msg_window.png"];
-        self.msgWindow.position = ccp(size.width/2, size.height/6);
+        self.msgWindow          = [[CCSprite alloc] initWithFile:@"message_window.png"];
+        self.msgWindow.position = ccp(size.width/2, size.height/5);
         self.msgWindow.tag      = 4500;
         [self addChild:self.msgWindow];
 
@@ -350,9 +350,9 @@
             
             // iPhone 5 以降との切り分けを行ったらラベルを追加
             if([[CCDirector sharedDirector] winSize].width == 480.f){
-                label.position = ccp(5 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
+                label.position = ccp(5 , ((size.height/2)-self.msgWindow.position.y)-(_size*i)-(_line_height*i));
             }else{
-                label.position = ccp(50 , ((size.height/2)-self.msgWindow.position.y-20.0f)-(_size*i)-(_line_height*i));
+                label.position = ccp(50 , ((size.height/2)-self.msgWindow.position.y)-(_size*i)-(_line_height*i));
             }
             
             label.zOrder  = 998;
