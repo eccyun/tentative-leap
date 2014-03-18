@@ -46,12 +46,15 @@
     self.logo_image.position = ccp(size.width-(self.logo_image.contentSize.width/2+10.f), size.height/10+15.f);
     [self addChild:self.logo_image];
 
-	[self scheduleOnce:@selector(makeTransition:) delay:5.f];
+    // ロード画面
+    [self scheduleOnce:@selector(makeTransition:) delay:5.f];
 }
+
+
 
 -(void) makeTransition:(ccTime)dt{
     [super onEnterTransitionDidFinish];
-    // [self.logo_image removeFromParentAndCleanup:YES];
+    [self.logo_image removeFromParentAndCleanup:YES];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
 }
 
