@@ -39,10 +39,15 @@ static struct{
     self = [super init];
     if(self){
         // メンバの初期化
-        self.structureIndex  = [[[NSUserDefaults standardUserDefaults] objectForKey:@"structure_index"] integerValue];
-        self.scriptReadIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"script_index"] integerValue];
-        self.scriptArray     = [[NSArray alloc] init];
+        if([[NSUserDefaults standardUserDefaults] integerForKey:@"quick_start_flag"] == 0){
+            self.structureIndex  = [[[NSUserDefaults standardUserDefaults] objectForKey:@"structure_index"] integerValue];
+            self.scriptReadIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"script_index"] integerValue];
+        }else if([[NSUserDefaults standardUserDefaults] integerForKey:@"quick_start_flag"] == 1){
+            self.structureIndex  = [[[NSUserDefaults standardUserDefaults] objectForKey:@"quick_structure_index"] integerValue];
+            self.scriptReadIndex = 0;
+        }
 
+        self.scriptArray     = [[NSArray alloc] init];
         [self scriptFileReader];
     }
     
@@ -54,6 +59,8 @@ static struct{
     NSMutableArray  *tmp = [[NSMutableArray alloc] init];
     NSInteger        i = 0;
 
+    NSInteger quick_start = [[[NSUserDefaults standardUserDefaults] objectForKey:@"quick_start_flag"] integerValue];
+    
     // 命令を受け取る
     while(true){
         NSString *data = [self.scriptArray objectAtIndex:self.scriptReadIndex];
@@ -86,7 +93,7 @@ static struct{
             break;
         }
     }
-
+    
     // 命令をパースする
     for(int k=0; k < [tmp count]; k++){
         NSString *instruct = [tmp objectAtIndex:k];
@@ -110,32 +117,42 @@ static struct{
             [set setValue:[split objectAtIndex:1] forKey:@"bgm_name"];
             [set setValue:[split objectAtIndex:2] forKey:@"action"];
         }else if([instruct_name isEqualToString:@"# WHITE;"] || [instruct_name isEqualToString:@"# REMOVE;"] || [instruct_name isEqualToString:@"# BLACK;"]){
-            [set setValue:instruct_name           forKey:@"instruct_name"];
-            
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:self.scriptReadIndex forKey:@"script_index"];
             [ud synchronize];
-        }
 
+            if(quick_start == 0){
+                [set setValue:instruct_name forKey:@"instruct_name"];
+            }else if(quick_start == 0){
+                [set setValue:@"# SKIP;" forKey:@"instruct_name"];
+            }
+        }
         [ret insertObject:set atIndex:k];
     }
+
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+    [ud setInteger:self.scriptReadIndex forKey:@"quick_script_index"];
+    [ud synchronize];
 
     return ret;
 }
 
 - (void)scriptFileReader{
-  /******************************************
-    method name : scriptFileReader
-    args        :
-    remarks     : スクリプトファイル取得用関数
-   ******************************************/
-    NSString *path       = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:FileList[self.structureIndex].fileName];
-    NSString *scriptText = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSString       *path       = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:FileList[self.structureIndex].fileName];
+    NSString       *scriptText = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setInteger:self.structureIndex forKey:@"quick_structure_index"];
 
     // 参照スクリプトの更新
     self.scriptArray = [scriptText componentsSeparatedByString:@"\n"];
-    self.structureIndex++;
+    if([[NSUserDefaults standardUserDefaults] integerForKey:@"quick_start_flag"] == 0){
+        self.structureIndex++;
+    }
 }
 
+- (NSInteger) getReadScriptIndex{
+    return self.scriptReadIndex;
+}
 
 @end

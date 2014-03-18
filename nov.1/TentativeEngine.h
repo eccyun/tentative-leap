@@ -21,4 +21,6 @@
 - (NSMutableArray *)readScript;
 + (NSArray *)scriptFileReader;
 
+- (NSInteger) getReadScriptIndex;
+
 @end

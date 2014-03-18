@@ -6,7 +6,6 @@
 //  Copyright __MyCompanyName__ 2012年. All rights reserved.
 //
 
-
 // Import the interfaces
 #import "MainGameScene.h"
 
@@ -41,7 +40,7 @@
         self.isTouchEnabled = YES;
         self.isCheck        = NO;
         // スクリプトエンジンの初期化
-        self.engine              = [[TentativeEngine alloc] init];
+        self.engine           = [[TentativeEngine alloc] init];
 
         self.back_bg          = [[CCSprite alloc] init];
         self.back_bg.position = ccp(size.width/2, size.height/2);
@@ -49,9 +48,31 @@
 
         self.message_text = [[NSString alloc] init];
         self.line_count   = 0;
+
+        if([[NSUserDefaults standardUserDefaults] integerForKey:@"quick_start_flag"] == 0){
+            NSMutableArray *instruct = [self.engine readScript];
+            [self doInstruct:instruct spriteSize:size];
+        }else{
+            NSInteger script_key = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_script_index"];
+
+            for(int i=0; i<=script_key; i++){
+                NSMutableArray *instruct = [self.engine readScript];
+                [self doInstruct:instruct spriteSize:size];
+
+                if([self.engine getReadScriptIndex] >= script_key){
+                    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+                    [ud setInteger:1 forKey:@"quick_start_flag"];
+                    [ud synchronize];
+
+                    break;
+                }
+            }
+        }
         
-        NSMutableArray *instruct = [self.engine readScript];
-        [self doInstruct:instruct spriteSize:size];
+        // クイックスタート完了
+        NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+        [ud setInteger:0 forKey:@"quick_start_flag"];
+        [ud synchronize];
     }
 
 	return self;
@@ -115,18 +136,19 @@
             self.message_text = text;
 
             [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
+
             for(int i=0; i < self.line_count; i++){
                 [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
             }
 
             self.msgWindow          = [[CCSprite alloc] initWithFile:@"message_window.png"];
-            self.msgWindow.position = ccp(size.width/2, size.height/5);
+            self.msgWindow.position = ccp(size.width/2, (size.height/5)+10.f);
             self.msgWindow.tag      = 4500;
             [self addChild:self.msgWindow];
 
             int len          = [text length];
             int base_length  = [text length];
-            int _size        = 13;
+            int _size        = 12;
             int _font        = @"HiraKakuProN-W6";
             int _line_height = 5;
 
@@ -136,8 +158,8 @@
             
             // 文字情報を取得する
             for (int i=0; i<len; i++) {
-                // 改行 1行あたりの文字列が36文字なので
-                if(i%36==0 && i > 0){
+                // 改行 1行あたりの文字列が32文字なので
+                if(i%32==0 && i > 0){
                     [aLineString addObject:_string];
 
                     // 残り文字数を更新
@@ -150,10 +172,9 @@
 
                 _string = [NSString stringWithFormat:@"%@%@",_string,[text substringWithRange:NSMakeRange(i, 1)]];
             }
-            
-            
+
             // 後処理　もし残りがあれば
-            if(base_length < 36){
+            if(base_length < 32){
                 [aLineString addObject:_string];
             }
 
@@ -170,14 +191,13 @@
 
                 // iPhone 5 以降との切り分けを行ったらラベルを追加
                 if([[CCDirector sharedDirector] winSize].width == 480.f){
-                    label.position = ccp(5 , ((size.height/2)-self.msgWindow.position.y)-(_size*i)-(_line_height*i));
+                    label.position = ccp(48 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
                 }else{
-                    label.position = ccp(50 , ((size.height/2)-self.msgWindow.position.y)-(_size*i)-(_line_height*i));
+                    label.position = ccp(93 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
                 }
-
-                label.zOrder  = 998;
+                label.zOrder  = 1000;
                 [self addChild:label];
-            
+
                 // テキスチャのセット
                 NSMutableArray *textureMap = [[NSMutableArray alloc] init];
 
@@ -262,7 +282,7 @@
             }
         }
 
-        self.msgWindow.zOrder = 997;
+        self.msgWindow.zOrder  = 997;
     }
 }
 
@@ -298,7 +318,7 @@
         }
 
         self.msgWindow          = [[CCSprite alloc] initWithFile:@"message_window.png"];
-        self.msgWindow.position = ccp(size.width/2, size.height/5);
+        self.msgWindow.position = ccp(size.width/2, (size.height/5)+10.f);
         self.msgWindow.tag      = 4500;
         [self addChild:self.msgWindow];
 
@@ -306,18 +326,18 @@
 
         int len          = [self.message_text length];
         int base_length  = [self.message_text length];
-        int _size        = 13;
+        int _size        = 12;
         int _font        = @"HiraKakuProN-W6";
         int _line_height = 5;
-        
+
         // テキスチャを切り出して配列で保存する
         NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
         NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
         
         // 文字情報を取得する
         for (int i=0; i<len; i++) {
-            // 改行 1行あたりの文字列が36文字なので
-            if(i%36==0 && i > 0){
+            // 改行 1行あたりの文字列が32文字なので
+            if(i%32==0 && i > 0){
                 [aLineString addObject:_string];
                 
                 // 残り文字数を更新
@@ -333,7 +353,7 @@
         
         
         // 後処理　もし残りがあれば
-        if(base_length < 36){
+        if(base_length < 32){
             [aLineString addObject:_string];
         }
 
@@ -347,15 +367,15 @@
                                                  hAlignment:UITextAlignmentLeft fontName:_font fontSize:_size];
             [label setAnchorPoint:ccp(0,0)];
             label.tag = 4510+i;
-            
+
             // iPhone 5 以降との切り分けを行ったらラベルを追加
             if([[CCDirector sharedDirector] winSize].width == 480.f){
-                label.position = ccp(5 , ((size.height/2)-self.msgWindow.position.y)-(_size*i)-(_line_height*i));
+                label.position = ccp(48 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
             }else{
-                label.position = ccp(50 , ((size.height/2)-self.msgWindow.position.y)-(_size*i)-(_line_height*i));
+                label.position = ccp(93 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
             }
             
-            label.zOrder  = 998;
+            label.zOrder  = 1000;
             [self addChild:label];
         }
 
@@ -371,6 +391,8 @@
         [self doInstruct:instruct spriteSize:size];
     }
 
+    self.msgWindow.zOrder  = 997;
+    
     return YES;
 }
 

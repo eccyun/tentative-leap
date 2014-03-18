@@ -32,7 +32,8 @@
 	if((self=[super init])){
         NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
         [ud setInteger:0 forKey:@"script_index"];
-        [ud setInteger:18 forKey:@"structure_index"];
+        [ud setInteger:0 forKey:@"structure_index"];
+        [ud setInteger:0 forKey:@"quick_start_flag"];
         [ud synchronize];
 
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"time_leap.mp3"];
@@ -74,13 +75,6 @@
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc{
 	[super dealloc];
-/*
-    [self.back_bg dealloc];
-    [self.home_btn dealloc];
-    [self.new_label dealloc];
-    [self.load_label dealloc];
-    [self.opt_label dealloc];
-*/
 }
 
 #pragma mark GameKit delegate
@@ -98,11 +92,16 @@
        location.y > self.start_logo.position.y-(self.start_logo.contentSize.height/2)&&
        location.y < self.start_logo.position.y+(self.start_logo.contentSize.height/2)){
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
-    }else if(location.x > self.opt_label.position.x-(self.opt_label.contentSize.width/2)&&
-             location.x < self.opt_label.position.x+(self.opt_label.contentSize.width/2)&&
-             location.y > self.opt_label.position.y-(self.opt_label.contentSize.height/2)&&
-             location.y < self.opt_label.position.y+(self.opt_label.contentSize.height/2)){
-        [[CCDirector sharedDirector] pushScene: [SettingsScene scene]];
+    }else if(location.x > self.quick_logo.position.x-(self.quick_logo.contentSize.width/2)&&
+             location.x < self.quick_logo.position.x+(self.quick_logo.contentSize.width/2)&&
+             location.y > self.quick_logo.position.y-(self.quick_logo.contentSize.height/2)&&
+             location.y < self.quick_logo.position.y+(self.quick_logo.contentSize.height/2)){
+        // ロードシーンのインスタンスを作る
+        NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+        [ud setInteger:1 forKey:@"quick_start_flag"];
+        [ud synchronize];
+
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[LoadScene scene] withColor:ccBLACK]];
     }
 
     return YES;
