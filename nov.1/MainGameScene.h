@@ -25,7 +25,7 @@
 @property(nonatomic, retain) CCSprite        *left;
 @property(nonatomic, retain) CCSprite        *right;
 @property(nonatomic, retain) CCSprite        *msgWindow;
-@property(nonatomic, retain) CCSprite        *hyper;
+@property(nonatomic, retain) CCSprite        *hyper, *load_image, *save_image;
 @property(nonatomic, retain) NSString        *message_text;
 
 

@@ -136,6 +136,8 @@
             self.message_text = text;
 
             [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
 
             for(int i=0; i < self.line_count; i++){
                 [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
@@ -146,6 +148,18 @@
             self.msgWindow.tag      = 4500;
             [self addChild:self.msgWindow];
 
+            self.save_image          = [[CCSprite alloc] initWithFile:@"msg_window_save.png"];
+            self.save_image.position = ccp(size.width/2+76.f, (size.height/12));
+            self.save_image.tag      = 8500;
+            [self addChild:self.save_image];
+            self.save_image.zOrder = 1001;
+
+            self.load_image          = [[CCSprite alloc] initWithFile:@"msg_window_load.png"];
+            self.load_image.position = ccp(size.width/2+123.f, (size.height/12));
+            self.load_image.tag      = 8501;
+            [self addChild:self.load_image];
+            self.load_image.zOrder = 1000;
+            
             int len          = [text length];
             int base_length  = [text length];
             int _size        = 12;
@@ -311,6 +325,8 @@
 
         [[self getChildByTag:4500] stopAllActions];
         [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
 
         for(int i=0; i < self.line_count; i++){
             [[self getChildByTag:4510+i] stopAllActions];
@@ -321,7 +337,19 @@
         self.msgWindow.position = ccp(size.width/2, (size.height/5)+10.f);
         self.msgWindow.tag      = 4500;
         [self addChild:self.msgWindow];
-
+        
+        self.save_image          = [[CCSprite alloc] initWithFile:@"msg_window_save.png"];
+        self.save_image.position = ccp(size.width/2+76.f, (size.height/12));
+        self.save_image.tag      = 8500;
+        [self addChild:self.save_image];
+        self.save_image.zOrder = 1001;
+        
+        self.load_image          = [[CCSprite alloc] initWithFile:@"msg_window_load.png"];
+        self.load_image.position = ccp(size.width/2+123.f, (size.height/12));
+        self.load_image.tag      = 8501;
+        [self addChild:self.load_image];
+        self.load_image.zOrder = 1000;
+        
         self.isCheck = NO;
 
         int len          = [self.message_text length];
