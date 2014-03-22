@@ -13,7 +13,7 @@
 
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
-+(CCScene *) scene{
++ (CCScene *) scene{
 	CCScene *scene = [CCScene node];
     
     SaveScene *layer = [SaveScene node];
@@ -41,7 +41,7 @@
 	[super onEnter];
 
     CGSize size = [[CCDirector sharedDirector] winSize];
-
+    
     CCSprite *background = [[CCSprite alloc] initWithFile:@"save_background.png"];
     background.position  = ccp(size.width/2, size.height/2);
     [self addChild:background];
@@ -71,11 +71,22 @@
     [self addChild:save_6];
 
     // 左上のウィンドウ
-    CCSprite *load = [[CCSprite alloc] initWithFile:@"load_on.png"];
+    NSString *save_text = @"";
+    NSString *load_text = @"";
+    
+    if([self.function_flag isEqualToString:@"Load"]){
+        save_text = @"save_off.png";
+        load_text = @"load_on.png";
+    }else if([self.function_flag isEqualToString:@"Save"]){
+        save_text = @"save_on.png";
+        load_text = @"load_off.png";
+    }
+    
+    CCSprite *load = [[CCSprite alloc] initWithFile:load_text];
     load.position  = ccp(size.width/2 - 100.f, size.height/2 + 140.f);
     [self addChild:load];
 
-    CCSprite *save = [[CCSprite alloc] initWithFile:@"save_off.png"];
+    CCSprite *save = [[CCSprite alloc] initWithFile:save_text];
     save.position  = ccp(size.width/2 - 182.f, size.height/2 + 139.f);
     [self addChild:save];
 

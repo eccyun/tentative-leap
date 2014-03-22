@@ -29,8 +29,8 @@
 // on "init" you need to initialize your instance
 -(id) init{
 	CGSize size = [[CCDirector sharedDirector] winSize];
-    
-	if((self=[super init])){
+
+    if((self=[super init])){
         NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
         [ud setInteger:0 forKey:@"script_index"];
         [ud setInteger:0 forKey:@"structure_index"];
@@ -108,7 +108,13 @@
              location.y > self.restart_logo.position.y-(self.restart_logo.contentSize.height/2)&&
              location.y < self.restart_logo.position.y+(self.restart_logo.contentSize.height/2)){
         // セーブシーンに移動
-        [[CCDirector sharedDirector] pushScene:[SaveScene scene]];
+        CCScene *scene = [SaveScene scene];
+        
+        // 次のシーンの一番下位のレイヤーを取得
+        SaveScene *saveScene    = [scene.children objectAtIndex:0];
+        saveScene.function_flag = @"Load";
+        
+        [[CCDirector sharedDirector] pushScene:scene];
     }
 
     return YES;

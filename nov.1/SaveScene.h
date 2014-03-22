@@ -13,7 +13,10 @@
     
 }
 
+@property (nonatomic, retain) NSString *function_flag; // 機能フラグ　セーブなのかロードなのか
+
+
 // returns a CCScene that contains the HelloWorldLayer as the only child
-+(CCScene *) scene;
++ (CCScene *) scene;
 
 @end

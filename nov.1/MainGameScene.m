@@ -15,6 +15,7 @@
 #import "SettingsScene.h"
 #import "TitleLayer.h"
 #import "LoadScene.h"
+#import "SaveScene.h"
 
 #define character_width 332
 
@@ -320,6 +321,36 @@
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+    // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
+	CGPoint location = [touch locationInView:[touch view]];
+	location         = [[CCDirector sharedDirector] convertToGL:location];
+
+    if(location.x > self.load_image.position.x-(self.load_image.contentSize.width/2)&&
+       location.x < self.load_image.position.x+(self.load_image.contentSize.width/2)&&
+       location.y > self.load_image.position.y-(self.load_image.contentSize.height/2)&&
+       location.y < self.load_image.position.y+(self.load_image.contentSize.height/2)){
+        
+        // セーブシーンに移動
+        CCScene   *scene        = [SaveScene scene];
+        SaveScene *saveScene    = [scene.children objectAtIndex:0];
+        saveScene.function_flag = @"Load";
+        
+        [[CCDirector sharedDirector] pushScene:scene];
+        return YES;
+    }else if(location.x > self.save_image.position.x-(self.save_image.contentSize.width/2)&&
+             location.x < self.save_image.position.x+(self.save_image.contentSize.width/2)&&
+             location.y > self.save_image.position.y-(self.save_image.contentSize.height/2)&&
+             location.y < self.save_image.position.y+(self.save_image.contentSize.height/2)){
+        // セーブシーンに移動
+        CCScene   *scene        = [SaveScene scene];
+        SaveScene *saveScene    = [scene.children objectAtIndex:0];
+        saveScene.function_flag = @"Save";
+        
+        [[CCDirector sharedDirector] pushScene:scene];
+
+        return YES;
+    }
+
     if(self.isCheck){
         CGSize size   = [[CCDirector sharedDirector] winSize];
 
@@ -412,34 +443,13 @@
     
     CGSize size = [[CCDirector sharedDirector] winSize];
     
-    if([self checkSettingsButtonCollision:touch]){
-        [[CCDirector sharedDirector] pushScene: [SettingsScene scene]];
-    }else{
-        NSMutableArray *instruct = [self.engine readScript];
-        [self doInstruct:instruct spriteSize:size];
-    }
+    NSMutableArray *instruct = [self.engine readScript];
+    [self doInstruct:instruct spriteSize:size];
 
     self.msgWindow.zOrder  = 997;
     
     return YES;
 }
-
-- (BOOL)checkSettingsButtonCollision:(UITouch*) touch{
-    // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
-	CGPoint location = [touch locationInView:[touch view]];
-	location         = [[CCDirector sharedDirector] convertToGL:location];
-
-/*
-    CGSize  size = self.home_btn.contentSize;
-    CGPoint pos  = self.home_btn.position;
-
-    if(location.x > pos.x-(size.width/2) && location.x < pos.x+(size.width/2)&&location.y > pos.y-(size.height/2) && location.y < pos.y+(size.height/2)){
-        return YES;
-    }
-*/
-    return NO;
-}
-    
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
