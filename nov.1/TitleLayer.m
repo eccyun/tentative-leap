@@ -11,6 +11,7 @@
 #import "SettingsScene.h"
 #import "SimpleAudioEngine.h"
 #import "LoadScene.h"
+#import "SaveScene.h"
 
 @implementation TitleLayer
 
@@ -102,6 +103,12 @@
         [ud synchronize];
 
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[LoadScene scene] withColor:ccBLACK]];
+    }else if(location.x > self.restart_logo.position.x-(self.restart_logo.contentSize.width/2)&&
+             location.x < self.restart_logo.position.x+(self.restart_logo.contentSize.width/2)&&
+             location.y > self.restart_logo.position.y-(self.restart_logo.contentSize.height/2)&&
+             location.y < self.restart_logo.position.y+(self.restart_logo.contentSize.height/2)){
+        // セーブシーンに移動
+        [[CCDirector sharedDirector] pushScene:[SaveScene scene]];
     }
 
     return YES;
