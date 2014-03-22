@@ -14,6 +14,7 @@
 }
 
 @property (nonatomic, retain) NSString *function_flag; // 機能フラグ　セーブなのかロードなのか
+@property (nonatomic, retain) UIImage  *screen_capture;
 
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

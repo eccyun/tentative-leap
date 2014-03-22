@@ -342,10 +342,11 @@
              location.y > self.save_image.position.y-(self.save_image.contentSize.height/2)&&
              location.y < self.save_image.position.y+(self.save_image.contentSize.height/2)){
         // セーブシーンに移動
-        CCScene   *scene        = [SaveScene scene];
-        SaveScene *saveScene    = [scene.children objectAtIndex:0];
-        saveScene.function_flag = @"Save";
-        
+        CCScene   *scene         = [SaveScene scene];
+        SaveScene *saveScene     = [scene.children objectAtIndex:0];
+        saveScene.function_flag  = @"Save";
+        saveScene.screen_capture = [self getCurrentScreenCapture];
+
         [[CCDirector sharedDirector] pushScene:scene];
 
         return YES;
@@ -515,6 +516,22 @@
     
 	//アクション実行
 	[self.msgLabel runAction:action1];
+}
+
+- (UIImage *) getCurrentScreenCapture{
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    
+    UIGraphicsBeginImageContextWithOptions(window.bounds.size, NO, 0.0f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    for (UIWindow *aWindow in [[UIApplication sharedApplication] windows]) {
+        [aWindow.layer renderInContext:context];
+    }
+    
+    UIImage *capturedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return capturedImage;
 }
 
 @end
