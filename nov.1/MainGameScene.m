@@ -448,8 +448,6 @@
         return YES;
     }
     
-    CGSize size = [[CCDirector sharedDirector] winSize];
-    
     NSMutableArray *instruct = [self.engine readScript];
     [self doInstruct:instruct spriteSize:size];
 
