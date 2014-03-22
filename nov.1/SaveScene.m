@@ -7,7 +7,7 @@
 //
 
 #import "SaveScene.h"
-
+#import "LoadScene.h"
 
 @implementation SaveScene
 
@@ -28,6 +28,7 @@
     if((self=[super init])){
         self.isTouchEnabled = YES;
         self.save_key       = 0;
+        self.isLoad         = NO;
     }
     
 	return self;
@@ -174,8 +175,16 @@
     }
 
     if(alert_flag){
+        NSString *message = @"";
+        
+        if([self.function_flag isEqualToString:@"Save"]){
+            message = @"セーブしますか？";
+        }else if([self.function_flag isEqualToString:@"Load"]){
+            message = @"ロードしますか？";
+        }
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認"
-                                                        message:@"セーブしますか？"
+                                                        message:message
                                                        delegate:self
                                               cancelButtonTitle:@"いいえ"
                                               otherButtonTitles:@"はい", nil];
@@ -244,6 +253,11 @@
 # pragma mark -
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(self.isLoad){
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[LoadScene scene] withColor:ccBLACK]];
+        return;
+    }
+    
     // キーの定義
     NSString *script_key    = [NSString stringWithFormat:@"save_%d_script", self.save_key];
     NSString *structure_key = [NSString stringWithFormat:@"save_%d_structure", self.save_key];
@@ -275,7 +289,23 @@
             [self renderingSaveWindow];
         }
     }else if([self.function_flag isEqualToString:@"Load"]){
-        
+        if(buttonIndex == 1){
+            // ロードシーンのインスタンスを作る
+            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+            [ud setInteger:[ud integerForKey:structure_key] forKey:@"quick_structure_index"];
+            [ud setInteger:[ud integerForKey:script_key] forKey:@"quick_script_index"];
+            [ud setInteger:1 forKey:@"quick_start_flag"];
+            [ud synchronize];
+
+            self.isLoad        = YES;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認"
+                                                            message:@"ロードしました！"
+                                                           delegate:self
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"確認", nil];
+            [alert show];
+            
+        }
     }
 }
 
