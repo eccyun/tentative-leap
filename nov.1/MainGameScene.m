@@ -321,6 +321,8 @@
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    
     // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
 	CGPoint location = [touch locationInView:[touch view]];
 	location         = [[CCDirector sharedDirector] convertToGL:location];
@@ -345,7 +347,12 @@
         CCScene   *scene         = [SaveScene scene];
         SaveScene *saveScene     = [scene.children objectAtIndex:0];
         saveScene.function_flag  = @"Save";
-        saveScene.screen_capture = [self getCurrentScreenCapture];
+        
+        // リサイズの幅と高さを取得
+        CGFloat ratio  = size.width/268.f;
+        CGFloat width  = 268.f;
+        CGFloat height = size.height/ratio;
+        saveScene.screen_capture = [self resizeImage:[self getCurrentScreenCapture] rect:CGRectMake(0.f, 0.f, width, height)];
 
         [[CCDirector sharedDirector] pushScene:scene];
 
@@ -353,7 +360,6 @@
     }
 
     if(self.isCheck){
-        CGSize size   = [[CCDirector sharedDirector] winSize];
 
         [[self getChildByTag:4500] stopAllActions];
         [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
@@ -532,6 +538,18 @@
     UIGraphicsEndImageContext();
     
     return capturedImage;
+}
+
+//UIImageをリサイズするクラス
+- (UIImage*)resizeImage:(UIImage *)img rect:(CGRect)rect{
+    UIGraphicsBeginImageContext(rect.size);
+
+    [img drawInRect:rect];
+    UIImage* resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return resizedImage;
 }
 
 @end
