@@ -27,6 +27,7 @@
 -(id) init{
     if((self=[super init])){
         self.isTouchEnabled = YES;
+        self.save_key       = 0;
     }
     
 	return self;
@@ -40,6 +41,8 @@
 -(void) onEnter{
 	[super onEnter];
 
+    [self renderingSaveWindow];
+    
     CGSize size = [[CCDirector sharedDirector] winSize];
     
     CCSprite *background = [[CCSprite alloc] initWithFile:@"save_background.png"];
@@ -102,6 +105,7 @@
     [self addChild:back_btn];
     back_btn.tag = 1;
 
+    [self renderingSaveWindow];
 }
 
 #pragma mark GameKit delegate
@@ -116,16 +120,60 @@
 
     CCSprite *back_btn = (CCSprite *)[self getChildByTag:1];
     CCSprite *save_1   = (CCSprite *)[self getChildByTag:201];
+    CCSprite *save_2   = (CCSprite *)[self getChildByTag:202];
+    CCSprite *save_3   = (CCSprite *)[self getChildByTag:203];
+    CCSprite *save_4   = (CCSprite *)[self getChildByTag:204];
+    CCSprite *save_5   = (CCSprite *)[self getChildByTag:205];
+    CCSprite *save_6   = (CCSprite *)[self getChildByTag:206];
 
+    BOOL      alert_flag = NO;
+    
     if(location.x > back_btn.position.x-(back_btn.contentSize.width/2)&&
        location.x < back_btn.position.x+(back_btn.contentSize.width/2)&&
        location.y > back_btn.position.y-(back_btn.contentSize.height/2)&&
        location.y < back_btn.position.y+(back_btn.contentSize.height/2)){
         [[CCDirector sharedDirector] popScene];
+        return YES;
     }else if(location.x > save_1.position.x-(save_1.contentSize.width/2)&&
              location.x < save_1.position.x+(save_1.contentSize.width/2)&&
              location.y > save_1.position.y-(save_1.contentSize.height/2)&&
              location.y < save_1.position.y+(save_1.contentSize.height/2)){
+        self.save_key = 1;
+        alert_flag    = YES;
+    }else if(location.x > save_2.position.x-(save_2.contentSize.width/2)&&
+             location.x < save_2.position.x+(save_2.contentSize.width/2)&&
+             location.y > save_2.position.y-(save_2.contentSize.height/2)&&
+             location.y < save_2.position.y+(save_2.contentSize.height/2)){
+        self.save_key = 2;
+        alert_flag    = YES;
+    }else if(location.x > save_3.position.x-(save_3.contentSize.width/2)&&
+             location.x < save_3.position.x+(save_3.contentSize.width/2)&&
+             location.y > save_3.position.y-(save_3.contentSize.height/2)&&
+             location.y < save_3.position.y+(save_3.contentSize.height/2)){
+        self.save_key = 3;
+        alert_flag    = YES;
+    }else if(location.x > save_4.position.x-(save_4.contentSize.width/2)&&
+             location.x < save_4.position.x+(save_4.contentSize.width/2)&&
+             location.y > save_4.position.y-(save_4.contentSize.height/2)&&
+             location.y < save_4.position.y+(save_4.contentSize.height/2)){
+        self.save_key = 4;
+        alert_flag    = YES;
+    }else if(location.x > save_5.position.x-(save_5.contentSize.width/2)&&
+             location.x < save_5.position.x+(save_5.contentSize.width/2)&&
+             location.y > save_5.position.y-(save_5.contentSize.height/2)&&
+             location.y < save_5.position.y+(save_5.contentSize.height/2)){
+        self.save_key = 5;
+        alert_flag    = YES;
+    }else if(location.x > save_6.position.x-(save_6.contentSize.width/2)&&
+             location.x < save_6.position.x+(save_6.contentSize.width/2)&&
+             location.y > save_6.position.y-(save_6.contentSize.height/2)&&
+             location.y < save_6.position.y+(save_6.contentSize.height/2)){
+        self.save_key = 6;
+        alert_flag    = YES;
+
+    }
+
+    if(alert_flag){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認"
                                                         message:@"セーブしますか？"
                                                        delegate:self
@@ -149,13 +197,84 @@
 {
 }
 
-# pragma mark - 
+# pragma mark -
+
+- (void) renderingSaveWindow{
+    CGSize          size = [[CCDirector sharedDirector] winSize];
+    NSUserDefaults *ud   = [NSUserDefaults standardUserDefaults];
+
+    // キャッシュの破棄
+    [[CCTextureCache sharedTextureCache] removeAllTextures];
+
+    for (int i=1; i<=6; i++){
+        NSString *image_key     = [NSString stringWithFormat:@"save_%d_image", i];
+        NSString *save_flag_key = [NSString stringWithFormat:@"save_%d_flag",  i];
+
+        // 破棄処理
+        [[self getChildByTag:6000+i] removeFromParentAndCleanup:(true)];
+
+        // セーブフラグがたってるウィンドウはレンダリングを開始する
+        if([[ud objectForKey:save_flag_key] isEqualToString:@"saved"]){
+            NSData* imageData = [ud objectForKey:image_key];
+
+            CCSprite *cap = [CCSprite spriteWithCGImage:[[UIImage imageWithData:imageData] CGImage] key:[NSString stringWithFormat:@"save_%d", i]];
+            cap.zOrder    = 9999;
+            cap.tag       = 6000+i;
+
+            if(i == 1){
+                cap.position  = ccp(size.width/2 - 142.f, size.height/2 + 50.f);
+            }else if(i == 2){
+                cap.position  = ccp(size.width/2, size.height/2 + 50.f);
+            }else if(i == 3){
+                cap.position  = ccp(size.width/2 + 142.f, size.height/2 + 50.f);
+            }else if(i == 4){
+                cap.position  = ccp(size.width/2 - 142.f, size.height/2 - 62.f);
+            }else if(i == 5){
+                cap.position  = ccp(size.width/2, size.height/2 - 62.f);
+            }else if(i == 6){
+                cap.position  = ccp(size.width/2 + 142.f, size.height/2 - 62.f);
+            }
+            [self addChild:cap];
+        }
+        
+    }
+    
+}
+
+# pragma mark -
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex == 1){
-        NSInteger script_index    = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_script_index"];
-        NSInteger structure_index = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_structure_index"];
+    // キーの定義
+    NSString *script_key    = [NSString stringWithFormat:@"save_%d_script", self.save_key];
+    NSString *structure_key = [NSString stringWithFormat:@"save_%d_structure", self.save_key];
+    NSString *image_key     = [NSString stringWithFormat:@"save_%d_image", self.save_key];
+    NSString *save_flag_key = [NSString stringWithFormat:@"save_%d_flag",  self.save_key];
 
+    if([self.function_flag isEqualToString:@"Save"]){
+        if(buttonIndex == 1){
+            NSInteger script_index    = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_script_index"];
+            NSInteger structure_index = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_structure_index"];
+
+            // クイックスタート完了
+            NSData *imageData = UIImagePNGRepresentation(self.screen_capture);
+
+            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+            [ud setInteger:script_index forKey:script_key];
+            [ud setInteger:structure_index forKey:structure_key];
+            [ud setObject:imageData forKey:image_key];
+            [ud setObject:@"saved" forKey:save_flag_key];
+            [ud synchronize];
+        
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認"
+                                                            message:@"セーブしました！"
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"確認", nil];
+            [alert show];
+
+            [self renderingSaveWindow];
+        }
+    }else if([self.function_flag isEqualToString:@"Load"]){
         
     }
 }
