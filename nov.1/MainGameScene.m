@@ -349,8 +349,8 @@
         saveScene.function_flag  = @"Save";
         
         // リサイズの幅と高さを取得
-        CGFloat ratio  = size.width/268.f;
-        CGFloat width  = 268.f;
+        CGFloat ratio  = size.width/260.f;
+        CGFloat width  = 260.f;
         CGFloat height = size.height/ratio;
         saveScene.screen_capture = [self resizeImage:[self getCurrentScreenCapture] rect:CGRectMake(0.f, 0.f, width, height)];
 
@@ -522,20 +522,17 @@
 	[self.msgLabel runAction:action1];
 }
 
+
 - (UIImage *) getCurrentScreenCapture{
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    [CCDirector sharedDirector].nextDeltaTimeZero = YES;
+    CGSize winSize = [CCDirector sharedDirector].winSize;
     
-    UIGraphicsBeginImageContextWithOptions(window.bounds.size, NO, 0.0f);
-    CGContextRef context = UIGraphicsGetCurrentContext();
+    CCRenderTexture* rtx = [CCRenderTexture renderTextureWithWidth:winSize.width height:winSize.height];
+    [rtx beginWithClear:0 g:0 b:0 a:1.0f];
+    [[[CCDirector sharedDirector] runningScene] visit];
+    [rtx end];
     
-    for (UIWindow *aWindow in [[UIApplication sharedApplication] windows]) {
-        [aWindow.layer renderInContext:context];
-    }
-    
-    UIImage *capturedImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return capturedImage;
+    return [rtx getUIImage];
 }
 
 //UIImageをリサイズするクラス
