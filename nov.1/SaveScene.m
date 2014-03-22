@@ -49,26 +49,32 @@
     CCSprite *save_1 = [[CCSprite alloc] initWithFile:@"save_1.png"];
     save_1.position  = ccp(size.width/2 - 142.f, size.height/2 + 50.f);
     [self addChild:save_1];
+    save_1.tag = 201;
 
     CCSprite *save_2 = [[CCSprite alloc] initWithFile:@"save_2.png"];
     save_2.position  = ccp(size.width/2, size.height/2 + 50.f);
     [self addChild:save_2];
+    save_2.tag = 202;
 
     CCSprite *save_3 = [[CCSprite alloc] initWithFile:@"save_3.png"];
     save_3.position  = ccp(size.width/2 + 142.f, size.height/2 + 50.f);
     [self addChild:save_3];
-    
+    save_3.tag = 203;
+
     CCSprite *save_4 = [[CCSprite alloc] initWithFile:@"save_4.png"];
     save_4.position  = ccp(size.width/2 - 142.f, size.height/2 - 62.f);
     [self addChild:save_4];
+    save_4.tag = 204;
 
     CCSprite *save_5 = [[CCSprite alloc] initWithFile:@"save_5.png"];
     save_5.position  = ccp(size.width/2, size.height/2 - 62.f);
     [self addChild:save_5];
+    save_5.tag = 205;
 
     CCSprite *save_6 = [[CCSprite alloc] initWithFile:@"save_6.png"];
     save_6.position  = ccp(size.width/2 + 142.f, size.height/2 - 62.f);
     [self addChild:save_6];
+    save_6.tag = 206;
 
     // 左上のウィンドウ
     NSString *save_text = @"";
@@ -109,11 +115,23 @@
 	location         = [[CCDirector sharedDirector] convertToGL:location];
 
     CCSprite *back_btn = (CCSprite *)[self getChildByTag:1];
+    CCSprite *save_1   = (CCSprite *)[self getChildByTag:201];
+
     if(location.x > back_btn.position.x-(back_btn.contentSize.width/2)&&
        location.x < back_btn.position.x+(back_btn.contentSize.width/2)&&
        location.y > back_btn.position.y-(back_btn.contentSize.height/2)&&
        location.y < back_btn.position.y+(back_btn.contentSize.height/2)){
         [[CCDirector sharedDirector] popScene];
+    }else if(location.x > save_1.position.x-(save_1.contentSize.width/2)&&
+             location.x < save_1.position.x+(save_1.contentSize.width/2)&&
+             location.y > save_1.position.y-(save_1.contentSize.height/2)&&
+             location.y < save_1.position.y+(save_1.contentSize.height/2)){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認"
+                                                        message:@"セーブしますか？"
+                                                       delegate:self
+                                              cancelButtonTitle:@"いいえ"
+                                              otherButtonTitles:@"はい", nil];
+        [alert show];
     }
 
     return YES;
@@ -131,5 +149,15 @@
 {
 }
 
+# pragma mark - 
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
+        NSInteger script_index    = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_script_index"];
+        NSInteger structure_index = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_structure_index"];
+
+        
+    }
+}
 
 @end
