@@ -1,6 +1,6 @@
 # BGM:mary_theme.mp3:LOAD
 # BGM:mary_theme.mp3:PLAY
-# BG:park.png
+# BG:upland_night.png
 # IMG:mary_normal.png:center
 # MSG:「こんばんは」
 STOP;
@@ -288,4 +288,4 @@ STOP;
 STOP;
 # MSG:自己紹介が終わる頃には辺りの景色も見えなくなっていて、完全に真っ暗になっていた。
 STOP;
-EOF;
+LOADING;
