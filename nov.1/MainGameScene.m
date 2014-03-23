@@ -15,6 +15,7 @@
 #import "SettingsScene.h"
 #import "TitleLayer.h"
 #import "LoadScene.h"
+#import "SaveScene.h"
 
 #define character_width 332
 
@@ -39,9 +40,9 @@
 	if((self=[super init])){
         self.isTouchEnabled = YES;
         self.isCheck        = NO;
+
         // スクリプトエンジンの初期化
         self.engine           = [[TentativeEngine alloc] init];
-
         self.back_bg          = [[CCSprite alloc] init];
         self.back_bg.position = ccp(size.width/2, size.height/2);
         [self addChild:self.back_bg];
@@ -136,6 +137,8 @@
             self.message_text = text;
 
             [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
 
             for(int i=0; i < self.line_count; i++){
                 [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
@@ -146,6 +149,18 @@
             self.msgWindow.tag      = 4500;
             [self addChild:self.msgWindow];
 
+            self.save_image          = [[CCSprite alloc] initWithFile:@"msg_window_save.png"];
+            self.save_image.position = ccp(size.width/2+76.f, (size.height/12));
+            self.save_image.tag      = 8500;
+            [self addChild:self.save_image];
+            self.save_image.zOrder = 1001;
+
+            self.load_image          = [[CCSprite alloc] initWithFile:@"msg_window_load.png"];
+            self.load_image.position = ccp(size.width/2+123.f, (size.height/12));
+            self.load_image.tag      = 8501;
+            [self addChild:self.load_image];
+            self.load_image.zOrder = 1000;
+            
             int len          = [text length];
             int base_length  = [text length];
             int _size        = 12;
@@ -306,11 +321,60 @@
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    
+    // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
+	CGPoint location = [touch locationInView:[touch view]];
+	location         = [[CCDirector sharedDirector] convertToGL:location];
+
+    if(location.x > self.load_image.position.x-(self.load_image.contentSize.width/2)&&
+       location.x < self.load_image.position.x+(self.load_image.contentSize.width/2)&&
+       location.y > self.load_image.position.y-(self.load_image.contentSize.height/2)&&
+       location.y < self.load_image.position.y+(self.load_image.contentSize.height/2)){
+        
+        // セーブシーンに移動
+        CCScene   *scene        = [SaveScene scene];
+        SaveScene *saveScene    = [scene.children objectAtIndex:0];
+        saveScene.function_flag = @"Load";
+        
+        [[CCDirector sharedDirector] pushScene:scene];
+        return YES;
+    }else if(location.x > self.save_image.position.x-(self.save_image.contentSize.width/2)&&
+             location.x < self.save_image.position.x+(self.save_image.contentSize.width/2)&&
+             location.y > self.save_image.position.y-(self.save_image.contentSize.height/2)&&
+             location.y < self.save_image.position.y+(self.save_image.contentSize.height/2)){
+        // セーブシーンに移動
+        CCScene   *scene         = [SaveScene scene];
+        SaveScene *saveScene     = [scene.children objectAtIndex:0];
+        saveScene.function_flag  = @"Save";
+
+        // リサイズの幅と高さを取得
+        CGFloat ratio  = size.width/400.f;
+        CGFloat width  = 400.f;
+        CGFloat height = size.height/ratio;
+
+        UIImage *image           = [self resizeImage:[self getCurrentScreenCapture] rect:CGRectMake(0.f, 0.f, width, height)];
+        width                    = 267.f;
+        height                   = 205.f;
+        saveScene.screen_capture = [self croppingImage:image imageRect:CGRectMake((image.size.width/2.f)-(width/2.f), image.size.height-height, width, height)];
+
+        if([self.message_text length] > 20){
+            saveScene.save_text = [NSString stringWithFormat:@"%@...",[self.message_text substringWithRange:NSMakeRange(0, 20)]];
+        }else{
+            saveScene.save_text = [NSString stringWithFormat:@"%@...",self.message_text];
+        }
+
+        [[CCDirector sharedDirector] pushScene:scene];
+
+        return YES;
+    }
+
     if(self.isCheck){
-        CGSize size   = [[CCDirector sharedDirector] winSize];
 
         [[self getChildByTag:4500] stopAllActions];
         [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
 
         for(int i=0; i < self.line_count; i++){
             [[self getChildByTag:4510+i] stopAllActions];
@@ -321,7 +385,19 @@
         self.msgWindow.position = ccp(size.width/2, (size.height/5)+10.f);
         self.msgWindow.tag      = 4500;
         [self addChild:self.msgWindow];
-
+        
+        self.save_image          = [[CCSprite alloc] initWithFile:@"msg_window_save.png"];
+        self.save_image.position = ccp(size.width/2+76.f, (size.height/12));
+        self.save_image.tag      = 8500;
+        [self addChild:self.save_image];
+        self.save_image.zOrder = 1001;
+        
+        self.load_image          = [[CCSprite alloc] initWithFile:@"msg_window_load.png"];
+        self.load_image.position = ccp(size.width/2+123.f, (size.height/12));
+        self.load_image.tag      = 8501;
+        [self addChild:self.load_image];
+        self.load_image.zOrder = 1000;
+        
         self.isCheck = NO;
 
         int len          = [self.message_text length];
@@ -382,36 +458,13 @@
         return YES;
     }
     
-    CGSize size = [[CCDirector sharedDirector] winSize];
-    
-    if([self checkSettingsButtonCollision:touch]){
-        [[CCDirector sharedDirector] pushScene: [SettingsScene scene]];
-    }else{
-        NSMutableArray *instruct = [self.engine readScript];
-        [self doInstruct:instruct spriteSize:size];
-    }
+    NSMutableArray *instruct = [self.engine readScript];
+    [self doInstruct:instruct spriteSize:size];
 
     self.msgWindow.zOrder  = 997;
     
     return YES;
 }
-
-- (BOOL)checkSettingsButtonCollision:(UITouch*) touch{
-    // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
-	CGPoint location = [touch locationInView:[touch view]];
-	location         = [[CCDirector sharedDirector] convertToGL:location];
-
-/*
-    CGSize  size = self.home_btn.contentSize;
-    CGPoint pos  = self.home_btn.position;
-
-    if(location.x > pos.x-(size.width/2) && location.x < pos.x+(size.width/2)&&location.y > pos.y-(size.height/2) && location.y < pos.y+(size.height/2)){
-        return YES;
-    }
-*/
-    return NO;
-}
-    
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
@@ -477,6 +530,39 @@
     
 	//アクション実行
 	[self.msgLabel runAction:action1];
+}
+
+
+- (UIImage *) getCurrentScreenCapture{
+    [CCDirector sharedDirector].nextDeltaTimeZero = YES;
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    
+    CCRenderTexture* rtx = [CCRenderTexture renderTextureWithWidth:winSize.width height:winSize.height];
+    [rtx beginWithClear:0 g:0 b:0 a:1.0f];
+    [[[CCDirector sharedDirector] runningScene] visit];
+    [rtx end];
+    
+    return [rtx getUIImage];
+}
+
+//UIImageをリサイズするクラス
+- (UIImage*)resizeImage:(UIImage *)img rect:(CGRect)rect{
+    UIGraphicsBeginImageContext(rect.size);
+
+    [img drawInRect:rect];
+    UIImage* resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return resizedImage;
+}
+
+- (UIImage *)croppingImage:(UIImage *)imageToCrop imageRect:(CGRect)rect{
+    CGImageRef imageRef = CGImageCreateWithImageInRect([imageToCrop CGImage], rect);
+    UIImage   *cropped  = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+
+    return cropped;
 }
 
 @end
