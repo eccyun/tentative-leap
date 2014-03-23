@@ -180,14 +180,21 @@
         if([self.function_flag isEqualToString:@"Save"]){
             message = @"セーブしますか？";
         }else if([self.function_flag isEqualToString:@"Load"]){
+            NSString *save_flag_key = [NSString stringWithFormat:@"save_%d_flag",  self.save_key];
+
+            // セーブ済みのものじゃない場合、処理を止める
+            if(![[[NSUserDefaults standardUserDefaults] objectForKey:save_flag_key] isEqualToString:@"saved"]){
+                return YES;
+            }
+            
             message = @"ロードしますか？";
         }
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認"
                                                         message:message
-                                                       delegate:self
-                                              cancelButtonTitle:@"いいえ"
-                                              otherButtonTitles:@"はい", nil];
+                                                        delegate:self
+                                                cancelButtonTitle:@"いいえ"
+                                                otherButtonTitles:@"はい", nil];
         [alert show];
     }
 
