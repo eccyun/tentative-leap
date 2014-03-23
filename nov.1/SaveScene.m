@@ -42,48 +42,16 @@
 -(void) onEnter{
 	[super onEnter];
 
-    [self renderingSaveWindow];
-    
     CGSize size = [[CCDirector sharedDirector] winSize];
-    
+
     CCSprite *background = [[CCSprite alloc] initWithFile:@"save_background.png"];
     background.position  = ccp(size.width/2, size.height/2);
     [self addChild:background];
 
-    CCSprite *save_1 = [[CCSprite alloc] initWithFile:@"save_1.png"];
-    save_1.position  = ccp(size.width/2 - 142.f, size.height/2 + 50.f);
-    [self addChild:save_1];
-    save_1.tag = 201;
-
-    CCSprite *save_2 = [[CCSprite alloc] initWithFile:@"save_2.png"];
-    save_2.position  = ccp(size.width/2, size.height/2 + 50.f);
-    [self addChild:save_2];
-    save_2.tag = 202;
-
-    CCSprite *save_3 = [[CCSprite alloc] initWithFile:@"save_3.png"];
-    save_3.position  = ccp(size.width/2 + 142.f, size.height/2 + 50.f);
-    [self addChild:save_3];
-    save_3.tag = 203;
-
-    CCSprite *save_4 = [[CCSprite alloc] initWithFile:@"save_4.png"];
-    save_4.position  = ccp(size.width/2 - 142.f, size.height/2 - 62.f);
-    [self addChild:save_4];
-    save_4.tag = 204;
-
-    CCSprite *save_5 = [[CCSprite alloc] initWithFile:@"save_5.png"];
-    save_5.position  = ccp(size.width/2, size.height/2 - 62.f);
-    [self addChild:save_5];
-    save_5.tag = 205;
-
-    CCSprite *save_6 = [[CCSprite alloc] initWithFile:@"save_6.png"];
-    save_6.position  = ccp(size.width/2 + 142.f, size.height/2 - 62.f);
-    [self addChild:save_6];
-    save_6.tag = 206;
-
     // 左上のウィンドウ
     NSString *save_text = @"";
     NSString *load_text = @"";
-    
+
     if([self.function_flag isEqualToString:@"Load"]){
         save_text = @"save_off.png";
         load_text = @"load_on.png";
@@ -91,7 +59,7 @@
         save_text = @"save_on.png";
         load_text = @"load_off.png";
     }
-    
+
     CCSprite *load = [[CCSprite alloc] initWithFile:load_text];
     load.position  = ccp(size.width/2 - 100.f, size.height/2 + 140.f);
     [self addChild:load];
@@ -99,7 +67,6 @@
     CCSprite *save = [[CCSprite alloc] initWithFile:save_text];
     save.position  = ccp(size.width/2 - 182.f, size.height/2 + 139.f);
     [self addChild:save];
-
 
     CCSprite *back_btn = [[CCSprite alloc] initWithFile:@"save_back.png"];
     back_btn.position  = ccp(size.width/2 + 182.f, size.height/2 - 142.f);
@@ -127,8 +94,8 @@
     CCSprite *save_5   = (CCSprite *)[self getChildByTag:205];
     CCSprite *save_6   = (CCSprite *)[self getChildByTag:206];
 
-    BOOL      alert_flag = NO;
-    
+    BOOL alert_flag = NO;
+
     if(location.x > back_btn.position.x-(back_btn.contentSize.width/2)&&
        location.x < back_btn.position.x+(back_btn.contentSize.width/2)&&
        location.y > back_btn.position.y-(back_btn.contentSize.height/2)&&
@@ -171,7 +138,6 @@
              location.y < save_6.position.y+(save_6.contentSize.height/2)){
         self.save_key = 6;
         alert_flag    = YES;
-
     }
 
     if(alert_flag){
@@ -186,10 +152,10 @@
             if(![[[NSUserDefaults standardUserDefaults] objectForKey:save_flag_key] isEqualToString:@"saved"]){
                 return YES;
             }
-            
+
             message = @"ロードしますか？";
         }
-        
+
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認"
                                                         message:message
                                                         delegate:self
@@ -222,37 +188,125 @@
     // キャッシュの破棄
     [[CCTextureCache sharedTextureCache] removeAllTextures];
 
+    NSInteger load_key = [ud integerForKey:@"last_select_save_data"];
+    
+    //  UDから引っ張る
     for (int i=1; i<=6; i++){
         NSString *image_key     = [NSString stringWithFormat:@"save_%d_image", i];
         NSString *save_flag_key = [NSString stringWithFormat:@"save_%d_flag",  i];
 
+        NSString *text_key      = [NSString stringWithFormat:@"save_%d_text", i];
+        NSString *date_key      = [NSString stringWithFormat:@"save_%d_date", i];
+        
         // 破棄処理
         [[self getChildByTag:6000+i] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:6800+i] removeFromParentAndCleanup:(true)];
 
-        // セーブフラグがたってるウィンドウはレンダリングを開始する
-        if([[ud objectForKey:save_flag_key] isEqualToString:@"saved"]){
-            NSData* imageData = [ud objectForKey:image_key];
-
-            CCSprite *cap = [CCSprite spriteWithCGImage:[[UIImage imageWithData:imageData] CGImage] key:[NSString stringWithFormat:@"save_%d", i]];
-            cap.zOrder    = 9999;
-            cap.tag       = 6000+i;
-
-            if(i == 1){
-                cap.position  = ccp(size.width/2 - 142.f, size.height/2 + 50.f);
-            }else if(i == 2){
-                cap.position  = ccp(size.width/2, size.height/2 + 50.f);
-            }else if(i == 3){
-                cap.position  = ccp(size.width/2 + 142.f, size.height/2 + 50.f);
-            }else if(i == 4){
-                cap.position  = ccp(size.width/2 - 142.f, size.height/2 - 62.f);
-            }else if(i == 5){
-                cap.position  = ccp(size.width/2, size.height/2 - 62.f);
-            }else if(i == 6){
-                cap.position  = ccp(size.width/2 + 142.f, size.height/2 - 62.f);
-            }
-            [self addChild:cap];
+        // セーブウィンドウ 描画
+        [[self getChildByTag:200+i] removeFromParentAndCleanup:(true)];
+        
+        CCSprite *save   = [[CCSprite alloc] initWithFile:(load_key==i)?@"save_light.png":@"save.png"];
+        
+        // 表示位置調整
+        if(i == 1){
+            save.position    = ccp(size.width/2 - 142.f, size.height/2 + 50.f);
+        }else if(i == 2){
+            save.position  = ccp(size.width/2, size.height/2 + 50.f);
+        }else if(i == 3){
+            save.position  = ccp(size.width/2 + 142.f, size.height/2 + 50.f);
+        }else if(i == 4){
+            save.position  = ccp(size.width/2 - 142.f, size.height/2 - 62.f);
+        }else if(i == 5){
+            save.position  = ccp(size.width/2, size.height/2 - 62.f);
+        }else if(i == 6){
+            save.position  = ccp(size.width/2 + 142.f, size.height/2 - 62.f);
         }
         
+        [self addChild:save];
+        save.tag = 200+i;
+        
+        // セーブフラグがたってるウィンドウはレンダリングを開始する
+        if([[ud objectForKey:save_flag_key] isEqualToString:@"saved"]){
+            NSData     *imageData  = [ud objectForKey:image_key];
+
+            // テキストの書き出しの部分
+            CCLabelTTF *text_label = [[CCLabelTTF alloc] init];
+            if((CCLabelTTF *)[self getChildByTag:6500+i]){
+                // 更新
+                text_label = (CCLabelTTF *)[self getChildByTag:6500+i];
+                [text_label setString:[ud objectForKey:text_key]];
+            }else{
+                // 初期化
+                text_label = [CCLabelTTF labelWithString:[ud objectForKey:text_key]
+                                              dimensions:CGSizeMake(134.f, 20.f)
+                                              hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:10];
+                [text_label setAnchorPoint:ccp(0,0)];
+                text_label.zOrder   = 10001;
+                text_label.tag      = 6500+i;
+            }
+
+            // 保存日
+            CCLabelTTF *date_text = [[CCLabelTTF alloc] init];
+            if((CCLabelTTF *)[self getChildByTag:6600+i]){
+                // 更新
+                date_text = (CCLabelTTF *)[self getChildByTag:6600+i];
+                [date_text setString:[ud objectForKey:date_key]];
+            }else{
+                date_text = [CCLabelTTF labelWithString:[ud objectForKey:date_key]
+                                             dimensions:CGSizeMake(134.f, 10.f)
+                                             hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:10];
+                [date_text setAnchorPoint:ccp(0,0)];
+                date_text.zOrder   = 10001;
+                date_text.tag      = 6600+i;
+            }
+
+            CCSprite *frame = [CCSprite spriteWithFile:@"save_frame.png"];
+            frame.zOrder    = 10000;
+
+            CCSprite *cap   = [CCSprite spriteWithCGImage:[[UIImage imageWithData:imageData] CGImage] key:[NSString stringWithFormat:@"save_%d", i]];
+            cap.zOrder      = 9999;
+            cap.tag         = 6000+i;
+            
+            if(i == 1){
+                cap.position        = ccp(size.width/2 - 142.f, size.height/2 + 50.f);
+                text_label.position = ccp(size.width/2-208.f, size.height/2+5.f);
+                date_text.position  = ccp(size.width/2-208.f, size.height/2+30.f);
+            }else if(i == 2){
+                cap.position        = ccp(size.width/2, size.height/2 + 50.f);
+                text_label.position = ccp(size.width/2-66.f, size.height/2+5.f);
+                date_text.position  = ccp(size.width/2-66.f, size.height/2+30.f);
+            }else if(i == 3){
+                cap.position        = ccp(size.width/2 + 142.f, size.height/2 + 50.f);
+                text_label.position = ccp(size.width/2+76.f, size.height/2+5.f);
+                date_text.position  = ccp(size.width/2+76.f, size.height/2+30.f);
+            }else if(i == 4){
+                cap.position        = ccp(size.width/2 - 142.f, size.height/2 - 62.f);
+                text_label.position = ccp(size.width/2-208.f, size.height/2-107.f);
+                date_text.position  = ccp(size.width/2-208.f, size.height/2-82.f);
+            }else if(i == 5){
+                cap.position        = ccp(size.width/2, size.height/2 - 62.f);
+                text_label.position = ccp(size.width/2-66.f, size.height/2-107.f);
+                date_text.position  = ccp(size.width/2-66.f, size.height/2-82.f);
+            }else if(i == 6){
+                cap.position  = ccp(size.width/2 + 142.f, size.height/2 - 62.f);
+                text_label.position = ccp(size.width/2+76.f, size.height/2-107.f);
+                date_text.position  = ccp(size.width/2+76.f, size.height/2-82.f);
+            }
+
+            frame.position = cap.position;
+            frame.tag      = 6800+i;
+
+            [self addChild:cap];
+            [self addChild:frame];
+
+            // 配置されてなかったら、ラベルを貼付けする
+            if(!(CCLabelTTF *)[self getChildByTag:6500+i]){
+                [self addChild:text_label];
+            }
+            if(!(CCLabelTTF *)[self getChildByTag:6600+i]){
+                [self addChild:date_text];
+            }
+        }
     }
     
 }
@@ -270,7 +324,9 @@
     NSString *structure_key = [NSString stringWithFormat:@"save_%d_structure", self.save_key];
     NSString *image_key     = [NSString stringWithFormat:@"save_%d_image", self.save_key];
     NSString *save_flag_key = [NSString stringWithFormat:@"save_%d_flag",  self.save_key];
-
+    NSString *save_text_key = [NSString stringWithFormat:@"save_%d_text",  self.save_key];
+    NSString *save_date_key = [NSString stringWithFormat:@"save_%d_date",  self.save_key];
+    
     if([self.function_flag isEqualToString:@"Save"]){
         if(buttonIndex == 1){
             NSInteger script_index    = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_script_index"];
@@ -279,13 +335,21 @@
             // クイックスタート完了
             NSData *imageData = UIImagePNGRepresentation(self.screen_capture);
 
+            NSDate          *_date     = [NSDate date];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+            NSString *_date_text = [formatter stringFromDate:_date];
+
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:script_index forKey:script_key];
             [ud setInteger:structure_index forKey:structure_key];
             [ud setObject:imageData forKey:image_key];
             [ud setObject:@"saved" forKey:save_flag_key];
+            [ud setObject:self.save_text forKey:save_text_key];
+            [ud setObject:_date_text forKey:save_date_key];
+            [ud setInteger:self.save_key forKey:@"last_select_save_data"];
             [ud synchronize];
-        
+
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認"
                                                             message:@"セーブしました！"
                                                            delegate:nil
@@ -298,10 +362,11 @@
     }else if([self.function_flag isEqualToString:@"Load"]){
         if(buttonIndex == 1){
             // ロードシーンのインスタンスを作る
-            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:[ud integerForKey:structure_key] forKey:@"quick_structure_index"];
             [ud setInteger:[ud integerForKey:script_key] forKey:@"quick_script_index"];
             [ud setInteger:1 forKey:@"quick_start_flag"];
+            [ud setInteger:self.save_key forKey:@"last_select_save_data"];
             [ud synchronize];
 
             self.isLoad        = YES;

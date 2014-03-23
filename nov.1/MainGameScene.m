@@ -40,9 +40,9 @@
 	if((self=[super init])){
         self.isTouchEnabled = YES;
         self.isCheck        = NO;
+
         // スクリプトエンジンの初期化
         self.engine           = [[TentativeEngine alloc] init];
-
         self.back_bg          = [[CCSprite alloc] init];
         self.back_bg.position = ccp(size.width/2, size.height/2);
         [self addChild:self.back_bg];
@@ -347,12 +347,22 @@
         CCScene   *scene         = [SaveScene scene];
         SaveScene *saveScene     = [scene.children objectAtIndex:0];
         saveScene.function_flag  = @"Save";
-        
+
         // リサイズの幅と高さを取得
-        CGFloat ratio  = size.width/260.f;
-        CGFloat width  = 260.f;
+        CGFloat ratio  = size.width/400.f;
+        CGFloat width  = 400.f;
         CGFloat height = size.height/ratio;
-        saveScene.screen_capture = [self resizeImage:[self getCurrentScreenCapture] rect:CGRectMake(0.f, 0.f, width, height)];
+
+        UIImage *image           = [self resizeImage:[self getCurrentScreenCapture] rect:CGRectMake(0.f, 0.f, width, height)];
+        width                    = 267.f;
+        height                   = 205.f;
+        saveScene.screen_capture = [self croppingImage:image imageRect:CGRectMake((image.size.width/2.f)-(width/2.f), image.size.height-height, width, height)];
+
+        if([self.message_text length] > 20){
+            saveScene.save_text = [NSString stringWithFormat:@"%@...",[self.message_text substringWithRange:NSMakeRange(0, 20)]];
+        }else{
+            saveScene.save_text = [NSString stringWithFormat:@"%@...",self.message_text];
+        }
 
         [[CCDirector sharedDirector] pushScene:scene];
 
@@ -545,6 +555,14 @@
     UIGraphicsEndImageContext();
     
     return resizedImage;
+}
+
+- (UIImage *)croppingImage:(UIImage *)imageToCrop imageRect:(CGRect)rect{
+    CGImageRef imageRef = CGImageCreateWithImageInRect([imageToCrop CGImage], rect);
+    UIImage   *cropped  = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+
+    return cropped;
 }
 
 @end
