@@ -16,7 +16,7 @@
 @interface MainGameScene : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>{
 }
 
-@property(nonatomic)         BOOL             isCheck;
+@property(nonatomic)         BOOL             isCheck, isUp;
 @property(nonatomic,retain)  TentativeEngine *engine;
 @property(nonatomic,retain)  CCSprite        *back_bg;
 @property(nonatomic,retain)  CCLabelTTF      *msgLabel;
