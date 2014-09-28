@@ -11,6 +11,7 @@
 		1B0E2E9516C2865C0097D11A /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E2E9416C2865B0097D11A /* IntroLayer.m */; };
 		1B0E2EA716CD1D070097D11A /* TitleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E2EA616CD1D070097D11A /* TitleLayer.m */; };
 		1B0E2EFB16D653BE0097D11A /* SettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E2EFA16D653BC0097D11A /* SettingsScene.m */; };
+		1B1855E8192A775300BF81C4 /* notice-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B1855E7192A775300BF81C4 /* notice-hd.png */; };
 		1B1CD9B018BCE4C7001648C6 /* LoadScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CD9AF18BCE4C7001648C6 /* LoadScene.m */; };
 		1B212E5618F1980C0023984A /* aruku_anger_up-h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B212E4B18F1980C0023984A /* aruku_anger_up-h.png */; };
 		1B212E5718F1980C0023984A /* aruku_cry_up-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B212E4C18F1980C0023984A /* aruku_cry_up-hd.png */; };
@@ -230,6 +231,7 @@
 		1B0E2EA616CD1D070097D11A /* TitleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleLayer.m; sourceTree = "<group>"; };
 		1B0E2EF916D653BA0097D11A /* SettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScene.h; sourceTree = "<group>"; };
 		1B0E2EFA16D653BC0097D11A /* SettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScene.m; sourceTree = "<group>"; };
+		1B1855E7192A775300BF81C4 /* notice-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notice-hd.png"; sourceTree = "<group>"; };
 		1B1CD9AE18BCE4C7001648C6 /* LoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadScene.h; sourceTree = "<group>"; };
 		1B1CD9AF18BCE4C7001648C6 /* LoadScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadScene.m; sourceTree = "<group>"; };
 		1B212E4B18F1980C0023984A /* aruku_anger_up-h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aruku_anger_up-h.png"; path = "Resources/up/aruku_anger_up-h.png"; sourceTree = "<group>"; };
@@ -1156,6 +1158,7 @@
 		1BFEA6ED18D5D5A00059640E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1B1855E7192A775300BF81C4 /* notice-hd.png */,
 				1BFEA6F218D5D6050059640E /* msg_window_load-hd.png */,
 				1BFEA6F318D5D6050059640E /* msg_window_save-hd.png */,
 			);
@@ -1326,6 +1329,7 @@
 				1BFEA6E318D20B920059640E /* script14.txt in Resources */,
 				1BFEA6CC18CCB6C70059640E /* Icon@2x.png in Resources */,
 				1BEAC32D18AA6DC400BC22DA /* mary_cry-hd.png in Resources */,
+				1B1855E8192A775300BF81C4 /* notice-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

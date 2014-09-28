@@ -1,3 +1,5 @@
+# BG:notice.png
+STOP;
 # BGM:bell_leap.mp3:LOAD
 # BGM:bell_leap.mp3:PLAY
 # BG:upland_evening.png
@@ -48,11 +50,13 @@ STOP;
 # IMG:aruku_normal.png:center
 # MSG:すると、そこには浴衣を着た一人の女の子が立っていて…。彼女は興味深そうな目でぼくを見ていた。
 STOP;
+# IMG:aruku_laugh2_up.png:center
 # BGM:aruku_theme.mp3:PLAY
 # MSG:「これって、君が描いたの？すごいなぁ…これだけ描けると楽しいんだろうね！」
 STOP;
 # MSG:見知った子…。なんてわけでもなく、はじめて会う子だった。
 STOP;
+# IMG:aruku_laugh2.png:center
 # MSG:「あっ、ごめん。わたしは歩(あるく)、きみは？」
 STOP;
 # MSG:彼女は両手を振って歩く素振りを見せながらそう言った。
@@ -61,6 +65,7 @@ STOP;
 STOP;
 # MSG:「ぼくは、照(てる)...だけど」
 STOP;
+# IMG:aruku_laugh.png:center
 # MSG:「照くんかぁ、良い名前だね！　よろしく照くん！」
 STOP;
 # MSG:「あっ、うん。　よろしく...」
@@ -69,16 +74,19 @@ STOP;
 STOP;
 # MSG:「きみは、ここで何をしているの？」
 STOP;
+# IMG:aruku_normal.png:center
 # MSG:「ほら、今日って公園で夏祭りがある日じゃん、それに行こうと思ってさ！」
 STOP;
 # MSG:「それで、近くまで来たことだし、せっかくだからここの景色も見ておこうかなって」
 STOP;
+# IMG:aruku_laugh.png:center
 # MSG:「ここから見える景色が好きなんだよねー」
 STOP;
 # MSG:今日は、夜から高台のふもとの公園で夏祭りがある日だった。
 STOP;
 # MSG:ここに来る途中お昼頃に公園を通ってきたけれど既に出店が立ち並びはじめていて、夜からの夏祭りに向けて着々と準備が進められているようだった。
 STOP;
+# IMG:aruku_normal.png:center
 # MSG:「そしたらたまたま照くんがいて。なんだか、面白そうなことしてるなあと思って」
 STOP;
 # MSG:「それは、またなかなか積極的というか...」

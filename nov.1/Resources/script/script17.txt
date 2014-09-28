@@ -1,8 +1,6 @@
 # BGM:time_leap.mp3:LOAD
 # BGM:time_leap.mp3:PLAY
 # BG:park_night.png
-# MSG:「花火、終わっちゃったね」
-STOP;
 # MSG:照くんと別れてからわたしはしばらく公園の入口に立って考え事をしていた。
 STOP;
 # MSG:なんとなく今日の出来事を整理したいと思ったから。幸いにも次のバスまでまだ時間に余裕があった。
