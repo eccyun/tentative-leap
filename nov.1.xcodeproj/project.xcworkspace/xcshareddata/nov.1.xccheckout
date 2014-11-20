@@ -10,29 +10,29 @@
 	<string>nov.1</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0F2667CD-7CCF-467B-8EF3-91AFE386747C</key>
+		<key>6F9A7E09DA89018EC963FD9D3A6A9E6BC4AB4F1D</key>
 		<string>https://github.com/eccyun/tentative-leap.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>nov.1.xcodeproj/project.xcworkspace</string>
+	<string>nov.1.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0F2667CD-7CCF-467B-8EF3-91AFE386747C</key>
+		<key>6F9A7E09DA89018EC963FD9D3A6A9E6BC4AB4F1D</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/eccyun/tentative-leap.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0F2667CD-7CCF-467B-8EF3-91AFE386747C</string>
+	<string>6F9A7E09DA89018EC963FD9D3A6A9E6BC4AB4F1D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0F2667CD-7CCF-467B-8EF3-91AFE386747C</string>
+			<string>6F9A7E09DA89018EC963FD9D3A6A9E6BC4AB4F1D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>tentative-leap</string>
 		</dict>

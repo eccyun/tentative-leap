@@ -116,6 +116,11 @@ static struct{
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"bgm_name"];
             [set setValue:[split objectAtIndex:2] forKey:@"action"];
+        }else if([instruct_name isEqualToString:@"# STILL-IMG"]){
+            [set setValue:instruct_name           forKey:@"instruct_name"];
+            [set setValue:[split objectAtIndex:1] forKey:@"img_name"];
+            [set setValue:[split objectAtIndex:2] forKey:@"x"];
+            [set setValue:[split objectAtIndex:3] forKey:@"direction"];
         }else if([instruct_name isEqualToString:@"# WHITE;"] || [instruct_name isEqualToString:@"# REMOVE;"] || [instruct_name isEqualToString:@"# BLACK;"]){
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:self.scriptReadIndex forKey:@"script_index"];

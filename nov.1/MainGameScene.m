@@ -37,6 +37,9 @@
 -(id) init{
 	CGSize size = [[CCDirector sharedDirector] winSize];
 
+    //画面取得
+    UIScreen *sc = [UIScreen mainScreen];
+    
 	if((self=[super init])){
         self.isTouchEnabled = YES;
         self.isCheck        = NO;
@@ -138,6 +141,23 @@
                     [self.left runAction:[CCFadeIn actionWithDuration:0.1f]];
                 }
             }
+        }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# STILL-IMG"]){
+            CCSprite *still = (self.still_1)?self.still_2:self.still_1;
+            
+            still      = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
+            int height = [still boundingBox].size.height;
+
+            // iPhone 5 以降との切り分けを行ったらラベルを追加
+            height = [[CCDirector sharedDirector] winSize].height-height;
+            
+            if ([[dictionary objectForKey:@"direction"] isEqualToString:@"right"]) {
+                still.position = ccp((size.width+[[dictionary objectForKey:@"x"] integerValue])/2, (size.height-height)/2);
+            }else if([[dictionary objectForKey:@"direction"] isEqualToString:@"left"]){
+                still.position = ccp((size.width-[[dictionary objectForKey:@"x"] integerValue])/2, (size.height-height)/2);
+            }
+
+            [still runAction:[CCFadeIn actionWithDuration:0.3f]];
+            [self addChild:still];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# MSG"]){
             // ラベルを作成する（後でテクスチャーとして使用する
             NSString *text    = [[dictionary objectForKey:@"message"] stringByReplacingOccurrencesOfString: @"#BR#" withString: @"\n"];

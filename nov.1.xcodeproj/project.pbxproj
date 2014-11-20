@@ -24,6 +24,12 @@
 		1B212E5E18F1980C0023984A /* mary_laugh_up-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B212E5318F1980C0023984A /* mary_laugh_up-hd.png */; };
 		1B212E5F18F1980C0023984A /* mary_normal_up-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B212E5418F1980C0023984A /* mary_normal_up-hd.png */; };
 		1B212E6018F1980C0023984A /* mary_puzzle_up-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B212E5518F1980C0023984A /* mary_puzzle_up-hd.png */; };
+		1B388A341A1E277200A1F37D /* 01-aruku-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B388A2E1A1E277200A1F37D /* 01-aruku-01-hd.png */; };
+		1B388A351A1E277200A1F37D /* 01-cut-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B388A2F1A1E277200A1F37D /* 01-cut-01-hd.png */; };
+		1B388A361A1E277200A1F37D /* 01-cut-02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B388A301A1E277200A1F37D /* 01-cut-02-hd.png */; };
+		1B388A371A1E277200A1F37D /* 01-teru-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B388A311A1E277200A1F37D /* 01-teru-01-hd.png */; };
+		1B388A381A1E277200A1F37D /* 01-teru-02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B388A321A1E277200A1F37D /* 01-teru-02-hd.png */; };
+		1B388A391A1E277200A1F37D /* 01-teru-03-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B388A331A1E277200A1F37D /* 01-teru-03-hd.png */; };
 		1B5F02F918C36CBB00710F44 /* menu_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F02F118C36CBB00710F44 /* menu_background-hd.png */; };
 		1B5F02FE18C36CBB00710F44 /* menu_start_off-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F02F618C36CBB00710F44 /* menu_start_off-hd.png */; };
 		1B5F02FF18C36CBB00710F44 /* menu_start_on-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F02F718C36CBB00710F44 /* menu_start_on-hd.png */; };
@@ -42,7 +48,6 @@
 		1B7A7A031674D49F003DFCEE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A7A021674D49F003DFCEE /* UIKit.framework */; };
 		1B7A7A051674D49F003DFCEE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A7A041674D49F003DFCEE /* Foundation.framework */; };
 		1B7A7A071674D49F003DFCEE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A7A061674D49F003DFCEE /* CoreGraphics.framework */; };
-		1B7A7A091674D49F003DFCEE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A7A081674D49F003DFCEE /* GameKit.framework */; };
 		1B7A7A0D1674D49F003DFCEE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7A7A0C1674D49F003DFCEE /* Default.png */; };
 		1B7A7A241674D49F003DFCEE /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1B7A7A231674D49F003DFCEE /* iTunesArtwork */; };
 		1B7A7A291674D4A0003DFCEE /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A7A281674D4A0003DFCEE /* CCAction.m */; };
@@ -149,6 +154,7 @@
 		1B7A7B811674D4A3003DFCEE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A7B801674D4A3003DFCEE /* main.m */; };
 		1B7A7B841674D4A3003DFCEE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A7B831674D4A3003DFCEE /* AppDelegate.m */; };
 		1B7A7B871674D4A3003DFCEE /* MainGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A7B861674D4A3003DFCEE /* MainGameScene.m */; };
+		1B8FD63D19E17EB40091F3C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8FD63C19E17EB40091F3C7 /* Images.xcassets */; };
 		1BBD4EAD16DBA51A009F6CEC /* SettingsParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */; };
 		1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */; };
 		1BEAC2FC18AA6DB900BC22DA /* bar_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F418AA6DB900BC22DA /* bar_theme.mp3 */; };
@@ -245,6 +251,12 @@
 		1B212E5318F1980C0023984A /* mary_laugh_up-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mary_laugh_up-hd.png"; path = "Resources/up/mary_laugh_up-hd.png"; sourceTree = "<group>"; };
 		1B212E5418F1980C0023984A /* mary_normal_up-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mary_normal_up-hd.png"; path = "Resources/up/mary_normal_up-hd.png"; sourceTree = "<group>"; };
 		1B212E5518F1980C0023984A /* mary_puzzle_up-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mary_puzzle_up-hd.png"; path = "Resources/up/mary_puzzle_up-hd.png"; sourceTree = "<group>"; };
+		1B388A2E1A1E277200A1F37D /* 01-aruku-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-aruku-01-hd.png"; sourceTree = "<group>"; };
+		1B388A2F1A1E277200A1F37D /* 01-cut-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-cut-01-hd.png"; sourceTree = "<group>"; };
+		1B388A301A1E277200A1F37D /* 01-cut-02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-cut-02-hd.png"; sourceTree = "<group>"; };
+		1B388A311A1E277200A1F37D /* 01-teru-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-teru-01-hd.png"; sourceTree = "<group>"; };
+		1B388A321A1E277200A1F37D /* 01-teru-02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-teru-02-hd.png"; sourceTree = "<group>"; };
+		1B388A331A1E277200A1F37D /* 01-teru-03-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-teru-03-hd.png"; sourceTree = "<group>"; };
 		1B5F02F118C36CBB00710F44 /* menu_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_background-hd.png"; sourceTree = "<group>"; };
 		1B5F02F618C36CBB00710F44 /* menu_start_off-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_start_off-hd.png"; sourceTree = "<group>"; };
 		1B5F02F718C36CBB00710F44 /* menu_start_on-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_start_on-hd.png"; sourceTree = "<group>"; };
@@ -264,7 +276,6 @@
 		1B7A7A021674D49F003DFCEE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1B7A7A041674D49F003DFCEE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B7A7A061674D49F003DFCEE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1B7A7A081674D49F003DFCEE /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		1B7A7A0C1674D49F003DFCEE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		1B7A7A221674D49F003DFCEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		1B7A7A231674D49F003DFCEE /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
@@ -505,6 +516,7 @@
 		1B7A7B831674D4A3003DFCEE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1B7A7B851674D4A3003DFCEE /* MainGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainGameScene.h; sourceTree = "<group>"; };
 		1B7A7B861674D4A3003DFCEE /* MainGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainGameScene.m; sourceTree = "<group>"; };
+		1B8FD63C19E17EB40091F3C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1BBD4EAB16DBA51A009F6CEC /* SettingsParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsParts.h; sourceTree = "<group>"; };
 		1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsParts.m; sourceTree = "<group>"; };
 		1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aruku_theme.mp3; sourceTree = "<group>"; };
@@ -593,7 +605,6 @@
 				1B7A7A031674D49F003DFCEE /* UIKit.framework in Frameworks */,
 				1B7A7A051674D49F003DFCEE /* Foundation.framework in Frameworks */,
 				1B7A7A071674D49F003DFCEE /* CoreGraphics.framework in Frameworks */,
-				1B7A7A091674D49F003DFCEE /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +672,20 @@
 			name = up;
 			sourceTree = "<group>";
 		};
+		1B388A2D1A1E277200A1F37D /* still */ = {
+			isa = PBXGroup;
+			children = (
+				1B388A2E1A1E277200A1F37D /* 01-aruku-01-hd.png */,
+				1B388A2F1A1E277200A1F37D /* 01-cut-01-hd.png */,
+				1B388A301A1E277200A1F37D /* 01-cut-02-hd.png */,
+				1B388A311A1E277200A1F37D /* 01-teru-01-hd.png */,
+				1B388A321A1E277200A1F37D /* 01-teru-02-hd.png */,
+				1B388A331A1E277200A1F37D /* 01-teru-03-hd.png */,
+			);
+			name = still;
+			path = Resources/still;
+			sourceTree = "<group>";
+		};
 		1B7A79E91674D49F003DFCEE = {
 			isa = PBXGroup;
 			children = (
@@ -690,7 +715,6 @@
 				1B7A7A021674D49F003DFCEE /* UIKit.framework */,
 				1B7A7A041674D49F003DFCEE /* Foundation.framework */,
 				1B7A7A061674D49F003DFCEE /* CoreGraphics.framework */,
-				1B7A7A081674D49F003DFCEE /* GameKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -715,6 +739,7 @@
 				1BFEA6F718D5DEBE0059640E /* SaveScene.m */,
 				1B7A7A0B1674D49F003DFCEE /* Resources */,
 				1B7A7A251674D49F003DFCEE /* libs */,
+				1B8FD63C19E17EB40091F3C7 /* Images.xcassets */,
 				1B7A7B7E1674D4A3003DFCEE /* Supporting Files */,
 			);
 			path = nov.1;
@@ -723,6 +748,7 @@
 		1B7A7A0B1674D49F003DFCEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B388A2D1A1E277200A1F37D /* still */,
 				1B212E4A18F197640023984A /* up */,
 				1BFEA6FB18DD57440059640E /* Save */,
 				1BFEA6ED18D5D5A00059640E /* UI */,
@@ -1211,6 +1237,11 @@
 				TargetAttributes = {
 					1B7A79F31674D49F003DFCEE = {
 						DevelopmentTeam = QKGC4WB884;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -1238,6 +1269,7 @@
 			files = (
 				1BFEA6B818CCA54C0059640E /* Default~iphone.png in Resources */,
 				1BFEA70F18DD63B40059640E /* load_off-hd.png in Resources */,
+				1B388A381A1E277200A1F37D /* 01-teru-02-hd.png in Resources */,
 				1BFEA6F418D5D6050059640E /* msg_window_load-hd.png in Resources */,
 				1BFEA6E918D214870059640E /* script17.txt in Resources */,
 				1B7A7A0D1674D49F003DFCEE /* Default.png in Resources */,
@@ -1253,6 +1285,7 @@
 				1BFEA6CB18CCB6C70059640E /* Icon.png in Resources */,
 				1BFEA71918DF19C10059640E /* save-hd.png in Resources */,
 				1BEAC32818AA6DC400BC22DA /* aruku_normal-hd.png in Resources */,
+				1B388A361A1E277200A1F37D /* 01-cut-02-hd.png in Resources */,
 				1B5F030A18C37B6F00710F44 /* load_logo-hd.png in Resources */,
 				1BEAC2FE18AA6DB900BC22DA /* fes.mp3 in Resources */,
 				1BFEA6E218D20B920059640E /* script13.txt in Resources */,
@@ -1270,6 +1303,8 @@
 				1BEAC32318AA6DC400BC22DA /* upland_night-hd.png in Resources */,
 				1BFEA6D718CCB7E60059640E /* Icon~iphone.png in Resources */,
 				1B212E5618F1980C0023984A /* aruku_anger_up-h.png in Resources */,
+				1B388A371A1E277200A1F37D /* 01-teru-01-hd.png in Resources */,
+				1B388A341A1E277200A1F37D /* 01-aruku-01-hd.png in Resources */,
 				1BEAC32218AA6DC400BC22DA /* upland_evening-hd.png in Resources */,
 				1BFEA6E818D214870059640E /* script16.txt in Resources */,
 				1BEAC32A18AA6DC400BC22DA /* aruku_puzzle2-hd.png in Resources */,
@@ -1291,6 +1326,7 @@
 				1BFEA6CD18CCB6C70059640E /* Icon@2x~iphone.png in Resources */,
 				1BEAC32618AA6DC400BC22DA /* aruku_laugh-hd.png in Resources */,
 				1BEAC32718AA6DC400BC22DA /* aruku_laugh2-hd.png in Resources */,
+				1B388A351A1E277200A1F37D /* 01-cut-01-hd.png in Resources */,
 				1BFEA6F518D5D6050059640E /* msg_window_save-hd.png in Resources */,
 				1B5F030618C3753900710F44 /* menu_quick_start_on-hd.png in Resources */,
 				1BFEA6C218CCB3F40059640E /* script09.txt in Resources */,
@@ -1300,6 +1336,7 @@
 				1BEAC30218AA6DB900BC22DA /* time_leap.mp3 in Resources */,
 				1BFEA6BA18CCA8100059640E /* Default-568h@2x.png in Resources */,
 				1BEAC33018AA6DC400BC22DA /* mary_puzzle-hd.png in Resources */,
+				1B8FD63D19E17EB40091F3C7 /* Images.xcassets in Resources */,
 				1B212E5A18F1980C0023984A /* aruku_normal_up-hd.png in Resources */,
 				1BEAC32418AA6DC400BC22DA /* aruku_anger-hd.png in Resources */,
 				1BFEA71018DD63B40059640E /* load_on-hd.png in Resources */,
@@ -1309,6 +1346,7 @@
 				1B7A7B621674D4A3003DFCEE /* ChangeLog in Resources */,
 				1BEAC32C18AA6DC400BC22DA /* mary_anger-hd.png in Resources */,
 				1BEAC32F18AA6DC400BC22DA /* mary_normal-hd.png in Resources */,
+				1B388A391A1E277200A1F37D /* 01-teru-03-hd.png in Resources */,
 				1BEAC32518AA6DC400BC22DA /* aruku_cry-hd.png in Resources */,
 				1B5F030518C3753900710F44 /* menu_quick_start_off-hd.png in Resources */,
 				1B212E6018F1980C0023984A /* mary_puzzle_up-hd.png in Resources */,
@@ -1471,7 +1509,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "84C3F7AD-5134-494D-809D-EFC5064E76B5";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1491,7 +1529,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "84C3F7AD-5134-494D-809D-EFC5064E76B5";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1502,6 +1540,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ryo Tajima (9FXVFCUTL5)";
 				COPY_PHASE_STRIP = NO;
@@ -1510,6 +1550,7 @@
 				GCC_PREFIX_HEADER = nov.1/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"nov.1/libs/kazmath/include\"";
 				INFOPLIST_FILE = nov.1/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1525,6 +1566,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ryo Tajima (QKGC4WB884)";
 				COPY_PHASE_STRIP = YES;
@@ -1532,6 +1575,7 @@
 				GCC_PREFIX_HEADER = nov.1/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"nov.1/libs/kazmath/include\"";
 				INFOPLIST_FILE = nov.1/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
