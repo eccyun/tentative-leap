@@ -121,6 +121,7 @@ static struct{
             [set setValue:[split objectAtIndex:1] forKey:@"img_name"];
             [set setValue:[split objectAtIndex:2] forKey:@"x"];
             [set setValue:[split objectAtIndex:3] forKey:@"direction"];
+            [set setValue:[split objectAtIndex:4] forKey:@"tags"];
         }else if([instruct_name isEqualToString:@"# WHITE;"] || [instruct_name isEqualToString:@"# REMOVE;"] || [instruct_name isEqualToString:@"# BLACK;"]){
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:self.scriptReadIndex forKey:@"script_index"];

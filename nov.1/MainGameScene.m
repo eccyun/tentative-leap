@@ -38,8 +38,6 @@
 	CGSize size = [[CCDirector sharedDirector] winSize];
 
     //画面取得
-    UIScreen *sc = [UIScreen mainScreen];
-    
 	if((self=[super init])){
         self.isTouchEnabled = YES;
         self.isCheck        = NO;
@@ -142,22 +140,28 @@
                 }
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# STILL-IMG"]){
-            CCSprite *still = (self.still_1)?self.still_2:self.still_1;
-            
-            still      = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
-            int height = [still boundingBox].size.height;
+            CCSprite *still = (CCSprite *)[self getChildByTag:[[dictionary objectForKey:@"tags"] integerValue]];
 
-            // iPhone 5 以降との切り分けを行ったらラベルを追加
-            height = [[CCDirector sharedDirector] winSize].height-height;
-            
-            if ([[dictionary objectForKey:@"direction"] isEqualToString:@"right"]) {
-                still.position = ccp((size.width+[[dictionary objectForKey:@"x"] integerValue])/2, (size.height-height)/2);
-            }else if([[dictionary objectForKey:@"direction"] isEqualToString:@"left"]){
-                still.position = ccp((size.width-[[dictionary objectForKey:@"x"] integerValue])/2, (size.height-height)/2);
+            if (still) {
+                // Image が既にあったら
+                CCTexture2D *tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
+                [still setTexture:tex];
+            }else{
+                still          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
+
+                // iPhone 5 以降との切り分けを行ったらラベルを追加
+                int height = [still boundingBox].size.height;
+                height     = [[CCDirector sharedDirector] winSize].height-height;
+
+                if ([[dictionary objectForKey:@"direction"] isEqualToString:@"right"]) {
+                    still.position = ccp((size.width+[[dictionary objectForKey:@"x"] integerValue])/2, (size.height-height)/2);
+                }else if([[dictionary objectForKey:@"direction"] isEqualToString:@"left"]){
+                    still.position = ccp((size.width-[[dictionary objectForKey:@"x"] integerValue])/2, (size.height-height)/2);
+                }
+
+                [still runAction:[CCFadeIn actionWithDuration:0.3f]];
+                [self addChild:still];
             }
-
-            [still runAction:[CCFadeIn actionWithDuration:0.3f]];
-            [self addChild:still];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# MSG"]){
             // ラベルを作成する（後でテクスチャーとして使用する
             NSString *text    = [[dictionary objectForKey:@"message"] stringByReplacingOccurrencesOfString: @"#BR#" withString: @"\n"];
@@ -283,15 +287,12 @@
             self.line_count = [aLineString count];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WHITE;"]){
             [super onEnterTransitionDidFinish];
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccWHITE]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.5 scene:[MainGameScene scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BLACK;"]){
             [super onEnterTransitionDidFinish];
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.5 scene:[MainGameScene scene] withColor:ccBLACK]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# REMOVE;"]){
-            [self.hyper removeFromParentAndCleanup:YES];
-            [self.center removeFromParentAndCleanup:YES];
-            [self.right removeFromParentAndCleanup:YES];
-            [self.left removeFromParentAndCleanup:YES];
+            [self removeAllChildrenWithCleanup:YES];
 
             // 除去して次に送る
             NSMutableArray *instruct = [self.engine readScript];
