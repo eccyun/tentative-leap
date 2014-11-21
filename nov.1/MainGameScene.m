@@ -321,6 +321,7 @@
             }else if([[dictionary objectForKey:@"action"] isEqualToString:@"STOP"]){
                 [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
             }else if([[dictionary objectForKey:@"action"] isEqualToString:@"RESUME"]){
+                NSLog(@"RESUME?");
                 [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
             }
         }
