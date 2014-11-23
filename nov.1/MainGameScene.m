@@ -232,7 +232,7 @@
 
                 CCLabelTTF *label = [CCLabelTTF labelWithString:data
                                                      dimensions:CGSizeMake(_size*[data length],_size)
-                                                     hAlignment:UITextAlignmentLeft fontName:_font fontSize:_size];
+                                                     hAlignment: NSTextAlignmentLeft fontName:_font fontSize:_size];
                 [label setAnchorPoint:ccp(0,0)];
                 label.tag = 4510+i;
 
@@ -263,7 +263,7 @@
                 
                 // アクションの定義
                 id _action         = [CCAnimate actionWithAnimation:animation];
-                id actionDelayTime = [CCDelayTime actionWithDuration:1.7f];
+                id actionDelayTime = [CCDelayTime actionWithDuration:1.7f*i];
                 id dummyAnimation  = [CCAnimate actionWithAnimation:dummy];
                 
                 id callFunc   = [CCCallFunc actionWithTarget:self selector:@selector(isAnimationCheck)];
