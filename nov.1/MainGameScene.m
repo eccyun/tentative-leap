@@ -147,7 +147,8 @@
                 CCTexture2D *tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                 [still setTexture:tex];
             }else{
-                still          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
+                still     = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
+                still.tag = [[dictionary objectForKey:@"tags"] integerValue];
 
                 // iPhone 5 以降との切り分けを行ったらラベルを追加
                 int height = [still boundingBox].size.height;
@@ -252,7 +253,7 @@
                     [textureMap addObject:frame];
                 }
 
-                float        delay     = 0.05f;
+                float delay = 0.05f;
 
                 NSMutableArray *dummyMap = [[NSMutableArray alloc] init];
                 [dummyMap addObject:[CCSpriteFrame frameWithTexture:label.texture rect:CGRectMake(0,0,1,1)]];
@@ -321,7 +322,6 @@
             }else if([[dictionary objectForKey:@"action"] isEqualToString:@"STOP"]){
                 [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
             }else if([[dictionary objectForKey:@"action"] isEqualToString:@"RESUME"]){
-                NSLog(@"RESUME?");
                 [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
             }
         }
