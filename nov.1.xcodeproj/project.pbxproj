@@ -42,6 +42,10 @@
 		1B5F030818C3753900710F44 /* menu_restart_on-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F030418C3753900710F44 /* menu_restart_on-hd.png */; };
 		1B5F030A18C37B6F00710F44 /* load_logo-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F030918C37B6F00710F44 /* load_logo-hd.png */; };
 		1B5F030C18C37E7D00710F44 /* script02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B5F030B18C37E7D00710F44 /* script02.txt */; };
+		1B77EA771A27941F00856A87 /* time-leap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B77EA761A27941F00856A87 /* time-leap.mp3 */; };
+		1B77EA791A279A3400856A87 /* on-a-bench.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B77EA781A279A3400856A87 /* on-a-bench.mp3 */; };
+		1B77EA7B1A279BD600856A87 /* bell-leap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B77EA7A1A279BD600856A87 /* bell-leap.mp3 */; };
+		1B77EA7D1A297D4400856A87 /* fest-leap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B77EA7C1A297D4400856A87 /* fest-leap.mp3 */; };
 		1B7A79F91674D49F003DFCEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A79F81674D49F003DFCEE /* QuartzCore.framework */; };
 		1B7A79FB1674D49F003DFCEE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A79FA1674D49F003DFCEE /* OpenGLES.framework */; };
 		1B7A79FD1674D49F003DFCEE /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A79FC1674D49F003DFCEE /* OpenAL.framework */; };
@@ -158,14 +162,12 @@
 		1B7A7B871674D4A3003DFCEE /* MainGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A7B861674D4A3003DFCEE /* MainGameScene.m */; };
 		1B8FD63D19E17EB40091F3C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8FD63C19E17EB40091F3C7 /* Images.xcassets */; };
 		1BBD4EAD16DBA51A009F6CEC /* SettingsParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */; };
+		1BD2DEA51A24C732000E3686 /* 02-shoot-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */; };
 		1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */; };
 		1BEAC2FC18AA6DB900BC22DA /* bar_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F418AA6DB900BC22DA /* bar_theme.mp3 */; };
-		1BEAC2FD18AA6DB900BC22DA /* bell_leap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F518AA6DB900BC22DA /* bell_leap.mp3 */; };
-		1BEAC2FE18AA6DB900BC22DA /* fes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F618AA6DB900BC22DA /* fes.mp3 */; };
 		1BEAC2FF18AA6DB900BC22DA /* leap_main_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F718AA6DB900BC22DA /* leap_main_theme.mp3 */; };
 		1BEAC30018AA6DB900BC22DA /* mary_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F818AA6DB900BC22DA /* mary_theme.mp3 */; };
 		1BEAC30118AA6DB900BC22DA /* road_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F918AA6DB900BC22DA /* road_theme.mp3 */; };
-		1BEAC30218AA6DB900BC22DA /* time_leap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2FA18AA6DB900BC22DA /* time_leap.mp3 */; };
 		1BEAC31B18AA6DC400BC22DA /* bar-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC30418AA6DC400BC22DA /* bar-hd.png */; };
 		1BEAC31C18AA6DC400BC22DA /* park-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC30518AA6DC400BC22DA /* park-hd.png */; };
 		1BEAC31D18AA6DC400BC22DA /* park_day-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC30618AA6DC400BC22DA /* park_day-hd.png */; };
@@ -271,6 +273,10 @@
 		1B5F030418C3753900710F44 /* menu_restart_on-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_restart_on-hd.png"; sourceTree = "<group>"; };
 		1B5F030918C37B6F00710F44 /* load_logo-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "load_logo-hd.png"; sourceTree = "<group>"; };
 		1B5F030B18C37E7D00710F44 /* script02.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = script02.txt; path = Resources/script/script02.txt; sourceTree = "<group>"; };
+		1B77EA761A27941F00856A87 /* time-leap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "time-leap.mp3"; sourceTree = "<group>"; };
+		1B77EA781A279A3400856A87 /* on-a-bench.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "on-a-bench.mp3"; sourceTree = "<group>"; };
+		1B77EA7A1A279BD600856A87 /* bell-leap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bell-leap.mp3"; sourceTree = "<group>"; };
+		1B77EA7C1A297D4400856A87 /* fest-leap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fest-leap.mp3"; sourceTree = "<group>"; };
 		1B7A79F41674D49F003DFCEE /* nov.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nov.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7A79F81674D49F003DFCEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1B7A79FA1674D49F003DFCEE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -523,14 +529,12 @@
 		1B8FD63C19E17EB40091F3C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1BBD4EAB16DBA51A009F6CEC /* SettingsParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsParts.h; sourceTree = "<group>"; };
 		1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsParts.m; sourceTree = "<group>"; };
+		1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-shoot-01-hd.png"; sourceTree = "<group>"; };
 		1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aruku_theme.mp3; sourceTree = "<group>"; };
 		1BEAC2F418AA6DB900BC22DA /* bar_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bar_theme.mp3; sourceTree = "<group>"; };
-		1BEAC2F518AA6DB900BC22DA /* bell_leap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell_leap.mp3; sourceTree = "<group>"; };
-		1BEAC2F618AA6DB900BC22DA /* fes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fes.mp3; sourceTree = "<group>"; };
 		1BEAC2F718AA6DB900BC22DA /* leap_main_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = leap_main_theme.mp3; sourceTree = "<group>"; };
 		1BEAC2F818AA6DB900BC22DA /* mary_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mary_theme.mp3; sourceTree = "<group>"; };
 		1BEAC2F918AA6DB900BC22DA /* road_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = road_theme.mp3; sourceTree = "<group>"; };
-		1BEAC2FA18AA6DB900BC22DA /* time_leap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_leap.mp3; sourceTree = "<group>"; };
 		1BEAC30418AA6DC400BC22DA /* bar-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-hd.png"; sourceTree = "<group>"; };
 		1BEAC30518AA6DC400BC22DA /* park-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "park-hd.png"; sourceTree = "<group>"; };
 		1BEAC30618AA6DC400BC22DA /* park_day-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "park_day-hd.png"; sourceTree = "<group>"; };
@@ -679,6 +683,7 @@
 		1B388A2D1A1E277200A1F37D /* still */ = {
 			isa = PBXGroup;
 			children = (
+				1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */,
 				1B388CDF1A221BB100A1F37D /* 01-teru-05-hd.png */,
 				1B388A3A1A1FB84900A1F37D /* 01-teru-04-hd.png */,
 				1B388A2E1A1E277200A1F37D /* 01-aruku-01-hd.png */,
@@ -1135,14 +1140,15 @@
 		1BEAC2F218AA6DB900BC22DA /* music */ = {
 			isa = PBXGroup;
 			children = (
+				1B77EA7C1A297D4400856A87 /* fest-leap.mp3 */,
+				1B77EA7A1A279BD600856A87 /* bell-leap.mp3 */,
+				1B77EA781A279A3400856A87 /* on-a-bench.mp3 */,
+				1B77EA761A27941F00856A87 /* time-leap.mp3 */,
 				1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */,
 				1BEAC2F418AA6DB900BC22DA /* bar_theme.mp3 */,
-				1BEAC2F518AA6DB900BC22DA /* bell_leap.mp3 */,
-				1BEAC2F618AA6DB900BC22DA /* fes.mp3 */,
 				1BEAC2F718AA6DB900BC22DA /* leap_main_theme.mp3 */,
 				1BEAC2F818AA6DB900BC22DA /* mary_theme.mp3 */,
 				1BEAC2F918AA6DB900BC22DA /* road_theme.mp3 */,
-				1BEAC2FA18AA6DB900BC22DA /* time_leap.mp3 */,
 			);
 			name = music;
 			path = Resources/music;
@@ -1288,20 +1294,22 @@
 				1BFEA6E418D20B920059640E /* script15.txt in Resources */,
 				1B5F030C18C37E7D00710F44 /* script02.txt in Resources */,
 				1B5F030718C3753900710F44 /* menu_restart_off-hd.png in Resources */,
+				1B77EA7B1A279BD600856A87 /* bell-leap.mp3 in Resources */,
 				1BFEA6CB18CCB6C70059640E /* Icon.png in Resources */,
 				1BFEA71918DF19C10059640E /* save-hd.png in Resources */,
 				1BEAC32818AA6DC400BC22DA /* aruku_normal-hd.png in Resources */,
 				1B388A361A1E277200A1F37D /* 01-cut-02-hd.png in Resources */,
 				1B5F030A18C37B6F00710F44 /* load_logo-hd.png in Resources */,
-				1BEAC2FE18AA6DB900BC22DA /* fes.mp3 in Resources */,
 				1BFEA6E218D20B920059640E /* script13.txt in Resources */,
 				1BEAC32E18AA6DC400BC22DA /* mary_laugh-hd.png in Resources */,
 				1BFEA6C118CCB3F40059640E /* script08.txt in Resources */,
+				1B77EA7D1A297D4400856A87 /* fest-leap.mp3 in Resources */,
 				1BEAC31F18AA6DC400BC22DA /* park_night-hd.png in Resources */,
 				1BFEA6EC18D4D1470059640E /* script19.txt in Resources */,
 				1BFEA71718DF19C10059640E /* save_frame-hd.png in Resources */,
 				1B5F02F918C36CBB00710F44 /* menu_background-hd.png in Resources */,
 				1BEAC31C18AA6DC400BC22DA /* park-hd.png in Resources */,
+				1B77EA791A279A3400856A87 /* on-a-bench.mp3 in Resources */,
 				1B5F030018C36CBB00710F44 /* title_logo-hd.png in Resources */,
 				1BFEA71818DF19C10059640E /* save_light-hd.png in Resources */,
 				1B212E5C18F1980C0023984A /* mary_anger_up-hd.png in Resources */,
@@ -1313,6 +1321,7 @@
 				1B388A341A1E277200A1F37D /* 01-aruku-01-hd.png in Resources */,
 				1BEAC32218AA6DC400BC22DA /* upland_evening-hd.png in Resources */,
 				1BFEA6E818D214870059640E /* script16.txt in Resources */,
+				1BD2DEA51A24C732000E3686 /* 02-shoot-01-hd.png in Resources */,
 				1BEAC32A18AA6DC400BC22DA /* aruku_puzzle2-hd.png in Resources */,
 				1BFEA6AC18CC938A0059640E /* script04.txt in Resources */,
 				1BFEA6C018CCB3F40059640E /* script07.txt in Resources */,
@@ -1328,7 +1337,6 @@
 				1B212E5E18F1980C0023984A /* mary_laugh_up-hd.png in Resources */,
 				1BFEA6AD18CC938A0059640E /* script05.txt in Resources */,
 				1BFEA6D818CCB7E60059640E /* Icon.png in Resources */,
-				1BEAC2FD18AA6DB900BC22DA /* bell_leap.mp3 in Resources */,
 				1BFEA6CD18CCB6C70059640E /* Icon@2x~iphone.png in Resources */,
 				1BEAC32618AA6DC400BC22DA /* aruku_laugh-hd.png in Resources */,
 				1BEAC32718AA6DC400BC22DA /* aruku_laugh2-hd.png in Resources */,
@@ -1339,12 +1347,12 @@
 				1BEAC32B18AA6DC400BC22DA /* aruku_puzzle3-hd.png in Resources */,
 				1BFEA6A818CC93370059640E /* script03.txt in Resources */,
 				1BFEA6EA18D214870059640E /* script18.txt in Resources */,
-				1BEAC30218AA6DB900BC22DA /* time_leap.mp3 in Resources */,
 				1BFEA6BA18CCA8100059640E /* Default-568h@2x.png in Resources */,
 				1BEAC33018AA6DC400BC22DA /* mary_puzzle-hd.png in Resources */,
 				1B8FD63D19E17EB40091F3C7 /* Images.xcassets in Resources */,
 				1B212E5A18F1980C0023984A /* aruku_normal_up-hd.png in Resources */,
 				1BEAC32418AA6DC400BC22DA /* aruku_anger-hd.png in Resources */,
+				1B77EA771A27941F00856A87 /* time-leap.mp3 in Resources */,
 				1BFEA71018DD63B40059640E /* load_on-hd.png in Resources */,
 				1BEAC33218AA6DED00BC22DA /* script01.txt in Resources */,
 				1B7A7A241674D49F003DFCEE /* iTunesArtwork in Resources */,
@@ -1518,7 +1526,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "84C3F7AD-5134-494D-809D-EFC5064E76B5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "26afa9b7-c010-4216-8255-3762b3acd45e";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1538,7 +1546,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "84C3F7AD-5134-494D-809D-EFC5064E76B5";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "348cf57a-38b6-4444-afdf-7e81e0d177ca";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1552,6 +1561,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ryo Tajima (9FXVFCUTL5)";
+				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1565,7 +1575,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B47EE716-8219-42CF-A161-F0E77E7EB704";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "26afa9b7-c010-4216-8255-3762b3acd45e";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1578,6 +1588,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ryo Tajima (QKGC4WB884)";
+				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = nov.1/Prefix.pch;
@@ -1590,7 +1601,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "524CEBD8-6C9C-4BB0-B8D4-7DBB1A4547D4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "348cf57a-38b6-4444-afdf-7e81e0d177ca";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
