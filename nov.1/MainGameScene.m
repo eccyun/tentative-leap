@@ -203,11 +203,12 @@
             // テキスチャを切り出して配列で保存する
             NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
             NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
+            NSInteger        _a_line_text = 32;
             
             // 文字情報を取得する
             for (int i=0; i<len; i++) {
                 // 改行 1行あたりの文字列が32文字なので
-                if(i%32==0 && i > 0){
+                if(i%_a_line_text==0 && i > 0){
                     [aLineString addObject:_string];
 
                     // 残り文字数を更新
@@ -222,7 +223,7 @@
             }
 
             // 後処理　もし残りがあれば
-            if(base_length < 32){
+            if(base_length <= _a_line_text){
                 [aLineString addObject:_string];
             }
 
@@ -439,11 +440,12 @@
         // テキスチャを切り出して配列で保存する
         NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
         NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
+        NSInteger        _a_line_text = 32;
         
         // 文字情報を取得する
         for (int i=0; i<len; i++) {
             // 改行 1行あたりの文字列が32文字なので
-            if(i%32==0 && i > 0){
+            if(i%_a_line_text==0 && i > 0){
                 [aLineString addObject:_string];
                 
                 // 残り文字数を更新
@@ -459,7 +461,7 @@
         
         
         // 後処理　もし残りがあれば
-        if(base_length < 32){
+        if(base_length <= _a_line_text){
             [aLineString addObject:_string];
         }
 
@@ -470,7 +472,7 @@
             
             CCLabelTTF *label = [CCLabelTTF labelWithString:data
                                                  dimensions:CGSizeMake(_size*[data length],_size)
-                                                 hAlignment:UITextAlignmentLeft fontName:_font fontSize:_size];
+                                                 hAlignment:NSTextAlignmentLeft fontName:_font fontSize:_size];
             [label setAnchorPoint:ccp(0,0)];
             label.tag = 4510+i;
 
