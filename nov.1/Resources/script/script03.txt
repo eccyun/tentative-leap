@@ -1,33 +1,103 @@
-# BGM:fes.mp3:LOAD
-# BGM:fes.mp3:PLAY
-# BG:park_festa.png
+# BGM:on-a-bench.mp3:LOAD
+# BGM:on-a-bench.mp3:PLAY
+# BG:rest.png
 # IMG:aruku_normal.png:center
-# MSG:「思ったより、人が多いね」
+# MSG:「そろそろ、良い時間になってきたね」
 STOP;
-# MSG:「こうなるんだったら、もうちょっと早めに移動しておいたほうが良かったかな」
+# MSG:「うん、そうだね」
 STOP;
-# MSG:「そうかも。ちょっと予想外だったなー」
+# MSG:射的を終えてから、会場内を一通り見てまわった僕達はベンチで休憩をしていた。
 STOP;
-# MSG:高台までの道のりは人でごった返していてとても混み合っていた...。
+# MSG:会場の所々では片付けが既にはじまっているようで、夏祭りの終わりが近付いてきているのを感じさせる。
 STOP;
-# MSG:ぼくらが花火を見ようとしているように、他の人達も花火会場に移動しているのかもしれない。
+# IMG:aruku_laugh2_up.png:center
+# MSG:「今年の夏祭りが一番楽しかったかも。一人も良いけど、誰かと行くのもいいね。」
 STOP;
-# REMOVE;
-# BGM:fes.mp3:STOP
-# MSG:彼女とはぐれたのはちょうどこの人ごみの中を歩いている時だった。
+# IMG:aruku_laugh_up.png:center
+# MSG:「それもこれも照くんが一緒に来てくれたからだよ、ありがとう！」
 STOP;
-# MSG:その時、ぼくが気付いたのは彼女とはぐれてからほどなくしたころだったと思う。
+# MSG:何の恥ずかし気もない彼女の一言に、なんだかどぎまぎとしてしまう。
 STOP;
-# MSG:それから彼女を探したけれど、なかなか彼女は見つからなかった。
+# MSG:「そっか、それは良かった」
 STOP;
-# MSG:会場をひとしきり走りまわって、とうとう彼女を見つけることができないまま花火があがりはじめた。
+# IMG:aruku_laugh2.png:center
+# MSG:「それで、照くんはどうだった？楽しかった？」
 STOP;
-# MSG:それをきっかけにして、ぼくはもう探すことを諦めてしまった。
+# MSG:「正直、最初はどうなるかと思ったけれど」
 STOP;
-# MSG:また公園に行けば会えると思って、その日はもう家に帰ることにした。
+# IMG:aruku_normal.png:center
+# MSG:「うん」
 STOP;
-# MSG:それから、数日は公園に行って絵を描くことを続けていたけれどとうとう彼女が公園にやってくることはなかった。
+# MSG:「僕も楽しかったよ、久しぶりに来てみるとこういうお祭りも良いね」
 STOP;
-# MSG:彼女がいったい誰だったのかもわからないまま、夏休みも終わってしまい新学期を迎えることになった。
+# IMG:aruku_laugh2.png:center
+# MSG:「そっか、良かった」
+STOP;
+# MSG:「もしも、面白くないと思ってたらどうしようと思って」
+STOP;
+# MSG:「意外だな、そういうことはあんまり気にしない子だと思ってた」
+STOP;
+# IMG:aruku_anger.png:center
+# MSG:「なんだよ、失礼だなあ。私だってちゃんと考えてるよ」
+STOP;
+# MSG:「ははは、冗談だよ…」
+STOP;
+# IMG:aruku_normal.png:center
+# MSG:高台で絵を描いていて彼女に誘われてからここまで、あっと言う間に時間が過ぎていった。
+STOP;
+# MSG:最初はどうなるか心配だったけれど、彼女と夏祭りに行くことが出来て良かったと思う。
+STOP;
+# MSG:ただ、僕にはまだ気になっていることがあった。
+STOP;
+# MSG:もともと、彼女と夏祭りに行くきっかけになった出来事で、彼女が高台で言っていたことだ。
+STOP;
+# BLACK;
+# BG:upland_evening.png
+# STILL-IMG:01-teru-04.png:122:left:1
+# STILL-IMG:01-aruku-01.png:116:right:2
+# MSG:「やっぱり、私のこと覚えてない？」
+STOP;
+# BLACK;
+# BG:rest.png
+# IMG:aruku_normal.png:center
+# MSG:あれは、どういうことだったんだろう。
+STOP;
+# MSG:それを聞こうと思って、結局聞けていないままだった。
+STOP;
+# MSG:結局のところ、単なるはったりだったのだろうか？
+STOP;
+# MSG:ただ、仮にもしそうだったとしても、そんなことをする理由が全くわからない。
+STOP;
+# MSG:それにこれまでの印象だと、彼女がそんなことをするようにも見えなかった。
+STOP;
+# IMG:aruku_laugh2.png:center
+# MSG:「あのさ」
+STOP;
+# MSG:「うん、なに？」
+STOP;
+# MSG:「この後、花火があるんだって。知ってた？」
+STOP;
+# MSG:「えっ、そうなんだ。僕はここで夏祭りがあるってことしか知らなかったから…」
+STOP;
+# IMG:aruku_normal.png:center
+# MSG:「もうそろそろ時間だと思うんだよね」
+STOP;
+# IMG:aruku_laugh2.png:center
+# MSG:「だからさ、最後に花火観ようよ。高台まで行ってさ！」
+STOP;
+# MSG:「うん、良いよ」
+STOP;
+# MSG:「それじゃあ、また高台まで歩こうか」
+STOP;
+# IMG:aruku_laugh.png:center
+# MSG:「わーい、ありがとう！」
+STOP;
+# MSG:花火を観ることが決まって、彼女はとても嬉しそうだ。
+STOP;
+# MSG:そんな様子を見ていると彼女が誰なのか、今ここで聞くことでも無いかなと思った。
+STOP;
+# MSG:『高台に着いたら、その時にまた聞いてみよう』
+STOP;
+# MSG:そう決めて、僕達は高台までの道を歩いていくことにした。
 STOP;
 LOADING;
