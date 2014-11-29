@@ -37,8 +37,8 @@
         [ud setInteger:0 forKey:@"quick_start_flag"];
         [ud synchronize];
 
-        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"time_leap.mp3"];
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"time_leap.mp3" loop:YES];
+        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"time-leap.mp3"];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"time-leap.mp3" loop:YES];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.5];
 
         self.isTouchEnabled = YES;

@@ -104,12 +104,13 @@
                         [self.center runAction:[CCFadeOut actionWithDuration:0.3f]];
                         tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                         [self.center setTexture:tex];
-                        [self.center setTextureRect:CGRectMake(0, 0, self.center.contentSize.width, self.center.contentSize.height)];
+                        [self.center setTextureRect:CGRectMake(0, 0,tex.contentSize.width, tex.contentSize.height)];
                         [self.center runAction:[CCFadeIn actionWithDuration:0.3f]];
                         self.isUp = (self.isUp)?NO:YES;
                     }else{
                         tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                         [self.center setTexture:tex];
+                        [self.center setTextureRect:CGRectMake(0, 0,tex.contentSize.width, tex.contentSize.height)];
                     }
                 }
             }else if([[dictionary objectForKey:@"position"] isEqualToString:@"right"]){
@@ -155,9 +156,9 @@
                 height     = [[CCDirector sharedDirector] winSize].height-height;
 
                 if ([[dictionary objectForKey:@"direction"] isEqualToString:@"right"]) {
-                    still.position = ccp((size.width+[[dictionary objectForKey:@"x"] integerValue])/2, (size.height-height)/2);
+                    still.position = ccp((size.width/2)+[[dictionary objectForKey:@"x"] integerValue], (size.height-height)/2);
                 }else if([[dictionary objectForKey:@"direction"] isEqualToString:@"left"]){
-                    still.position = ccp((size.width-[[dictionary objectForKey:@"x"] integerValue])/2, (size.height-height)/2);
+                    still.position = ccp((size.width/2)-[[dictionary objectForKey:@"x"] integerValue], (size.height-height)/2);
                 }
 
                 [still runAction:[CCFadeIn actionWithDuration:0.3f]];
