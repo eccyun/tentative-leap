@@ -203,11 +203,11 @@
             // テキスチャを切り出して配列で保存する
             NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
             NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
-            NSInteger        _a_line_text = 32;
+            NSInteger        _a_line_text = 30;
             
             // 文字情報を取得する
             for (int i=0; i<len; i++) {
-                // 改行 1行あたりの文字列が32文字なので
+                // 改行 1行あたりの文字列が30文字なので
                 if(i%_a_line_text==0 && i > 0){
                     [aLineString addObject:_string];
 
@@ -234,7 +234,7 @@
 
                 CCLabelTTF *label = [CCLabelTTF labelWithString:data
                                                      dimensions:CGSizeMake(_size*[data length],_size)
-                                                     hAlignment: NSTextAlignmentLeft fontName:_font fontSize:_size];
+                                                     hAlignment:NSTextAlignmentLeft fontName:_font fontSize:_size];
                 [label setAnchorPoint:ccp(0,0)];
                 label.tag = 4510+i;
 
@@ -265,7 +265,7 @@
                 
                 // アクションの定義
                 id _action         = [CCAnimate actionWithAnimation:animation];
-                id actionDelayTime = [CCDelayTime actionWithDuration:1.7f*i];
+                id actionDelayTime = [CCDelayTime actionWithDuration:1.5f*i];
                 id dummyAnimation  = [CCAnimate actionWithAnimation:dummy];
                 
                 id callFunc   = [CCCallFunc actionWithTarget:self selector:@selector(isAnimationCheck)];
@@ -440,11 +440,11 @@
         // テキスチャを切り出して配列で保存する
         NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
         NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
-        NSInteger        _a_line_text = 32;
+        NSInteger        _a_line_text = 30;
         
         // 文字情報を取得する
         for (int i=0; i<len; i++) {
-            // 改行 1行あたりの文字列が32文字なので
+            // 改行 1行あたりの文字列が30文字なので
             if(i%_a_line_text==0 && i > 0){
                 [aLineString addObject:_string];
                 
