@@ -46,6 +46,7 @@
 		1B77EA791A279A3400856A87 /* on-a-bench.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B77EA781A279A3400856A87 /* on-a-bench.mp3 */; };
 		1B77EA7B1A279BD600856A87 /* bell-leap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B77EA7A1A279BD600856A87 /* bell-leap.mp3 */; };
 		1B77EA7D1A297D4400856A87 /* fest-leap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B77EA7C1A297D4400856A87 /* fest-leap.mp3 */; };
+		1B77EAAF1A2B4CBF00856A87 /* 06-watch-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B77EAAE1A2B4CBF00856A87 /* 06-watch-01-hd.png */; };
 		1B7A79F91674D49F003DFCEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A79F81674D49F003DFCEE /* QuartzCore.framework */; };
 		1B7A79FB1674D49F003DFCEE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A79FA1674D49F003DFCEE /* OpenGLES.framework */; };
 		1B7A79FD1674D49F003DFCEE /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7A79FC1674D49F003DFCEE /* OpenAL.framework */; };
@@ -277,6 +278,7 @@
 		1B77EA781A279A3400856A87 /* on-a-bench.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "on-a-bench.mp3"; sourceTree = "<group>"; };
 		1B77EA7A1A279BD600856A87 /* bell-leap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bell-leap.mp3"; sourceTree = "<group>"; };
 		1B77EA7C1A297D4400856A87 /* fest-leap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fest-leap.mp3"; sourceTree = "<group>"; };
+		1B77EAAE1A2B4CBF00856A87 /* 06-watch-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-watch-01-hd.png"; sourceTree = "<group>"; };
 		1B7A79F41674D49F003DFCEE /* nov.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nov.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7A79F81674D49F003DFCEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1B7A79FA1674D49F003DFCEE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -683,6 +685,7 @@
 		1B388A2D1A1E277200A1F37D /* still */ = {
 			isa = PBXGroup;
 			children = (
+				1B77EAAE1A2B4CBF00856A87 /* 06-watch-01-hd.png */,
 				1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */,
 				1B388CDF1A221BB100A1F37D /* 01-teru-05-hd.png */,
 				1B388A3A1A1FB84900A1F37D /* 01-teru-04-hd.png */,
@@ -1365,6 +1368,7 @@
 				1B5F030518C3753900710F44 /* menu_quick_start_off-hd.png in Resources */,
 				1B212E6018F1980C0023984A /* mary_puzzle_up-hd.png in Resources */,
 				1B212E5718F1980C0023984A /* aruku_cry_up-hd.png in Resources */,
+				1B77EAAF1A2B4CBF00856A87 /* 06-watch-01-hd.png in Resources */,
 				1BEAC2FF18AA6DB900BC22DA /* leap_main_theme.mp3 in Resources */,
 				1BEAC32018AA6DC400BC22DA /* road-hd.png in Resources */,
 				1B388A3B1A1FB84900A1F37D /* 01-teru-04-hd.png in Resources */,
