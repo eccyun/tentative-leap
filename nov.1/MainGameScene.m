@@ -314,7 +314,7 @@
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BGM"]){
             //BGM開始
-            CGFloat         volume_value = 0.5;
+            CGFloat         volume_value = 1.f;
 
             if([[dictionary objectForKey:@"action"] isEqualToString:@"LOAD"]){
                 [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:[dictionary objectForKey:@"bgm_name"]];
