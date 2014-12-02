@@ -123,13 +123,6 @@ static CGFloat difValue = 0.0f;
     }else if(minValue < location.x && maxValue > location.x){
         checkerSprite.position = ccp(location.x, checkerSprite.position.y);
     }
-
-/*
-    if(self.volume_collision || self.se_collision){
-        CGFloat value = ((checkerSprite.position.x-minValue)/difValue)*100;
-        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:value];
-    }
-*/
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
