@@ -26,6 +26,8 @@
 		1B212E6018F1980C0023984A /* mary_puzzle_up-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B212E5518F1980C0023984A /* mary_puzzle_up-hd.png */; };
 		1B25150B1A348C1E004200C1 /* 12-aruku-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2515091A348C1E004200C1 /* 12-aruku-01-hd.png */; };
 		1B25150C1A348C1E004200C1 /* 12-aruku-02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B25150A1A348C1E004200C1 /* 12-aruku-02-hd.png */; };
+		1B25150E1A349A1A004200C1 /* confessions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B25150D1A349A1A004200C1 /* confessions.mp3 */; };
+		1B2515101A349E3F004200C1 /* 12-aruku-03-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B25150F1A349E3F004200C1 /* 12-aruku-03-hd.png */; };
 		1B388A341A1E277200A1F37D /* 01-aruku-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B388A2E1A1E277200A1F37D /* 01-aruku-01-hd.png */; };
 		1B388A351A1E277200A1F37D /* 01-cut-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B388A2F1A1E277200A1F37D /* 01-cut-01-hd.png */; };
 		1B388A361A1E277200A1F37D /* 01-cut-02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B388A301A1E277200A1F37D /* 01-cut-02-hd.png */; };
@@ -267,6 +269,8 @@
 		1B212E5518F1980C0023984A /* mary_puzzle_up-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mary_puzzle_up-hd.png"; path = "Resources/up/mary_puzzle_up-hd.png"; sourceTree = "<group>"; };
 		1B2515091A348C1E004200C1 /* 12-aruku-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "12-aruku-01-hd.png"; sourceTree = "<group>"; };
 		1B25150A1A348C1E004200C1 /* 12-aruku-02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "12-aruku-02-hd.png"; sourceTree = "<group>"; };
+		1B25150D1A349A1A004200C1 /* confessions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = confessions.mp3; sourceTree = "<group>"; };
+		1B25150F1A349E3F004200C1 /* 12-aruku-03-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "12-aruku-03-hd.png"; sourceTree = "<group>"; };
 		1B388A2E1A1E277200A1F37D /* 01-aruku-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-aruku-01-hd.png"; sourceTree = "<group>"; };
 		1B388A2F1A1E277200A1F37D /* 01-cut-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-cut-01-hd.png"; sourceTree = "<group>"; };
 		1B388A301A1E277200A1F37D /* 01-cut-02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-cut-02-hd.png"; sourceTree = "<group>"; };
@@ -703,6 +707,7 @@
 		1B388A2D1A1E277200A1F37D /* still */ = {
 			isa = PBXGroup;
 			children = (
+				1B25150F1A349E3F004200C1 /* 12-aruku-03-hd.png */,
 				1B2515091A348C1E004200C1 /* 12-aruku-01-hd.png */,
 				1B25150A1A348C1E004200C1 /* 12-aruku-02-hd.png */,
 				1B77EABC1A2DFDB400856A87 /* 10-aruku-01-hd.png */,
@@ -1170,6 +1175,7 @@
 		1BEAC2F218AA6DB900BC22DA /* music */ = {
 			isa = PBXGroup;
 			children = (
+				1B25150D1A349A1A004200C1 /* confessions.mp3 */,
 				1B77EA7C1A297D4400856A87 /* fest-leap.mp3 */,
 				1B77EA7A1A279BD600856A87 /* bell-leap.mp3 */,
 				1B77EA781A279A3400856A87 /* on-a-bench.mp3 */,
@@ -1333,6 +1339,7 @@
 				1BFEA71918DF19C10059640E /* save-hd.png in Resources */,
 				1BEAC32818AA6DC400BC22DA /* aruku_normal-hd.png in Resources */,
 				1B388A361A1E277200A1F37D /* 01-cut-02-hd.png in Resources */,
+				1B2515101A349E3F004200C1 /* 12-aruku-03-hd.png in Resources */,
 				1B5F030A18C37B6F00710F44 /* load_logo-hd.png in Resources */,
 				1BFEA6E218D20B920059640E /* script13.txt in Resources */,
 				1BEAC32E18AA6DC400BC22DA /* mary_laugh-hd.png in Resources */,
@@ -1408,6 +1415,7 @@
 				1BEAC2FF18AA6DB900BC22DA /* leap_main_theme.mp3 in Resources */,
 				1BEAC32018AA6DC400BC22DA /* road-hd.png in Resources */,
 				1B388A3B1A1FB84900A1F37D /* 01-teru-04-hd.png in Resources */,
+				1B25150E1A349A1A004200C1 /* confessions.mp3 in Resources */,
 				1BFEA6C418CCB3F40059640E /* script11.txt in Resources */,
 				1BEAC31D18AA6DC400BC22DA /* park_day-hd.png in Resources */,
 				1BEAC32918AA6DC400BC22DA /* aruku_puzzle-hd.png in Resources */,
