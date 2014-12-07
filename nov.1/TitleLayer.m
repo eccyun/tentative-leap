@@ -39,7 +39,7 @@
 
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"time-leap.mp3"];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"time-leap.mp3" loop:YES];
-        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.5];
+        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.f];
 
         self.isTouchEnabled = YES;
 
@@ -92,6 +92,7 @@
        location.x < self.start_logo.position.x+(self.start_logo.contentSize.width/2)&&
        location.y > self.start_logo.position.y-(self.start_logo.contentSize.height/2)&&
        location.y < self.start_logo.position.y+(self.start_logo.contentSize.height/2)){
+        [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
     }else if(location.x > self.quick_logo.position.x-(self.quick_logo.contentSize.width/2)&&
              location.x < self.quick_logo.position.x+(self.quick_logo.contentSize.width/2)&&
