@@ -132,6 +132,9 @@ static struct{
             }else if(quick_start == 0){
                 [set setValue:@"# SKIP;" forKey:@"instruct_name"];
             }
+        }else if([instruct_name isEqualToString:@"# WAIT"]){
+            [set setValue:instruct_name           forKey:@"instruct_name"];
+            [set setValue:[split objectAtIndex:1] forKey:@"times"];
         }
         [ret insertObject:set atIndex:k];
     }

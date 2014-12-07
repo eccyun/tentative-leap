@@ -326,6 +326,8 @@
             }else if([[dictionary objectForKey:@"action"] isEqualToString:@"RESUME"]){
                 [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
             }
+        }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WAIT"]){
+            
         }
 
         self.msgWindow.zOrder  = 997;
@@ -531,7 +533,7 @@
         // ラベルを作成する（後でテクスチャーとして使用する）
         self.msgLabel = [CCLabelTTF labelWithString:text
                                          dimensions:size
-                                         hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:13];
+                                         hAlignment:NSTextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:13];
         [self.msgLabel setAnchorPoint:ccp(0,0)];
         // self.msgLabel.position = ccp(10 , size.height/self.msgWindow.position.y-10.0f);
         
