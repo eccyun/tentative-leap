@@ -173,6 +173,13 @@
 		1B7A7B841674D4A3003DFCEE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A7B831674D4A3003DFCEE /* AppDelegate.m */; };
 		1B7A7B871674D4A3003DFCEE /* MainGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A7B861674D4A3003DFCEE /* MainGameScene.m */; };
 		1B8FD63D19E17EB40091F3C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8FD63C19E17EB40091F3C7 /* Images.xcassets */; };
+		1B9F14151A360F8B002F8DCD /* 14-aruku-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14111A360F8B002F8DCD /* 14-aruku-01-hd.png */; };
+		1B9F14171A360F8B002F8DCD /* 14-aruku-02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14131A360F8B002F8DCD /* 14-aruku-02-hd.png */; };
+		1B9F14181A360F8B002F8DCD /* 14-aruku-03-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14141A360F8B002F8DCD /* 14-aruku-03-hd.png */; };
+		1B9F141D1A361490002F8DCD /* 14-fire-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14191A361490002F8DCD /* 14-fire-01-hd.png */; };
+		1B9F141E1A361490002F8DCD /* 14-fire-02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F141A1A361490002F8DCD /* 14-fire-02-hd.png */; };
+		1B9F141F1A361490002F8DCD /* 14-fire-03-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F141B1A361490002F8DCD /* 14-fire-03-hd.png */; };
+		1B9F14201A361490002F8DCD /* 14-fire-04-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F141C1A361490002F8DCD /* 14-fire-04-hd.png */; };
 		1BBD4EAD16DBA51A009F6CEC /* SettingsParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */; };
 		1BD2DEA51A24C732000E3686 /* 02-shoot-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */; };
 		1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */; };
@@ -551,6 +558,13 @@
 		1B7A7B851674D4A3003DFCEE /* MainGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainGameScene.h; sourceTree = "<group>"; };
 		1B7A7B861674D4A3003DFCEE /* MainGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainGameScene.m; sourceTree = "<group>"; };
 		1B8FD63C19E17EB40091F3C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1B9F14111A360F8B002F8DCD /* 14-aruku-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-01-hd.png"; sourceTree = "<group>"; };
+		1B9F14131A360F8B002F8DCD /* 14-aruku-02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-02-hd.png"; sourceTree = "<group>"; };
+		1B9F14141A360F8B002F8DCD /* 14-aruku-03-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-03-hd.png"; sourceTree = "<group>"; };
+		1B9F14191A361490002F8DCD /* 14-fire-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-fire-01-hd.png"; sourceTree = "<group>"; };
+		1B9F141A1A361490002F8DCD /* 14-fire-02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-fire-02-hd.png"; sourceTree = "<group>"; };
+		1B9F141B1A361490002F8DCD /* 14-fire-03-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-fire-03-hd.png"; sourceTree = "<group>"; };
+		1B9F141C1A361490002F8DCD /* 14-fire-04-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-fire-04-hd.png"; sourceTree = "<group>"; };
 		1BBD4EAB16DBA51A009F6CEC /* SettingsParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsParts.h; sourceTree = "<group>"; };
 		1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsParts.m; sourceTree = "<group>"; };
 		1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-shoot-01-hd.png"; sourceTree = "<group>"; };
@@ -707,6 +721,13 @@
 		1B388A2D1A1E277200A1F37D /* still */ = {
 			isa = PBXGroup;
 			children = (
+				1B9F14191A361490002F8DCD /* 14-fire-01-hd.png */,
+				1B9F141A1A361490002F8DCD /* 14-fire-02-hd.png */,
+				1B9F141B1A361490002F8DCD /* 14-fire-03-hd.png */,
+				1B9F141C1A361490002F8DCD /* 14-fire-04-hd.png */,
+				1B9F14111A360F8B002F8DCD /* 14-aruku-01-hd.png */,
+				1B9F14131A360F8B002F8DCD /* 14-aruku-02-hd.png */,
+				1B9F14141A360F8B002F8DCD /* 14-aruku-03-hd.png */,
 				1B25150F1A349E3F004200C1 /* 12-aruku-03-hd.png */,
 				1B2515091A348C1E004200C1 /* 12-aruku-01-hd.png */,
 				1B25150A1A348C1E004200C1 /* 12-aruku-02-hd.png */,
@@ -1379,11 +1400,13 @@
 				1B212E5818F1980C0023984A /* aruku_laugh_up-hd.png in Resources */,
 				1B212E5E18F1980C0023984A /* mary_laugh_up-hd.png in Resources */,
 				1BFEA6AD18CC938A0059640E /* script05.txt in Resources */,
+				1B9F14151A360F8B002F8DCD /* 14-aruku-01-hd.png in Resources */,
 				1BFEA6D818CCB7E60059640E /* Icon.png in Resources */,
 				1BFEA6CD18CCB6C70059640E /* Icon@2x~iphone.png in Resources */,
 				1BEAC32618AA6DC400BC22DA /* aruku_laugh-hd.png in Resources */,
 				1BEAC32718AA6DC400BC22DA /* aruku_laugh2-hd.png in Resources */,
 				1B388A351A1E277200A1F37D /* 01-cut-01-hd.png in Resources */,
+				1B9F141E1A361490002F8DCD /* 14-fire-02-hd.png in Resources */,
 				1BFEA6F518D5D6050059640E /* msg_window_save-hd.png in Resources */,
 				1B5F030618C3753900710F44 /* menu_quick_start_on-hd.png in Resources */,
 				1BFEA6C218CCB3F40059640E /* script09.txt in Resources */,
@@ -1392,6 +1415,7 @@
 				1BFEA6EA18D214870059640E /* script18.txt in Resources */,
 				1BFEA6BA18CCA8100059640E /* Default-568h@2x.png in Resources */,
 				1B77EABB1A2CC94400856A87 /* 08-mary-01-hd.png in Resources */,
+				1B9F141F1A361490002F8DCD /* 14-fire-03-hd.png in Resources */,
 				1BEAC33018AA6DC400BC22DA /* mary_puzzle-hd.png in Resources */,
 				1B8FD63D19E17EB40091F3C7 /* Images.xcassets in Resources */,
 				1B212E5A18F1980C0023984A /* aruku_normal_up-hd.png in Resources */,
@@ -1410,6 +1434,7 @@
 				1BEAC32518AA6DC400BC22DA /* aruku_cry-hd.png in Resources */,
 				1B5F030518C3753900710F44 /* menu_quick_start_off-hd.png in Resources */,
 				1B212E6018F1980C0023984A /* mary_puzzle_up-hd.png in Resources */,
+				1B9F14171A360F8B002F8DCD /* 14-aruku-02-hd.png in Resources */,
 				1B212E5718F1980C0023984A /* aruku_cry_up-hd.png in Resources */,
 				1B77EAAF1A2B4CBF00856A87 /* 06-watch-01-hd.png in Resources */,
 				1BEAC2FF18AA6DB900BC22DA /* leap_main_theme.mp3 in Resources */,
@@ -1425,12 +1450,15 @@
 				1BEAC32118AA6DC400BC22DA /* road_day-hd.png in Resources */,
 				1BEAC30118AA6DB900BC22DA /* road_theme.mp3 in Resources */,
 				1B212E5F18F1980C0023984A /* mary_normal_up-hd.png in Resources */,
+				1B9F14201A361490002F8DCD /* 14-fire-04-hd.png in Resources */,
+				1B9F14181A360F8B002F8DCD /* 14-aruku-03-hd.png in Resources */,
 				1BFEA6AE18CC938A0059640E /* script06.txt in Resources */,
 				1B388CE01A221BB100A1F37D /* 01-teru-05-hd.png in Resources */,
 				1BEAC31E18AA6DC400BC22DA /* park_festa-hd.png in Resources */,
 				1BFEA6E318D20B920059640E /* script14.txt in Resources */,
 				1BFEA6CC18CCB6C70059640E /* Icon@2x.png in Resources */,
 				1BEAC32D18AA6DC400BC22DA /* mary_cry-hd.png in Resources */,
+				1B9F141D1A361490002F8DCD /* 14-fire-01-hd.png in Resources */,
 				1B1855E8192A775300BF81C4 /* notice-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
