@@ -235,8 +235,6 @@
 		1BFEA6E418D20B920059640E /* script15.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1BFEA6E018D20B920059640E /* script15.txt */; };
 		1BFEA6E818D214870059640E /* script16.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1BFEA6E518D214870059640E /* script16.txt */; };
 		1BFEA6E918D214870059640E /* script17.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1BFEA6E618D214870059640E /* script17.txt */; };
-		1BFEA6EA18D214870059640E /* script18.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1BFEA6E718D214870059640E /* script18.txt */; };
-		1BFEA6EC18D4D1470059640E /* script19.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1BFEA6EB18D4D1470059640E /* script19.txt */; };
 		1BFEA6F418D5D6050059640E /* msg_window_load-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BFEA6F218D5D6050059640E /* msg_window_load-hd.png */; };
 		1BFEA6F518D5D6050059640E /* msg_window_save-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BFEA6F318D5D6050059640E /* msg_window_save-hd.png */; };
 		1BFEA6F818D5DEBE0059640E /* SaveScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6F718D5DEBE0059640E /* SaveScene.m */; };
@@ -621,8 +619,6 @@
 		1BFEA6E018D20B920059640E /* script15.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = script15.txt; path = Resources/script/script15.txt; sourceTree = "<group>"; };
 		1BFEA6E518D214870059640E /* script16.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = script16.txt; path = Resources/script/script16.txt; sourceTree = "<group>"; };
 		1BFEA6E618D214870059640E /* script17.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = script17.txt; path = Resources/script/script17.txt; sourceTree = "<group>"; };
-		1BFEA6E718D214870059640E /* script18.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = script18.txt; path = Resources/script/script18.txt; sourceTree = "<group>"; };
-		1BFEA6EB18D4D1470059640E /* script19.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = script19.txt; path = Resources/script/script19.txt; sourceTree = "<group>"; };
 		1BFEA6F218D5D6050059640E /* msg_window_load-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "msg_window_load-hd.png"; path = "Resources/UI/msg_window_load-hd.png"; sourceTree = "<group>"; };
 		1BFEA6F318D5D6050059640E /* msg_window_save-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "msg_window_save-hd.png"; path = "Resources/UI/msg_window_save-hd.png"; sourceTree = "<group>"; };
 		1BFEA6F618D5DEBE0059640E /* SaveScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveScene.h; sourceTree = "<group>"; };
@@ -677,8 +673,6 @@
 				1BFEA6E018D20B920059640E /* script15.txt */,
 				1BFEA6E518D214870059640E /* script16.txt */,
 				1BFEA6E618D214870059640E /* script17.txt */,
-				1BFEA6E718D214870059640E /* script18.txt */,
-				1BFEA6EB18D4D1470059640E /* script19.txt */,
 			);
 			name = script;
 			sourceTree = "<group>";
@@ -1367,7 +1361,6 @@
 				1BFEA6C118CCB3F40059640E /* script08.txt in Resources */,
 				1B77EA7D1A297D4400856A87 /* fest-leap.mp3 in Resources */,
 				1BEAC31F18AA6DC400BC22DA /* park_night-hd.png in Resources */,
-				1BFEA6EC18D4D1470059640E /* script19.txt in Resources */,
 				1BFEA71718DF19C10059640E /* save_frame-hd.png in Resources */,
 				1B5F02F918C36CBB00710F44 /* menu_background-hd.png in Resources */,
 				1BEAC31C18AA6DC400BC22DA /* park-hd.png in Resources */,
@@ -1412,7 +1405,6 @@
 				1BFEA6C218CCB3F40059640E /* script09.txt in Resources */,
 				1BEAC32B18AA6DC400BC22DA /* aruku_puzzle3-hd.png in Resources */,
 				1BFEA6A818CC93370059640E /* script03.txt in Resources */,
-				1BFEA6EA18D214870059640E /* script18.txt in Resources */,
 				1BFEA6BA18CCA8100059640E /* Default-568h@2x.png in Resources */,
 				1B77EABB1A2CC94400856A87 /* 08-mary-01-hd.png in Resources */,
 				1B9F141F1A361490002F8DCD /* 14-fire-03-hd.png in Resources */,
