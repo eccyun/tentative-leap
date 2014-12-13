@@ -201,7 +201,7 @@
             int _line_height = 5;
 
             // テキスチャを切り出して配列で保存する
-            NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
+            NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャ
             NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
             NSInteger        _a_line_text = 30;
             
@@ -209,14 +209,29 @@
             for (int i=0; i<len; i++) {
                 // 改行 1行あたりの文字列が30文字なので
                 if(i%_a_line_text==0 && i > 0){
+                    // 残りの文字数をチェック
+                    NSInteger rest = base_length - [_string length];
+
+                    // 残りが一文字で、それが句読点だった場合折り返さないで詰める
+                    if(rest==1){
+                        NSString *tmp_text = [NSString stringWithFormat:@"%@",[text substringWithRange:NSMakeRange(i, 1)]];
+                        if([tmp_text isEqualToString:@"」"] || [tmp_text isEqualToString:@"。"]){
+                            _string = [NSString stringWithFormat:@"%@%@",_string, tmp_text];
+                            rest    = 0; // 残り文字数は0になります
+                            i++;
+                        }
+                    }
                     [aLineString addObject:_string];
 
-                    // 残り文字数を更新
-                    base_length = base_length - [_string length];
-
-                    _string = [[NSString alloc] init];
-                    _string = [NSString stringWithFormat:@"%@%@",_string,[text substringWithRange:NSMakeRange(i, 1)]];
-                    continue;
+                    if(rest!=0){
+                        // 残り文字数を更新
+                        base_length = base_length - [_string length];
+                        _string     = [[NSString alloc] init];
+                        _string     = [NSString stringWithFormat:@"%@%@",_string,[text substringWithRange:NSMakeRange(i, 1)]];
+                        continue;
+                    }else{
+                        break;
+                    }
                 }
 
                 _string = [NSString stringWithFormat:@"%@%@",_string,[text substringWithRange:NSMakeRange(i, 1)]];
@@ -448,19 +463,33 @@
         for (int i=0; i<len; i++) {
             // 改行 1行あたりの文字列が30文字なので
             if(i%_a_line_text==0 && i > 0){
+                // 残りの文字数をチェック
+                NSInteger rest = base_length - [_string length];
+                
+                // 残りが一文字で、それが句読点だった場合折り返さないで詰める
+                if(rest==1){
+                    NSString *tmp_text = [NSString stringWithFormat:@"%@",[self.message_text substringWithRange:NSMakeRange(i, 1)]];
+                    if([tmp_text isEqualToString:@"」"] || [tmp_text isEqualToString:@"。"]){
+                        _string = [NSString stringWithFormat:@"%@%@",_string, tmp_text];
+                        rest    = 0; // 残り文字数は0になります
+                        i++;
+                    }
+                }
                 [aLineString addObject:_string];
                 
-                // 残り文字数を更新
-                base_length = base_length - [_string length];
-                
-                _string = [[NSString alloc] init];
-                _string = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
-                continue;
+                if(rest!=0){
+                    // 残り文字数を更新
+                    base_length = base_length - [_string length];
+                    _string     = [[NSString alloc] init];
+                    _string     = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
+                    continue;
+                }else{
+                    break;
+                }
             }
-
+            
             _string = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
-        }
-        
+        }        
         
         // 後処理　もし残りがあれば
         if(base_length <= _a_line_text){
