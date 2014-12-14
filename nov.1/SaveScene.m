@@ -239,7 +239,7 @@
                 // 初期化
                 text_label = [CCLabelTTF labelWithString:[ud objectForKey:text_key]
                                               dimensions:CGSizeMake(134.f, 20.f)
-                                              hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:10];
+                                              hAlignment:NSTextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:10];
                 [text_label setAnchorPoint:ccp(0,0)];
                 text_label.zOrder   = 10001;
                 text_label.tag      = 6500+i;
@@ -254,7 +254,7 @@
             }else{
                 date_text = [CCLabelTTF labelWithString:[ud objectForKey:date_key]
                                              dimensions:CGSizeMake(134.f, 10.f)
-                                             hAlignment:UITextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:10];
+                                             hAlignment:NSTextAlignmentLeft fontName:@"HiraKakuProN-W6" fontSize:10];
                 [date_text setAnchorPoint:ccp(0,0)];
                 date_text.zOrder   = 10001;
                 date_text.tag      = 6600+i;

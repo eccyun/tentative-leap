@@ -404,7 +404,7 @@
         UIImage *image           = [self resizeImage:[self getCurrentScreenCapture] rect:CGRectMake(0.f, 0.f, width, height)];
         width                    = 267.f;
         height                   = 205.f;
-        saveScene.screen_capture = [self croppingImage:image imageRect:CGRectMake((image.size.width/2.f)-(width/2.f), image.size.height-height, width, height)];
+        saveScene.screen_capture = [self croppingImage:image imageRect:CGRectMake((image.size.width/2.f)-(width/2.f), 0.f, width, height)];
 
         if([self.message_text length] > 20){
             saveScene.save_text = [NSString stringWithFormat:@"%@...",[self.message_text substringWithRange:NSMakeRange(0, 20)]];
