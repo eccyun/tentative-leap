@@ -95,7 +95,7 @@ static struct{
     }
 
     NSUserDefaults      *ud    = [NSUserDefaults standardUserDefaults];
-    NSDictionary        *dict  = [ud objectForKey:@"quick_start_function"];
+    NSDictionary        *dict  = [ud objectForKey:@"quick_instruct_datas"];
     NSMutableDictionary *saves = [[NSMutableDictionary alloc] initWithDictionary:dict];
 
     // 命令をパースする
@@ -158,12 +158,9 @@ static struct{
         [ret insertObject:set atIndex:k];
     }
 
-    [ud setObject:[[NSDictionary alloc] initWithDictionary:saves] forKey:@"quick_start_function"];
+    [ud setObject:[[NSDictionary alloc] initWithDictionary:saves] forKey:@"quick_instruct_datas"];
     [ud setInteger:self.scriptReadIndex forKey:@"quick_script_index"];
     [ud synchronize];
-
-    NSLog(@"------");
-    NSLog(@"%@", [saves description]);
     
     return ret;
 }

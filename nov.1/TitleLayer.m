@@ -35,7 +35,7 @@
         [ud setInteger:0 forKey:@"script_index"];
         [ud setInteger:0 forKey:@"structure_index"];
         [ud setInteger:0 forKey:@"quick_start_flag"];
-        [ud setObject:[[NSDictionary alloc] init] forKey:@"quick_start_function"];
+        [ud setObject:[[NSDictionary alloc] init] forKey:@"quick_instruct_datas"];
         [ud synchronize];
 
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"time-leap.mp3"];

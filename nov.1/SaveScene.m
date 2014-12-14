@@ -320,28 +320,33 @@
     }
     
     // キーの定義
-    NSString *script_key    = [NSString stringWithFormat:@"save_%d_script", self.save_key];
-    NSString *structure_key = [NSString stringWithFormat:@"save_%d_structure", self.save_key];
-    NSString *image_key     = [NSString stringWithFormat:@"save_%d_image", self.save_key];
-    NSString *save_flag_key = [NSString stringWithFormat:@"save_%d_flag",  self.save_key];
-    NSString *save_text_key = [NSString stringWithFormat:@"save_%d_text",  self.save_key];
-    NSString *save_date_key = [NSString stringWithFormat:@"save_%d_date",  self.save_key];
+    NSString *script_key         = [NSString stringWithFormat:@"save_%d_script", self.save_key];
+    NSString *structure_key      = [NSString stringWithFormat:@"save_%d_structure", self.save_key];
+    NSString *instruct_datas_key = [NSString stringWithFormat:@"save_%d_instruct_datas",  self.save_key];
+    NSString *image_key          = [NSString stringWithFormat:@"save_%d_image", self.save_key];
+    NSString *save_flag_key      = [NSString stringWithFormat:@"save_%d_flag",  self.save_key];
+    NSString *save_text_key      = [NSString stringWithFormat:@"save_%d_text",  self.save_key];
+    NSString *save_date_key      = [NSString stringWithFormat:@"save_%d_date",  self.save_key];
     
     if([self.function_flag isEqualToString:@"Save"]){
         if(buttonIndex == 1){
-            NSInteger script_index    = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_script_index"];
-            NSInteger structure_index = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_structure_index"];
+            NSInteger     script_index    = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_script_index"];
+            NSInteger     structure_index = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_structure_index"];
+            NSDictionary *instruct_datas  = [[NSUserDefaults standardUserDefaults] objectForKey:@"quick_instruct_datas"];
+
+            NSLog(@"instruct_datas : %@", [instruct_datas description]);
 
             // クイックスタート完了
             NSData          *imageData = UIImagePNGRepresentation(self.screen_capture);
             NSDate          *_date     = [NSDate date];
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
-            NSString *_date_text = [formatter stringFromDate:_date];
 
-            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+            NSString       *_date_text = [formatter stringFromDate:_date];
+            NSUserDefaults *ud         = [NSUserDefaults standardUserDefaults];
             [ud setInteger:script_index forKey:script_key];
             [ud setInteger:structure_index forKey:structure_key];
+            [ud setObject:instruct_datas forKey:instruct_datas_key];
             [ud setObject:imageData forKey:image_key];
             [ud setObject:@"saved" forKey:save_flag_key];
             [ud setObject:self.save_text forKey:save_text_key];
