@@ -19,8 +19,8 @@
 
 
 - (NSMutableArray *)readScript;
-+ (NSArray *)scriptFileReader;
-
++ (NSArray *) scriptFileReader;
 - (NSInteger) getReadScriptIndex;
+- (NSMutableArray *)setInstruct : (NSMutableArray *)tmp insertInstructArray : (NSMutableArray *)ret;
 
 @end

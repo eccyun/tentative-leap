@@ -334,8 +334,6 @@
             NSInteger     structure_index = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_structure_index"];
             NSDictionary *instruct_datas  = [[NSUserDefaults standardUserDefaults] objectForKey:@"quick_instruct_datas"];
 
-            NSLog(@"instruct_datas : %@", [instruct_datas description]);
-
             // クイックスタート完了
             NSData          *imageData = UIImagePNGRepresentation(self.screen_capture);
             NSDate          *_date     = [NSDate date];

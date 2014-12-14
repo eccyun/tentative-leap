@@ -8,6 +8,7 @@
 
 #import "LoadScene.h"
 #import "MainGameScene.h"
+#import "SimpleAudioEngine.h"
 
 @interface LoadScene ()
 
@@ -53,6 +54,8 @@
 
 
 -(void) makeTransition:(ccTime)dt{
+    [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+
     [super onEnterTransitionDidFinish];
     [self.logo_image removeFromParentAndCleanup:YES];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];

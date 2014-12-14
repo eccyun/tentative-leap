@@ -55,20 +55,18 @@
             NSMutableArray *instruct = [self.engine readScript];
             [self doInstruct:instruct spriteSize:size];
         }else{
-            NSInteger script_key = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_script_index"];
-
-            for(int i=0; i<=script_key; i++){
-                NSMutableArray *instruct = [self.engine readScript];
-                [self doInstruct:instruct spriteSize:size];
-
-                if([self.engine getReadScriptIndex] >= script_key){
-                    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-                    [ud setInteger:1 forKey:@"quick_start_flag"];
-                    [ud synchronize];
-
-                    break;
-                }
+            NSDictionary   *instruct_datas_key = [[NSUserDefaults standardUserDefaults] objectForKey:@"quick_instruct_datas"];
+            NSMutableArray *instruct_data      = [[NSMutableArray alloc] init];
+    
+            for (NSString *key in instruct_datas_key) {
+                [instruct_data addObject:[instruct_datas_key valueForKey:key]];
             }
+            
+            NSMutableArray *instruct = [self.engine setInstruct:instruct_data insertInstructArray:[[NSMutableArray alloc] init]];
+            [self doInstruct:instruct spriteSize:size];
+
+            // メッセージの表示
+            [self doInstruct:[self.engine readScript] spriteSize:size];
         }
         
         // クイックスタート完了
@@ -90,6 +88,7 @@
         if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BG"]){
             self.hyper          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"bg_name"]];
             self.hyper.position = ccp(size.width/2, size.height/2);
+            self.hyper.zOrder   = 1;
             [self addChild:self.hyper];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# IMG"]){
             if([[dictionary objectForKey:@"position"] isEqualToString:@"center"]){
@@ -113,6 +112,7 @@
                         [self.center setTextureRect:CGRectMake(0, 0,tex.contentSize.width, tex.contentSize.height)];
                     }
                 }
+                self.center.zOrder = 2;
             }else if([[dictionary objectForKey:@"position"] isEqualToString:@"right"]){
                 if(!self.right){
                     self.right          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
@@ -126,6 +126,7 @@
                     [self.right setTextureRect:CGRectMake(0, 0, self.right.contentSize.width, self.right.contentSize.height)];
                     [self.right runAction:[CCFadeIn actionWithDuration:0.1f]];
                 }
+                self.right.zOrder = 2;
             }else if([[dictionary objectForKey:@"position"] isEqualToString:@"left"]){
                 if(!self.left){
                     self.left          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
@@ -140,6 +141,7 @@
                     [self.left runAction:[CCFadeIn actionWithDuration:0.1f]];
                 }
             }
+            self.left.zOrder = 2;
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# STILL-IMG"]){
             CCSprite *still = (CCSprite *)[self getChildByTag:[[dictionary objectForKey:@"tags"] integerValue]];
 
@@ -164,6 +166,8 @@
                 [still runAction:[CCFadeIn actionWithDuration:0.3f]];
                 [self addChild:still];
             }
+            
+            still.zOrder = 2;
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# MSG"]){
             // ラベルを作成する（後でテクスチャーとして使用する
             NSString *text    = [[dictionary objectForKey:@"message"] stringByReplacingOccurrencesOfString: @"#BR#" withString: @"\n"];
@@ -180,6 +184,7 @@
             self.msgWindow          = [[CCSprite alloc] initWithFile:@"message_window.png"];
             self.msgWindow.position = ccp(size.width/2, (size.height/5)+10.f);
             self.msgWindow.tag      = 4500;
+            self.msgWindow.zOrder   = 999;
             [self addChild:self.msgWindow];
 
             self.save_image          = [[CCSprite alloc] initWithFile:@"msg_window_save.png"];
@@ -317,8 +322,9 @@
             [self doInstruct:instruct spriteSize:size];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"LOADING;"]){
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-            [ud setInteger:[[ud objectForKey:@"structure_index"] integerValue]+1 forKey:@"structure_index"];
+            [ud setInteger:self.engine.structureIndex forKey:@"structure_index"];
             [ud setInteger:0 forKey:@"script_index"];
+            [ud setObject:[[NSDictionary alloc] init] forKey:@"quick_instruct_datas"];
             [ud synchronize];
 
             // ロード処理
@@ -432,8 +438,9 @@
         self.msgWindow          = [[CCSprite alloc] initWithFile:@"message_window.png"];
         self.msgWindow.position = ccp(size.width/2, (size.height/5)+10.f);
         self.msgWindow.tag      = 4500;
+        self.msgWindow.zOrder   = 999;
         [self addChild:self.msgWindow];
-        
+
         self.save_image          = [[CCSprite alloc] initWithFile:@"msg_window_save.png"];
         self.save_image.position = ccp(size.width/2+76.f, (size.height/12));
         self.save_image.tag      = 8500;
