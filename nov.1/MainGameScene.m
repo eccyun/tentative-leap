@@ -57,7 +57,7 @@
         }else{
             NSDictionary   *instruct_datas_key = [[NSUserDefaults standardUserDefaults] objectForKey:@"quick_instruct_datas"];
             NSMutableArray *instruct_data      = [[NSMutableArray alloc] init];
-    
+
             for (NSString *key in instruct_datas_key) {
                 [instruct_data addObject:[instruct_datas_key valueForKey:key]];
             }

@@ -35,7 +35,6 @@
         [ud setInteger:0 forKey:@"script_index"];
         [ud setInteger:0 forKey:@"structure_index"];
         [ud setInteger:0 forKey:@"quick_start_flag"];
-        [ud setObject:[[NSDictionary alloc] init] forKey:@"quick_instruct_datas"];
         [ud synchronize];
 
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"time-leap.mp3"];
@@ -89,18 +88,22 @@
 	CGPoint location = [touch locationInView:[touch view]];
 	location         = [[CCDirector sharedDirector] convertToGL:location];
 
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+
     if(location.x > self.start_logo.position.x-(self.start_logo.contentSize.width/2)&&
        location.x < self.start_logo.position.x+(self.start_logo.contentSize.width/2)&&
        location.y > self.start_logo.position.y-(self.start_logo.contentSize.height/2)&&
        location.y < self.start_logo.position.y+(self.start_logo.contentSize.height/2)){
         [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+        [ud setObject:[[NSDictionary alloc] init] forKey:@"quick_instruct_datas"];
+        [ud synchronize];
+
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
     }else if(location.x > self.quick_logo.position.x-(self.quick_logo.contentSize.width/2)&&
              location.x < self.quick_logo.position.x+(self.quick_logo.contentSize.width/2)&&
              location.y > self.quick_logo.position.y-(self.quick_logo.contentSize.height/2)&&
              location.y < self.quick_logo.position.y+(self.quick_logo.contentSize.height/2)){
         // ロードシーンのインスタンスを作る
-        NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
         [ud setInteger:1 forKey:@"quick_start_flag"];
         [ud synchronize];
 

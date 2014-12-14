@@ -167,6 +167,8 @@ static struct{
     }
     
     [ud setObject:[[NSDictionary alloc] initWithDictionary:saves] forKey:@"quick_instruct_datas"];
+    [ud synchronize];
+    
     return ret;
 }
 
