@@ -369,6 +369,7 @@
             NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:[ud integerForKey:structure_key] forKey:@"quick_structure_index"];
             [ud setInteger:[ud integerForKey:script_key] forKey:@"quick_script_index"];
+            [ud setObject:[ud objectForKey:instruct_datas_key] forKey:@"quick_instruct_datas"];
             [ud setInteger:1 forKey:@"quick_start_flag"];
             [ud setInteger:self.save_key forKey:@"last_select_save_data"];
             [ud synchronize];
