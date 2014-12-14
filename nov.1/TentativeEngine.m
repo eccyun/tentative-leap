@@ -93,7 +93,11 @@ static struct{
             break;
         }
     }
-    
+
+    NSUserDefaults      *ud    = [NSUserDefaults standardUserDefaults];
+    NSDictionary        *dict  = [ud objectForKey:@"quick_start_function"];
+    NSMutableDictionary *saves = [[NSMutableDictionary alloc] initWithDictionary:dict];
+
     // 命令をパースする
     for(int k=0; k < [tmp count]; k++){
         NSString *instruct = [tmp objectAtIndex:k];
@@ -101,14 +105,18 @@ static struct{
 
         NSMutableDictionary *set           = [[NSMutableDictionary alloc] init];
         NSString            *instruct_name = [split objectAtIndex:0];
-
+        
         if([instruct_name isEqualToString:@"# BG"]){
             [set setValue:instruct_name forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"bg_name"];
+            
+            [saves setObject:instruct forKey:@"BG"];
         }else if([instruct_name isEqualToString:@"# IMG"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"img_name"];
             [set setValue:[split objectAtIndex:2] forKey:@"position"];
+
+            [saves setObject:instruct forKey:[NSString stringWithFormat: @"IMG-%@", [split objectAtIndex:2]]];
         }else if([instruct_name isEqualToString:@"# MSG"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"message"];
@@ -116,12 +124,20 @@ static struct{
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"bgm_name"];
             [set setValue:[split objectAtIndex:2] forKey:@"action"];
+
+            if([[split objectAtIndex:2] isEqualToString:@"PLAY"]){
+                [saves setObject:instruct forKey:@"BGM-PLAY"];
+            }else if([[split objectAtIndex:2] isEqualToString:@"STOP"]){
+                [saves setObject:@"" forKey:@"BGM-PLAY"];
+            }
         }else if([instruct_name isEqualToString:@"# STILL-IMG"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"img_name"];
             [set setValue:[split objectAtIndex:2] forKey:@"x"];
             [set setValue:[split objectAtIndex:3] forKey:@"direction"];
             [set setValue:[split objectAtIndex:4] forKey:@"tags"];
+
+            [saves setObject:instruct forKey:[NSString stringWithFormat:@"STILL-IMG-%d", [[split objectAtIndex:4] integerValue]]];
         }else if([instruct_name isEqualToString:@"# WHITE;"] || [instruct_name isEqualToString:@"# REMOVE;"] || [instruct_name isEqualToString:@"# BLACK;"]){
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:self.scriptReadIndex forKey:@"script_index"];
@@ -132,17 +148,23 @@ static struct{
             }else if(quick_start == 0){
                 [set setValue:@"# SKIP;" forKey:@"instruct_name"];
             }
+            
+            saves = [[NSMutableDictionary alloc] init];
         }else if([instruct_name isEqualToString:@"# WAIT"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"times"];
         }
+
         [ret insertObject:set atIndex:k];
     }
 
-    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:[[NSDictionary alloc] initWithDictionary:saves] forKey:@"quick_start_function"];
     [ud setInteger:self.scriptReadIndex forKey:@"quick_script_index"];
     [ud synchronize];
 
+    NSLog(@"------");
+    NSLog(@"%@", [saves description]);
+    
     return ret;
 }
 

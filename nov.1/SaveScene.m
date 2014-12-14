@@ -333,14 +333,13 @@
             NSInteger structure_index = [[NSUserDefaults standardUserDefaults] integerForKey:@"quick_structure_index"];
 
             // クイックスタート完了
-            NSData *imageData = UIImagePNGRepresentation(self.screen_capture);
-
+            NSData          *imageData = UIImagePNGRepresentation(self.screen_capture);
             NSDate          *_date     = [NSDate date];
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
             NSString *_date_text = [formatter stringFromDate:_date];
 
-            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:script_index forKey:script_key];
             [ud setInteger:structure_index forKey:structure_key];
             [ud setObject:imageData forKey:image_key];
