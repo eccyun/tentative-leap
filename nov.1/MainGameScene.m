@@ -92,6 +92,7 @@
             [self addChild:self.hyper];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# IMG"]){
             if([[dictionary objectForKey:@"position"] isEqualToString:@"center"]){
+                [self.center setVisible:YES];
                 if(!self.center){
                     self.center          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
                     self.center.position = ccp(size.width/2, size.height/2);
@@ -114,6 +115,8 @@
                 }
                 self.center.zOrder = 2;
             }else if([[dictionary objectForKey:@"position"] isEqualToString:@"right"]){
+                [self.right setVisible:YES];
+
                 if(!self.right){
                     self.right          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
                     self.right.position = ccp(((size.width/4)*3)+24.0f, size.height/2);
@@ -128,6 +131,8 @@
                 }
                 self.right.zOrder = 2;
             }else if([[dictionary objectForKey:@"position"] isEqualToString:@"left"]){
+                [self.left setVisible:YES];
+
                 if(!self.left){
                     self.left          = [[CCSprite alloc] initWithFile:[dictionary objectForKey:@"img_name"]];
                     self.left.position = ccp(((size.width/2)/2)-24.0f, size.height/2);
@@ -140,8 +145,8 @@
                     [self.left setTextureRect:CGRectMake(0, 0, self.left.contentSize.width, self.left.contentSize.height)];
                     [self.left runAction:[CCFadeIn actionWithDuration:0.1f]];
                 }
+                self.left.zOrder = 2;
             }
-            self.left.zOrder = 2;
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# STILL-IMG"]){
             CCSprite *still = (CCSprite *)[self getChildByTag:[[dictionary objectForKey:@"tags"] integerValue]];
 
@@ -333,6 +338,16 @@
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"EOF;"]){
             [super onEnterTransitionDidFinish];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccWHITE]];
+        }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# REMOVE-IMG"]){
+            NSString *string = [dictionary objectForKey:@"position"];
+
+            if([string isEqualToString:@"center"]){
+                [self.center setVisible:NO];
+            }else if([string isEqualToString:@"right"]){
+                [self.right setVisible:NO];
+            }else if([string isEqualToString:@"left"]){
+                [self.left setVisible:NO];
+            }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BGM"]){
             //BGM開始
             CGFloat         volume_value = 1.f;

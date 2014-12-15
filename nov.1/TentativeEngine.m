@@ -149,8 +149,13 @@ static struct{
             [set setValue:[split objectAtIndex:2] forKey:@"x"];
             [set setValue:[split objectAtIndex:3] forKey:@"direction"];
             [set setValue:[split objectAtIndex:4] forKey:@"tags"];
-            
+
             [saves setObject:instruct forKey:[NSString stringWithFormat:@"STILL-IMG-%d", [[split objectAtIndex:4] integerValue]]];
+        }else if([instruct_name isEqualToString:@"# REMOVE-IMG"]){
+            [set setValue:instruct_name           forKey:@"instruct_name"];
+            [set setValue:[split objectAtIndex:1] forKey:@"position"];
+
+            [saves setObject:@"" forKey:[NSString stringWithFormat: @"IMG-%@", [split objectAtIndex:1]]];
         }else if([instruct_name isEqualToString:@"# WHITE;"] || [instruct_name isEqualToString:@"# REMOVE;"] || [instruct_name isEqualToString:@"# BLACK;"]){
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:self.scriptReadIndex forKey:@"script_index"];
