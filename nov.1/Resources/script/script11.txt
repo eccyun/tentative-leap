@@ -47,7 +47,7 @@ STOP;
 STOP;
 # MSG:そんなことを考えているうちに、あっという間に列の先頭になっていた。
 STOP;
-# IMG:mary_puzze.png:center
+# REMOVE-IMG:center
 # MSG:「いらっしゃい！」
 STOP;
 # MSG:「…えーっと、たこ焼きを2つください」
@@ -65,7 +65,7 @@ STOP;
 STOP;
 # MSG:「いや、思ったよりお金が入ってなくて…。うーん、困ったな」
 STOP;
-# IMG:mary_norma.png:center
+# REMOVE-IMG:center
 # MSG:ここに来て、高校生だった頃のお財布事情を全く考慮していなかったことに気が付く。
 STOP;
 # MSG:いくらなんでも、財布にお金がこれだけしか入っていないのはあんまりだろう。

@@ -21,6 +21,7 @@ STOP;
 STOP;
 # MSG:「そうだね。…こんなに多かったかな」
 STOP;
+# REMOVE-IMG:center
 # MSG:この人ごみは一度経験していたけれど、それでもつらいものがあった。
 STOP;
 # MSG:早く抜け出したいその一心で、僕達は流れに合わせて歩き続ける。
@@ -45,6 +46,7 @@ STOP;
 # BGM:fest-leap.mp3:STOP
 # MSG:「うーん」
 STOP;
+# REMOVE-IMG:center
 # MSG:ふと、立ち止まって考える。
 STOP;
 # MSG:このままだと、彼女とまたはぐれてしまうのではないか。
