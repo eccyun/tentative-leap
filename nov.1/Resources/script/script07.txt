@@ -116,4 +116,4 @@ STOP;
 # MSG:そうして私は男の子に手を引かれるまま、お父さんとお母さんを探して人ごみの中へと入っていった。
 STOP;
 # BGM:bell-leap.mp3:STOP
-EOF;
+LOADING;

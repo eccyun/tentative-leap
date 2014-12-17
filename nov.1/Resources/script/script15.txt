@@ -77,6 +77,7 @@ STOP;
 STOP;
 # MSG:「うん、また」
 STOP;
+# REMOVE-IMG:center
 # MSG:そうして、僕は自宅への道を。彼女は、バス停までの道を歩きはじめる。
 STOP;
 # MSG:僕の二度目の夏祭りは、こうして終わった。
