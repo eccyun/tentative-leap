@@ -11,7 +11,6 @@
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
-#import "SimpleAudioEngine.h"
 #import "SettingsScene.h"
 #import "TitleLayer.h"
 #import "LoadScene.h"
@@ -361,6 +360,18 @@
                 [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
             }else if([[dictionary objectForKey:@"action"] isEqualToString:@"RESUME"]){
                 [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+            }
+        }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# EFFECT"]){
+            // 効果音 開始
+            CGFloat         volume_value = 1.f;
+
+            if([[dictionary objectForKey:@"action"] isEqualToString:@"LOAD"]){
+                [[SimpleAudioEngine sharedEngine] preloadEffect:[dictionary objectForKey:@"effect_name"]];
+            }else if([[dictionary objectForKey:@"action"] isEqualToString:@"PLAY"]){
+                self.effect_int = [[SimpleAudioEngine sharedEngine] playEffect:[dictionary objectForKey:@"effect_name"]];
+                [[SimpleAudioEngine sharedEngine] setEffectsVolume:volume_value];
+            }else if([[dictionary objectForKey:@"action"] isEqualToString:@"STOP"]){
+                [[SimpleAudioEngine sharedEngine] stopEffect:self.effect_int];
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WAIT"]){
             

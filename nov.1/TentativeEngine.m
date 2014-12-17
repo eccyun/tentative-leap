@@ -163,6 +163,16 @@ static struct{
 
             [set setValue:instruct_name forKey:@"instruct_name"];
             saves = [[NSMutableDictionary alloc] init];
+        }else if([instruct_name isEqualToString:@"# EFFECT"]){
+            [set setValue:instruct_name           forKey:@"instruct_name"];
+            [set setValue:[split objectAtIndex:1] forKey:@"effect_name"];
+            [set setValue:[split objectAtIndex:2] forKey:@"action"];
+
+            if([[split objectAtIndex:2] isEqualToString:@"PLAY"]){
+                [saves setObject:instruct forKey:@"EFFECT-PLAY"];
+            }else if([[split objectAtIndex:2] isEqualToString:@"STOP"]){
+                [saves setObject:@"" forKey:@"EFFECT-PLAY"];
+            }            
         }else if([instruct_name isEqualToString:@"# WAIT"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"times"];

@@ -11,6 +11,7 @@
 
 #import "cocos2d.h"
 #import "TentativeEngine.h"
+#import "SimpleAudioEngine.h"
 
 // HelloWorldLayer
 @interface MainGameScene : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>{
@@ -27,6 +28,7 @@
 @property(nonatomic, retain) CCSprite        *msgWindow;
 @property(nonatomic, retain) CCSprite        *hyper, *load_image, *save_image;
 @property(nonatomic, retain) NSString        *message_text;
+@property(nonatomic)         ALuint           effect_int;
 
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
