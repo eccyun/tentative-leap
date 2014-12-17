@@ -1,3 +1,4 @@
+# EFFECT:watch_alert.mp3:LOAD
 # BGM:road_theme.mp3:LOAD
 # BGM:road_theme.mp3:PLAY
 # BG:road.png
@@ -125,6 +126,7 @@ STOP;
 STOP;
 # MSG:僕を取り巻く世の中の環境は、子どもの頃から何ひとつ変わっていなかった。
 STOP;
+# EFFECT:watch_alert.mp3:PLAY
 # MSG:ーーーピピピッ！
 STOP;
 # MSG:腕時計のアラームが鳴る。1時間置きにセットしていた分が鳴ったようだ。
