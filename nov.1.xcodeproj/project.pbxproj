@@ -182,6 +182,7 @@
 		1B9F14201A361490002F8DCD /* 14-fire-04-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F141C1A361490002F8DCD /* 14-fire-04-hd.png */; };
 		1B9F14221A3C4E52002F8DCD /* 17-aruku-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14211A3C4E52002F8DCD /* 17-aruku-01-hd.png */; };
 		1B9F14241A3C50F1002F8DCD /* end-loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14231A3C50F1002F8DCD /* end-loop.mp3 */; };
+		1BAF6DF81A41DEA500C65081 /* forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6DF71A41DEA500C65081 /* forest.mp3 */; };
 		1BBD4EAD16DBA51A009F6CEC /* SettingsParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */; };
 		1BD2DEA51A24C732000E3686 /* 02-shoot-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */; };
 		1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */; };
@@ -566,6 +567,7 @@
 		1B9F141C1A361490002F8DCD /* 14-fire-04-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-fire-04-hd.png"; sourceTree = "<group>"; };
 		1B9F14211A3C4E52002F8DCD /* 17-aruku-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-aruku-01-hd.png"; sourceTree = "<group>"; };
 		1B9F14231A3C50F1002F8DCD /* end-loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "end-loop.mp3"; sourceTree = "<group>"; };
+		1BAF6DF71A41DEA500C65081 /* forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = forest.mp3; sourceTree = "<group>"; };
 		1BBD4EAB16DBA51A009F6CEC /* SettingsParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsParts.h; sourceTree = "<group>"; };
 		1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsParts.m; sourceTree = "<group>"; };
 		1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-shoot-01-hd.png"; sourceTree = "<group>"; };
@@ -1193,6 +1195,7 @@
 		1BEAC2F218AA6DB900BC22DA /* music */ = {
 			isa = PBXGroup;
 			children = (
+				1BAF6DF71A41DEA500C65081 /* forest.mp3 */,
 				1B9F14231A3C50F1002F8DCD /* end-loop.mp3 */,
 				1B25150D1A349A1A004200C1 /* confessions.mp3 */,
 				1B77EA7C1A297D4400856A87 /* fest-leap.mp3 */,
@@ -1340,6 +1343,7 @@
 				1BFEA6E918D214870059640E /* script17.txt in Resources */,
 				1B77EAB51A2B5BE800856A87 /* 07-aruku-02-hd.png in Resources */,
 				1B7A7A0D1674D49F003DFCEE /* Default.png in Resources */,
+				1BAF6DF81A41DEA500C65081 /* forest.mp3 in Resources */,
 				1B25150C1A348C1E004200C1 /* 12-aruku-02-hd.png in Resources */,
 				1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */,
 				1BFEA71318DD63B40059640E /* save_on-hd.png in Resources */,

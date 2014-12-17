@@ -37,6 +37,8 @@ STOP;
 STOP;
 # BLACK;
 # BG:park.png
+# BGM:forest.mp3:LOAD
+# BGM:forest.mp3:PLAY
 # MSG:夜の公園は街灯もまばらで、とても薄暗かった。
 STOP;
 # MSG:時間も時間だし仕方のないことだとは思うけれど、人の気配も全くない。
