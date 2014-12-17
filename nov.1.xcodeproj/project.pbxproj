@@ -183,6 +183,7 @@
 		1B9F14221A3C4E52002F8DCD /* 17-aruku-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14211A3C4E52002F8DCD /* 17-aruku-01-hd.png */; };
 		1B9F14241A3C50F1002F8DCD /* end-loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14231A3C50F1002F8DCD /* end-loop.mp3 */; };
 		1BAF6DF81A41DEA500C65081 /* forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6DF71A41DEA500C65081 /* forest.mp3 */; };
+		1BAF6DFD1A41ED9800C65081 /* watch_alert.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6DFC1A41ED9800C65081 /* watch_alert.mp3 */; };
 		1BBD4EAD16DBA51A009F6CEC /* SettingsParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */; };
 		1BD2DEA51A24C732000E3686 /* 02-shoot-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */; };
 		1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */; };
@@ -568,6 +569,7 @@
 		1B9F14211A3C4E52002F8DCD /* 17-aruku-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-aruku-01-hd.png"; sourceTree = "<group>"; };
 		1B9F14231A3C50F1002F8DCD /* end-loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "end-loop.mp3"; sourceTree = "<group>"; };
 		1BAF6DF71A41DEA500C65081 /* forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = forest.mp3; sourceTree = "<group>"; };
+		1BAF6DFC1A41ED9800C65081 /* watch_alert.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = watch_alert.mp3; sourceTree = "<group>"; };
 		1BBD4EAB16DBA51A009F6CEC /* SettingsParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsParts.h; sourceTree = "<group>"; };
 		1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsParts.m; sourceTree = "<group>"; };
 		1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-shoot-01-hd.png"; sourceTree = "<group>"; };
@@ -814,6 +816,7 @@
 		1B7A7A0B1674D49F003DFCEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1BAF6DF91A41E78900C65081 /* se */,
 				1B388A2D1A1E277200A1F37D /* still */,
 				1B212E4A18F197640023984A /* up */,
 				1BFEA6FB18DD57440059640E /* Save */,
@@ -1181,6 +1184,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1BAF6DF91A41E78900C65081 /* se */ = {
+			isa = PBXGroup;
+			children = (
+				1BAF6DFC1A41ED9800C65081 /* watch_alert.mp3 */,
+			);
+			name = se;
+			path = Resources/se;
+			sourceTree = "<group>";
+		};
 		1BBD4EAA16DBA4A8009F6CEC /* SettingsScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -1444,6 +1456,7 @@
 				1B25150E1A349A1A004200C1 /* confessions.mp3 in Resources */,
 				1BFEA6C418CCB3F40059640E /* script11.txt in Resources */,
 				1BEAC31D18AA6DC400BC22DA /* park_day-hd.png in Resources */,
+				1BAF6DFD1A41ED9800C65081 /* watch_alert.mp3 in Resources */,
 				1BEAC32918AA6DC400BC22DA /* aruku_puzzle-hd.png in Resources */,
 				1B5F02FE18C36CBB00710F44 /* menu_start_off-hd.png in Resources */,
 				1BFEA71218DD63B40059640E /* save_off-hd.png in Resources */,
