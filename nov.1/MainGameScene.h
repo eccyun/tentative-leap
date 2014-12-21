@@ -12,6 +12,7 @@
 #import "cocos2d.h"
 #import "TentativeEngine.h"
 #import "SimpleAudioEngine.h"
+#import "MenuScene.h"
 
 // HelloWorldLayer
 @interface MainGameScene : CCLayer<CCTouchDelegate>{

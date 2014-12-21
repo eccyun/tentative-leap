@@ -107,7 +107,11 @@
         [ud setInteger:1 forKey:@"quick_start_flag"];
         [ud synchronize];
 
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[LoadScene scene] withColor:ccBLACK]];
+        CCScene   *scene        = [LoadScene scene];
+        LoadScene *loadScene    = [scene.children objectAtIndex:0];
+        loadScene.isReturnTitle = NO;
+
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene: scene withColor:ccBLACK]];
     }else if(location.x > self.restart_logo.position.x-(self.restart_logo.contentSize.width/2)&&
              location.x < self.restart_logo.position.x+(self.restart_logo.contentSize.width/2)&&
              location.y > self.restart_logo.position.y-(self.restart_logo.contentSize.height/2)&&

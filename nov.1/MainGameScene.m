@@ -193,7 +193,7 @@
             [self addChild:self.msgWindow];
 
             self.menu_image          = [[CCSprite alloc] initWithFile:@"msg_menu.png"];
-            self.menu_image.position = ccp(size.width/2+110.f, (size.height/12));
+            self.menu_image.position = ccp(size.width/2+90.f, (size.height/12));
             self.menu_image.tag      = 8501;
             [self addChild:self.menu_image];
             self.menu_image.zOrder = 1000;
@@ -328,7 +328,12 @@
 
             // ロード処理
             [super onEnterTransitionDidFinish];
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:3.0 scene:[LoadScene scene] withColor:ccBLACK]];
+
+            CCScene   *scene        = [LoadScene scene];
+            LoadScene *loadScene    = [scene.children objectAtIndex:0];
+            loadScene.isReturnTitle = NO;
+            
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:3.0 scene:scene withColor:ccBLACK]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"EOF;"]){
             [super onEnterTransitionDidFinish];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccWHITE]];
@@ -412,25 +417,10 @@
            location.y > self.menu_image.position.y-(self.menu_image.contentSize.height/2)&&
            location.y < self.menu_image.position.y+(self.menu_image.contentSize.height/2)){
             
-            // ロードシーンに移動
-            CCScene   *scene        = [SaveScene scene];
-            SaveScene *saveScene    = [scene.children objectAtIndex:0];
-            saveScene.function_flag = @"Load";
-            
-            [[CCDirector sharedDirector] pushScene:scene];
-            return YES;
-        }
+            // メニューに移動
+            CCScene   *scene     = [MenuScene scene];
+            MenuScene *menuScene = [scene.children objectAtIndex:0];
 
-/*
-        if(location.x > self.save_image.position.x-(self.save_image.contentSize.width/2)&&
-                 location.x < self.save_image.position.x+(self.save_image.contentSize.width/2)&&
-                 location.y > self.save_image.position.y-(self.save_image.contentSize.height/2)&&
-                 location.y < self.save_image.position.y+(self.save_image.contentSize.height/2)){
-            // セーブシーンに移動
-            CCScene   *scene         = [SaveScene scene];
-            SaveScene *saveScene     = [scene.children objectAtIndex:0];
-            saveScene.function_flag  = @"Save";
-            
             // リサイズの幅と高さを取得
             CGFloat ratio  = size.width/400.f;
             CGFloat width  = 400.f;
@@ -439,19 +429,13 @@
             UIImage *image           = [self resizeImage:[self getCurrentScreenCapture] rect:CGRectMake(0.f, 0.f, width, height)];
             width                    = 267.f;
             height                   = 205.f;
-            saveScene.screen_capture = [self croppingImage:image imageRect:CGRectMake((image.size.width/2.f)-(width/2.f), 0.f, width, height)];
-            
-            if([self.message_text length] > 20){
-                saveScene.save_text = [NSString stringWithFormat:@"%@...",[self.message_text substringWithRange:NSMakeRange(0, 20)]];
-            }else{
-                saveScene.save_text = [NSString stringWithFormat:@"%@...",self.message_text];
-            }
+            menuScene.screen_capture = [self croppingImage:image imageRect:CGRectMake((image.size.width/2.f)-(width/2.f), 0.f, width, height)];
+            menuScene.save_text      = self.message_text;
             
             [[CCDirector sharedDirector] pushScene:scene];
-            
             return YES;
         }
-*/
+
         if(self.isCheck){
             
             [[self getChildByTag:4500] stopAllActions];
@@ -471,7 +455,7 @@
             [self addChild:self.msgWindow];
             
             self.menu_image          = [[CCSprite alloc] initWithFile:@"msg_menu.png"];
-            self.menu_image.position = ccp(size.width/2+110.f, (size.height/12));
+            self.menu_image.position = ccp(size.width/2+90.f, (size.height/12));
             self.menu_image.tag      = 8501;
             [self addChild:self.menu_image];
             self.menu_image.zOrder = 1000;
@@ -589,20 +573,6 @@
 
 -(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
-}
-
-
-
--(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
-}
-
--(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
 }
 
 -(void)runTextAnimation : (NSString *) text dimensions : (CGSize) size isFirstRender : (BOOL) flag{

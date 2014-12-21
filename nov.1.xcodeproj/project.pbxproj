@@ -191,6 +191,7 @@
 		1BAF6E091A431DD200C65081 /* menu_load-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6E041A431DD200C65081 /* menu_load-hd.png */; };
 		1BAF6E0A1A431DD200C65081 /* menu_save-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6E051A431DD200C65081 /* menu_save-hd.png */; };
 		1BAF6E0C1A43224400C65081 /* message_window-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6E0B1A43224400C65081 /* message_window-hd.png */; };
+		1BAF6E0F1A46F60500C65081 /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF6E0E1A46F60500C65081 /* MenuScene.m */; };
 		1BBD4EAD16DBA51A009F6CEC /* SettingsParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */; };
 		1BD2DEA51A24C732000E3686 /* 02-shoot-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */; };
 		1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */; };
@@ -582,6 +583,8 @@
 		1BAF6E041A431DD200C65081 /* menu_load-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_load-hd.png"; sourceTree = "<group>"; };
 		1BAF6E051A431DD200C65081 /* menu_save-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_save-hd.png"; sourceTree = "<group>"; };
 		1BAF6E0B1A43224400C65081 /* message_window-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "message_window-hd.png"; path = "Resources/UI/message_window-hd.png"; sourceTree = "<group>"; };
+		1BAF6E0D1A46F60500C65081 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
+		1BAF6E0E1A46F60500C65081 /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
 		1BBD4EAB16DBA51A009F6CEC /* SettingsParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsParts.h; sourceTree = "<group>"; };
 		1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsParts.m; sourceTree = "<group>"; };
 		1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-shoot-01-hd.png"; sourceTree = "<group>"; };
@@ -815,6 +818,8 @@
 				1B0E2E9416C2865B0097D11A /* IntroLayer.m */,
 				1BFEA6F618D5DEBE0059640E /* SaveScene.h */,
 				1BFEA6F718D5DEBE0059640E /* SaveScene.m */,
+				1BAF6E0D1A46F60500C65081 /* MenuScene.h */,
+				1BAF6E0E1A46F60500C65081 /* MenuScene.m */,
 				1B7A7A0B1674D49F003DFCEE /* Resources */,
 				1B7A7A251674D49F003DFCEE /* libs */,
 				1B8FD63C19E17EB40091F3C7 /* Images.xcassets */,
@@ -1537,6 +1542,7 @@
 				1B7A7A6C1674D4A0003DFCEE /* ccGLStateCache.m in Sources */,
 				1B7A7A6F1674D4A0003DFCEE /* CCGrabber.m in Sources */,
 				1B7A7A721674D4A0003DFCEE /* CCGrid.m in Sources */,
+				1BAF6E0F1A46F60500C65081 /* MenuScene.m in Sources */,
 				1B7A7A751674D4A0003DFCEE /* CCLabelAtlas.m in Sources */,
 				1B7A7A781674D4A0003DFCEE /* CCLabelBMFont.m in Sources */,
 				1BFEA6F818D5DEBE0059640E /* SaveScene.m in Sources */,

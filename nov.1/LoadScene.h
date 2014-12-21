@@ -13,6 +13,8 @@
     
 }
 
+@property(nonatomic)BOOL isReturnTitle;
+
 +(CCScene *) scene;
 
 @end

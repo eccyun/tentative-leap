@@ -315,7 +315,11 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(self.isLoad){
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[LoadScene scene] withColor:ccBLACK]];
+        CCScene   *scene        = [LoadScene scene];
+        LoadScene *loadScene    = [scene.children objectAtIndex:0];
+        loadScene.isReturnTitle = NO;
+
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene: scene withColor:ccBLACK]];
         return;
     }
     

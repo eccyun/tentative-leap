@@ -9,6 +9,7 @@
 #import "LoadScene.h"
 #import "MainGameScene.h"
 #import "SimpleAudioEngine.h"
+#import "TitleLayer.h"
 
 @interface LoadScene ()
 
@@ -58,7 +59,12 @@
 
     [super onEnterTransitionDidFinish];
     [self.logo_image removeFromParentAndCleanup:YES];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
+
+    if(!self.isReturnTitle){
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
+    }else{
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccBLACK]];
+    }
 }
 
 
