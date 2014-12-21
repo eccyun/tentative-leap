@@ -2,80 +2,80 @@
 # BGM:on-a-bench.mp3:PLAY
 # BG:park_festa.png
 # IMG:aruku_laugh2.png:center
-# MSG:「花火、終わっちゃった」
+# MSG:「花火、終わっちゃった」:歩
 STOP;
-# MSG:「最後の追い込みは凄かったね」
+# MSG:「最後の追い込みは凄かったね」:照
 STOP;
 # IMG:aruku_normal.png:center
-# MSG:「そうだね、今年もとても良かったな」
+# MSG:「そうだね、今年もとても良かったな」:歩
 STOP;
 # MSG:花火も終わり、僕達は高台を降りて帰路に着いていた。
 STOP;
 # MSG:この頃には出店の片付けもかなり進んでいて、それが祭の終わりを感じさせる。
 STOP;
 # IMG:aruku_laugh2.png:center
-# MSG:「今年は、はじまってから終わるまでが本当にあっと言う間だったな」
+# MSG:「今年は、はじまってから終わるまでが本当にあっと言う間だったな」:歩
 STOP;
-# MSG:「それだけ、楽しかったのかもしれないね」
+# MSG:「それだけ、楽しかったのかもしれないね」:照
 STOP;
 # IMG:aruku_laugh.png:center
-# MSG:「へへっ、そうだね！」
+# MSG:「へへっ、そうだね！」:歩
 STOP;
 # BLACK;
 # BG:park_night.png
 # IMG:aruku_normal.png:center
-# MSG:「私は、バスで帰るから…。ここで、お別れだね」
+# MSG:「私は、バスで帰るから…。ここで、お別れだね」:歩
 STOP;
 # MSG:僕が家に向かう方角と、彼女が乗るバスが来るバス停の方角は真逆になっていた。
 STOP;
-# MSG:「結構遅い時間になったし、パス停まで送ろうか？」
+# MSG:「結構遅い時間になったし、パス停まで送ろうか？」:照
 STOP;
 # IMG:aruku_laugh.png:center
-# MSG:「あはは、ありがとう！」
+# MSG:「あはは、ありがとう！」:歩
 STOP;
 # IMG:aruku_laugh2.png:center
-# MSG:「でも、大丈夫だよ。バス停まではすぐそこだから」
+# MSG:「でも、大丈夫だよ。バス停まではすぐそこだから」:歩
 STOP;
-# MSG:「そっか、それだったら良いんだけど」
+# MSG:「そっか、それだったら良いんだけど」:照
 STOP;
-# MSG:「今日はありがとう、帰りは気をつけてね」
+# MSG:「今日はありがとう、帰りは気をつけてね」:照
 STOP;
 # IMG:aruku_normal.png:center
-# MSG:「私の方こそ、今日はありがとう。照くんも気をつけて！」
+# MSG:「私の方こそ、今日はありがとう。照くんも気をつけて！」:歩
 STOP;
-# MSG:「うん、それじゃあ」
+# MSG:「うん、それじゃあ」:照
 STOP;
 # IMG:aruku_laugh2.png:center
-# MSG:「うん…。ねえ、照くん？」
+# MSG:「うん…。ねえ、照くん？」:歩
 STOP;
-# MSG:「なに、どうしたの？」
+# MSG:「なに、どうしたの？」:照
 STOP;
 # IMG:aruku_normal.png:center
-# MSG:「私達ってさ、また会えるよね？」
+# MSG:「私達ってさ、また会えるよね？」:歩
 STOP;
-# MSG:「会えるよ、きっと。そうしたら、また夏祭りに行くんでしょ？」
+# MSG:「会えるよ、きっと。そうしたら、また夏祭りに行くんでしょ？」:照
 STOP;
 # MSG:ーーーそれは、叶わない約束だけれど。
 STOP;
 # IMG:aruku_laugh2.png:center
-# MSG:「そうだね。…へへへ」
+# MSG:「そうだね。…へへへ」:歩
 STOP;
-# MSG:「だから、引っ越しても、しっかりね」
+# MSG:「だから、引っ越しても、しっかりね」:照
 STOP;
 # IMG:aruku_laugh.png:center
-# MSG:「うん、ありがとう」
+# MSG:「うん、ありがとう」:歩
 STOP;
 # MSG:ーーー彼女を勇気づけることが出来るのなら、これくらいのことはしても良いだろう。
 STOP;
 # IMG:aruku_normal.png:center
-# MSG:「それじゃあ、今度こそ…」
+# MSG:「それじゃあ、今度こそ…」:歩
 STOP;
-# MSG:「うん」
+# MSG:「うん」:照
 STOP;
 # IMG:aruku_laugh2.png:center
-# MSG:「照くん、またね」
+# MSG:「照くん、またね」:歩
 STOP;
-# MSG:「うん、また」
+# MSG:「うん、また」:照
 STOP;
 # REMOVE-IMG:center
 # MSG:そうして、僕は自宅への道を。彼女は、バス停までの道を歩きはじめる。
