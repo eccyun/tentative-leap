@@ -21,7 +21,7 @@
 @property(nonatomic)         BOOL             isCheck, isUp, imgMode;
 @property(nonatomic,retain)  TentativeEngine *engine;
 @property(nonatomic,retain)  CCSprite        *back_bg;
-@property(nonatomic,retain)  CCLabelTTF      *msgLabel;
+@property(nonatomic,retain)  CCLabelTTF      *msgLabel, *name_tag;
 @property(nonatomic)         NSInteger        counter,line_count;
 @property(nonatomic, retain) CCSprite        *center;
 @property(nonatomic, retain) CCSprite        *left;

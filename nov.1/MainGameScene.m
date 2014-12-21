@@ -179,6 +179,7 @@
             self.message_text = text;
 
             [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:4501] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
 
@@ -203,6 +204,16 @@
             int _size        = 12;
             int _font        = @"HiraKakuProN-W6";
             int _line_height = 5;
+
+            if([dictionary objectForKey:@"name"]!=nil){
+                self.name_tag = [CCLabelTTF labelWithString:[dictionary objectForKey:@"name"]
+                                                 dimensions:CGSizeMake((_size+5)*4,_size+5)
+                                                 hAlignment:NSTextAlignmentCenter fontName:_font fontSize:_size+5];
+                self.name_tag.position = ccp((size.width/2)-168.f, (size.height/2)-44.f);
+                self.name_tag.zOrder   = 1000;
+                self.name_tag.tag      = 4501;
+                [self addChild:self.name_tag];
+            }
 
             // テキスチャを切り出して配列で保存する
             NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャ
@@ -401,7 +412,7 @@
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
-    if(touch.tapCount == 1){
+    //if(touch.tapCount == 1){
         if(self.imgMode){
             return YES;
         }
@@ -437,23 +448,22 @@
         }
 
         if(self.isCheck){
-            
             [[self getChildByTag:4500] stopAllActions];
             [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
-            
+
             for(int i=0; i < self.line_count; i++){
                 [[self getChildByTag:4510+i] stopAllActions];
                 [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
             }
-            
+
             self.msgWindow          = [[CCSprite alloc] initWithFile:@"message_window.png"];
             self.msgWindow.position = ccp(size.width/2, (size.height/5)+10.f);
             self.msgWindow.tag      = 4500;
             self.msgWindow.zOrder   = 999;
             [self addChild:self.msgWindow];
-            
+
             self.menu_image          = [[CCSprite alloc] initWithFile:@"msg_menu.png"];
             self.menu_image.position = ccp(size.width/2+90.f, (size.height/12));
             self.menu_image.tag      = 8501;
@@ -539,6 +549,7 @@
         [self doInstruct:instruct spriteSize:size];
         
         self.msgWindow.zOrder  = 997;
+/*
     }else if(touch.tapCount == 2){
         if(!self.imgMode){
             // 全画面表示
@@ -559,7 +570,7 @@
             }
         }
     }
-    
+*/
     return YES;
 }
 

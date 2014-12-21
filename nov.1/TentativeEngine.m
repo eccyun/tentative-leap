@@ -133,6 +133,9 @@ static struct{
         }else if([instruct_name isEqualToString:@"# MSG"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"message"];
+            if([split count]==3){
+                [set setValue:[split objectAtIndex:2] forKey:@"name"];
+            }
         }else if([instruct_name isEqualToString:@"# BGM"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"bgm_name"];
