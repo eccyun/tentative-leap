@@ -31,9 +31,9 @@
 									sharegroup:nil
 								 multiSampling:NO
 							   numberOfSamples:0];
-
+    [window_ setMultipleTouchEnabled:YES];
+    
 	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
-
 	director_.wantsFullScreenLayout = YES;
 
 	// Display FSP and SPF
@@ -88,7 +88,7 @@
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
-	
+
 	return YES;
 }
 

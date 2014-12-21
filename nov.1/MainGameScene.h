@@ -14,10 +14,10 @@
 #import "SimpleAudioEngine.h"
 
 // HelloWorldLayer
-@interface MainGameScene : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>{
+@interface MainGameScene : CCLayer<CCTouchDelegate>{
 }
 
-@property(nonatomic)         BOOL             isCheck, isUp;
+@property(nonatomic)         BOOL             isCheck, isUp, imgMode;
 @property(nonatomic,retain)  TentativeEngine *engine;
 @property(nonatomic,retain)  CCSprite        *back_bg;
 @property(nonatomic,retain)  CCLabelTTF      *msgLabel;
@@ -26,7 +26,7 @@
 @property(nonatomic, retain) CCSprite        *left;
 @property(nonatomic, retain) CCSprite        *right;
 @property(nonatomic, retain) CCSprite        *msgWindow;
-@property(nonatomic, retain) CCSprite        *hyper, *load_image, *save_image;
+@property(nonatomic, retain) CCSprite        *hyper, *menu_image;
 @property(nonatomic, retain) NSString        *message_text;
 @property(nonatomic)         ALuint           effect_int;
 

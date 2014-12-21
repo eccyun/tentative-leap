@@ -40,6 +40,7 @@
 	if((self=[super init])){
         self.isTouchEnabled = YES;
         self.isCheck        = NO;
+        self.imgMode        = NO;
 
         // スクリプトエンジンの初期化
         self.engine           = [[TentativeEngine alloc] init];
@@ -191,17 +192,11 @@
             self.msgWindow.zOrder   = 999;
             [self addChild:self.msgWindow];
 
-            self.save_image          = [[CCSprite alloc] initWithFile:@"msg_window_save.png"];
-            self.save_image.position = ccp(size.width/2+76.f, (size.height/12));
-            self.save_image.tag      = 8500;
-            [self addChild:self.save_image];
-            self.save_image.zOrder = 1001;
-
-            self.load_image          = [[CCSprite alloc] initWithFile:@"msg_window_load.png"];
-            self.load_image.position = ccp(size.width/2+123.f, (size.height/12));
-            self.load_image.tag      = 8501;
-            [self addChild:self.load_image];
-            self.load_image.zOrder = 1000;
+            self.menu_image          = [[CCSprite alloc] initWithFile:@"msg_menu.png"];
+            self.menu_image.position = ccp(size.width/2+110.f, (size.height/12));
+            self.menu_image.tag      = 8501;
+            [self addChild:self.menu_image];
+            self.menu_image.zOrder = 1000;
             
             int len          = [text length];
             int base_length  = [text length];
@@ -401,163 +396,185 @@
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
-    CGSize size = [[CCDirector sharedDirector] winSize];
-    
-    // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
-	CGPoint location = [touch locationInView:[touch view]];
-	location         = [[CCDirector sharedDirector] convertToGL:location];
-
-    if(location.x > self.load_image.position.x-(self.load_image.contentSize.width/2)&&
-       location.x < self.load_image.position.x+(self.load_image.contentSize.width/2)&&
-       location.y > self.load_image.position.y-(self.load_image.contentSize.height/2)&&
-       location.y < self.load_image.position.y+(self.load_image.contentSize.height/2)){
+    if(touch.tapCount == 1){
+        if(self.imgMode){
+            return YES;
+        }
         
-        // セーブシーンに移動
-        CCScene   *scene        = [SaveScene scene];
-        SaveScene *saveScene    = [scene.children objectAtIndex:0];
-        saveScene.function_flag = @"Load";
+        CGSize size = [[CCDirector sharedDirector] winSize];
         
-        [[CCDirector sharedDirector] pushScene:scene];
-        return YES;
-    }else if(location.x > self.save_image.position.x-(self.save_image.contentSize.width/2)&&
-             location.x < self.save_image.position.x+(self.save_image.contentSize.width/2)&&
-             location.y > self.save_image.position.y-(self.save_image.contentSize.height/2)&&
-             location.y < self.save_image.position.y+(self.save_image.contentSize.height/2)){
-        // セーブシーンに移動
-        CCScene   *scene         = [SaveScene scene];
-        SaveScene *saveScene     = [scene.children objectAtIndex:0];
-        saveScene.function_flag  = @"Save";
-
-        // リサイズの幅と高さを取得
-        CGFloat ratio  = size.width/400.f;
-        CGFloat width  = 400.f;
-        CGFloat height = size.height/ratio;
-
-        UIImage *image           = [self resizeImage:[self getCurrentScreenCapture] rect:CGRectMake(0.f, 0.f, width, height)];
-        width                    = 267.f;
-        height                   = 205.f;
-        saveScene.screen_capture = [self croppingImage:image imageRect:CGRectMake((image.size.width/2.f)-(width/2.f), 0.f, width, height)];
-
-        if([self.message_text length] > 20){
-            saveScene.save_text = [NSString stringWithFormat:@"%@...",[self.message_text substringWithRange:NSMakeRange(0, 20)]];
-        }else{
-            saveScene.save_text = [NSString stringWithFormat:@"%@...",self.message_text];
+        // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
+        CGPoint location = [touch locationInView:[touch view]];
+        location         = [[CCDirector sharedDirector] convertToGL:location];
+        
+        if(location.x > self.menu_image.position.x-(self.menu_image.contentSize.width/2)&&
+           location.x < self.menu_image.position.x+(self.menu_image.contentSize.width/2)&&
+           location.y > self.menu_image.position.y-(self.menu_image.contentSize.height/2)&&
+           location.y < self.menu_image.position.y+(self.menu_image.contentSize.height/2)){
+            
+            // ロードシーンに移動
+            CCScene   *scene        = [SaveScene scene];
+            SaveScene *saveScene    = [scene.children objectAtIndex:0];
+            saveScene.function_flag = @"Load";
+            
+            [[CCDirector sharedDirector] pushScene:scene];
+            return YES;
         }
 
-        [[CCDirector sharedDirector] pushScene:scene];
-
-        return YES;
-    }
-
-    if(self.isCheck){
-
-        [[self getChildByTag:4500] stopAllActions];
-        [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
-        [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
-        [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
-
-        for(int i=0; i < self.line_count; i++){
-            [[self getChildByTag:4510+i] stopAllActions];
-            [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
+/*
+        if(location.x > self.save_image.position.x-(self.save_image.contentSize.width/2)&&
+                 location.x < self.save_image.position.x+(self.save_image.contentSize.width/2)&&
+                 location.y > self.save_image.position.y-(self.save_image.contentSize.height/2)&&
+                 location.y < self.save_image.position.y+(self.save_image.contentSize.height/2)){
+            // セーブシーンに移動
+            CCScene   *scene         = [SaveScene scene];
+            SaveScene *saveScene     = [scene.children objectAtIndex:0];
+            saveScene.function_flag  = @"Save";
+            
+            // リサイズの幅と高さを取得
+            CGFloat ratio  = size.width/400.f;
+            CGFloat width  = 400.f;
+            CGFloat height = size.height/ratio;
+            
+            UIImage *image           = [self resizeImage:[self getCurrentScreenCapture] rect:CGRectMake(0.f, 0.f, width, height)];
+            width                    = 267.f;
+            height                   = 205.f;
+            saveScene.screen_capture = [self croppingImage:image imageRect:CGRectMake((image.size.width/2.f)-(width/2.f), 0.f, width, height)];
+            
+            if([self.message_text length] > 20){
+                saveScene.save_text = [NSString stringWithFormat:@"%@...",[self.message_text substringWithRange:NSMakeRange(0, 20)]];
+            }else{
+                saveScene.save_text = [NSString stringWithFormat:@"%@...",self.message_text];
+            }
+            
+            [[CCDirector sharedDirector] pushScene:scene];
+            
+            return YES;
         }
-
-        self.msgWindow          = [[CCSprite alloc] initWithFile:@"message_window.png"];
-        self.msgWindow.position = ccp(size.width/2, (size.height/5)+10.f);
-        self.msgWindow.tag      = 4500;
-        self.msgWindow.zOrder   = 999;
-        [self addChild:self.msgWindow];
-
-        self.save_image          = [[CCSprite alloc] initWithFile:@"msg_window_save.png"];
-        self.save_image.position = ccp(size.width/2+76.f, (size.height/12));
-        self.save_image.tag      = 8500;
-        [self addChild:self.save_image];
-        self.save_image.zOrder = 1001;
-        
-        self.load_image          = [[CCSprite alloc] initWithFile:@"msg_window_load.png"];
-        self.load_image.position = ccp(size.width/2+123.f, (size.height/12));
-        self.load_image.tag      = 8501;
-        [self addChild:self.load_image];
-        self.load_image.zOrder = 1000;
-        
-        self.isCheck = NO;
-
-        int len          = [self.message_text length];
-        int base_length  = [self.message_text length];
-        int _size        = 12;
-        int _font        = @"HiraKakuProN-W6";
-        int _line_height = 5;
-
-        // テキスチャを切り出して配列で保存する
-        NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
-        NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
-        NSInteger        _a_line_text = 30;
-        
-        // 文字情報を取得する
-        for (int i=0; i<len; i++) {
-            // 改行 1行あたりの文字列が30文字なので
-            if(i%_a_line_text==0 && i > 0){
-                // 残りの文字数をチェック
-                NSInteger rest = base_length - [_string length];
-                
-                // 残りが一文字で、それが句読点だった場合折り返さないで詰める
-                if(rest==1){
-                    NSString *tmp_text = [NSString stringWithFormat:@"%@",[self.message_text substringWithRange:NSMakeRange(i, 1)]];
-                    if([tmp_text isEqualToString:@"」"] || [tmp_text isEqualToString:@"。"]){
-                        _string = [NSString stringWithFormat:@"%@%@",_string, tmp_text];
-                        rest    = 0; // 残り文字数は0になります
-                        i++;
+*/
+        if(self.isCheck){
+            
+            [[self getChildByTag:4500] stopAllActions];
+            [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
+            
+            for(int i=0; i < self.line_count; i++){
+                [[self getChildByTag:4510+i] stopAllActions];
+                [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
+            }
+            
+            self.msgWindow          = [[CCSprite alloc] initWithFile:@"message_window.png"];
+            self.msgWindow.position = ccp(size.width/2, (size.height/5)+10.f);
+            self.msgWindow.tag      = 4500;
+            self.msgWindow.zOrder   = 999;
+            [self addChild:self.msgWindow];
+            
+            self.menu_image          = [[CCSprite alloc] initWithFile:@"msg_menu.png"];
+            self.menu_image.position = ccp(size.width/2+110.f, (size.height/12));
+            self.menu_image.tag      = 8501;
+            [self addChild:self.menu_image];
+            self.menu_image.zOrder = 1000;
+            
+            self.isCheck = NO;
+            
+            int len          = [self.message_text length];
+            int base_length  = [self.message_text length];
+            int _size        = 12;
+            int _font        = @"HiraKakuProN-W6";
+            int _line_height = 5;
+            
+            // テキスチャを切り出して配列で保存する
+            NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
+            NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
+            NSInteger        _a_line_text = 30;
+            
+            // 文字情報を取得する
+            for (int i=0; i<len; i++) {
+                // 改行 1行あたりの文字列が30文字なので
+                if(i%_a_line_text==0 && i > 0){
+                    // 残りの文字数をチェック
+                    NSInteger rest = base_length - [_string length];
+                    
+                    // 残りが一文字で、それが句読点だった場合折り返さないで詰める
+                    if(rest==1){
+                        NSString *tmp_text = [NSString stringWithFormat:@"%@",[self.message_text substringWithRange:NSMakeRange(i, 1)]];
+                        if([tmp_text isEqualToString:@"」"] || [tmp_text isEqualToString:@"。"]){
+                            _string = [NSString stringWithFormat:@"%@%@",_string, tmp_text];
+                            rest    = 0; // 残り文字数は0になります
+                            i++;
+                        }
+                    }
+                    [aLineString addObject:_string];
+                    
+                    if(rest!=0){
+                        // 残り文字数を更新
+                        base_length = base_length - [_string length];
+                        _string     = [[NSString alloc] init];
+                        _string     = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
+                        continue;
+                    }else{
+                        break;
                     }
                 }
-                [aLineString addObject:_string];
                 
-                if(rest!=0){
-                    // 残り文字数を更新
-                    base_length = base_length - [_string length];
-                    _string     = [[NSString alloc] init];
-                    _string     = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
-                    continue;
+                _string = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
+            }
+            
+            // 後処理　もし残りがあれば
+            if(base_length <= _a_line_text){
+                [aLineString addObject:_string];
+            }
+            
+            // アニメーションに向けた仕込み
+            for(int i=0; i<[aLineString count]; i++){
+                // ラベルの定義
+                NSString   *data  = [aLineString objectAtIndex:i];
+                
+                CCLabelTTF *label = [CCLabelTTF labelWithString:data
+                                                     dimensions:CGSizeMake(_size*[data length],_size)
+                                                     hAlignment:NSTextAlignmentLeft fontName:_font fontSize:_size];
+                [label setAnchorPoint:ccp(0,0)];
+                label.tag = 4510+i;
+                
+                // iPhone 5 以降との切り分けを行ったらラベルを追加
+                if([[CCDirector sharedDirector] winSize].width == 480.f){
+                    label.position = ccp(48 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
                 }else{
-                    break;
+                    label.position = ccp(93 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
                 }
+                
+                label.zOrder  = 1000;
+                [self addChild:label];
             }
             
-            _string = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
-        }        
+            return YES;
+        }
         
-        // 後処理　もし残りがあれば
-        if(base_length <= _a_line_text){
-            [aLineString addObject:_string];
-        }
+        NSMutableArray *instruct = [self.engine readScript];
+        [self doInstruct:instruct spriteSize:size];
+        
+        self.msgWindow.zOrder  = 997;
+    }else if(touch.tapCount == 2){
+        if(!self.imgMode){
+            // 全画面表示
+            self.imgMode = YES;
+            [self.msgWindow setVisible:NO];
+            [self.menu_image setVisible:NO];
 
-        // アニメーションに向けた仕込み
-        for(int i=0; i<[aLineString count]; i++){
-            // ラベルの定義
-            NSString   *data  = [aLineString objectAtIndex:i];
-            
-            CCLabelTTF *label = [CCLabelTTF labelWithString:data
-                                                 dimensions:CGSizeMake(_size*[data length],_size)
-                                                 hAlignment:NSTextAlignmentLeft fontName:_font fontSize:_size];
-            [label setAnchorPoint:ccp(0,0)];
-            label.tag = 4510+i;
-
-            // iPhone 5 以降との切り分けを行ったらラベルを追加
-            if([[CCDirector sharedDirector] winSize].width == 480.f){
-                label.position = ccp(48 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
-            }else{
-                label.position = ccp(93 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
+            for(int i=0; i < self.line_count; i++){
+                [[self getChildByTag:4510+i] setVisible:NO];
             }
-            
-            label.zOrder  = 1000;
-            [self addChild:label];
+        }else{
+            self.imgMode = NO;
+            [self.msgWindow setVisible:YES];
+            [self.menu_image setVisible:YES];
+
+            for(int i=0; i < self.line_count; i++){
+                [[self getChildByTag:4510+i] setVisible:YES];
+            }
         }
-
-        return YES;
     }
-    
-    NSMutableArray *instruct = [self.engine readScript];
-    [self doInstruct:instruct spriteSize:size];
-
-    self.msgWindow.zOrder  = 997;
     
     return YES;
 }
@@ -573,6 +590,7 @@
 -(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
 }
+
 
 
 -(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
