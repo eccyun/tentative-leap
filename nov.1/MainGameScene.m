@@ -359,6 +359,10 @@
                 [self.right setVisible:NO];
             }else if([string isEqualToString:@"left"]){
                 [self.left setVisible:NO];
+            }else{
+                // 数値が来た場合指定して削除が可能
+                CCSprite *sprite = (CCSprite *)[self getChildByTag: [[dictionary objectForKey:@"position"] longLongValue]];
+                [sprite runAction:[CCFadeOut actionWithDuration:0.3f]];
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BGM"]){
             //BGM開始
