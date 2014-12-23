@@ -177,6 +177,7 @@
             // ラベルを作成する（後でテクスチャーとして使用する
             NSString *text    = [[dictionary objectForKey:@"message"] stringByReplacingOccurrencesOfString: @"#BR#" withString: @"\n"];
             self.message_text = text;
+            self.name_text    = @"";
 
             [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:4501] removeFromParentAndCleanup:(true)];
@@ -206,9 +207,10 @@
             int _line_height = 5;
 
             if([dictionary objectForKey:@"name"]!=nil){
-                self.name_tag = [CCLabelTTF labelWithString:[dictionary objectForKey:@"name"]
-                                                 dimensions:CGSizeMake((_size+5)*4,_size+5)
-                                                 hAlignment:NSTextAlignmentCenter fontName:_font fontSize:_size+5];
+                self.name_text = [dictionary objectForKey:@"name"];
+                self.name_tag  = [CCLabelTTF labelWithString:[dictionary objectForKey:@"name"]
+                                                  dimensions:CGSizeMake((_size+2)*4,_size+2)
+                                                  hAlignment:NSTextAlignmentCenter fontName:_font fontSize:_size+2];
                 self.name_tag.position = ccp((size.width/2)-168.f, (size.height/2)-44.f);
                 self.name_tag.zOrder   = 1000;
                 self.name_tag.tag      = 4501;
@@ -416,7 +418,7 @@
         if(self.imgMode){
             return YES;
         }
-        
+    
         CGSize size = [[CCDirector sharedDirector] winSize];
         
         // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
@@ -450,6 +452,7 @@
         if(self.isCheck){
             [[self getChildByTag:4500] stopAllActions];
             [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:4501] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
 
@@ -477,6 +480,16 @@
             int _size        = 12;
             int _font        = @"HiraKakuProN-W6";
             int _line_height = 5;
+
+            if(self.name_text!=nil&&![self.name_text isEqualToString:@""]){
+                self.name_tag = [CCLabelTTF labelWithString:self.name_text
+                                                 dimensions:CGSizeMake((_size+2)*4,_size+2)
+                                                 hAlignment:NSTextAlignmentCenter fontName:_font fontSize:_size+2];
+                self.name_tag.position = ccp((size.width/2)-168.f, (size.height/2)-44.f);
+                self.name_tag.zOrder   = 1000;
+                self.name_tag.tag      = 4501;
+                [self addChild:self.name_tag];
+            }
             
             // テキスチャを切り出して配列で保存する
             NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
