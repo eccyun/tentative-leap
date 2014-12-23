@@ -51,7 +51,7 @@ STOP;
 # WHITE;
 # BGM:aruku_theme.mp3:LOAD
 # BGM:aruku_theme.mp3:PLAY
-# BG:park.png
+# BG:park_evening.png
 # MSG:「そうして、またまたやってきたわけなんですが」:女の子
 STOP;
 # MSG:あの子は、このあたりに住んでるんじゃなかったっけ？
