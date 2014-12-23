@@ -1,3 +1,4 @@
+# BGM:shoot.mp3:LOAD
 # BGM:fest-leap.mp3:LOAD
 # BGM:fest-leap.mp3:PLAY
 # BG:park_festa.png
@@ -40,6 +41,8 @@ STOP;
 # BGM:fest-leap.mp3:STOP
 # BLACK;
 # BG:02-shoot-01.png
+# BGM:shoot.mp3:PLAY
+# STILL-IMG:02-child-01.png:122:left:1
 # MSG:「照くん、あれやろうよ」:歩
 STOP;
 # MSG:それまで出店の連なりを横目に歩いていたけれど、彼女の一言に僕達は足を止めた。
@@ -62,6 +65,7 @@ STOP;
 STOP;
 # MSG:「うん、おっちゃん！　ありがとう！」
 STOP;
+# REMOVE-IMG:1
 # MSG:そうして子ども達は次の遊び場を探して、射的屋を離れていく。
 STOP;
 # MSG:さっきまでの活気とうってかわって、射的屋の周りには僕達だけとなった。
@@ -123,7 +127,6 @@ STOP;
 # IMG:aruku_laugh2.png:center
 # MSG:「あ、そうだ」:歩
 STOP;
-さらにここでBGMが止まる
 # IMG:aruku_laugh.png:center
 # MSG:「負けたら、罰ゲームだからね。よろしく！」:歩
 STOP;
@@ -131,4 +134,5 @@ STOP;
 STOP;
 # MSG:何てことのない勝負が、絶対に負けられない勝負へと変わった瞬間だった。
 STOP;
+# BGM:shoot.mp3:STOP
 LOADING;

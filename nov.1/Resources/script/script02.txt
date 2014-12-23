@@ -1,4 +1,6 @@
 # BGM:fest-leap.mp3:LOAD
+# BGM:shoot.mp3:LOAD
+# EFFECT:shoot_effect.mp3:LOAD
 # BGM:fest-leap.mp3:PLAY
 # BG:park_festa.png
 # IMG:aruku_normal.png:center
@@ -48,6 +50,8 @@ STOP;
 # MSG:「そういうもんだよ」:歩
 STOP;
 # BLACK;
+# BGM:fest-leap.mp3:STOP
+# BGM:shoot.mp3:PLAY
 # BG:02-shoot-01.png
 # STILL-IMG:02-child-01.png:122:left:1
 # MSG:「照くん、あれやろうよ」:歩
@@ -171,6 +175,7 @@ STOP;
 # IMG:aruku_normal_up.png:center
 # MSG:「うん、だからこうやって両手でしっかり狙った方が良いんだよ」:歩
 STOP;
+# EFFECT:shoot_effect.mp3:PLAY
 # MSG:ーーーポコッ！
 STOP;
 # MSG:放たれたコルクは見事キャラメルの箱にヒットし、そのままの勢いで箱が景品棚から落下していった。
@@ -197,6 +202,7 @@ STOP;
 STOP;
 # MSG:「よし、ここだ」:照
 STOP;
+# EFFECT:shoot_effect.mp3:PLAY
 # MSG:ーーーポコッ！
 STOP;
 # MSG:放たれたコルクはドロップの缶に当たることなく、景品棚の奥へと吸い込まれていった。
@@ -234,6 +240,7 @@ STOP;
 STOP;
 # MSG:「よし、ここだ！」:照
 STOP;
+# EFFECT:shoot_effect.mp3:PLAY
 # MSG:ーーーポコッ！
 STOP;
 # MSG:コルクはドロップ缶の右上の角に綺麗に命中し、大きくぐらついた後そのまま落下していった。
@@ -250,6 +257,7 @@ STOP;
 # IMG:aruku_normal_up.png:center
 # MSG:そう言って彼女もまたコルク銃に弾を詰めて、狙いをつけはじめている。
 STOP;
+# EFFECT:shoot_effect.mp3:PLAY
 # MSG:ーーーポコッ！
 STOP;
 # MSG:狙い通りなのかコルクはお菓子の詰め合わせにヒットし、これまたそのまま落下していった。
@@ -262,7 +270,7 @@ STOP;
 # MSG:「へへへ、ありがとうございます！」:歩
 STOP;
 # BLACK;
-# BGM:fest-leap.mp3:STOP
+# BGM:shoot.mp3:STOP
 # MSG:それからしばらくの間、僕達は射的を続けた。
 STOP;
 # MSG:僕が景品を取ることが出来たのは、結局最初のドロップ缶だけだった。
