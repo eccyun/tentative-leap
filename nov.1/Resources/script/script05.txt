@@ -1,4 +1,5 @@
 # EFFECT:watch_alert.mp3:LOAD
+# BGM:forest.mp3:LOAD
 # BGM:road_theme.mp3:LOAD
 # BGM:road_theme.mp3:PLAY
 # BG:road.png
@@ -38,7 +39,6 @@ STOP;
 STOP;
 # BLACK;
 # BG:park.png
-# BGM:forest.mp3:LOAD
 # BGM:forest.mp3:PLAY
 # MSG:夜の公園は街灯もまばらで、とても薄暗かった。
 STOP;

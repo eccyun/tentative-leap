@@ -1,5 +1,6 @@
+# BGM:forest.mp3:LOAD
 # BGM:road_theme.mp3:LOAD
-# BGM:road_theme.mp3:PLAY
+# BGM:forest.mp3:PLAY
 # BG:upland_night.png
 # IMG:mary_normal.png:center
 # MSG:「こんばんは」:女の子
@@ -10,28 +11,29 @@ STOP;
 STOP;
 # MSG:そんなことを考えて思ったけれど、それを言ったら僕もそうか。
 STOP;
-# IMG:mary_laugh.png:center
+# IMG:mary_laugh_2.png:center
 # MSG:「ここには、はじめて来ました」:女の子
 STOP;
-# IMG:mary_normal.png:center
+# IMG:mary_laugh.png:center
 # MSG:「景色も綺麗で良いところですね。ここにはよく来るんですか？」:女の子
 STOP;
 # MSG:「昔はよく来てたんだけど、今日はたまたま近くを通り掛かって」:照
 STOP;
 # MSG:「そうしたら妙に懐かしくなってきて、それでここまで来てみたんだ」:照
 STOP;
-# IMG:mary_laugh.png:center
+# IMG:mary_normal.png:center
 # MSG:「なるほど、そうだったんですか」:女の子
 STOP;
 # MSG:『うんうん』と相槌を打っている彼女、上手く言い表せないけれど不思議な雰囲気があった。
 STOP;
-# IMG:mary_normal.png:center
 # MSG:「えっと、突然なんですけど」:女の子
 STOP;
+# IMG:mary_puzzle_2.png:center
 # MSG:「ここによく来ていた頃の、思い出ってありますか？」:女の子
 STOP;
 # MSG:「思い出？」:照
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「はい」:女の子
 STOP;
 # MSG:「例えば、何か気にかかっていることだとか、後悔している出来事とか…」:女の子
@@ -46,15 +48,17 @@ STOP;
 # IMG:mary_normal.png:center
 # MSG:彼女は少しだけ考える様子をして、それからほどなくして話をはじめた。
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「『あの時、ああすれば良かった』なんて考えたりすることありませんか？」:女の子
 STOP;
 # MSG:「うん、あるかも。と言うか、頻繁に」:照
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「そういった人達の手助けを、私はやっているんです」:女の子
 STOP;
 # MSG:「手助け？それって、具体的にどういうことをするの？」:照
 STOP;
-# BGM:road_theme.mp3:STOP
+# BGM:forest.mp3:STOP
 # MSG:「過去へと連れていくんです、後悔した出来事が実際に起こるちょっと前の時間に」:女の子
 STOP;
 # MSG:頭がくらくらするのを感じた、彼女は何を言っているんだろう…。
@@ -65,11 +69,12 @@ STOP;
 STOP;
 # MSG:だから、彼女が何を言ってるのか僕には理解出来なかった。
 STOP;
+# BGM:forest.mp3:PLAY
 # MSG:「ちょっと何を言ってるのか、よく分からないんだけど」:照
 STOP;
 # MSG:「やっぱり疲れてるのかもしれないな、さっきもバーで深酒して寝ちゃってたし…」:照
 STOP;
-# IMG:mary_normal.png:center
+# IMG:mary_puzzle_2.png:center
 # MSG:「急に、何を言ってるんですか？」:女の子
 STOP;
 # MSG:「こっちの台詞だよ、過去に連れていくとかそんなことを言われても僕にはピンと来ないし」:照
@@ -95,8 +100,6 @@ STOP;
 STOP;
 # MSG:すると、それまでの落ち着いた様子から一転して、彼女は泣き出してしまった。
 STOP;
-# BGM:on-a-bench.mp3:LOAD
-# BGM:on-a-bench.mp3:PLAY
 # MSG:「私だって、そう簡単に信じてもらえるとは思っていません」:女の子
 STOP;
 # MSG:「で、でも、だからって何も帰らなくてもいいじゃないですか」:女の子
@@ -117,18 +120,17 @@ STOP;
 STOP;
 # MSG:無いなら無いで困らないけれど、あったらあったで何かと役に立つことが多かった。
 STOP;
-# BGM:on-a-bench.mp3:STOP
 # BLACK;
 # BG:upland_night.png
-# BGM:road_theme.mp3:PLAY
 # IMG:mary_normal.png:center
 # MSG:「あっ、ありがとうございます」:女の子
 STOP;
-# MSG:「突然取り乱してしまって、すみません。助かりました…」:女の子
+# MSG:「突然取り乱して、すみません。助かりました…」:女の子
 STOP;
 # MSG:「いや、僕の方こそ。それより、もう少し詳しく話を聞きたいんだけど」:照
 STOP;
-# MSG:「はい、なんでも聞いてください！」:女の子
+# IMG:mary_laugh_2.png:center
+# MSG:「はい、なんでも聞いてください」:女の子
 STOP;
 # MSG:正直、彼女が過去へ連れていくと言う話についてはまだ信じがたい部分があった。
 STOP;
@@ -143,13 +145,14 @@ STOP;
 STOP;
 # MSG:言いながら、彼女は僕に向かってさっと右手を差し出してきた。
 STOP;
-# IMG:mary_normal.png:center
+# IMG:mary_laugh_2.png:center
 # MSG:「私の手を取ってもらえれば、そのまま過去へと行くことが出来ます！」:女の子
 STOP;
 # MSG:想像していたよりもあっさりとした内容に、思わずずっこけそうになる。
 STOP;
 # MSG:そんな僕の気持ちをよそに、彼女はとても得意げな表情をしていた。
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「正しくは、これを使うんですけどね」:女の子
 STOP;
 # MSG:そう言って彼女は懐中時計を取り出して、僕に見せてきた。
@@ -204,20 +207,21 @@ STOP;
 STOP;
 # MSG:それなのに文字盤には夏祭りの日付が表示されている、単なる偶然だとは思えなかった。
 STOP;
-# BGM:road_theme.mp3:STOP
+# BGM:forest.mp3:STOP
 # MSG:「僕さ、もう一度会いたい人がいるんだ」:照
 STOP;
 # MSG:彼女に促されるわけでもなく、僕は6年前の夏祭りのことを話しはじめた。
 STOP;
-# IMG:mary_normal.png:center
+# IMG:mary_puzzle_2.png:center
 # BGM:on-a-bench.mp3:PLAY
 # MSG:「会いたい人…ですか？」:女の子
 STOP;
 # MSG:「うん」:照
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「その人は、どんな方なんですか？」:女の子
 STOP;
-# MSG:「それが、彼女のことは僕もよく知らないんだ」:照
+# MSG:「それが、その子…彼女のことは僕もよく知らないんだ」:照
 STOP;
 # MSG:「彼女とはじめて会ったのが、懐中時計に表示されているこの日」:照
 STOP;
@@ -225,20 +229,21 @@ STOP;
 STOP;
 # MSG:「彼女は僕のことを知っていて、でも僕は彼女が誰だったかを覚えてなくて」:照
 STOP;
+# IMG:mary_puzzle_2.png:center
 # MSG:「彼女が誰なのか、その時に聞かなかったんですか？」:女の子
 STOP;
 # MSG:「もちろん、聞いたよ」:照
 STOP;
 # MSG:「けど、その時は教えてくれなかったな」:照
 STOP;
-# IMG:mary_puzzle.png:center
+# IMG:mary_normal.png:center
 # MSG:「えっ、教えてくれなかったんですか？」:女の子
 STOP;
 # MSG:「『夏祭りに一緒に行ってくれたら、思い出せるかもね』って話になって」:照
 STOP;
 # MSG:「ちょうどその時、公園で夏祭りが行われていたんだ」:照
 STOP;
-# IMG:mary_normal.png:center
+# IMG:mary_puzzle_2.png:center
 # MSG:「それで、どうなったんですか？」:女の子
 STOP;
 # MSG:「いろいろあって、彼女と一緒に夏祭りに行くことになったんだけど」:照
@@ -247,32 +252,39 @@ STOP;
 STOP;
 # MSG:「それから公園中を探してまわったんだけれど、彼女は見つからなかったんだ」:照
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「ここの公園はそんなに広くないですし、それこそ探してれば見つかりそうなものなんですが…」:女の子
 STOP;
 # MSG:「それは、僕も今日久しぶりにここに来てから思ったんだけど」:照
 STOP;
 # MSG:「それでも、その時は見つからなかったんだよね」:照
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「それじゃあ、彼女については結局何も分からないままなんですか」:女の子
 STOP;
 # MSG:「そうだね」:照
 STOP;
 # MSG:「だから、もしも過去に戻れるなら彼女のことについて知ることが出来たらと思うんだけど」:照
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「それは、もちろん出来るかと思います」:女の子
 STOP;
 # MSG:「文字盤に表示されたこの日に戻ることで、あなたの会いたい人が誰だったのか確かめられるはずです」:女の子
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「ただ、ここまで話をしておいて少し言いづらいのですが…」:女の子
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「私があなたに出来ることは、あなたを過去に連れて行くところまでです」:女の子
 STOP;
-# MSG:「ですので、実際に過去に戻ってからはあなたに頑張っていただかないといけません」:女の子
+# MSG:「ですので、実際に過去に戻ってからはあなたの手で会いたい方が何者なのか…真実に辿り着いていただかなければなりません」:女の子
 STOP;
-# MSG:「失敗することもあるかもしれません、それでも良かったら私はあなたを過去に連れていきます」:女の子
+# MSG:「失敗することもあるかもしれません、それでも良ければ私はあなたを過去に連れていきます」:女の子
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:そう言って彼女は懐中時計をしまい、改めて右手を僕へと差し出してきた。
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「先程もお話ししましたが、私の手を取ってもらえればそのまま過去まで行くことが出来ます」:女の子
 STOP;
 # MSG:それを聞いて考えてみたけれど、僕の中での答えはもう決まっているようだった。
@@ -283,11 +295,11 @@ STOP;
 STOP;
 # MSG:そうして気付いた時には、僕はもう彼女の手を取っていた。
 STOP;
-# MSG:「僕も、全部をなんとかして欲しいなんてことは言わないよ」
+# MSG:「僕も、全部をなんとかして欲しいなんてことは言わないよ」:照
 STOP;
-# MSG:「ただ、機会を作ってくれるんだったら、僕に力を貸してほしい」
+# MSG:「ただ、機会を作ってくれるんだったら、僕に力を貸してほしい」:照
 STOP;
-# MSG:「僕を、6年前の夏祭りの日に連れていってください」
+# MSG:「僕を、6年前の夏祭りの日に連れていってください」:照
 STOP;
 # IMG:mary_laugh.png:center
 # MSG:「はい、あなたのお力になれたらと思います。…微力ではございますが」:女の子
@@ -296,7 +308,7 @@ STOP;
 STOP;
 # MSG:いったい、これからどうなるんだろう？
 STOP;
-# IMG:mary_normal.png:center
+# IMG:mary_laugh_2.png:center
 # MSG:「そういえば話をするのを忘れていました、不安にさせてしまったようでしたら、すみません」:女の子
 STOP;
 # MSG:「視界が一旦暗くなってから、次に視界が明るくなる頃にはもう過去まで戻っています」:女の子
@@ -309,10 +321,12 @@ STOP;
 STOP;
 # MSG:過去に行くというSFの世界でしかなかった空想の出来事が、現実味を帯びてきた。
 STOP;
+# IMG:mary_puzzle_2.png:center
 # MSG:「そういえば…」:女の子
 STOP;
 # MSG:「どうしたの？」:照
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「今更なんですけど、まだお互いに名前を名乗っていませんでしたね」:女の子
 STOP;
 # MSG:「あ、言われてみれば、そうだね」:照
@@ -327,10 +341,11 @@ STOP;
 STOP;
 # MSG:「ははは、ありがとう」:照
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「いえいえ」:マリー
 STOP;
-# BGM:on-a-bench.mp3:STOP
 # BLACK;
+# BGM:on-a-bench.mp3:STOP
 # MSG:お互いの自己紹介が終わる頃には、辺りの景色もすっかり見えなくなってしまっていた。
 STOP;
 LOADING;
