@@ -4,8 +4,9 @@
 # MSG:夏祭りの帰り道。
 STOP;
 # IMG:mary_normal.png:center
-# MSG:僕とマリーはどこに行くでもなく一緒にこの静かな帰り道を歩いていた。
+# MSG:僕とマリーはどこに行くでもなく一緒に帰り道を歩いていた。
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「照さん、過去に戻ってみてどうでした？」:マリー
 STOP;
 # MSG:「良かったこともあったし、後悔したこともあった。けど」:照
@@ -19,29 +20,30 @@ STOP;
 STOP;
 # MSG:「彼女の言った言葉が印象に残ってるんだ」:照
 STOP;
-# IMG:mary_normal.png:center
+# IMG:mary_puzzle_2.png:center
 # MSG:「彼女…。歩さんですか？」:マリー
 STOP;
 # MSG:「うん」:照
 STOP;
 # BLACK;
 # BG:12-aruku-01.png
-# MSG:「それでも、出来る限り後悔しないように選ばないといけない時がどうしてもあるから」
+# MSG:「それでも、出来る限り後悔しないように選ばないといけない時がどうしてもあるから」:歩
 STOP;
-# MSG:「もしも失敗しても、次また同じような時には失敗しないようにしようって」
+# MSG:「もしも失敗しても、次また同じような時には失敗しないようにしようって」:歩
 STOP;
-# MSG:「結局、そういうことを繰り返していくしかないんだよ」
+# MSG:「結局、そういうことを繰り返していくしかないんだよ」:歩
 STOP;
 # BG:12-aruku-03.png
-# MSG:「…だって、時間は巻き戻せるわけじゃないんだもん」
+# MSG:「…だって、時間は巻き戻せるわけじゃないんだもん」:歩
 STOP;
 # BLACK;
 # BG:road.png
-# IMG:mary_normal.png:center
+# IMG:mary_puzzle_2.png:center
 # MSG:「僕は、これまでの人生を振り返ると後悔したことばかりで」:照
 STOP;
 # MSG:「そうして過去を振り返っているうちに、いろいろなことを考えはじめてそうなると次第に身動きが取れなくなっていくばかりだったんだ」:照
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「はい」:マリー
 STOP;
 # MSG:「そんな自分が嫌いだったけれど、どうすることも出来なくて」:照
@@ -62,6 +64,7 @@ STOP;
 STOP;
 # MSG:だから、長い間立ち止まって悩んだりするのはもう止めにしようと思う。
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「照さんを、こうして過去へと連れてくることが出来て本当に良かったです」:マリー
 STOP;
 # IMG:mary_laugh.png:center
@@ -81,12 +84,14 @@ STOP;
 STOP;
 # MSG:「どうしたの？」:照
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「えっと、そろそろ未来へと帰らないといけません」:マリー
 STOP;
 # MSG:「ああ、もうそんな時間になるんだ」:照
 STOP;
 # MSG:「そうですね、その…」:マリー
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「最後に聞きたいことがあるんですけど、良いですか？」:マリー
 STOP;
 # MSG:「うん、構わないけど」:照
@@ -104,18 +109,19 @@ STOP;
 # MSG:「と言っても、何を描くかはまだ考えてないんだけどね」:照
 STOP;
 # IMG:mary_laugh.png:center
-# MSG:「良いと思いますよ。絵を描いてる照さんは、とても楽しそうでしたし」:マリー
+# MSG:「良いと思いますよ。絵を描いてる照さんは、とても楽しそうにしてましたし」:マリー
 STOP;
 # IMG:mary_normal.png:center
 # MSG:「きっと、合っているんだと思います。だから、やらないのはもったいないですよ」:マリー
 STOP;
 # MSG:「ありがとう、頑張るよ」:照
 STOP;
-# IMG:mary_normal.png:center
 # MSG:「こちらこそ、質問に答えていただきありがとうございました」:マリー
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「それじゃあ、そろそろ…」:マリー
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「帰りましょうか」:マリー
 STOP;
 # MSG:そう言うと、マリーは来た時と同じようにしてさっと右手を差し出してきた。
