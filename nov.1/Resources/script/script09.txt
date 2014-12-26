@@ -1,5 +1,5 @@
-# BGM:shoot.mp3:LOAD
-# BGM:fest-leap.mp3:LOAD
+# BGM:shoot.mp3:REFRESH
+# BGM:fest-leap.mp3:REFRESH
 # BGM:fest-leap.mp3:PLAY
 # BG:park_festa.png
 # IMG:aruku_normal.png:center

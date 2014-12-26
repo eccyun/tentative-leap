@@ -1,4 +1,4 @@
-# BGM:on-a-bench.mp3:LOAD
+# BGM:on-a-bench.mp3:REFRESH
 # BGM:on-a-bench.mp3:PLAY
 # BG:rest.png
 # IMG:aruku_normal.png:center
@@ -147,7 +147,7 @@ STOP;
 # MSG:「その時の夏祭りで、迷子の女の子と会ったことなかった？」:歩
 STOP;
 # BLACK;
-# BGM:bell-leap.mp3:LOAD
+# BGM:bell-leap.mp3:REFRESH
 # BGM:bell-leap.mp3:PLAY
 # MSG:6年前と言えば、両親に連れられてよくここの夏祭りに来ていた頃だ。
 STOP;

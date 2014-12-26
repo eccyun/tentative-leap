@@ -1,5 +1,5 @@
 # EFFECT:watch_alert.mp3:LOAD
-# BGM:bar_theme.mp3:LOAD
+# BGM:bar_theme.mp3:REFRESH
 # MSG:「照さん…照さん…」:？？？
 STOP;
 # MSG:声が聞こえてくる、どこからだろう？

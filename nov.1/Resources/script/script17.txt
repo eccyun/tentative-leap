@@ -5,7 +5,7 @@ STOP;
 # MSG:「照さん…起きてください…」:？？？
 STOP;
 # WHITE;
-# BGM:bar_theme.mp3:LOAD
+# BGM:bar_theme.mp3:REFRESH
 # BGM:bar_theme.mp3:PLAY
 # BG:bar.png
 # MSG:「う、うーん…」:照
@@ -160,7 +160,7 @@ STOP;
 # MSG:久しぶりに誰かとお酒が飲めると思うと、ちょっとだけ楽しみな気分になった。
 STOP;
 # BLACK;
-# BGM:end-loop.mp3:LOAD
+# BGM:end-loop.mp3:REFRESH
 # BGM:end-loop.mp3:PLAY
 # MSG:ーーーガチャッ
 STOP;
@@ -204,4 +204,5 @@ STOP;
 STOP;
 # MSG:「また、会ったね」:照
 STOP;
+# BGM:end-loop.mp3:STOP
 EOF;

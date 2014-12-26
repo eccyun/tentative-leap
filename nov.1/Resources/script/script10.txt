@@ -1,4 +1,4 @@
-# BGM:bell-leap.mp3:LOAD
+# BGM:bell-leap.mp3:REFRESH
 # BGM:bell-leap.mp3:PLAY
 # MSG:人ごみの中をかき分けてかき分けて、お父さんとお母さんを私達は探した。
 STOP;
@@ -49,7 +49,7 @@ STOP;
 # MSG:だけど、毎年行った夏祭りで再び男の子と会うこともなく…そのまま6年が経った。
 STOP;
 # WHITE;
-# BGM:aruku_theme.mp3:LOAD
+# BGM:aruku_theme.mp3:REFRESH
 # BGM:aruku_theme.mp3:PLAY
 # BG:park_evening.png
 # MSG:「そうして、またまたやってきたわけなんですが」:女の子
@@ -97,7 +97,7 @@ STOP;
 # MSG:その様子を見て、はじめて行った日の夏祭りを何故か私は思い出していた。
 STOP;
 # WHITE;
-# BGM:on-a-bench.mp3:LOAD
+# BGM:on-a-bench.mp3:REFRESH
 # BGM:on-a-bench.mp3:PLAY
 # BG:07-aruku-01.png
 # MSG:お父さんとお母さんとはぐれて、寂しい思いをしたときのこと。
@@ -136,7 +136,7 @@ STOP;
 STOP;
 # MSG:よく見ると、男の子は絵を描いているようだった。
 STOP;
-# MSG:キャンバスにはここからの景色がとても綺麗に描かれている。
+# MSG:キャンバスにはここから見える景色がとても綺麗に描かれている。
 STOP;
 # STILL-IMG:01-aruku-01.png:116:right:2
 # MSG:「おお、すごい！」:女の子
@@ -152,7 +152,7 @@ STOP;
 STOP;
 # MSG:男の子は少し慌てた様子で振り返って、その時にはじめて私と目が合った。
 STOP;
-# MSG:雰囲気は多少変わっていたけれど、やっぱりあの時に会った男の子だった。
+# MSG:雰囲気は多少変わっていたけれど、やっぱり6年前のあの日に会った男の子だった。
 STOP;
 # MSG:…やっと、会うことが出来た。
 STOP;

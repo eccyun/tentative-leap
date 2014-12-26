@@ -1,4 +1,4 @@
-# BGM:on-a-bench.mp3:LOAD
+# BGM:on-a-bench.mp3:REFRESH
 # MSG:彼女がいったい誰だったのか、ようやくその全てが分かった。
 STOP;
 # MSG:僕がずっと気になっていた女の子は、まだ小さかった頃に出会った迷子の女の子だった。
@@ -50,11 +50,11 @@ STOP;
 STOP;
 # MSG:「僕には、君の気持ちに応えられそうにないんだ、ごめん」:照
 STOP;
-# MSG:それでも、ここで『これからも』なんて言葉を言うことは僕には出来なかった。
+# MSG:それでも、ここで彼女の気持ちに応えることは僕には出来なかった。
 STOP;
 # MSG:今、ここにいる僕は未来から来た僕であって、本来ここにいるべき僕とは違うのだから。
 STOP;
-# BGM:confessions.mp3:LOAD
+# BGM:confessions.mp3:REFRESH
 # BGM:confessions.mp3:PLAY
 # MSG:「覚悟はしてたつもりだったんだけど、やっぱりへこむね。ははは…」:歩
 STOP;

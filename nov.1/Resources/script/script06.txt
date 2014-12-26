@@ -1,5 +1,5 @@
-# BGM:forest.mp3:LOAD
-# BGM:road_theme.mp3:LOAD
+# BGM:forest.mp3:REFRESH
+# BGM:road_theme.mp3:REFRESH
 # BGM:forest.mp3:PLAY
 # BG:upland_night.png
 # IMG:mary_normal.png:center
@@ -213,6 +213,7 @@ STOP;
 # MSG:彼女に促されるわけでもなく、僕は6年前の夏祭りのことを話しはじめた。
 STOP;
 # IMG:mary_puzzle_2.png:center
+# BGM:on-a-bench.mp3:REFRESH
 # BGM:on-a-bench.mp3:PLAY
 # MSG:「会いたい人…ですか？」:女の子
 STOP;

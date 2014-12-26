@@ -8,15 +8,20 @@
 
 
 #import <GameKit/GameKit.h>
+#import <AVFoundation/AVFoundation.h>
 
+#import "AppDelegate.h"
 #import "cocos2d.h"
 #import "TentativeEngine.h"
 #import "SimpleAudioEngine.h"
 #import "MenuScene.h"
+#import "AppDelegate.h"
 
 // HelloWorldLayer
 @interface MainGameScene : CCLayer<CCTouchDelegate>{
 }
+
+@property(nonatomic,retain)  AppController*   delegate;
 
 @property(nonatomic)         BOOL             isCheck, isUp, imgMode;
 @property(nonatomic,retain)  TentativeEngine *engine;
@@ -30,7 +35,6 @@
 @property(nonatomic, retain) CCSprite        *hyper, *menu_image;
 @property(nonatomic, retain) NSString        *message_text,*name_text;
 @property(nonatomic)         ALuint           effect_int;
-
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;

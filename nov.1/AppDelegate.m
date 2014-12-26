@@ -50,7 +50,6 @@
 
 	// 2D projection
 	[director_ setProjection:kCCDirectorProjection2D];
-//	[director setProjection:kCCDirectorProjection3D];
 
 	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
 	if( ! [director_ enableRetinaDisplay:YES] )
@@ -77,6 +76,7 @@
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
 	[director_ pushScene: [IntroLayer scene]];
 
+    
 	
 	// Create a Navigation Controller with the Director
 	navController_ = [[UINavigationController alloc] initWithRootViewController:director_];
@@ -89,7 +89,40 @@
 	// make main window visible
 	[window_ makeKeyAndVisible];
 
+    self.bgmMap = @{@"aruku_theme.mp3" : [self getPlayer:@"aruku_theme.mp3"],
+                    @"bar_theme.mp3"   : [self getPlayer:@"bar_theme.mp3"],
+                    @"confessions.mp3" : [self getPlayer:@"confessions.mp3"],
+                    @"end-loop.mp3"    : [self getPlayer:@"end-loop.mp3"],
+                    @"fest-leap.mp3"   : [self getPlayer:@"fest-leap.mp3"],
+                    @"mary_theme.mp3"  : [self getPlayer:@"mary_theme.mp3"],
+                    @"on-a-bench.mp3"  : [self getPlayer:@"on-a-bench.mp3"],
+                    @"road_theme.mp3"  : [self getPlayer:@"road_theme.mp3"],
+                    @"time-leap.mp3"   : [self getPlayer:@"time-leap.mp3"],
+                    @"shoot.mp3"       : [self getPlayer:@"shoot.mp3"],
+                    @"bell-leap.mp3"   : [self getPlayer:@"bell-leap.mp3"]};
+    
+    self.effectsMap = @{
+                        @"shoot_effect.mp3" : [self getPlayer:@"shoot_effect.mp3"],
+                        @"watch_alert.mp3"  : [self getPlayer:@"watch_alert.mp3"]
+                        };
 	return YES;
+}
+
+- (AVAudioPlayer *) getPlayer : (NSString *)file_name{
+    NSArray  *split      = [file_name componentsSeparatedByString:@"."];
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *filePath   = [mainBundle pathForResource:[split objectAtIndex:0] ofType:[NSString stringWithFormat:@".%@",[split objectAtIndex:1]]];
+    NSURL    *fileUrl    = [NSURL fileURLWithPath:filePath];
+    NSError  *error      = nil;
+
+    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileUrl error:&error];
+    player.currentTime   = 0.f;
+    player.volume        = 0.f;
+    player.numberOfLoops = -1;
+    
+    [player prepareToPlay];
+    
+    return player;
 }
 
 // Supported orientations: Landscape. Customize it for your own needs
@@ -150,5 +183,6 @@
 
 	[super dealloc];
 }
+
 @end
 

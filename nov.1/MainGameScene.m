@@ -10,7 +10,6 @@
 #import "MainGameScene.h"
 
 // Needed to obtain the Navigation Controller
-#import "AppDelegate.h"
 #import "SettingsScene.h"
 #import "TitleLayer.h"
 #import "LoadScene.h"
@@ -38,6 +37,7 @@
 
     //画面取得
 	if((self=[super init])){
+        self.delegate       = (AppController *)[[UIApplication sharedApplication] delegate];
         self.isTouchEnabled = YES;
         self.isCheck        = NO;
         self.imgMode        = NO;
@@ -366,21 +366,23 @@
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BGM"]){
             //BGM開始
-            CGFloat         volume_value = 1.f;
-
-            if([[dictionary objectForKey:@"action"] isEqualToString:@"LOAD"]){
-                [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:[dictionary objectForKey:@"bgm_name"]];
-            }else if([[dictionary objectForKey:@"action"] isEqualToString:@"PLAY"]){
-                [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[dictionary objectForKey:@"bgm_name"] loop:YES];
-                [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:volume_value];
+            if([[dictionary objectForKey:@"action"] isEqualToString:@"PLAY"]){
+                //オーディオプレイヤー初期化
+                AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[[dictionary objectForKey:@"bgm_name"]];
+                audioPlayer.volume         = 1.f;
+                [audioPlayer play];
             }else if([[dictionary objectForKey:@"action"] isEqualToString:@"STOP"]){
-                [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
-            }else if([[dictionary objectForKey:@"action"] isEqualToString:@"RESUME"]){
-                [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+                //オーディオプレイヤー初期化
+                AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[[dictionary objectForKey:@"bgm_name"]];
+                [self doVolumeFadeOut:audioPlayer];
+            }else if([[dictionary objectForKey:@"action"] isEqualToString:@"REFRESH"]){
+                //オーディオプレイヤー初期化
+                AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[[dictionary objectForKey:@"bgm_name"]];
+                audioPlayer.currentTime    = 0.f;
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# EFFECT"]){
             // 効果音 開始
-            CGFloat         volume_value = 1.f;
+            CGFloat volume_value = 1.f;
 
             if([[dictionary objectForKey:@"action"] isEqualToString:@"LOAD"]){
                 [[SimpleAudioEngine sharedEngine] preloadEffect:[dictionary objectForKey:@"effect_name"]];
@@ -395,6 +397,15 @@
         }
 
         self.msgWindow.zOrder  = 997;
+    }
+}
+
+-(void)doVolumeFadeOut:(AVAudioPlayer *)audioPlayer{
+    if (audioPlayer.volume > 0.1f) {
+        audioPlayer.volume = audioPlayer.volume - 0.1f;
+        [self performSelector:@selector(doVolumeFadeOut:) withObject:audioPlayer afterDelay:0.1];
+    } else {
+        [audioPlayer stop];
     }
 }
 

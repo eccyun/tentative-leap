@@ -6,13 +6,16 @@
 //  Copyright 2013年 __MyCompanyName__. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "AppDelegate.h"
 
 @interface TitleLayer : CCLayer {
 }
 
-@property (nonatomic, retain)CCLabelTTF *new_label;
+@property(nonatomic,retain)  AppController*   delegate;
+
 @property (nonatomic, retain)CCLabelTTF *load_label;
 @property (nonatomic, retain)CCLabelTTF *opt_label;
 

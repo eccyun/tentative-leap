@@ -1,4 +1,4 @@
-# BGM:road_theme.mp3:LOAD
+# BGM:road_theme.mp3:REFRESH
 # BGM:road_theme.mp3:PLAY
 # BG:road.png
 # MSG:夏祭りの帰り道。

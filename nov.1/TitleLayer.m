@@ -9,7 +9,6 @@
 #import "TitleLayer.h"
 #import "MainGameScene.h"
 #import "SettingsScene.h"
-#import "SimpleAudioEngine.h"
 #import "LoadScene.h"
 #import "SaveScene.h"
 
@@ -31,15 +30,19 @@
 	CGSize size = [[CCDirector sharedDirector] winSize];
 
     if((self=[super init])){
+        self.delegate = (AppController *)[[UIApplication sharedApplication] delegate];
+        
         NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
         [ud setInteger:0 forKey:@"script_index"];
         [ud setInteger:0 forKey:@"structure_index"];
         [ud setInteger:0 forKey:@"quick_start_flag"];
         [ud synchronize];
 
-        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"time-leap.mp3"];
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"time-leap.mp3" loop:YES];
-        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.f];
+        //オーディオプレイヤー初期化
+        AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[@"time-leap.mp3"];
+        audioPlayer.currentTime    = 0.f;
+        audioPlayer.volume         = 1.f;
+        [audioPlayer play];
 
         self.isTouchEnabled = YES;
 
@@ -94,10 +97,14 @@
        location.x < self.start_logo.position.x+(self.start_logo.contentSize.width/2)&&
        location.y > self.start_logo.position.y-(self.start_logo.contentSize.height/2)&&
        location.y < self.start_logo.position.y+(self.start_logo.contentSize.height/2)){
-        [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
         [ud setObject:[[NSDictionary alloc] init] forKey:@"quick_instruct_datas"];
         [ud synchronize];
 
+        //オーディオプレイヤー初期化
+        AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[@"time-leap.mp3"];
+        [audioPlayer stop];
+        audioPlayer.currentTime    = 0.f;
+        audioPlayer.volume         = 0.f;
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
     }else if(location.x > self.quick_logo.position.x-(self.quick_logo.contentSize.width/2)&&
              location.x < self.quick_logo.position.x+(self.quick_logo.contentSize.width/2)&&
@@ -111,6 +118,11 @@
         LoadScene *loadScene    = [scene.children objectAtIndex:0];
         loadScene.isReturnTitle = NO;
 
+        //オーディオプレイヤー初期化
+        AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[@"time-leap.mp3"];
+        [audioPlayer stop];
+        audioPlayer.currentTime    = 0.f;
+        audioPlayer.volume         = 0.f;
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene: scene withColor:ccBLACK]];
     }else if(location.x > self.restart_logo.position.x-(self.restart_logo.contentSize.width/2)&&
              location.x < self.restart_logo.position.x+(self.restart_logo.contentSize.width/2)&&

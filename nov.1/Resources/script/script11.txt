@@ -1,4 +1,4 @@
-# BGM:fest-leap.mp3:LOAD
+# BGM:fest-leap.mp3:REFRESH
 # BGM:fest-leap.mp3:PLAY
 # BG:park_festa.png
 # MSG:「はぁ、やっぱり駄目だったな」:照
@@ -27,6 +27,7 @@ STOP;
 STOP;
 # BLACK;
 # BG:02-shoot-01.png
+# STILL-IMG:02-child-01.png:122:left:1
 # MSG:「照くんは、射的やったことある？」:歩
 STOP;
 # MSG:「何度かあるくらいかな、とは言えはじめてやるのと変わらないかも」:照
@@ -43,6 +44,7 @@ STOP;
 STOP;
 # MSG:「はい、次の方どうぞ！」
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「あ、照さん。列の前の方が購入されたみたいです」:マリー
 STOP;
 # MSG:そんなことを考えているうちに、あっという間に列の先頭になっていた。
@@ -60,7 +62,7 @@ STOP;
 STOP;
 # MSG:「ありがとうございます。えーっと…あれ？」:照
 STOP;
-# IMG:mary_normal.png:center
+# IMG:mary_puzzle_2.png:center
 # MSG:「どうしたんですか？」:マリー
 STOP;
 # MSG:「いや、思ったよりお金が入ってなくて…。うーん、困ったな」:照
@@ -80,7 +82,7 @@ STOP;
 STOP;
 # MSG:「はい、確かに！まいど、ありがとうございます！」
 STOP;
-# MSG:なけなしの400円と引き換えに店員からたこ焼きを一つ受け取って、僕達はお店をあとにした。
+# MSG:なけなしの400円と引き換えにたこ焼きを一つ受け取って、僕達はお店をあとにした。
 STOP;
 # BGM:fest-leap.mp3:STOP
 LOADING;

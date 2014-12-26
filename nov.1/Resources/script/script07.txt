@@ -1,4 +1,4 @@
-# BGM:bell-leap.mp3:LOAD
+# BGM:bell-leap.mp3:REFRESH
 # BGM:bell-leap.mp3:PLAY
 # MSG:今から、ちょうど6年前くらいのこと。
 STOP;

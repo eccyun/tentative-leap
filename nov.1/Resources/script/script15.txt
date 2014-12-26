@@ -1,4 +1,4 @@
-# BGM:on-a-bench.mp3:LOAD
+# BGM:on-a-bench.mp3:REFRESH
 # BGM:on-a-bench.mp3:PLAY
 # BG:park_festa.png
 # IMG:aruku_laugh2.png:center
@@ -55,7 +55,7 @@ STOP;
 STOP;
 # MSG:「会えるよ、きっと。そうしたら、また夏祭りに行くんでしょ？」:照
 STOP;
-# MSG:ーーーそれは、叶わない約束だけれど。
+# MSG:それは、叶わない約束だけれど。
 STOP;
 # IMG:aruku_laugh2.png:center
 # MSG:「そうだね。…へへへ」:歩
@@ -65,7 +65,7 @@ STOP;
 # IMG:aruku_laugh.png:center
 # MSG:「うん、ありがとう」:歩
 STOP;
-# MSG:ーーー彼女を勇気づけることが出来るのなら、これくらいのことはしても良いだろう。
+# MSG:彼女を勇気づけることが出来るのなら、これくらいのことはしても良いだろう。
 STOP;
 # IMG:aruku_normal.png:center
 # MSG:「それじゃあ、今度こそ…」:歩

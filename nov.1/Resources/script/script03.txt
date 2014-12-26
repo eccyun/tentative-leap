@@ -1,5 +1,5 @@
-# BGM:on-a-bench.mp3:LOAD
-# BGM:fest-leap.mp3:LOAD
+# BGM:on-a-bench.mp3:REFRESH
+# BGM:fest-leap.mp3:REFRESH
 # BGM:on-a-bench.mp3:PLAY
 # BG:rest.png
 # IMG:aruku_normal.png:center

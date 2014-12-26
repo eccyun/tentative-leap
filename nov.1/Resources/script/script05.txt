@@ -1,6 +1,6 @@
 # EFFECT:watch_alert.mp3:LOAD
-# BGM:forest.mp3:LOAD
-# BGM:road_theme.mp3:LOAD
+# BGM:forest.mp3:REFRESH
+# BGM:road_theme.mp3:REFRESH
 # BGM:road_theme.mp3:PLAY
 # BG:road.png
 # MSG:家に帰る途中、僕はさっき見た夢のことで頭がいっぱいになっていた。
@@ -141,7 +141,7 @@ STOP;
 STOP;
 # MSG:思えば、6年前に彼女と会った時もこうやって帰る準備をはじめた時だった。
 STOP;
-# BGM:road_theme.mp3:STOP
+# BGM:forest.mp3:STOP
 # MSG:「こんばんは」:？？？
 STOP;
 # MSG:そうそう、こんな感じで。

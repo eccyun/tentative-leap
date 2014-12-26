@@ -1,4 +1,5 @@
-# BGM:mary_theme.mp3:LOAD
+# BGM:forest.mp3:REFRESH
+# BGM:forest.mp3:PLAY
 # MSG:暗闇の中にいる。
 STOP;
 # MSG:そうなってから、どれくらいの時間が経っただろうか？
@@ -16,27 +17,25 @@ STOP;
 STOP;
 # MSG:そんな状況にも徐々に耐えられなくなって、気を紛らわそうと僕の方から何か話をしてみることにした。
 STOP;
-ここでBGM入っても良いかも
-//# BGM:mary_theme.mp3:PLAY
 # MSG:「あのさ」:照
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「はい、どうしました？」:マリー
 STOP;
 # MSG:「いや、いつまでこの状態が続くのかなって思って」:照
 STOP;
-# IMG:mary_laugh.png:center
-# MSG:「もう、そろそろだと思うんですけどね、とっくに着いてもおかしくないんですけど」:マリー
+# IMG:mary_puzzle_2.png:center
+# MSG:「もう、そろそろだと思うんですけどね、いつ到着してもおかしくないんですけど」:マリー
 STOP;
 # MSG:「そうなんだ」:照
 STOP;
 # IMG:mary_normal.png:center
-# MSG:「過去に連れて行く人によって、到着までの時間にばらつきがあるんです」:マリー
+# MSG:「連れて行く方によって、到着までの時間にばらつきがあるんです」:マリー
 STOP;
 # MSG:「それじゃあ、具体的にいつ着くかまでははっきりとはわからないんだ」:照
 STOP;
-# MSG:「そうですね、すみません」:マリー
-STOP;
-# MSG:「いやいや、それは構わないんだけど…」:照
+# IMG:mary_laugh_2.png:center
+# MSG:「そうですね」:マリー
 STOP;
 # BLACK;
 # IMG:mary_normal.png:center
@@ -44,26 +43,28 @@ STOP;
 STOP;
 # MSG:まだまだ時間が掛かりそうだったので、僕は他にも気になることを聞いてみることにした。
 STOP;
-# IMG:mary_laugh.png:center
+# IMG:mary_laugh_2.png:center
 # MSG:「はい、どうぞ。何でも聞いてください」:マリー
 STOP;
 # MSG:「それじゃあ、早速だけど…。マリーみたいな人って、他にもいるの？」:照
 STOP;
-# IMG:mary_normal.png:center
+# IMG:mary_puzzle_2.png:center
 # MSG:「私みたいな人、ですか？」:マリー
 STOP;
 # MSG:「要は、こうして僕みたいな人を過去に連れていく人が他にもいるのかって話なんだけど」:照
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「ああ、なるほど…そういうことですか。そうですね」:マリー
 STOP;
+# IMG:mary_puzzle_2.png:center
 # MSG:マリーはそれを言うか言うまいか、悩んでいる様子だった。
 STOP;
 # MSG:そうして少しの時間が経った頃。
 STOP;
 # MSG:やがて、何かを決心したような面持ちで話をはじめた。
 STOP;
-// BGMを止める
-# MSG:「…いるみたいです。私も、はっきりとは分からないんですけど」:マリー
+# IMG:mary_normal.png:center
+# MSG:「…いるみたいです。私も、はっきりとは分からないんですけどね」:マリー
 STOP;
 # MSG:「それは、またどうして？」:照
 STOP;
@@ -89,7 +90,7 @@ STOP;
 STOP;
 # MSG:「それなら、この懐中時計はどうしたの？」:照
 STOP;
-# MSG:「これは、その時に私を過去へと連れていってくれた方から、預かったものです」:マリー
+# MSG:「これは、その時に私を過去へと連れていってくれた方から預かったものです」:マリー
 STOP;
 # MSG:「預かった？」:照
 STOP;
@@ -127,26 +128,29 @@ STOP;
 STOP;
 # MSG:「な、なに？」:照
 STOP;
+# IMG:mary_puzzle_2.png:center
 # MSG:「不安になりました？」:マリー
 STOP;
 # MSG:表情や立ち振る舞いに出ていたのだろうか、マリーはそんなことを聞いてくる。
 STOP;
-# MSG:「正直、不安になった。何かとんでもないことに巻き込まれてるんじゃないかって」:照
+# MSG:「正直、ちょっとだけ不安になった…。何かとんでもないことに巻き込まれてるんじゃないかって」:照
 STOP;
+# IMG:mary_laugh_2.png:center
 # MSG:「やっぱり、そうですよね。でも…」:マリー
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「安心してください、少なくとも私に出来ることは照さんを過去へと連れていくことだけですから」:マリー
 STOP;
 # MSG:「そうして、照さんにも後悔した過去の出来事を乗り越えてほしい」:マリー
-STOP;
+STOP
+# IMG:mary_laugh.png:center
 # MSG:「それによって、これから先の未来へと向かうことが出来たら、私はとても嬉しいです」:マリー
 STOP;
 # MSG:「それは、本当に信じてもいいの？」:照
 STOP;
-# IMG:mary_laugh.png:center
+# IMG:mary_normal.png:center
 # MSG:「はい」:マリー
 STOP;
-# IMG:mary_normal.png:center
 # MSG:「…それが、私の役割ですから」:マリー
 STOP;
 # MSG:マリーは笑っていたけれど、その言葉にはどこか寂しさのようなそんなものを感じた。
@@ -163,6 +167,7 @@ STOP;
 STOP;
 # MSG:何故だかわからないけれど、そんな信頼のようなものが僕の中で出来上がっていた。
 STOP;
+# IMG:mary_laugh.png:center
 # MSG:「照さんに話して良かったです、ありがとうございます」:マリー
 STOP;
 # MSG:どうして感謝されたのか、僕にはよくわからなかった。
@@ -171,21 +176,21 @@ STOP;
 STOP;
 # MSG:だから僕も、どう言ったら良いのかがよくわからなくなって短くそう返してしまう。
 STOP;
-# IMG:mary_laugh.png:center
+# IMG:mary_laugh_2.png:center
 # MSG:けれど、マリーはどこかほっととしている様子だった。これで良かったみたいだ。
 STOP;
 # MSG:もしかしたら、マリーも自分の身の上を誰かに聞いてほしかったのかもしれない。
 STOP;
 # IMG:mary_normal.png:center
-# MSG:「あ、照さん…そろそろ到着するみたいです」:マリー
+# MSG:「あ、照さん…。そろそろ、到着するみたいです」:マリー
 STOP;
 # MSG:それまで真っ暗だった周囲の様子が、一転して少しずつ明るくなり景色がはっきりとしてくる。
 STOP;
 # MSG:そうして白いもやが徐々に晴れてきて、景色がより鮮明になっていった。
 STOP;
 # WHITE;
-# BGM:aruku_theme.mp3:LOAD
-# BGM:on-a-bench.mp3:LOAD
+# BGM:forest.mp3:STOP;
+# BGM:mary_theme.mp3:REFRESH
 # BGM:mary_theme.mp3:PLAY
 # BG:upland_evening.png
 # IMG:mary_normal.png:center
@@ -193,7 +198,7 @@ STOP;
 STOP;
 # MSG:「なんだか周りの景色が全く変わってないから、戻ってきた感じがしないね」:照
 STOP;
-# IMG:mary_laugh.png:center
+# IMG:mary_laugh_2.png:center
 # MSG:「でも、照さん。格好が変わってますよ？」:マリー
 STOP;
 # MSG:マリーにそう言われて見てみると、確かに服装が普段着から高校の頃の制服に変わっていた。
@@ -202,13 +207,14 @@ STOP;
 STOP;
 # MSG:過去に戻ってきている、そう認めざるを得なかった。
 STOP;
-# IMG:mary_normal.png:center
+# IMG:mary_puzzle_2.png:center
 # MSG:「確か、聞いていた話だと今は夏休みだったって話でしたけど…」:マリー
 STOP;
 # MSG:「照さんは、どうして制服なんか着てるんですか？」:マリー
 STOP;
 # MSG:「この頃は、休みの日も出掛ける時は制服で出掛けるようにしてたんだ」:照
 STOP;
+# IMG:mary_normal.png:center
 # MSG:「はぁ…」:マリー
 STOP;
 # MSG:マリーはどうしてそんなことをするのか、よくわからないといった様子だった。
@@ -219,6 +225,7 @@ STOP;
 STOP;
 # MSG:そんな適当なことを言いながら僕はベンチに腰掛ける。
 STOP;
+# IMG:mary_puzzle_2.png:center
 # MSG:それを聞いたマリーはどこか納得のいかない様子だった。
 STOP;
 # BLACK;
@@ -226,10 +233,10 @@ STOP;
 # STILL-IMG:01-teru-01.png:122:left:1
 # MSG:「本当に戻ってきたんだな、画材もその時のままだ」:照
 STOP;
-# MSG:そんな風に懐かしんでいると、横からマリーが身を乗り出してきた。
+# MSG:そんな風に当時のことを懐かしんでいると、横からマリーが身を乗り出してきた。
 STOP;
 # STILL-IMG:08-mary-01.png:116:right:2
-# MSG:「凄く綺麗に描けてるじゃないですか、これって全部照さんが描いたんですか？」:マリー
+# MSG:「とても綺麗に描かれてるじゃないですか、これって全部照さんが描いたんですか？」:マリー
 STOP;
 # STILL-IMG:01-teru-02.png:122:left:1
 # MSG:「そうだよ。でも、今となってはもうこここまでは描けないだろうなあ」:照
@@ -246,7 +253,7 @@ STOP;
 STOP;
 # BLACK;
 # BG:upland_evening.png
-# IMG:mary_normal.png:center
+# IMG:mary_puzzle_2.png:center
 # MSG:「せっかくですし、少し描いてみたらどうですか？」:マリー
 STOP;
 # MSG:マリーは僕に提案する。それを聞いた僕は何故か躊躇してしまった。
@@ -281,12 +288,14 @@ STOP;
 # IMG:mary_normal.png:center
 # MSG:「ど、どうして分かったんですか。最後まで言わせてください…」:マリー
 STOP;
-# MSG:マリーは言いたいことをずばり当てられてしまい、困惑しているようだった。
+# MSG:言いたかったことをずばり当てられてしまい、困惑しているようだった。
 STOP;
-# MSG:「いやいや、それはさすがにわかるよ。…しかし、ねぇ」:照
+# MSG:「いやいや、それはさすがに…。しかし、ねぇ」:照
 STOP;
 # REMOVE-IMG:center
-# MSG:『身体が絵の描き方を覚えている』本当にそんなことがあるのだろうか？
+# MSG:『身体が絵の描き方を覚えている』
+STOP;
+# MSG:本当にそんなことがあるのだろうか？
 STOP;
 # MSG:半信半疑のまま、僕は広げていた画材へと手を伸ばし絵を描いてみることにした。
 STOP;
@@ -341,7 +350,7 @@ STOP;
 # BLACK;
 # BGM:mary_theme.mp3:STOP
 # BG:upland_evening.png
-# MSG:「おお、すごい！」:歩
+# MSG:「おお、すごい！」:？？？
 STOP;
 # MSG:「うわっ！」:照
 STOP;
@@ -354,6 +363,7 @@ STOP;
 STOP;
 # MSG:はじまりは、6年前の時と全く同じだった。
 STOP;
+# BGM:aruku_theme.mp3:REFRESH
 # BGM:aruku_theme.mp3:PLAY
 # IMG:aruku_laugh2.png:center
 # MSG:「あ、突然ごめんね。とてもよく描けてるなあって思って」:歩
@@ -420,11 +430,12 @@ STOP;
 # MSG:「そっか、それでその夏祭りなんだけどさ…」:歩
 STOP;
 # BGM:aruku_theme.mp3:STOP
-# MSG:「もし良かったら、これから私と一緒に行きませんか？」:歩
+# MSG:「もし良かったら、これから一緒に行かない？」:歩
 STOP;
 # MSG:「…」:照
 STOP;
-# BLACK:
+# BLACK;
+# BGM:on-a-bench.mp3:REFRESH
 # BGM:on-a-bench.mp3:PLAY
 # BG:upland_evening.png
 # IMG:aruku_normal.png:center
@@ -465,12 +476,14 @@ STOP;
 STOP;
 # MSG:「ごめん、気のせいだったかも…」:照
 STOP;
-# MSG:そう思った僕は、慌てて一度切り出した話を引っこめてしまう。
+# MSG:そう思った僕は、慌てて一度切り出した話を取り下げる。
 STOP;
 # IMG:aruku_laugh2.png:center
 # MSG:「いや、気のせいじゃないよ？」:歩
 STOP;
-# MSG:「だって、私は君のことちゃんと覚えてるよ。君は、照くんでしょ？」:歩
+# MSG:「だって、私は君のことちゃんと覚えてるよ」:歩
+STOP;
+# MSG:「君は、照くんでしょ？」:歩
 STOP;
 # MSG:やはり、彼女は僕のことをはっきりと覚えているようだ。
 STOP;
@@ -514,7 +527,7 @@ STOP;
 STOP;
 # MSG:『少しの間だけ』と言うのは、はじめて聞いた話だった。
 STOP;
-# MSG:「せめて、いつ頃どこで僕達が会ったのか教えてくれたら、何か思い出せるかもしれないんだけど」
+# MSG:「せめて、いつ頃どこで僕達が会ったのか教えてくれたら、何か思い出せるかもしれないんだけど」:照
 STOP;
 # STILL-IMG:01-cut-01.png:122:right:3
 # MSG:「それだったら夏祭りに行ってる間に、何か思い出せるんじゃないかな」:歩

@@ -1,4 +1,4 @@
-# BGM:fest-leap.mp3:LOAD
+# BGM:fest-leap.mp3:REFRESH
 # BGM:fest-leap.mp3:PLAY
 # BG:park_festa.png
 # MSG:「混んでるなぁ」:照
@@ -61,7 +61,7 @@ STOP;
 # MSG:「…」:照
 STOP;
 # BLACK;
-# BGM:on-a-bench.mp3:LOAD
+# BGM:on-a-bench.mp3:REFRESH
 # BGM:on-a-bench.mp3:PLAY
 # BG:14-aruku-01.png
 # MSG:「わっ、わわわ。何、急に！？」:歩
@@ -91,7 +91,7 @@ STOP;
 # MSG:今となってはその時の心境がどうだったか曖昧だったけれど、なんとなくそんな気がした。
 STOP;
 # BLACK;
-# BGM:road_theme.mp3:LOAD
+# BGM:road_theme.mp3:REFRESH
 # BGM:road_theme.mp3:PLAY
 # BG:upland_night.png
 # IMG:aruku_normal.png:center
@@ -141,6 +141,7 @@ STOP;
 # MSG:あちこちから、そんな歓声や拍手の音が聞こえてくる。
 STOP;
 # BG:14-fire-04.png
+# BGM:on-a-bench.mp3:REFRESH
 # BGM:on-a-bench.mp3:PLAY
 # MSG:「照くん、はじまった！」:歩
 STOP;
