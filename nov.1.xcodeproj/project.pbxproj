@@ -203,6 +203,9 @@
 		1BAF6FEB1A50693D00C65081 /* navigation-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6FE91A50693D00C65081 /* navigation-01-hd.png */; };
 		1BAF6FEC1A50693D00C65081 /* navigation-02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6FEA1A50693D00C65081 /* navigation-02-hd.png */; };
 		1BAF6FF21A5069DC00C65081 /* IntroductionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF6FF11A5069DC00C65081 /* IntroductionLayer.m */; };
+		1BAF6FF61A50703800C65081 /* full-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6FF31A50703800C65081 /* full-hd.png */; };
+		1BAF6FF71A50703800C65081 /* log-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6FF41A50703800C65081 /* log-hd.png */; };
+		1BAF6FF81A50703800C65081 /* menu-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6FF51A50703800C65081 /* menu-hd.png */; };
 		1BBD4EAD16DBA51A009F6CEC /* SettingsParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */; };
 		1BD2DEA51A24C732000E3686 /* 02-shoot-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */; };
 		1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */; };
@@ -607,6 +610,9 @@
 		1BAF6FEA1A50693D00C65081 /* navigation-02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation-02-hd.png"; path = "Resources/UI/navigation-02-hd.png"; sourceTree = "<group>"; };
 		1BAF6FF01A5069DC00C65081 /* IntroductionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionLayer.h; sourceTree = "<group>"; };
 		1BAF6FF11A5069DC00C65081 /* IntroductionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionLayer.m; sourceTree = "<group>"; };
+		1BAF6FF31A50703800C65081 /* full-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "full-hd.png"; path = "Resources/UI/full-hd.png"; sourceTree = "<group>"; };
+		1BAF6FF41A50703800C65081 /* log-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "log-hd.png"; path = "Resources/UI/log-hd.png"; sourceTree = "<group>"; };
+		1BAF6FF51A50703800C65081 /* menu-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-hd.png"; path = "Resources/UI/menu-hd.png"; sourceTree = "<group>"; };
 		1BBD4EAB16DBA51A009F6CEC /* SettingsParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsParts.h; sourceTree = "<group>"; };
 		1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsParts.m; sourceTree = "<group>"; };
 		1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-shoot-01-hd.png"; sourceTree = "<group>"; };
@@ -1324,6 +1330,9 @@
 		1BFEA6ED18D5D5A00059640E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1BAF6FF31A50703800C65081 /* full-hd.png */,
+				1BAF6FF41A50703800C65081 /* log-hd.png */,
+				1BAF6FF51A50703800C65081 /* menu-hd.png */,
 				1BAF6FE91A50693D00C65081 /* navigation-01-hd.png */,
 				1BAF6FEA1A50693D00C65081 /* navigation-02-hd.png */,
 				1BAF6E0B1A43224400C65081 /* message_window-hd.png */,
@@ -1456,6 +1465,7 @@
 				1B212E5C18F1980C0023984A /* mary_anger_up-hd.png in Resources */,
 				1BFEA6C318CCB3F40059640E /* script10.txt in Resources */,
 				1BEAC32318AA6DC400BC22DA /* upland_night-hd.png in Resources */,
+				1BAF6FF71A50703800C65081 /* log-hd.png in Resources */,
 				1BFEA6D718CCB7E60059640E /* Icon~iphone.png in Resources */,
 				1B212E5618F1980C0023984A /* aruku_anger_up-hd.png in Resources */,
 				1B388A371A1E277200A1F37D /* 01-teru-01-hd.png in Resources */,
@@ -1471,6 +1481,7 @@
 				1BFEA6C018CCB3F40059640E /* script07.txt in Resources */,
 				1B212E5918F1980C0023984A /* aruku_laugh2_up-hd.png in Resources */,
 				1BAF6E071A431DD200C65081 /* back_title-hd.png in Resources */,
+				1BAF6FF61A50703800C65081 /* full-hd.png in Resources */,
 				1BFEA71118DD63B40059640E /* save_back-hd.png in Resources */,
 				1BEAC31B18AA6DC400BC22DA /* bar-hd.png in Resources */,
 				1BFEA6CE18CCB6C70059640E /* Icon~iphone.png in Resources */,
@@ -1519,6 +1530,7 @@
 				1B388A391A1E277200A1F37D /* 01-teru-03-hd.png in Resources */,
 				1BEAC32518AA6DC400BC22DA /* aruku_cry-hd.png in Resources */,
 				1B5F030518C3753900710F44 /* menu_quick_start_off-hd.png in Resources */,
+				1BAF6FF81A50703800C65081 /* menu-hd.png in Resources */,
 				1B212E6018F1980C0023984A /* mary_puzzle_up-hd.png in Resources */,
 				1B9F14171A360F8B002F8DCD /* 14-aruku-02-hd.png in Resources */,
 				1B212E5718F1980C0023984A /* aruku_cry_up-hd.png in Resources */,
