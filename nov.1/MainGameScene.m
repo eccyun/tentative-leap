@@ -183,6 +183,8 @@
             [[self getChildByTag:4501] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
             [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:8502] removeFromParentAndCleanup:(true)];
+            [[self getChildByTag:8503] removeFromParentAndCleanup:(true)];
 
             for(int i=0; i < self.line_count; i++){
                 [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
@@ -194,12 +196,24 @@
             self.msgWindow.zOrder   = 999;
             [self addChild:self.msgWindow];
 
-            self.menu_image          = [[CCSprite alloc] initWithFile:@"msg_menu.png"];
-            self.menu_image.position = ccp(size.width/2+90.f, (size.height/12));
-            self.menu_image.tag      = 8501;
+            self.log_image          = [[CCSprite alloc] initWithFile:@"log.png"];
+            self.log_image.position = ccp(size.width/2+70.f, (size.height/12));
+            self.log_image.tag      = 8501;
+            [self addChild:self.log_image];
+            self.log_image.zOrder = 1000;
+            
+            self.menu_image          = [[CCSprite alloc] initWithFile:@"menu.png"];
+            self.menu_image.position = ccp(size.width/2+100.f, (size.height/12));
+            self.menu_image.tag      = 8502;
             [self addChild:self.menu_image];
             self.menu_image.zOrder = 1000;
             
+            self.full_image          = [[CCSprite alloc] initWithFile:@"full.png"];
+            self.full_image.position = ccp(size.width/2+130.f, (size.height/12));
+            self.full_image.tag      = 8503;
+            [self addChild:self.full_image];
+            self.full_image.zOrder = 1000;
+
             int len          = [text length];
             int base_length  = [text length];
             int _size        = 12;
@@ -429,176 +443,199 @@
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
-    //if(touch.tapCount == 1){
-        if(self.imgMode){
-            return YES;
+    if(self.imgMode){
+        self.imgMode = NO;
+        [self.msgWindow setVisible:YES];
+        [self.menu_image setVisible:YES];
+        [self.full_image setVisible:YES];
+        [self.log_image setVisible:YES];
+        
+        for(int i=0; i < self.line_count; i++){
+            [[self getChildByTag:4510+i] setVisible:YES];
         }
+        [[self getChildByTag:4501] setVisible:YES];
+
+        return YES;
+    }
     
-        CGSize size = [[CCDirector sharedDirector] winSize];
+    CGSize size = [[CCDirector sharedDirector] winSize];
         
-        // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
-        CGPoint location = [touch locationInView:[touch view]];
-        location         = [[CCDirector sharedDirector] convertToGL:location];
-        
-        if(location.x > self.menu_image.position.x-(self.menu_image.contentSize.width/2)&&
-           location.x < self.menu_image.position.x+(self.menu_image.contentSize.width/2)&&
-           location.y > self.menu_image.position.y-(self.menu_image.contentSize.height/2)&&
-           location.y < self.menu_image.position.y+(self.menu_image.contentSize.height/2)){
-            
-            // メニューに移動
-            CCScene   *scene     = [MenuScene scene];
-            MenuScene *menuScene = [scene.children objectAtIndex:0];
+    // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
+    CGPoint location = [touch locationInView:[touch view]];
+    location         = [[CCDirector sharedDirector] convertToGL:location];
 
-            // リサイズの幅と高さを取得
-            CGFloat ratio  = size.width/400.f;
-            CGFloat width  = 400.f;
-            CGFloat height = size.height/ratio;
-            
-            UIImage *image           = [self resizeImage:[self getCurrentScreenCapture] rect:CGRectMake(0.f, 0.f, width, height)];
-            width                    = 267.f;
-            height                   = 205.f;
-            menuScene.screen_capture = [self croppingImage:image imageRect:CGRectMake((image.size.width/2.f)-(width/2.f), 0.f, width, height)];
-            menuScene.save_text      = self.message_text;
-            
-            [[CCDirector sharedDirector] pushScene:scene];
-            return YES;
-        }
-
-        if(self.isCheck){
-            [[self getChildByTag:4500] stopAllActions];
-            [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
-            [[self getChildByTag:4501] removeFromParentAndCleanup:(true)];
-            [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
-            [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
-
-            for(int i=0; i < self.line_count; i++){
-                [[self getChildByTag:4510+i] stopAllActions];
-                [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
-            }
-
-            self.msgWindow          = [[CCSprite alloc] initWithFile:@"message_window.png"];
-            self.msgWindow.position = ccp(size.width/2, (size.height/5)+10.f);
-            self.msgWindow.tag      = 4500;
-            self.msgWindow.zOrder   = 999;
-            [self addChild:self.msgWindow];
-
-            self.menu_image          = [[CCSprite alloc] initWithFile:@"msg_menu.png"];
-            self.menu_image.position = ccp(size.width/2+90.f, (size.height/12));
-            self.menu_image.tag      = 8501;
-            [self addChild:self.menu_image];
-            self.menu_image.zOrder = 1000;
-            
-            self.isCheck = NO;
-            
-            int len          = [self.message_text length];
-            int base_length  = [self.message_text length];
-            int _size        = 12;
-            int _font        = @"HiraKakuProN-W6";
-            int _line_height = 5;
-
-            if(self.name_text!=nil&&![self.name_text isEqualToString:@""]){
-                self.name_tag = [CCLabelTTF labelWithString:self.name_text
-                                                 dimensions:CGSizeMake((_size+2)*4,_size+2)
-                                                 hAlignment:NSTextAlignmentCenter fontName:_font fontSize:_size+2];
-                self.name_tag.position = ccp((size.width/2)-168.f, (size.height/2)-44.f);
-                self.name_tag.zOrder   = 1000;
-                self.name_tag.tag      = 4501;
-                [self addChild:self.name_tag];
-            }
-            
-            // テキスチャを切り出して配列で保存する
-            NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
-            NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
-            NSInteger        _a_line_text = 30;
-            
-            // 文字情報を取得する
-            for (int i=0; i<len; i++) {
-                // 改行 1行あたりの文字列が30文字なので
-                if(i%_a_line_text==0 && i > 0){
-                    // 残りの文字数をチェック
-                    NSInteger rest = base_length - [_string length];
-                    
-                    // 残りが一文字で、それが句読点だった場合折り返さないで詰める
-                    if(rest==1){
-                        NSString *tmp_text = [NSString stringWithFormat:@"%@",[self.message_text substringWithRange:NSMakeRange(i, 1)]];
-                        if([tmp_text isEqualToString:@"」"] || [tmp_text isEqualToString:@"。"]){
-                            _string = [NSString stringWithFormat:@"%@%@",_string, tmp_text];
-                            rest    = 0; // 残り文字数は0になります
-                            i++;
-                        }
-                    }
-                    [aLineString addObject:_string];
-                    
-                    if(rest!=0){
-                        // 残り文字数を更新
-                        base_length = base_length - [_string length];
-                        _string     = [[NSString alloc] init];
-                        _string     = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
-                        continue;
-                    }else{
-                        break;
-                    }
-                }
-                
-                _string = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
-            }
-            
-            // 後処理　もし残りがあれば
-            if(base_length <= _a_line_text){
-                [aLineString addObject:_string];
-            }
-            
-            // アニメーションに向けた仕込み
-            for(int i=0; i<[aLineString count]; i++){
-                // ラベルの定義
-                NSString   *data  = [aLineString objectAtIndex:i];
-                
-                CCLabelTTF *label = [CCLabelTTF labelWithString:data
-                                                     dimensions:CGSizeMake(_size*[data length],_size)
-                                                     hAlignment:NSTextAlignmentLeft fontName:_font fontSize:_size];
-                [label setAnchorPoint:ccp(0,0)];
-                label.tag = 4510+i;
-                
-                // iPhone 5 以降との切り分けを行ったらラベルを追加
-                if([[CCDirector sharedDirector] winSize].width == 480.f){
-                    label.position = ccp(48 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
-                }else{
-                    label.position = ccp(93 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
-                }
-                
-                label.zOrder  = 1000;
-                [self addChild:label];
-            }
-            
-            return YES;
-        }
-        
-        NSMutableArray *instruct = [self.engine readScript];
-        [self doInstruct:instruct spriteSize:size];
-        
-        self.msgWindow.zOrder  = 997;
-/*
-    }else if(touch.tapCount == 2){
+    if(location.x > self.full_image.position.x-(self.full_image.contentSize.width/2)&&
+        location.x < self.full_image.position.x+(self.full_image.contentSize.width/2)&&
+        location.y > self.full_image.position.y-(self.full_image.contentSize.height/2)&&
+        location.y < self.full_image.position.y+(self.full_image.contentSize.height/2)){
         if(!self.imgMode){
             // 全画面表示
             self.imgMode = YES;
             [self.msgWindow setVisible:NO];
             [self.menu_image setVisible:NO];
-
+            [self.full_image setVisible:NO];
+            [self.log_image setVisible:NO];
+            
             for(int i=0; i < self.line_count; i++){
                 [[self getChildByTag:4510+i] setVisible:NO];
             }
-        }else{
-            self.imgMode = NO;
-            [self.msgWindow setVisible:YES];
-            [self.menu_image setVisible:YES];
-
-            for(int i=0; i < self.line_count; i++){
-                [[self getChildByTag:4510+i] setVisible:YES];
-            }
+            
+            [[self getChildByTag:4501] setVisible:NO];
         }
+            
+        return YES;
     }
-*/
+
+    if(location.x > self.menu_image.position.x-(self.menu_image.contentSize.width/2)&&
+        location.x < self.menu_image.position.x+(self.menu_image.contentSize.width/2)&&
+        location.y > self.menu_image.position.y-(self.menu_image.contentSize.height/2)&&
+        location.y < self.menu_image.position.y+(self.menu_image.contentSize.height/2)){
+            
+        // メニューに移動
+        CCScene   *scene     = [MenuScene scene];
+        MenuScene *menuScene = [scene.children objectAtIndex:0];
+
+        // リサイズの幅と高さを取得
+        CGFloat ratio  = size.width/400.f;
+        CGFloat width  = 400.f;
+        CGFloat height = size.height/ratio;
+            
+        UIImage *image           = [self resizeImage:[self getCurrentScreenCapture] rect:CGRectMake(0.f, 0.f, width, height)];
+        width                    = 267.f;
+        height                   = 205.f;
+        menuScene.screen_capture = [self croppingImage:image imageRect:CGRectMake((image.size.width/2.f)-(width/2.f), 0.f, width, height)];
+        menuScene.save_text      = self.message_text;
+
+        [[CCDirector sharedDirector] pushScene:scene];
+        return YES;
+    }
+
+    if(self.isCheck){
+        [[self getChildByTag:4500] stopAllActions];
+        [[self getChildByTag:4500] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:4501] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:8500] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:8501] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:8502] removeFromParentAndCleanup:(true)];
+        [[self getChildByTag:8503] removeFromParentAndCleanup:(true)];
+
+        for(int i=0; i < self.line_count; i++){
+            [[self getChildByTag:4510+i] stopAllActions];
+            [[self getChildByTag:4510+i] removeFromParentAndCleanup:(true)];
+        }
+
+        self.msgWindow          = [[CCSprite alloc] initWithFile:@"message_window.png"];
+        self.msgWindow.position = ccp(size.width/2, (size.height/5)+10.f);
+        self.msgWindow.tag      = 4500;
+        self.msgWindow.zOrder   = 999;
+        [self addChild:self.msgWindow];
+
+        self.log_image          = [[CCSprite alloc] initWithFile:@"log.png"];
+        self.log_image.position = ccp(size.width/2+70.f, (size.height/12));
+        self.log_image.tag      = 8501;
+        [self addChild:self.log_image];
+        self.log_image.zOrder = 1000;
+
+        self.menu_image          = [[CCSprite alloc] initWithFile:@"menu.png"];
+        self.menu_image.position = ccp(size.width/2+100.f, (size.height/12));
+        self.menu_image.tag      = 8502;
+        [self addChild:self.menu_image];
+        self.menu_image.zOrder = 1000;
+
+        self.full_image          = [[CCSprite alloc] initWithFile:@"full.png"];
+        self.full_image.position = ccp(size.width/2+130.f, (size.height/12));
+        self.full_image.tag      = 8503;
+        [self addChild:self.full_image];
+        self.full_image.zOrder = 1000;
+            
+        self.isCheck = NO;
+            
+        int len          = [self.message_text length];
+        int base_length  = [self.message_text length];
+        int _size        = 12;
+        int _font        = @"HiraKakuProN-W6";
+        int _line_height = 5;
+
+        if(self.name_text!=nil&&![self.name_text isEqualToString:@""]){
+            self.name_tag = [CCLabelTTF labelWithString:self.name_text
+                                             dimensions:CGSizeMake((_size+2)*4,_size+2)
+                                             hAlignment:NSTextAlignmentCenter fontName:_font fontSize:_size+2];
+            self.name_tag.position = ccp((size.width/2)-168.f, (size.height/2)-44.f);
+            self.name_tag.zOrder   = 1000;
+            self.name_tag.tag      = 4501;
+            [self addChild:self.name_tag];
+        }
+            
+        // テキスチャを切り出して配列で保存する
+        NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
+        NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
+        NSInteger        _a_line_text = 30;
+        
+        // 文字情報を取得する
+        for (int i=0; i<len; i++) {
+            // 改行 1行あたりの文字列が30文字なので
+            if(i%_a_line_text==0 && i > 0){
+                // 残りの文字数をチェック
+                NSInteger rest = base_length - [_string length];
+                // 残りが一文字で、それが句読点だった場合折り返さないで詰める
+                if(rest==1){
+                    NSString *tmp_text = [NSString stringWithFormat:@"%@",[self.message_text substringWithRange:NSMakeRange(i, 1)]];
+                    if([tmp_text isEqualToString:@"」"] || [tmp_text isEqualToString:@"。"]){
+                        _string = [NSString stringWithFormat:@"%@%@",_string, tmp_text];
+                        rest    = 0; // 残り文字数は0になります
+                        i++;
+                    }
+                }
+                [aLineString addObject:_string];
+                    
+                if(rest!=0){
+                    // 残り文字数を更新
+                    base_length = base_length - [_string length];
+                    _string     = [[NSString alloc] init];
+                    _string     = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
+                    continue;
+                }else{
+                    break;
+                }
+            }
+                
+            _string = [NSString stringWithFormat:@"%@%@",_string,[self.message_text substringWithRange:NSMakeRange(i, 1)]];
+        }
+            
+        // 後処理　もし残りがあれば
+        if(base_length <= _a_line_text){
+            [aLineString addObject:_string];
+        }
+            
+        // アニメーションに向けた仕込み
+        for(int i=0; i<[aLineString count]; i++){
+            // ラベルの定義
+            NSString   *data  = [aLineString objectAtIndex:i];
+                
+            CCLabelTTF *label = [CCLabelTTF labelWithString:data
+                                                 dimensions:CGSizeMake(_size*[data length],_size)
+                                                 hAlignment:NSTextAlignmentLeft fontName:_font fontSize:_size];
+            [label setAnchorPoint:ccp(0,0)];
+            label.tag = 4510+i;
+                
+            // iPhone 5 以降との切り分けを行ったらラベルを追加
+            if([[CCDirector sharedDirector] winSize].width == 480.f){
+                label.position = ccp(48 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
+            }else{
+                label.position = ccp(93 , ((size.height/2)-self.msgWindow.position.y-10.f)-(_size*i)-(_line_height*i));
+            }
+
+            label.zOrder  = 1000;
+            [self addChild:label];
+        }
+            
+        return YES;
+    }
+        
+    NSMutableArray *instruct = [self.engine readScript];
+    [self doInstruct:instruct spriteSize:size];
+    self.msgWindow.zOrder  = 997;
+
     return YES;
 }
 
