@@ -202,6 +202,7 @@
 		1BAF6E231A49E62300C65081 /* shoot_effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6E221A49E62300C65081 /* shoot_effect.mp3 */; };
 		1BAF6FEB1A50693D00C65081 /* navigation-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6FE91A50693D00C65081 /* navigation-01-hd.png */; };
 		1BAF6FEC1A50693D00C65081 /* navigation-02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6FEA1A50693D00C65081 /* navigation-02-hd.png */; };
+		1BAF6FF21A5069DC00C65081 /* IntroductionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF6FF11A5069DC00C65081 /* IntroductionLayer.m */; };
 		1BBD4EAD16DBA51A009F6CEC /* SettingsParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */; };
 		1BD2DEA51A24C732000E3686 /* 02-shoot-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */; };
 		1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */; };
@@ -604,6 +605,8 @@
 		1BAF6E221A49E62300C65081 /* shoot_effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shoot_effect.mp3; sourceTree = "<group>"; };
 		1BAF6FE91A50693D00C65081 /* navigation-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation-01-hd.png"; path = "Resources/UI/navigation-01-hd.png"; sourceTree = "<group>"; };
 		1BAF6FEA1A50693D00C65081 /* navigation-02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation-02-hd.png"; path = "Resources/UI/navigation-02-hd.png"; sourceTree = "<group>"; };
+		1BAF6FF01A5069DC00C65081 /* IntroductionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionLayer.h; sourceTree = "<group>"; };
+		1BAF6FF11A5069DC00C65081 /* IntroductionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionLayer.m; sourceTree = "<group>"; };
 		1BBD4EAB16DBA51A009F6CEC /* SettingsParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsParts.h; sourceTree = "<group>"; };
 		1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsParts.m; sourceTree = "<group>"; };
 		1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-shoot-01-hd.png"; sourceTree = "<group>"; };
@@ -826,6 +829,8 @@
 				1BBD4EAA16DBA4A8009F6CEC /* SettingsScene */,
 				1B0E2EA516CD1D060097D11A /* TitleLayer.h */,
 				1B0E2EA616CD1D070097D11A /* TitleLayer.m */,
+				1BAF6FF01A5069DC00C65081 /* IntroductionLayer.h */,
+				1BAF6FF11A5069DC00C65081 /* IntroductionLayer.m */,
 				1B7A7B821674D4A3003DFCEE /* AppDelegate.h */,
 				1B7A7B831674D4A3003DFCEE /* AppDelegate.m */,
 				1B0E2E9016C284680097D11A /* TentativeEngine.h */,
@@ -1646,6 +1651,7 @@
 				1B7A7B661674D4A3003DFCEE /* mat4stack.c in Sources */,
 				1B7A7B681674D4A3003DFCEE /* matrix.c in Sources */,
 				1B7A7B6A1674D4A3003DFCEE /* mat3.c in Sources */,
+				1BAF6FF21A5069DC00C65081 /* IntroductionLayer.m in Sources */,
 				1B7A7B6C1674D4A3003DFCEE /* mat4.c in Sources */,
 				1B7A7B6E1674D4A3003DFCEE /* neon_matrix_impl.c in Sources */,
 				1B7A7B701674D4A3003DFCEE /* plane.c in Sources */,

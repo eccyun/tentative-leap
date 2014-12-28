@@ -11,6 +11,7 @@
 #import "SettingsScene.h"
 #import "LoadScene.h"
 #import "SaveScene.h"
+#import "IntroductionLayer.h"
 
 @implementation TitleLayer
 
@@ -105,7 +106,7 @@
         [audioPlayer stop];
         audioPlayer.currentTime    = 0.f;
         audioPlayer.volume         = 0.f;
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainGameScene scene] withColor:ccBLACK]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[IntroductionLayer scene] withColor:ccBLACK]];
     }else if(location.x > self.quick_logo.position.x-(self.quick_logo.contentSize.width/2)&&
              location.x < self.quick_logo.position.x+(self.quick_logo.contentSize.width/2)&&
              location.y > self.quick_logo.position.y-(self.quick_logo.contentSize.height/2)&&
