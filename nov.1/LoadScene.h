@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "AppDelegate.h"
 
 @interface LoadScene : CCLayer {
     
 }
 
-@property(nonatomic)BOOL isReturnTitle;
+@property(nonatomic)         BOOL           isReturnTitle;
+@property(nonatomic, retain) AppController *delegate;
 
 +(CCScene *) scene;
 

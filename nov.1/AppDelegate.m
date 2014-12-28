@@ -125,6 +125,24 @@
     return player;
 }
 
+- (void) refreshPlayer{
+    for(NSString* player in self.bgmMap) {
+        AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.bgmMap[player];
+        [audioPlayer stop];
+        
+        audioPlayer.currentTime = 0.f;
+        audioPlayer.volume      = 0.f;
+    }
+
+    for(AVAudioPlayer* player in self.effectsMap) {
+        AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.effectsMap[player];
+        [audioPlayer stop];
+
+        audioPlayer.currentTime = 0.f;
+        audioPlayer.volume      = 1.f;
+    }
+}
+
 // Supported orientations: Landscape. Customize it for your own needs
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

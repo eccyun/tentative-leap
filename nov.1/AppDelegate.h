@@ -23,4 +23,6 @@
 @property (nonatomic, retain) NSDictionary *bgmMap;
 @property (nonatomic, retain) NSDictionary *effectsMap;
 
+- (void) refreshPlayer;
+
 @end
