@@ -206,6 +206,7 @@
 		1BAF6FF61A50703800C65081 /* full-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6FF31A50703800C65081 /* full-hd.png */; };
 		1BAF6FF71A50703800C65081 /* log-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6FF41A50703800C65081 /* log-hd.png */; };
 		1BAF6FF81A50703800C65081 /* menu-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6FF51A50703800C65081 /* menu-hd.png */; };
+		1BAF6FFA1A541BF500C65081 /* 14-aruku-04-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAF6FF91A541BF500C65081 /* 14-aruku-04-hd.png */; };
 		1BBD4EAD16DBA51A009F6CEC /* SettingsParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */; };
 		1BD2DEA51A24C732000E3686 /* 02-shoot-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */; };
 		1BEAC2FB18AA6DB900BC22DA /* aruku_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAC2F318AA6DB900BC22DA /* aruku_theme.mp3 */; };
@@ -613,6 +614,7 @@
 		1BAF6FF31A50703800C65081 /* full-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "full-hd.png"; path = "Resources/UI/full-hd.png"; sourceTree = "<group>"; };
 		1BAF6FF41A50703800C65081 /* log-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "log-hd.png"; path = "Resources/UI/log-hd.png"; sourceTree = "<group>"; };
 		1BAF6FF51A50703800C65081 /* menu-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-hd.png"; path = "Resources/UI/menu-hd.png"; sourceTree = "<group>"; };
+		1BAF6FF91A541BF500C65081 /* 14-aruku-04-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-04-hd.png"; sourceTree = "<group>"; };
 		1BBD4EAB16DBA51A009F6CEC /* SettingsParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsParts.h; sourceTree = "<group>"; };
 		1BBD4EAC16DBA51A009F6CEC /* SettingsParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsParts.m; sourceTree = "<group>"; };
 		1BD2DEA41A24C732000E3686 /* 02-shoot-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-shoot-01-hd.png"; sourceTree = "<group>"; };
@@ -769,6 +771,7 @@
 				1B9F14111A360F8B002F8DCD /* 14-aruku-01-hd.png */,
 				1B9F14131A360F8B002F8DCD /* 14-aruku-02-hd.png */,
 				1B9F14141A360F8B002F8DCD /* 14-aruku-03-hd.png */,
+				1BAF6FF91A541BF500C65081 /* 14-aruku-04-hd.png */,
 				1B25150F1A349E3F004200C1 /* 12-aruku-03-hd.png */,
 				1B2515091A348C1E004200C1 /* 12-aruku-01-hd.png */,
 				1B25150A1A348C1E004200C1 /* 12-aruku-02-hd.png */,
@@ -1432,6 +1435,7 @@
 				1BFEA71318DD63B40059640E /* save_on-hd.png in Resources */,
 				1B212E5B18F1980C0023984A /* aruku_puzzle_up-hd.png in Resources */,
 				1B212E5D18F1980C0023984A /* mary_cry_up-hd.png in Resources */,
+				1BAF6FFA1A541BF500C65081 /* 14-aruku-04-hd.png in Resources */,
 				1BEAC2FC18AA6DB900BC22DA /* bar_theme.mp3 in Resources */,
 				1B5F030818C3753900710F44 /* menu_restart_on-hd.png in Resources */,
 				1BAF6DFF1A431D3300C65081 /* msg_menu-hd.png in Resources */,
