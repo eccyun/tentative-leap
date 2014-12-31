@@ -72,10 +72,10 @@ STOP;
 STOP;
 # MSG:手をつなぐなんて、とてもじゃないけれど普段の僕にはこんなことは出来ない。
 STOP;
-# BG:14-aruku-03.png
+# BG:14-aruku-04.png
 # MSG:「な、なんだよ。ちゃんと気をつけてるから、心配しなくても大丈夫だよ！」:歩
 STOP;
-# BG:14-aruku-02.png
+# BG:14-aruku-03.png
 # MSG:「でも…ありがとう。へへっ」:歩
 STOP;
 # MSG:彼女はそう言って、僕の手を握り返してくれた。
@@ -91,6 +91,7 @@ STOP;
 # MSG:今となってはその時の心境がどうだったか曖昧だったけれど、なんとなくそんな気がした。
 STOP;
 # BLACK;
+# BGM:on-a-bench.mp3:STOP
 # BGM:road_theme.mp3:REFRESH
 # BGM:road_theme.mp3:PLAY
 # BG:upland_night.png
