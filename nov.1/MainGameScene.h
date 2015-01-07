@@ -23,7 +23,7 @@
 
 @property(nonatomic,retain)  AppController*   delegate;
 
-@property(nonatomic)         BOOL             isCheck, isUp, imgMode;
+@property(nonatomic)         BOOL             isCheck, isUp, imgMode, isTouch;
 @property(nonatomic,retain)  TentativeEngine *engine;
 @property(nonatomic,retain)  CCSprite        *back_bg;
 @property(nonatomic,retain)  CCLabelTTF      *msgLabel, *name_tag;

@@ -41,6 +41,7 @@
         self.isTouchEnabled = YES;
         self.isCheck        = NO;
         self.imgMode        = NO;
+        self.isTouch        = YES;
 
         // スクリプトエンジンの初期化
         self.engine           = [[TentativeEngine alloc] init];
@@ -82,6 +83,8 @@
 
 - (void)doInstruct:(NSMutableArray *)instruct spriteSize:(CGSize) size{
     for (int i=0; i<[instruct count]; i++){
+        self.isTouch = YES;
+
         CCTexture2D         *tex        = [[CCTexture2D alloc] init];
         NSMutableDictionary *dictionary = [instruct objectAtIndex:i];
 
@@ -359,7 +362,6 @@
             CCScene   *scene        = [LoadScene scene];
             LoadScene *loadScene    = [scene.children objectAtIndex:0];
             loadScene.isReturnTitle = NO;
-            
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:3.0 scene:scene withColor:ccBLACK]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"EOF;"]){
             [super onEnterTransitionDidFinish];
@@ -407,7 +409,12 @@
                 [[SimpleAudioEngine sharedEngine] stopEffect:self.effect_int];
             }
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WAIT"]){
-            
+            self.isTouch = NO;
+
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, [[dictionary objectForKey:@"times"] integerValue] * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                NSMutableArray *instruct = [self.engine readScript];
+                [self doInstruct:instruct spriteSize:size];
+            });
         }
 
         self.msgWindow.zOrder  = 997;
@@ -443,6 +450,10 @@
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+    if(!self.isTouch){
+        return YES;
+    }
+    
     if(self.imgMode){
         self.imgMode = NO;
         [self.msgWindow setVisible:YES];
