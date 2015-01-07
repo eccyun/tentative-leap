@@ -99,7 +99,8 @@
                     @"road_theme.mp3"  : [self getPlayer:@"road_theme.mp3"],
                     @"time-leap.mp3"   : [self getPlayer:@"time-leap.mp3"],
                     @"shoot.mp3"       : [self getPlayer:@"shoot.mp3"],
-                    @"bell-leap.mp3"   : [self getPlayer:@"bell-leap.mp3"]};
+                    @"bell-leap.mp3"   : [self getPlayer:@"bell-leap.mp3"],
+                    @"lead-ending.mp3" : [self getPlayer:@"lead-ending.mp3"]};
     
     self.effectsMap = @{
                         @"shoot_effect.mp3" : [self getPlayer:@"shoot_effect.mp3"],
