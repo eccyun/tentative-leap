@@ -173,8 +173,8 @@
 		1B7A7B841674D4A3003DFCEE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A7B831674D4A3003DFCEE /* AppDelegate.m */; };
 		1B7A7B871674D4A3003DFCEE /* MainGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A7B861674D4A3003DFCEE /* MainGameScene.m */; };
 		1B8FD63D19E17EB40091F3C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8FD63C19E17EB40091F3C7 /* Images.xcassets */; };
-		1B95040B1A5DA4DA004C1FB8 /* lead-ending.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B95040A1A5DA4DA004C1FB8 /* lead-ending.mp3 */; };
 		1B95040D1A5DADBC004C1FB8 /* script18.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B95040C1A5DADBC004C1FB8 /* script18.txt */; };
+		1B95040F1A5DB280004C1FB8 /* leap-ending.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B95040E1A5DB280004C1FB8 /* leap-ending.mp3 */; };
 		1B9F14151A360F8B002F8DCD /* 14-aruku-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14111A360F8B002F8DCD /* 14-aruku-01-hd.png */; };
 		1B9F14171A360F8B002F8DCD /* 14-aruku-02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14131A360F8B002F8DCD /* 14-aruku-02-hd.png */; };
 		1B9F14181A360F8B002F8DCD /* 14-aruku-03-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14141A360F8B002F8DCD /* 14-aruku-03-hd.png */; };
@@ -591,8 +591,8 @@
 		1B7A7B851674D4A3003DFCEE /* MainGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainGameScene.h; sourceTree = "<group>"; };
 		1B7A7B861674D4A3003DFCEE /* MainGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainGameScene.m; sourceTree = "<group>"; };
 		1B8FD63C19E17EB40091F3C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1B95040A1A5DA4DA004C1FB8 /* lead-ending.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lead-ending.mp3"; sourceTree = "<group>"; };
 		1B95040C1A5DADBC004C1FB8 /* script18.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = script18.txt; path = Resources/script/script18.txt; sourceTree = "<group>"; };
+		1B95040E1A5DB280004C1FB8 /* leap-ending.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "leap-ending.mp3"; sourceTree = "<group>"; };
 		1B9F14111A360F8B002F8DCD /* 14-aruku-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-01-hd.png"; sourceTree = "<group>"; };
 		1B9F14131A360F8B002F8DCD /* 14-aruku-02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-02-hd.png"; sourceTree = "<group>"; };
 		1B9F14141A360F8B002F8DCD /* 14-aruku-03-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-03-hd.png"; sourceTree = "<group>"; };
@@ -1318,7 +1318,7 @@
 		1BEAC2F218AA6DB900BC22DA /* music */ = {
 			isa = PBXGroup;
 			children = (
-				1B95040A1A5DA4DA004C1FB8 /* lead-ending.mp3 */,
+				1B95040E1A5DB280004C1FB8 /* leap-ending.mp3 */,
 				1BAF6E201A49E10700C65081 /* shoot.mp3 */,
 				1BAF6DF71A41DEA500C65081 /* forest.mp3 */,
 				1B9F14231A3C50F1002F8DCD /* end-loop.mp3 */,
@@ -1501,6 +1501,7 @@
 				1B2515101A349E3F004200C1 /* 12-aruku-03-hd.png in Resources */,
 				1B9F14241A3C50F1002F8DCD /* end-loop.mp3 in Resources */,
 				1BAF6E111A47153900C65081 /* 07-aruku-05-hd.png in Resources */,
+				1B95040F1A5DB280004C1FB8 /* leap-ending.mp3 in Resources */,
 				1B5F030A18C37B6F00710F44 /* load_logo-hd.png in Resources */,
 				1BFEA6E218D20B920059640E /* script13.txt in Resources */,
 				1BAF6E0C1A43224400C65081 /* message_window-hd.png in Resources */,
@@ -1614,7 +1615,6 @@
 				1B9F14181A360F8B002F8DCD /* 14-aruku-03-hd.png in Resources */,
 				1BFEA6AE18CC938A0059640E /* script06.txt in Resources */,
 				1B388CE01A221BB100A1F37D /* 01-teru-05-hd.png in Resources */,
-				1B95040B1A5DA4DA004C1FB8 /* lead-ending.mp3 in Resources */,
 				1BEAC31E18AA6DC400BC22DA /* park_festa-hd.png in Resources */,
 				1BFEA6E318D20B920059640E /* script14.txt in Resources */,
 				1BFEA6CC18CCB6C70059640E /* Icon@2x.png in Resources */,
