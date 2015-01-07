@@ -160,6 +160,7 @@ STOP;
 # MSG:久しぶりに誰かとお酒が飲めると思うと、ちょっとだけ楽しみな気分になった。
 STOP;
 # BLACK;
+# BGM:bar_theme.mp3:STOP
 # BGM:end-loop.mp3:REFRESH
 # BGM:end-loop.mp3:PLAY
 # MSG:ーーーガチャッ
@@ -205,4 +206,4 @@ STOP;
 # MSG:「また、会ったね」:照
 STOP;
 # BGM:end-loop.mp3:STOP
-EOF;
+ENDING;

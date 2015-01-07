@@ -19,4 +19,6 @@
 @property (nonatomic) BOOL isTouchEvent;
 @property(nonatomic,retain)  AppController*   delegate;
 
++(CCScene *) scene;
+
 @end

@@ -28,7 +28,8 @@
         self.count          = 0;
         self.img_count      = 0;
         self.delegate       = (AppController *)[[UIApplication sharedApplication] delegate];
-
+        [self.delegate refreshPlayer];
+        
         //オーディオプレイヤー初期化
         AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[@"leap-ending.mp3"];
         audioPlayer.currentTime    = 0.f;
@@ -44,7 +45,6 @@
 
 - (void) displayChangeScene{
     CGSize size = [[CCDirector sharedDirector] winSize];
-    
     self.count = self.count+1;
     
     // 終了処理
@@ -62,7 +62,7 @@
         
         return;
     }
-    
+
     if(self.count==1){
         self.img_count = self.img_count+1;
         // 背景画像

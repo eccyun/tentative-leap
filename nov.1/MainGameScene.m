@@ -14,6 +14,7 @@
 #import "TitleLayer.h"
 #import "LoadScene.h"
 #import "SaveScene.h"
+#import "EndingLayer.h"
 
 #define character_width 332
 
@@ -345,10 +346,18 @@
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.5 scene:[MainGameScene scene] withColor:ccBLACK]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# REMOVE;"]){
             [self removeAllChildrenWithCleanup:YES];
-
             // 除去して次に送る
             NSMutableArray *instruct = [self.engine readScript];
             [self doInstruct:instruct spriteSize:size];
+        }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"ENDING;"]){
+            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+            [ud setInteger:self.engine.structureIndex forKey:@"structure_index"];
+            [ud setInteger:0 forKey:@"script_index"];
+            [ud setObject:[[NSDictionary alloc] init] forKey:@"quick_instruct_datas"];
+            [ud synchronize];
+
+            [super onEnterTransitionDidFinish];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:5.f scene:[EndingLayer scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"LOADING;"]){
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             [ud setInteger:self.engine.structureIndex forKey:@"structure_index"];
