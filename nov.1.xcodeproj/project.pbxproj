@@ -174,6 +174,7 @@
 		1B7A7B871674D4A3003DFCEE /* MainGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A7B861674D4A3003DFCEE /* MainGameScene.m */; };
 		1B8FD63D19E17EB40091F3C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8FD63C19E17EB40091F3C7 /* Images.xcassets */; };
 		1B95040B1A5DA4DA004C1FB8 /* lead-ending.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1B95040A1A5DA4DA004C1FB8 /* lead-ending.mp3 */; };
+		1B95040D1A5DADBC004C1FB8 /* script18.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B95040C1A5DADBC004C1FB8 /* script18.txt */; };
 		1B9F14151A360F8B002F8DCD /* 14-aruku-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14111A360F8B002F8DCD /* 14-aruku-01-hd.png */; };
 		1B9F14171A360F8B002F8DCD /* 14-aruku-02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14131A360F8B002F8DCD /* 14-aruku-02-hd.png */; };
 		1B9F14181A360F8B002F8DCD /* 14-aruku-03-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14141A360F8B002F8DCD /* 14-aruku-03-hd.png */; };
@@ -591,6 +592,7 @@
 		1B7A7B861674D4A3003DFCEE /* MainGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainGameScene.m; sourceTree = "<group>"; };
 		1B8FD63C19E17EB40091F3C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1B95040A1A5DA4DA004C1FB8 /* lead-ending.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lead-ending.mp3"; sourceTree = "<group>"; };
+		1B95040C1A5DADBC004C1FB8 /* script18.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = script18.txt; path = Resources/script/script18.txt; sourceTree = "<group>"; };
 		1B9F14111A360F8B002F8DCD /* 14-aruku-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-01-hd.png"; sourceTree = "<group>"; };
 		1B9F14131A360F8B002F8DCD /* 14-aruku-02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-02-hd.png"; sourceTree = "<group>"; };
 		1B9F14141A360F8B002F8DCD /* 14-aruku-03-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-03-hd.png"; sourceTree = "<group>"; };
@@ -744,6 +746,7 @@
 				1BFEA6E018D20B920059640E /* script15.txt */,
 				1BFEA6E518D214870059640E /* script16.txt */,
 				1BFEA6E618D214870059640E /* script17.txt */,
+				1B95040C1A5DADBC004C1FB8 /* script18.txt */,
 			);
 			name = script;
 			sourceTree = "<group>";
@@ -1539,6 +1542,7 @@
 				1BEAC31B18AA6DC400BC22DA /* bar-hd.png in Resources */,
 				1BFEA6CE18CCB6C70059640E /* Icon~iphone.png in Resources */,
 				1B5F02FF18C36CBB00710F44 /* menu_start_on-hd.png in Resources */,
+				1B95040D1A5DADBC004C1FB8 /* script18.txt in Resources */,
 				1BFEA6A618CC892B0059640E /* rest-hd.png in Resources */,
 				1BAF6E1F1A49C5AE00C65081 /* mary_puzzle_2-hd.png in Resources */,
 				1BFEA6DC18D208670059640E /* message_window-hd.png in Resources */,

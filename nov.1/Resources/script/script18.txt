@@ -1,0 +1,26 @@
+# EFFECT:watch_alert.mp3:PLAY
+# WAIT:3
+STOP;
+# MSG:「はい、私です」
+STOP;
+# MSG:「…お久しぶりです」
+STOP;
+# MSG:「はい、はい」
+STOP;
+# MSG:「終わりですか？」
+STOP;
+# MSG:「はい、そうですか…分かりました」
+STOP;
+# MSG:「懐中時計は、どうすれば？」
+STOP;
+# MSG:「はい、分かりました」
+STOP;
+# MSG:「…」
+STOP;
+# MSG:「いえ、突然のことで驚いていますが」
+STOP;
+# MSG:「…これで、良かったんですよね？」
+STOP;
+# MSG:「はい、それでは」
+STOP;
+EOF;
