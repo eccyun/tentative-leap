@@ -7,7 +7,7 @@
 //
 
 #import "EndingLayer.h"
-
+#import "LoadScene.h"
 
 @implementation EndingLayer
 
@@ -26,14 +26,17 @@
 -(id) init{
     if((self=[super init])){
         self.count          = 0;
+        self.img_count      = 0;
         self.delegate       = (AppController *)[[UIApplication sharedApplication] delegate];
 
         //オーディオプレイヤー初期化
-        AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[@""];
+        AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[@"leap-ending.mp3"];
+        audioPlayer.currentTime    = 0.f;
         audioPlayer.volume         = 1.f;
+        audioPlayer.numberOfLoops  = 0;
         [audioPlayer play];
 
-        [self displayChangeScene];
+        [self performSelector:@selector(displayChangeScene) withObject:nil afterDelay:2.f];
     }
     
     return self;
@@ -44,41 +47,45 @@
     
     self.count = self.count+1;
     
+    // 終了処理
+    if(self.img_count==10){
+        //オーディオプレイヤー初期化
+        AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[@"leap-ending.mp3"];
+        [audioPlayer stop];
+        audioPlayer.currentTime = 0.f;
+        audioPlayer.volume      = 0.f;
+
+        CCScene   *scene        = [LoadScene scene];
+        LoadScene *loadScene    = [scene.children objectAtIndex:0];
+        loadScene.isReturnTitle = NO;
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:3.0 scene:scene withColor:ccBLACK]];
+        
+        return;
+    }
+    
     if(self.count==1){
-        self.isTouchEvent = YES;
-        
+        self.img_count = self.img_count+1;
         // 背景画像
-        self.back_image          = [[CCSprite alloc] initWithFile : @"navigation-01-hd.png"];
+        self.back_image          = [[CCSprite alloc] initWithFile : @"ending-1.png"];
         self.back_image.position = ccp(size.width/2, size.height/2);
-        [self.back_image runAction:[CCFadeIn actionWithDuration:0.3f]];
+        [self.back_image runAction:[CCFadeIn actionWithDuration:2.f]];
         [self addChild:self.back_image];
-    }else if(self.count==2){
-        self.isTouchEvent = YES;
         
+        [self performSelector:@selector(displayChangeScene) withObject:nil afterDelay:9.f];
+    }else if(self.count%2!=0){
+        self.img_count = self.img_count+1;
+
         // 背景画像
         CCTexture2D *tex = [[CCTexture2D alloc] init];
-        [self.back_image runAction:[CCFadeOut actionWithDuration:0.3f]];
-        tex = [[CCTextureCache sharedTextureCache] addImage:@"navigation-02-hd.png"];
+        tex = [[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"ending-%d.png", self.img_count]];
         [self.back_image setTexture:tex];
         [self.back_image setTextureRect:CGRectMake(0, 0,tex.contentSize.width, tex.contentSize.height)];
-        [self.back_image runAction:[CCFadeIn actionWithDuration:0.3f]];
-    }else if(self.count==3){
-        self.isTouchEvent = NO;
-        [self.back_image runAction:[CCFadeOut actionWithDuration:0.3f]];
-        [self performSelector:@selector(displayChangeScene) withObject:nil afterDelay:1.5f];
-    }else if(self.count==4){
-        // 背景画像
-        CCTexture2D *tex = [[CCTexture2D alloc] init];
-        tex              = [[CCTextureCache sharedTextureCache] addImage:@"notice-hd.png"];
-        [self.back_image setTexture:tex];
-        [self.back_image setTextureRect:CGRectMake(0, 0,tex.contentSize.width, tex.contentSize.height)];
-        [self.back_image runAction:[CCFadeIn actionWithDuration:0.3f]];
-        [self performSelector:@selector(displayChangeScene) withObject:nil afterDelay:3.f];
-    }else if(self.count==5){
-        [self.back_image runAction:[CCFadeOut actionWithDuration:0.3f]];
-        [self performSelector:@selector(displayChangeScene) withObject:nil afterDelay:3.f];
-    }else if(self.count==6){
-        
+        [self.back_image runAction:[CCFadeIn actionWithDuration:2.f]];
+
+        [self performSelector:@selector(displayChangeScene) withObject:nil afterDelay:9.f];
+     }else{
+        [self.back_image runAction:[CCFadeOut actionWithDuration:2.f]];
+        [self performSelector:@selector(displayChangeScene) withObject:nil afterDelay:4.5f];
     }
 }
 

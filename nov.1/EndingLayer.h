@@ -14,7 +14,7 @@
     
 }
 
-@property(nonatomic) NSInteger count;
+@property(nonatomic) NSInteger count,img_count;
 @property (nonatomic, retain)CCSprite *back_image;
 @property (nonatomic) BOOL isTouchEvent;
 @property(nonatomic,retain)  AppController*   delegate;
