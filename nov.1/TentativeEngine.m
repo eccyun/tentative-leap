@@ -38,12 +38,17 @@ static struct{
     self = [super init];
     if(self){
         // メンバの初期化
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"quick_start_flag"] == 0){
-            self.structureIndex  = [[[NSUserDefaults standardUserDefaults] objectForKey:@"structure_index"] integerValue];
-            self.scriptReadIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"script_index"] integerValue];
+            self.structureIndex  = [[ud objectForKey:@"structure_index"] integerValue];
+            self.scriptReadIndex = [[ud objectForKey:@"script_index"] integerValue];
         }else if([[NSUserDefaults standardUserDefaults] integerForKey:@"quick_start_flag"] == 1){
-            self.structureIndex  = [[[NSUserDefaults standardUserDefaults] objectForKey:@"quick_structure_index"] integerValue];
-            self.scriptReadIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"quick_script_index"] integerValue]; //STOP命令分を戻すため
+            self.structureIndex  = [[ud objectForKey:@"quick_structure_index"] integerValue];
+            self.scriptReadIndex = [[ud objectForKey:@"quick_script_index"] integerValue];
+
+            [ud setInteger:self.structureIndex forKey:@"structure_index"];
+            [ud synchronize];
         }
 
         self.scriptArray = [[NSArray alloc] init];
@@ -186,7 +191,9 @@ static struct{
             [ud synchronize];
 
             [set setValue:instruct_name forKey:@"instruct_name"];
-            saves = [[NSMutableDictionary alloc] init];
+            
+            NSDictionary *datas = @{@"BGM-PLAY":[[ud objectForKey:@"quick_instruct_datas"] objectForKey:@"BGM-PLAY"]};
+            saves = [[NSMutableDictionary alloc] initWithDictionary:datas];
         }else if([instruct_name isEqualToString:@"# EFFECT"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"effect_name"];
@@ -220,7 +227,6 @@ static struct{
 
     // 参照スクリプトの更新
     self.scriptArray = [scriptText componentsSeparatedByString:@"\n"];
-    self.structureIndex++;
 }
 
 - (NSInteger) getReadScriptIndex{

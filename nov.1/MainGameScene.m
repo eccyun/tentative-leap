@@ -352,8 +352,9 @@
             NSMutableArray *instruct = [self.engine readScript];
             [self doInstruct:instruct spriteSize:size];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"ENDING;"]){
-            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-            [ud setInteger:self.engine.structureIndex forKey:@"structure_index"];
+            NSUserDefaults  *ud       = [NSUserDefaults standardUserDefaults];
+            NSInteger       structure = self.engine.structureIndex + 1;
+            [ud setInteger:structure forKey:@"structure_index"];
             [ud setInteger:0 forKey:@"script_index"];
             [ud setObject:[[NSDictionary alloc] init] forKey:@"quick_instruct_datas"];
             [ud synchronize];
@@ -361,8 +362,9 @@
             [super onEnterTransitionDidFinish];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:5.f scene:[EndingLayer scene] withColor:ccWHITE]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"LOADING;"]){
-            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-            [ud setInteger:self.engine.structureIndex forKey:@"structure_index"];
+            NSUserDefaults *ud        = [NSUserDefaults standardUserDefaults];
+            NSInteger       structure = self.engine.structureIndex + 1;
+            [ud setInteger:structure forKey:@"structure_index"];
             [ud setInteger:0 forKey:@"script_index"];
             [ud setObject:[[NSDictionary alloc] init] forKey:@"quick_instruct_datas"];
             [ud synchronize];
