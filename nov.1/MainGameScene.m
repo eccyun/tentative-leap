@@ -16,6 +16,7 @@
 #import "SaveScene.h"
 #import "EndingLayer.h"
 #import "LogTableScene.h"
+#import "EndThankLayer.h"
 
 #define character_width 332
 
@@ -375,7 +376,7 @@
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:3.0 scene:scene withColor:ccBLACK]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"EOF;"]){
             [super onEnterTransitionDidFinish];
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TitleLayer scene] withColor:ccWHITE]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:3.0 scene:[EndThankLayer scene] withColor:ccBLACK]];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# REMOVE-IMG"]){
             NSString *string = [dictionary objectForKey:@"position"];
 
