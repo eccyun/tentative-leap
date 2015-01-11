@@ -12,6 +12,7 @@
 #import "LoadScene.h"
 #import "SaveScene.h"
 #import "IntroductionLayer.h"
+#import "LogTableScene.h"
 
 @implementation TitleLayer
 
@@ -37,6 +38,7 @@
         [ud setInteger:0 forKey:@"script_index"];
         [ud setInteger:0 forKey:@"structure_index"];
         [ud setInteger:0 forKey:@"quick_start_flag"];
+        [ud setObject:[[NSArray alloc] init] forKey:@"log_array"];
         [ud synchronize];
 
         //オーディオプレイヤー初期化
