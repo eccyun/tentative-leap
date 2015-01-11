@@ -312,6 +312,10 @@
         LoadScene *loadScene    = [scene.children objectAtIndex:0];
         loadScene.isReturnTitle = NO;
 
+        NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:[[NSArray alloc] init] forKey:@"log_array"];
+        [ud synchronize];
+
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene: scene withColor:ccBLACK]];
         return;
     }
