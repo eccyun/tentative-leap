@@ -179,6 +179,7 @@
 		1B95044C1A602D26004C1FB8 /* log-caption-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B95044B1A602D26004C1FB8 /* log-caption-hd.png */; };
 		1B95044F1A6033DD004C1FB8 /* load-caption-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B95044D1A6033DD004C1FB8 /* load-caption-hd.png */; };
 		1B9504501A6033DD004C1FB8 /* save-caption-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B95044E1A6033DD004C1FB8 /* save-caption-hd.png */; };
+		1B9504531A62BCE8004C1FB8 /* EndThankLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9504521A62BCE8004C1FB8 /* EndThankLayer.m */; };
 		1B9F14151A360F8B002F8DCD /* 14-aruku-01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14111A360F8B002F8DCD /* 14-aruku-01-hd.png */; };
 		1B9F14171A360F8B002F8DCD /* 14-aruku-02-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14131A360F8B002F8DCD /* 14-aruku-02-hd.png */; };
 		1B9F14181A360F8B002F8DCD /* 14-aruku-03-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F14141A360F8B002F8DCD /* 14-aruku-03-hd.png */; };
@@ -602,6 +603,8 @@
 		1B95044B1A602D26004C1FB8 /* log-caption-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "log-caption-hd.png"; path = "Resources/UI/log-caption-hd.png"; sourceTree = "<group>"; };
 		1B95044D1A6033DD004C1FB8 /* load-caption-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "load-caption-hd.png"; path = "Resources/Save/load-caption-hd.png"; sourceTree = "<group>"; };
 		1B95044E1A6033DD004C1FB8 /* save-caption-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save-caption-hd.png"; path = "Resources/Save/save-caption-hd.png"; sourceTree = "<group>"; };
+		1B9504511A62BCE8004C1FB8 /* EndThankLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndThankLayer.h; sourceTree = "<group>"; };
+		1B9504521A62BCE8004C1FB8 /* EndThankLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndThankLayer.m; sourceTree = "<group>"; };
 		1B9F14111A360F8B002F8DCD /* 14-aruku-01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-01-hd.png"; sourceTree = "<group>"; };
 		1B9F14131A360F8B002F8DCD /* 14-aruku-02-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-02-hd.png"; sourceTree = "<group>"; };
 		1B9F14141A360F8B002F8DCD /* 14-aruku-03-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-aruku-03-hd.png"; sourceTree = "<group>"; };
@@ -893,6 +896,8 @@
 				1BAF700F1A54277D00C65081 /* EndingLayer.m */,
 				1B9504481A601C0C004C1FB8 /* LogTableScene.h */,
 				1B9504491A601C0C004C1FB8 /* LogTableScene.m */,
+				1B9504511A62BCE8004C1FB8 /* EndThankLayer.h */,
+				1B9504521A62BCE8004C1FB8 /* EndThankLayer.m */,
 				1B7A7A0B1674D49F003DFCEE /* Resources */,
 				1B7A7A251674D49F003DFCEE /* libs */,
 				1B8FD63C19E17EB40091F3C7 /* Images.xcassets */,
@@ -1650,6 +1655,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B7A7A291674D4A0003DFCEE /* CCAction.m in Sources */,
+				1B9504531A62BCE8004C1FB8 /* EndThankLayer.m in Sources */,
 				1B7A7A2C1674D4A0003DFCEE /* CCActionCamera.m in Sources */,
 				1B7A7A2F1674D4A0003DFCEE /* CCActionCatmullRom.m in Sources */,
 				1B7A7A321674D4A0003DFCEE /* CCActionEase.m in Sources */,
