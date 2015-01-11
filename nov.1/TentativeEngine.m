@@ -124,7 +124,7 @@ static struct{
 
         NSMutableDictionary *set           = [[NSMutableDictionary alloc] init];
         NSString            *instruct_name = [split objectAtIndex:0];
-        
+
         if([instruct_name isEqualToString:@"# BG"]){
             [set setValue:instruct_name forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"bg_name"];
@@ -137,11 +137,26 @@ static struct{
             
             [saves setObject:instruct forKey:[NSString stringWithFormat: @"IMG-%@", [split objectAtIndex:2]]];
         }else if([instruct_name isEqualToString:@"# MSG"]){
+            NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"message"];
+
+            [dictionary setValue:[split objectAtIndex:1] forKey:@"message"];
+
             if([split count]==3){
                 [set setValue:[split objectAtIndex:2] forKey:@"name"];
+                [dictionary setValue:[split objectAtIndex:2] forKey:@"name"];
+            }else{
+                [dictionary setValue:@"ーーー" forKey:@"name"];
             }
+            
+            NSDictionary   *tmp    = [[NSDictionary alloc] initWithDictionary:dictionary];
+            NSMutableArray *_array = [[NSMutableArray alloc] initWithArray: [ud objectForKey:@"log_array"]];
+            [_array addObject:tmp];
+
+            [ud setObject:[[NSArray alloc] initWithArray:_array] forKey:@"log_array"];
+            [ud synchronize];
         }else if([instruct_name isEqualToString:@"# BGM"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"bgm_name"];

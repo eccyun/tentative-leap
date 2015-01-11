@@ -65,7 +65,10 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSArray *log_array = [ud objectForKey:@"log_array"];
+
+    return [log_array count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -78,6 +81,10 @@
 
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSUserDefaults *ud         = [NSUserDefaults standardUserDefaults];
+    NSArray        *log_array  = [ud objectForKey:@"log_array"];
+    NSDictionary   *dictionary = [log_array objectAtIndex:indexPath.row];
+    
     CGSize size = [[CCDirector sharedDirector] winSize];
 
     static NSString *CellIdentifier = @"CellCustom";
@@ -95,7 +102,7 @@
     }
 
     label.font            = [UIFont fontWithName:@"HiraKakuProN-W6" size:12];
-    label.text            = @"Leap〜ときをこえて〜Leap〜ときをこえて〜Leap〜ときをこえて〜Leap〜ときをこえて〜";
+    label.text            = [dictionary objectForKey:@"message"];
 
 //label.backgroundColor = [UIColor redColor];
     return cell;
