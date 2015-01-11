@@ -421,9 +421,15 @@
             }else if([[dictionary objectForKey:@"action"] isEqualToString:@"STOP"]){
                 [[SimpleAudioEngine sharedEngine] stopEffect:self.effect_int];
             }
+            
+            NSUserDefaults       *ud         = [NSUserDefaults standardUserDefaults];
+            NSDictionary         *datas      = [ud objectForKey:@"quick_instruct_datas"];
+            NSMutableDictionary  *quick_data = [[NSMutableDictionary alloc] initWithDictionary:datas];
+            [quick_data setObject:@"" forKey:@"EFFECT-PLAY"];
+            [ud setObject:quick_data forKey:@"quick_instruct_datas"];
+            [ud synchronize];
         }else if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# WAIT"]){
             self.isTouch = NO;
-
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, [[dictionary objectForKey:@"times"] integerValue] * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 NSMutableArray *instruct = [self.engine readScript];
                 [self doInstruct:instruct spriteSize:size];

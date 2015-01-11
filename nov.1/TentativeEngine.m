@@ -191,7 +191,7 @@ static struct{
             [ud synchronize];
 
             [set setValue:instruct_name forKey:@"instruct_name"];
-            
+
             NSDictionary *datas = @{@"BGM-PLAY":[[ud objectForKey:@"quick_instruct_datas"] objectForKey:@"BGM-PLAY"]};
             saves = [[NSMutableDictionary alloc] initWithDictionary:datas];
         }else if([instruct_name isEqualToString:@"# EFFECT"]){
