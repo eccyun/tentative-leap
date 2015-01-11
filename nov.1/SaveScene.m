@@ -49,27 +49,20 @@
     [self addChild:background];
 
     // 左上のウィンドウ
-    NSString *save_text = @"";
-    NSString *load_text = @"";
+    NSString *caption_text = @"";
 
     if([self.function_flag isEqualToString:@"Load"]){
-        save_text = @"save_off.png";
-        load_text = @"load_on.png";
+        caption_text = @"load-caption.png";
     }else if([self.function_flag isEqualToString:@"Save"]){
-        save_text = @"save_on.png";
-        load_text = @"load_off.png";
+        caption_text = @"save-caption-hd.png";
     }
 
-    CCSprite *load = [[CCSprite alloc] initWithFile:load_text];
-    load.position  = ccp(size.width/2 - 100.f, size.height/2 + 140.f);
-    [self addChild:load];
-
-    CCSprite *save = [[CCSprite alloc] initWithFile:save_text];
-    save.position  = ccp(size.width/2 - 182.f, size.height/2 + 139.f);
-    [self addChild:save];
+    CCSprite *caption = [[CCSprite alloc] initWithFile:caption_text];
+    caption.position  = ccp((caption.contentSize.width/2.f)+20.f, size.height/2 + 139.f);
+    [self addChild:caption];
 
     CCSprite *back_btn = [[CCSprite alloc] initWithFile:@"save_back.png"];
-    back_btn.position  = ccp(size.width/2 + 182.f, size.height/2 - 142.f);
+    back_btn.position  = ccp(size.width-((back_btn.contentSize.width/2.f)+20.f), size.height/2 - 142.f);
     [self addChild:back_btn];
     back_btn.tag = 1;
 

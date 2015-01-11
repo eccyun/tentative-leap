@@ -15,6 +15,7 @@
 #import "LoadScene.h"
 #import "SaveScene.h"
 #import "EndingLayer.h"
+#import "LogTableScene.h"
 
 #define character_width 332
 
@@ -483,6 +484,17 @@
     // タップ時の座標とホームボタンの座標をチェックしてtrueの場合　画面遷移
     CGPoint location = [touch locationInView:[touch view]];
     location         = [[CCDirector sharedDirector] convertToGL:location];
+
+    if(location.x > self.log_image.position.x-(self.log_image.contentSize.width/2)&&
+       location.x < self.log_image.position.x+(self.log_image.contentSize.width/2)&&
+       location.y > self.log_image.position.y-(self.log_image.contentSize.height/2)&&
+       location.y < self.log_image.position.y+(self.log_image.contentSize.height/2)){
+        
+        // メニューに移動
+        CCScene *scene = [LogTableScene scene];
+        [[CCDirector sharedDirector] pushScene:scene];
+        return YES;
+    }
 
     if(location.x > self.full_image.position.x-(self.full_image.contentSize.width/2)&&
         location.x < self.full_image.position.x+(self.full_image.contentSize.width/2)&&

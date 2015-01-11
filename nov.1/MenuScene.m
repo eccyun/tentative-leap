@@ -48,7 +48,7 @@
     [self addChild:background];
 
     CCSprite *menu = [[CCSprite alloc] initWithFile:@"menu_caption.png"];
-    menu.position  = ccp(size.width/2 - 182.f, size.height/2 + 139.f);
+    menu.position  = ccp((menu.contentSize.width/2.f)+10.f, size.height/2 + 139.f);
     [self addChild:menu];
 
     CCSprite *back_game = [[CCSprite alloc] initWithFile:@"back_game.png"];
