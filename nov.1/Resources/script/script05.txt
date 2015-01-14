@@ -39,6 +39,7 @@ STOP;
 STOP;
 # BLACK;
 # BG:park.png
+# BGM:road_theme.mp3:STOP
 # BGM:forest.mp3:PLAY
 # MSG:夜の公園は街灯もまばらで、とても薄暗かった。
 STOP;
