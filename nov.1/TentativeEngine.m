@@ -192,8 +192,10 @@ static struct{
 
             [set setValue:instruct_name forKey:@"instruct_name"];
 
-            NSDictionary *datas = @{@"BGM-PLAY":[[ud objectForKey:@"quick_instruct_datas"] objectForKey:@"BGM-PLAY"]};
-            saves = [[NSMutableDictionary alloc] initWithDictionary:datas];
+            if([[[ud objectForKey:@"quick_instruct_datas"] allKeys]containsObject:@"BGM-PLAY"]){
+                NSDictionary *datas = @{@"BGM-PLAY":[[ud objectForKey:@"quick_instruct_datas"] objectForKey:@"BGM-PLAY"]};
+                saves = [[NSMutableDictionary alloc] initWithDictionary:datas];
+            }
         }else if([instruct_name isEqualToString:@"# EFFECT"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"effect_name"];
