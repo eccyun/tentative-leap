@@ -134,9 +134,15 @@ STOP;
 # MSG:「…あっ！」:歩
 STOP;
 # BG:14-fire-02.png
+# EFFECT:fire_1.mp3:PLAY
+# WAIT:2
+STOP;
 # MSG:それは、瞬間の出来事だった。
 STOP;
 # BG:14-fire-03.png
+# EFFECT:fire_2.mp3:PLAY
+# WAIT:2
+STOP;
 # MSG:「おー！」
 STOP;
 # MSG:あちこちから、そんな歓声や拍手の音が聞こえてくる。
@@ -247,7 +253,7 @@ STOP;
 STOP;
 # MSG:「うん？」:照
 STOP;
-# MSG:「ごめん、花火の音に混じってよく聞こえなかったんだけど」:照
+# MSG:「ごめん、花火の音でよく聞こえなかったんだけど」:照
 STOP;
 # MSG:「へへっ、何でもないよ！」:歩
 STOP;

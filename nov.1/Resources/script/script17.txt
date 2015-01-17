@@ -163,7 +163,8 @@ STOP;
 # BGM:bar_theme.mp3:STOP
 # BGM:end-loop.mp3:REFRESH
 # BGM:end-loop.mp3:PLAY
-# MSG:ーーーガチャッ
+# EFFECT:door_open.mp3:PLAY
+# WAIT:3
 STOP;
 # MSG:店の扉が開く音がする、店内でこの音を聞くのもなかなか無いことだ。
 STOP;
@@ -203,7 +204,7 @@ STOP;
 STOP;
 # MSG:「もちろん、君のことは覚えてるよ」:照
 STOP;
-# MSG:「また、会ったね」:照
+# MSG:「また、会うことが出来たね」:照
 STOP;
 # BGM:end-loop.mp3:STOP
 ENDING;

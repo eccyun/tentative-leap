@@ -105,7 +105,10 @@
     
     self.effectsMap = @{
                         @"shoot_effect.mp3" : [self getPlayer:@"shoot_effect.mp3"],
-                        @"watch_alert.mp3"  : [self getPlayer:@"watch_alert.mp3"]
+                        @"watch_alert.mp3"  : [self getPlayer:@"watch_alert.mp3"],
+                        @"fire_1.mp3"       : [self getPlayer:@"fire_1.mp3"],
+                        @"fire_2.mp3"       : [self getPlayer:@"fire_2.mp3"],
+                        @"door_open.mp3"    : [self getPlayer:@"door_open.mp3"]
                         };
 	return YES;
 }

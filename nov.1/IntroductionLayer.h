@@ -17,4 +17,6 @@
 @property (nonatomic, retain)CCSprite *back_image;
 @property (nonatomic) BOOL isTouchEvent;
 
++(CCScene *) scene;
+
 @end
