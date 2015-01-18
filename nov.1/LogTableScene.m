@@ -110,33 +110,36 @@
     UILabel         *name_label, *text_label;
     
     if (cell == nil){
-        cell                 = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-        name_label           = [[UILabel alloc] init];
-        name_label.tag       = 1;
-        name_label.textColor = [UIColor whiteColor];
-        name_label.font      = [UIFont fontWithName:@"HiraKakuProN-W6" size:12];
+        cell                       = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        name_label                 = [[UILabel alloc] init];
+        name_label.tag             = 1;
+        name_label.textColor       = [UIColor whiteColor];
+        name_label.backgroundColor = [UIColor clearColor];
+        name_label.font            = [UIFont fontWithName:@"HiraKakuProN-W6" size:12];
+        name_label.numberOfLines   = 0;
         [cell.contentView addSubview:name_label];
         
-        text_label           = [[UILabel alloc] init];
-        text_label.tag       = 2;
-        text_label.textColor = [UIColor whiteColor];
-        text_label.font      = [UIFont fontWithName:@"HiraKakuProN-W6" size:12];
+        text_label                 = [[UILabel alloc] init];
+        text_label.tag             = 2;
+        text_label.textColor       = [UIColor whiteColor];
+        text_label.backgroundColor = [UIColor clearColor];
+        text_label.font            = [UIFont fontWithName:@"HiraKakuProN-W6" size:12];
+        text_label.numberOfLines   = 0;
         [cell.contentView addSubview:text_label];
+
+        name_label.frame = CGRectMake(30.f, 10.f, size.width-60.f, name_label.frame.size.height);
+        text_label.frame = CGRectMake(30.f, 20.f, size.width-60.f, text_label.frame.size.height);
     }else{
         name_label = (UILabel *)[cell.contentView viewWithTag:1];
         text_label = (UILabel *)[cell.contentView viewWithTag:2];
     }
 
-    name_label.text            = [dictionary objectForKey:@"name"];
-    name_label.backgroundColor = [UIColor clearColor];
-    name_label.numberOfLines   = 0;
-    text_label.text            = [dictionary objectForKey:@"message"];
-    text_label.backgroundColor = [UIColor clearColor];
-    text_label.numberOfLines   = 0;
+    name_label.text = [dictionary objectForKey:@"name"];
+    text_label.text = [dictionary objectForKey:@"message"];
 
     [name_label sizeToFit];
     [text_label sizeToFit];
-
+    
     name_label.frame = CGRectMake(30.f, 10.f, size.width-60.f, name_label.frame.size.height);
     text_label.frame = CGRectMake(30.f, 20.f+name_label.frame.size.height, size.width-60.f, text_label.frame.size.height);
 
