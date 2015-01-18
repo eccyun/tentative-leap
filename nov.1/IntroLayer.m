@@ -30,7 +30,16 @@
 
 -(void) onEnter{
 	[super onEnter];
-	[self scheduleOnce:@selector(makeTransition:) delay:0.5f];
+    CGSize size = [[CCDirector sharedDirector] winSize];
+
+    // 背景画像
+    CCSprite *launch_image   = [[CCSprite alloc] initWithFile : @"launchImage.png"];
+    launch_image.position = ccp(size.width/2, size.height/2);
+    [launch_image runAction:[CCFadeIn actionWithDuration:2.f]];
+    [self addChild:launch_image];
+
+    
+	[self scheduleOnce:@selector(makeTransition:) delay:4.f];
 }
 
 -(void) makeTransition:(ccTime)dt{
