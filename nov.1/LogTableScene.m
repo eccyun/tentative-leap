@@ -58,7 +58,9 @@
         self.tableView.delegate           = self;
         [[[CCDirector sharedDirector] view] addSubview:self.tableView];
         
-        [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height) animated:NO];
+        NSUserDefaults *ud        = [NSUserDefaults standardUserDefaults];
+        NSArray        *log_array = [ud objectForKey:@"log_array"];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[log_array count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }
     
     return self;
@@ -80,17 +82,16 @@
     NSArray        *log_array  = [ud objectForKey:@"log_array"];
     NSDictionary   *dictionary = [log_array objectAtIndex:indexPath.row];
 
-    UILabel *name_label = [[UILabel alloc] init];
-    UILabel *text_label = [[UILabel alloc] init];
-    name_label.text = [dictionary objectForKey:@"name"];
-    text_label.text = [dictionary objectForKey:@"message"];
-    name_label.numberOfLines   = 0;
-    text_label.numberOfLines   = 0;
-
-    [name_label sizeToFit];
-    [text_label sizeToFit];
-
-    return name_label.frame.size.height+text_label.frame.size.height+30.f;
+    CGSize size      = [[CCDirector sharedDirector] winSize];
+    CGSize name_size = [[dictionary objectForKey:@"name"] sizeWithFont:[UIFont fontWithName:@"HiraKakuProN-W6" size:12]
+                                                     constrainedToSize:CGSizeMake(size.width-60.f, 9999)
+                                                         lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize message_size = [[dictionary objectForKey:@"message"] sizeWithFont:[UIFont fontWithName:@"HiraKakuProN-W6" size:12]
+                                                           constrainedToSize:CGSizeMake(size.width-60.f, 9999)
+                                                               lineBreakMode:NSLineBreakByWordWrapping];
+    
+    
+    return name_size.height+message_size.height+40.f;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -102,7 +103,7 @@
     NSUserDefaults *ud         = [NSUserDefaults standardUserDefaults];
     NSArray        *log_array  = [ud objectForKey:@"log_array"];
     NSDictionary   *dictionary = [log_array objectAtIndex:indexPath.row];
-    
+
     CGSize size = [[CCDirector sharedDirector] winSize];
 
     static NSString *CellIdentifier = @"CellCustom";
