@@ -189,7 +189,7 @@ STOP;
 # MSG:そうして白いもやが徐々に晴れてきて、景色がより鮮明になっていった。
 STOP;
 # WHITE;
-# BGM:forest.mp3:STOP;
+# BGM:forest.mp3:STOP
 # BGM:mary_theme.mp3:REFRESH
 # BGM:mary_theme.mp3:PLAY
 # BG:upland_evening.png
