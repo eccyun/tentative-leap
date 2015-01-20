@@ -223,7 +223,7 @@
             int len          = [text length];
             int base_length  = [text length];
             int _size        = 12;
-            int _font        = @"HiraKakuProN-W6";
+            NSString *_font  = @"HiraKakuProN-W6";
             int _line_height = 5;
 
             if([dictionary objectForKey:@"name"]!=nil){
@@ -588,13 +588,13 @@
         self.full_image.tag      = 8503;
         [self addChild:self.full_image];
         self.full_image.zOrder = 1000;
-            
+
         self.isCheck = NO;
             
         int len          = [self.message_text length];
         int base_length  = [self.message_text length];
         int _size        = 12;
-        int _font        = @"HiraKakuProN-W6";
+        NSString *_font  = @"HiraKakuProN-W6";
         int _line_height = 5;
 
         if(self.name_text!=nil&&![self.name_text isEqualToString:@""]){
