@@ -65,7 +65,7 @@
             for (NSString *key in instruct_datas_key) {
                 [instruct_data addObject:[instruct_datas_key valueForKey:key]];
             }
-            
+
             NSMutableArray *instruct = [self.engine setInstruct:instruct_data insertInstructArray:[[NSMutableArray alloc] init]];
             [self doInstruct:instruct spriteSize:size];
 
@@ -494,21 +494,21 @@
     CGPoint location = [touch locationInView:[touch view]];
     location         = [[CCDirector sharedDirector] convertToGL:location];
 
-    if(location.x > self.log_image.position.x-(self.log_image.contentSize.width/2)&&
-       location.x < self.log_image.position.x+(self.log_image.contentSize.width/2)&&
-       location.y > self.log_image.position.y-(self.log_image.contentSize.height/2)&&
-       location.y < self.log_image.position.y+(self.log_image.contentSize.height/2)){
-        
+    if(location.x > self.log_image.position.x-(self.log_image.contentSize.width/2)-15.f&&
+       location.x < self.log_image.position.x+(self.log_image.contentSize.width/2)+15.f&&
+       location.y > self.log_image.position.y-(self.log_image.contentSize.height/2)-15.f&&
+       location.y < self.log_image.position.y+(self.log_image.contentSize.height/2)+15.f){
+
         // メニューに移動
         CCScene *scene = [LogTableScene scene];
         [[CCDirector sharedDirector] pushScene:scene];
         return YES;
     }
 
-    if(location.x > self.full_image.position.x-(self.full_image.contentSize.width/2)&&
-        location.x < self.full_image.position.x+(self.full_image.contentSize.width/2)&&
-        location.y > self.full_image.position.y-(self.full_image.contentSize.height/2)&&
-        location.y < self.full_image.position.y+(self.full_image.contentSize.height/2)){
+    if(location.x > self.full_image.position.x-(self.full_image.contentSize.width/2)-15.f&&
+        location.x < self.full_image.position.x+(self.full_image.contentSize.width/2)+15.f&&
+        location.y > self.full_image.position.y-(self.full_image.contentSize.height/2)-15.f&&
+        location.y < self.full_image.position.y+(self.full_image.contentSize.height/2)+15.f){
         if(!self.imgMode){
             // 全画面表示
             self.imgMode = YES;
@@ -527,10 +527,10 @@
         return YES;
     }
 
-    if(location.x > self.menu_image.position.x-(self.menu_image.contentSize.width/2)&&
-        location.x < self.menu_image.position.x+(self.menu_image.contentSize.width/2)&&
-        location.y > self.menu_image.position.y-(self.menu_image.contentSize.height/2)&&
-        location.y < self.menu_image.position.y+(self.menu_image.contentSize.height/2)){
+    if(location.x > self.menu_image.position.x-(self.menu_image.contentSize.width/2)-15.f&&
+        location.x < self.menu_image.position.x+(self.menu_image.contentSize.width/2)+15.f&&
+        location.y > self.menu_image.position.y-(self.menu_image.contentSize.height/2)-15.f&&
+        location.y < self.menu_image.position.y+(self.menu_image.contentSize.height/2)+15.f){
             
         // メニューに移動
         CCScene   *scene     = [MenuScene scene];
