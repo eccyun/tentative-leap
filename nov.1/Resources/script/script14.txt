@@ -137,7 +137,7 @@ STOP;
 # EFFECT:fire_1.mp3:PLAY
 # WAIT:2
 STOP;
-# MSG:それは、瞬間の出来事だった。
+# MSG:それは、一瞬の出来事だった。
 STOP;
 # BG:14-fire-03.png
 # EFFECT:fire_2.mp3:PLAY
@@ -147,7 +147,7 @@ STOP;
 STOP;
 # MSG:あちこちから、そんな歓声や拍手の音が聞こえてくる。
 STOP;
-# BG:14-fire-04.png
+# STILL-IMG:14-fire-04.png:145:left:1
 # BGM:on-a-bench.mp3:REFRESH
 # BGM:on-a-bench.mp3:PLAY
 # MSG:「照くん、はじまった！」:歩

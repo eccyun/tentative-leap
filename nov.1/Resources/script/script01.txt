@@ -47,7 +47,7 @@ STOP;
 # STILL-IMG:01-teru-02.png:122:left:1
 # MSG:「えっ？」:照
 STOP;
-# MSG:慌てて声のする方へと振り返ると、そこには一人の女の子が立っていた。
+# MSG:振り返ると、そこには一人の女の子が立っていた。
 STOP;
 # BLACK;
 # BG:upland_evening.png
