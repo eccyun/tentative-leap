@@ -139,7 +139,7 @@
         if([self.function_flag isEqualToString:@"Save"]){
             message = @"セーブしますか？";
         }else if([self.function_flag isEqualToString:@"Load"]){
-            NSString *save_flag_key = [NSString stringWithFormat:@"save_%d_flag",  self.save_key];
+            NSString *save_flag_key = [NSString stringWithFormat:@"save_%ld_flag",  (long)self.save_key];
 
             // セーブ済みのものじゃない場合、処理を止める
             if(![[[NSUserDefaults standardUserDefaults] objectForKey:save_flag_key] isEqualToString:@"saved"]){
@@ -321,13 +321,13 @@
     }
     
     // キーの定義
-    NSString *script_key         = [NSString stringWithFormat:@"save_%d_script", self.save_key];
-    NSString *structure_key      = [NSString stringWithFormat:@"save_%d_structure", self.save_key];
-    NSString *instruct_datas_key = [NSString stringWithFormat:@"save_%d_instruct_datas",  self.save_key];
-    NSString *image_key          = [NSString stringWithFormat:@"save_%d_image", self.save_key];
-    NSString *save_flag_key      = [NSString stringWithFormat:@"save_%d_flag",  self.save_key];
-    NSString *save_text_key      = [NSString stringWithFormat:@"save_%d_text",  self.save_key];
-    NSString *save_date_key      = [NSString stringWithFormat:@"save_%d_date",  self.save_key];
+    NSString *script_key         = [NSString stringWithFormat:@"save_%ld_script", (long)self.save_key];
+    NSString *structure_key      = [NSString stringWithFormat:@"save_%ld_structure", (long)self.save_key];
+    NSString *instruct_datas_key = [NSString stringWithFormat:@"save_%ld_instruct_datas",  (long)self.save_key];
+    NSString *image_key          = [NSString stringWithFormat:@"save_%ld_image", (long)self.save_key];
+    NSString *save_flag_key      = [NSString stringWithFormat:@"save_%ld_flag",  (long)self.save_key];
+    NSString *save_text_key      = [NSString stringWithFormat:@"save_%ld_text",  (long)self.save_key];
+    NSString *save_date_key      = [NSString stringWithFormat:@"save_%ld_date",  (long)self.save_key];
     
     if([self.function_flag isEqualToString:@"Save"]){
         if(buttonIndex == 1){

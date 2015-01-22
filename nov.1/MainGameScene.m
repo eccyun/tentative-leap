@@ -220,11 +220,11 @@
             [self addChild:self.full_image];
             self.full_image.zOrder = 1000;
 
-            int len          = [text length];
-            int base_length  = [text length];
-            int _size        = 12;
-            NSString *_font  = @"HiraKakuProN-W6";
-            int _line_height = 5;
+            long len          = [text length];
+            long base_length  = [text length];
+            int _size         = 12;
+            NSString *_font   = @"HiraKakuProN-W6";
+            int _line_height  = 5;
 
             if([dictionary objectForKey:@"name"]!=nil){
                 self.name_text = [dictionary objectForKey:@"name"];
@@ -591,12 +591,13 @@
 
         self.isCheck = NO;
             
-        int len          = [self.message_text length];
-        int base_length  = [self.message_text length];
-        int _size        = 12;
-        NSString *_font  = @"HiraKakuProN-W6";
-        int _line_height = 5;
-
+        long len          = [self.message_text length];
+        long base_length  = [self.message_text length];
+        long _size        = 12;
+        NSString *_font   = @"HiraKakuProN-W6";
+        long _line_height = 5;
+        long _a_line_text = 30;
+        
         if(self.name_text!=nil&&![self.name_text isEqualToString:@""]){
             self.name_tag = [CCLabelTTF labelWithString:self.name_text
                                              dimensions:CGSizeMake((_size+2)*4,_size+2)
@@ -606,14 +607,13 @@
             self.name_tag.tag      = 4501;
             [self addChild:self.name_tag];
         }
-            
+
         // テキスチャを切り出して配列で保存する
         NSMutableArray  *aLineString  = [[NSMutableArray alloc] init];  // 1行辺りのテキスチャをを
         NSString        *_string      = [[NSString alloc] init];        // 1行あたりの文字列
-        NSInteger        _a_line_text = 30;
         
         // 文字情報を取得する
-        for (int i=0; i<len; i++) {
+        for (long i=0; i<len; i++) {
             // 改行 1行あたりの文字列が30文字なので
             if(i%_a_line_text==0 && i > 0){
                 // 残りの文字数をチェック
@@ -694,7 +694,7 @@
 
 -(void)runTextAnimation : (NSString *) text dimensions : (CGSize) size isFirstRender : (BOOL) flag{
     //文字数を確認
-    int len = [text length];
+    long len = [text length];
     
     if(flag){
         // ラベルを作成する（後でテクスチャーとして使用する）

@@ -77,7 +77,7 @@
 
         // 背景画像
         CCTexture2D *tex = [[CCTexture2D alloc] init];
-        tex = [[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"ending-%d.png", self.img_count]];
+        tex = [[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"ending-%ld.png", (long)self.img_count]];
         [self.back_image setTexture:tex];
         [self.back_image setTextureRect:CGRectMake(0, 0,tex.contentSize.width, tex.contentSize.height)];
         [self.back_image runAction:[CCFadeIn actionWithDuration:2.f]];

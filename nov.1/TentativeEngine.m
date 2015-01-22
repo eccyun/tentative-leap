@@ -179,7 +179,7 @@ static struct{
             [set setValue:[split objectAtIndex:3] forKey:@"direction"];
             [set setValue:[split objectAtIndex:4] forKey:@"tags"];
 
-            [saves setObject:instruct forKey:[NSString stringWithFormat:@"STILL-IMG-%d", [[split objectAtIndex:4] integerValue]]];
+            [saves setObject:instruct forKey:[NSString stringWithFormat:@"STILL-IMG-%ld", (long)[[split objectAtIndex:4] integerValue]]];
         }else if([instruct_name isEqualToString:@"# REMOVE-IMG"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];
             [set setValue:[split objectAtIndex:1] forKey:@"position"];

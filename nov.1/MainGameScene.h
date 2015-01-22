@@ -18,7 +18,7 @@
 #import "AppDelegate.h"
 
 // HelloWorldLayer
-@interface MainGameScene : CCLayer<CCTouchDelegate>{
+@interface MainGameScene : CCLayer{
 }
 
 @property(nonatomic,retain)  AppController*   delegate;
