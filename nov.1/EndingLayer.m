@@ -47,8 +47,14 @@
     CGSize size = [[CCDirector sharedDirector] winSize];
     self.count = self.count+1;
     
+    if(self.count==18){
+        [self.back_image runAction:[CCFadeOut actionWithDuration:2.f]];
+        [self performSelector:@selector(displayChangeScene) withObject:nil afterDelay:5.f];
+        return;
+    }
+
     // 終了処理
-    if(self.img_count==10){
+    if(self.img_count==9){
         //オーディオプレイヤー初期化
         AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[@"leap-ending.mp3"];
         [audioPlayer stop];
