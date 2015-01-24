@@ -100,6 +100,8 @@
        location.x < self.start_logo.position.x+(self.start_logo.contentSize.width/2)&&
        location.y > self.start_logo.position.y-(self.start_logo.contentSize.height/2)&&
        location.y < self.start_logo.position.y+(self.start_logo.contentSize.height/2)){
+        [ud setObject:0 forKey:@"quick_script_index"];
+        [ud setObject:0 forKey:@"quick_instruct_datas"];
         [ud setObject:[[NSDictionary alloc] init] forKey:@"quick_instruct_datas"];
         [ud synchronize];
 
