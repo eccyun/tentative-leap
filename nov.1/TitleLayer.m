@@ -78,12 +78,6 @@
 	return self;
 }
 
-
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc{
-	[super dealloc];
-}
-
 #pragma mark GameKit delegate
 -(void) registerWithTouchDispatcher{
     CCDirector *director = [CCDirector sharedDirector];

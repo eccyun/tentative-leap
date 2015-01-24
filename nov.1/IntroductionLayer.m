@@ -51,9 +51,8 @@
         self.isTouchEvent = YES;
 
         // 背景画像
-        CCTexture2D *tex = [[CCTexture2D alloc] init];
         [self.back_image runAction:[CCFadeOut actionWithDuration:0.3f]];
-        tex = [[CCTextureCache sharedTextureCache] addImage:@"navigation-02-hd.png"];
+        CCTexture2D *tex = [[CCTextureCache sharedTextureCache] addImage:@"navigation-02-hd.png"];
         [self.back_image setTexture:tex];
         [self.back_image setTextureRect:CGRectMake(0, 0,tex.contentSize.width, tex.contentSize.height)];
         [self.back_image runAction:[CCFadeIn actionWithDuration:0.3f]];
@@ -63,8 +62,7 @@
         [self performSelector:@selector(displayChangeScene) withObject:nil afterDelay:1.5f];
     }else if(self.count==4){
         // 背景画像
-        CCTexture2D *tex = [[CCTexture2D alloc] init];
-        tex              = [[CCTextureCache sharedTextureCache] addImage:@"notice-hd.png"];
+        CCTexture2D *tex = [[CCTextureCache sharedTextureCache] addImage:@"notice-hd.png"];
         [self.back_image setTexture:tex];
         [self.back_image setTextureRect:CGRectMake(0, 0,tex.contentSize.width, tex.contentSize.height)];
         [self.back_image runAction:[CCFadeIn actionWithDuration:0.3f]];
@@ -77,11 +75,6 @@
     }
 }
 
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc{
-    [super dealloc];
-}
-
 #pragma mark GameKit delegate
 -(void) registerWithTouchDispatcher{
     CCDirector *director = [CCDirector sharedDirector];
@@ -92,9 +85,6 @@
     if(!self.isTouchEvent){
         return YES;
     }
-
-    CGPoint location = [touch locationInView:[touch view]];
-    location         = [[CCDirector sharedDirector] convertToGL:location];
 
     if(self.count==1){
         [self displayChangeScene];

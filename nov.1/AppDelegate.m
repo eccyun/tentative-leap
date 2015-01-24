@@ -22,7 +22,6 @@
     // Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-
 	// Create an CCGLView with a RGB565 color buffer, and a depth buffer of 0-bits
 	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]
 								   pixelFormat:kEAGLColorFormatRGBA8
@@ -167,6 +166,9 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
+    
+    
+    NSLog(@"a");
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application
@@ -199,13 +201,4 @@
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
 
-- (void) dealloc
-{
-	[window_ release];
-	[navController_ release];
-
-	[super dealloc];
-}
-
 @end
-

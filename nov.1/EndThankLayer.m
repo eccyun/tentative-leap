@@ -30,11 +30,6 @@
     return self;
 }
 
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc{
-    [super dealloc];
-}
-
 -(void) onEnter{
     [super onEnter];
 

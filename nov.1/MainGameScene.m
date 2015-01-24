@@ -88,7 +88,6 @@
     for (int i=0; i<[instruct count]; i++){
         self.isTouch = YES;
 
-        CCTexture2D         *tex        = [[CCTexture2D alloc] init];
         NSMutableDictionary *dictionary = [instruct objectAtIndex:i];
 
         if([[dictionary objectForKey:@"instruct_name"] isEqualToString:@"# BG"]){
@@ -108,13 +107,13 @@
                     NSRange range = [[dictionary objectForKey:@"img_name"] rangeOfString:@"_up"];
                     if (range.location != NSNotFound || self.isUp) {
                         [self.center runAction:[CCFadeOut actionWithDuration:0.3f]];
-                        tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
+                        CCTexture2D *tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                         [self.center setTexture:tex];
                         [self.center setTextureRect:CGRectMake(0, 0,tex.contentSize.width, tex.contentSize.height)];
                         [self.center runAction:[CCFadeIn actionWithDuration:0.3f]];
                         self.isUp = (self.isUp)?NO:YES;
                     }else{
-                        tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
+                        CCTexture2D *tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                         [self.center setTexture:tex];
                         [self.center setTextureRect:CGRectMake(0, 0,tex.contentSize.width, tex.contentSize.height)];
                     }
@@ -130,7 +129,7 @@
                     [self addChild:self.right];
                 }else{
                     [self.right runAction:[CCFadeOut actionWithDuration:0.1f]];
-                    tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
+                    CCTexture2D *tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                     [self.right setTexture:tex];
                     [self.right setTextureRect:CGRectMake(0, 0, self.right.contentSize.width, self.right.contentSize.height)];
                     [self.right runAction:[CCFadeIn actionWithDuration:0.1f]];
@@ -146,7 +145,7 @@
                     [self addChild:self.left];
                 }else{
                     [self.left runAction:[CCFadeOut actionWithDuration:0.1f]];
-                    tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
+                    CCTexture2D *tex = [[CCTextureCache sharedTextureCache] addImage:[dictionary objectForKey:@"img_name"]];
                     [self.left setTexture:tex];
                     [self.left setTextureRect:CGRectMake(0, 0, self.left.contentSize.width, self.left.contentSize.height)];
                     [self.left runAction:[CCFadeIn actionWithDuration:0.1f]];
@@ -455,11 +454,6 @@
 
 - (void) isAnimationChecked{
     self.isCheck = NO;
-}
-
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc{
-	[super dealloc];
 }
 
 #pragma mark GameKit delegate

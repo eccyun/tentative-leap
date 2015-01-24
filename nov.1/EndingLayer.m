@@ -82,8 +82,7 @@
         self.img_count = self.img_count+1;
 
         // 背景画像
-        CCTexture2D *tex = [[CCTexture2D alloc] init];
-        tex = [[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"ending-%ld.png", (long)self.img_count]];
+        CCTexture2D *tex = [[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"ending-%ld.png", (long)self.img_count]];
         [self.back_image setTexture:tex];
         [self.back_image setTextureRect:CGRectMake(0, 0,tex.contentSize.width, tex.contentSize.height)];
         [self.back_image runAction:[CCFadeIn actionWithDuration:2.f]];
@@ -93,11 +92,6 @@
         [self.back_image runAction:[CCFadeOut actionWithDuration:2.f]];
         [self performSelector:@selector(displayChangeScene) withObject:nil afterDelay:4.5f];
     }
-}
-
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc{
-    [super dealloc];
 }
 
 #pragma mark GameKit delegate

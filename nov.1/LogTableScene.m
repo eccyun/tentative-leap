@@ -111,7 +111,7 @@
     UILabel         *name_label, *text_label;
     
     if (cell == nil){
-        cell                       = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell                       = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         name_label                 = [[UILabel alloc] init];
         name_label.tag             = 1;
         name_label.textColor       = [UIColor whiteColor];
@@ -145,11 +145,6 @@
     text_label.frame = CGRectMake(30.f, 20.f+name_label.frame.size.height, size.width-60.f, text_label.frame.size.height);
 
     return cell;
-}
-
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc{
-    [super dealloc];
 }
 
 -(void) registerWithTouchDispatcher{

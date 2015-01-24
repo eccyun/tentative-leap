@@ -1,5 +1,5 @@
 //
-//  SceneManager.m
+//  TentativeEngine.m
 //  NovelGame
 //
 //  Created by eccyun on 2012/12/24.

@@ -34,11 +34,6 @@
 	return self;
 }
 
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc{
-	[super dealloc];
-}
-
 -(void) onEnter{
 	[super onEnter];
 
@@ -223,7 +218,7 @@
             NSData     *imageData  = [ud objectForKey:image_key];
 
             // テキストの書き出しの部分
-            CCLabelTTF *text_label = [[CCLabelTTF alloc] init];
+            CCLabelTTF *text_label;
             if((CCLabelTTF *)[self getChildByTag:6500+i]){
                 // 更新
                 text_label = (CCLabelTTF *)[self getChildByTag:6500+i];
@@ -239,7 +234,7 @@
             }
 
             // 保存日
-            CCLabelTTF *date_text = [[CCLabelTTF alloc] init];
+            CCLabelTTF *date_text;
             if((CCLabelTTF *)[self getChildByTag:6600+i]){
                 // 更新
                 date_text = (CCLabelTTF *)[self getChildByTag:6600+i];
