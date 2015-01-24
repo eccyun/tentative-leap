@@ -116,14 +116,12 @@ STOP;
 STOP;
 # MSG:「もう少し早めに移動しておいた方が良かったかな」:照
 STOP;
-# IMG:aruku_cry.png:center
-# MSG:「確かにそうするべきだったかも、失敗したな。ごめんね」:歩
-STOP;
-# MSG:「いやいや、何もそこまで謝らなくても」:照
-STOP;
-# MSG:「…花火まで間に合うと良いんだけど、どうだろう？」:照
-STOP;
 # IMG:aruku_laugh2.png:center
+# MSG:「そうだね、確かにそうするべきだったかも。失敗したな」:歩
+STOP;
+# MSG:「花火まで間に合うと良いんだけど、どうだろう？」:照
+STOP;
+# IMG:aruku_normal.png:center
 # MSG:「時間まで少し余裕もあるし、今のペースで進めば大丈夫だよ」:歩
 STOP;
 # MSG:「そうなんだ、それだったら良いんだけど」:照
