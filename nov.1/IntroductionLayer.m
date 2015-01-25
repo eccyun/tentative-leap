@@ -40,6 +40,9 @@
     self.count = self.count+1;
 
     if(self.count==1){
+        AppController *delegate = (AppController *)[[UIApplication sharedApplication] delegate];
+        delegate.sound_name     = @"";
+        
         self.isTouchEvent = YES;
 
         // 背景画像

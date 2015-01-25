@@ -7,6 +7,7 @@
 //
 
 #import "TentativeEngine.h"
+#import "AppDelegate.h"
 
 @implementation TentativeEngine
 
@@ -118,9 +119,10 @@ static struct{
 }
 
 - (NSMutableArray *)setInstruct : (NSMutableArray *)tmp insertInstructArray : (NSMutableArray *)ret{
-    NSUserDefaults      *ud          = [NSUserDefaults standardUserDefaults];
-    NSDictionary        *dict        = [ud objectForKey:@"quick_instruct_datas"];
-    NSMutableDictionary *saves       = [[NSMutableDictionary alloc] initWithDictionary:dict];
+    AppController       *delegate = (AppController *)[[UIApplication sharedApplication] delegate];
+    NSUserDefaults      *ud       = [NSUserDefaults standardUserDefaults];
+    NSDictionary        *dict     = [ud objectForKey:@"quick_instruct_datas"];
+    NSMutableDictionary *saves    = [[NSMutableDictionary alloc] initWithDictionary:dict];
 
     // 命令をパースする
     for(int k=0; k < [tmp count]; k++){
@@ -169,8 +171,10 @@ static struct{
             
             if([[split objectAtIndex:2] isEqualToString:@"PLAY"]){
                 [saves setObject:instruct forKey:@"BGM-PLAY"];
+                delegate.sound_name = [split objectAtIndex:1];
             }else if([[split objectAtIndex:2] isEqualToString:@"STOP"]){
                 [saves setObject:@"" forKey:@"BGM-PLAY"];
+                delegate.sound_name = @"";
             }
         }else if([instruct_name isEqualToString:@"# STILL-IMG"]){
             [set setValue:instruct_name           forKey:@"instruct_name"];

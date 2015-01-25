@@ -19,6 +19,7 @@
 @property (nonatomic, retain) UIWindow               *window;
 @property (readonly)          UINavigationController *navController;
 @property (readonly)          CCDirectorIOS          *director;
+@property (nonatomic, retain) NSString               *sound_name;
 
 @property (nonatomic, retain) NSDictionary *bgmMap;
 @property (nonatomic, retain) NSDictionary *effectsMap;

@@ -101,7 +101,7 @@
                     @"bell-leap.mp3"   : [self getPlayer:@"bell-leap.mp3"],
                     @"leap-ending.mp3" : [self getPlayer:@"leap-ending.mp3"],
                     @"forest.mp3"      : [self getPlayer:@"forest.mp3"],};
-    
+
     self.effectsMap = @{
                         @"shoot_effect.mp3" : [self getPlayer:@"shoot_effect.mp3"],
                         @"watch_alert.mp3"  : [self getPlayer:@"watch_alert.mp3"],
@@ -109,6 +109,7 @@
                         @"fire_2.mp3"       : [self getPlayer:@"fire_2.mp3"],
                         @"door_open.mp3"    : [self getPlayer:@"door_open.mp3"]
                         };
+    self.sound_name = @"";
 	return YES;
 }
 
@@ -166,15 +167,26 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
-    
-    
-    NSLog(@"a");
+
+    // サウンドを再び再生する
+    if(![self.sound_name isEqualToString: @""]){
+        //オーディオプレイヤー初期化
+        AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.bgmMap[self.sound_name];
+        audioPlayer.volume         = 1.f;
+        [audioPlayer play];
+    }
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ stopAnimation];
+
+    // サウンドを止める
+    if(![self.sound_name isEqualToString: @""]){
+        AVAudioPlayer *stopPlayer = (AVAudioPlayer *)self.bgmMap[self.sound_name];
+        [stopPlayer stop];
+    }
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application

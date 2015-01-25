@@ -32,8 +32,8 @@
 	CGSize size = [[CCDirector sharedDirector] winSize];
 
     if((self=[super init])){
-        self.delegate = (AppController *)[[UIApplication sharedApplication] delegate];
-        
+        self.delegate            = (AppController *)[[UIApplication sharedApplication] delegate];
+
         NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
         [ud setInteger:0 forKey:@"script_index"];
         [ud setInteger:0 forKey:@"structure_index"];
@@ -43,6 +43,7 @@
 
         //オーディオプレイヤー初期化
         AVAudioPlayer *audioPlayer = (AVAudioPlayer *)self.delegate.bgmMap[@"time-leap.mp3"];
+        self.delegate.sound_name   = @"time-leap.mp3";
         audioPlayer.currentTime    = 0.f;
         audioPlayer.volume         = 1.f;
         [audioPlayer play];

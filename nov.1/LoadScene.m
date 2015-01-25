@@ -41,7 +41,8 @@
 -(void) onEnter{
 	[super onEnter];
 
-    self.delegate = (AppController *)[[UIApplication sharedApplication] delegate];
+    self.delegate            = (AppController *)[[UIApplication sharedApplication] delegate];
+    self.delegate.sound_name = @"";
     [self.delegate refreshPlayer];
     
     CGSize size = [[CCDirector sharedDirector] winSize];

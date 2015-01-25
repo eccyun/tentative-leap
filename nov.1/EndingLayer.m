@@ -25,9 +25,10 @@
 // on "init" you need to initialize your instance
 -(id) init{
     if((self=[super init])){
-        self.count          = 0;
-        self.img_count      = 0;
-        self.delegate       = (AppController *)[[UIApplication sharedApplication] delegate];
+        self.count               = 0;
+        self.img_count           = 0;
+        self.delegate            = (AppController *)[[UIApplication sharedApplication] delegate];
+        self.delegate.sound_name = @"leap-ending.mp3";
         [self.delegate refreshPlayer];
         
         //オーディオプレイヤー初期化
