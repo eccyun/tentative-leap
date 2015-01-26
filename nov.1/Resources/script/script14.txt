@@ -96,11 +96,11 @@ STOP;
 # BGM:road_theme.mp3:PLAY
 # BG:upland_night.png
 # IMG:aruku_normal.png:center
-# MSG:「思っていたより、人が少ないね」:歩
+# MSG:「思っていたより、人が少ないね」:照
 STOP;
 # MSG:あれだけの人ごみの中を移動してきたのに、高台には思っていたほど人がいなかった。
 STOP;
-# MSG:「花火の観覧席は公園内にも設けられてたはずだったから、大半がそっちに行ったのかな」:照
+# MSG:「花火の観覧席は公園内にも設けられてたはずだったから、大半がそっちに行ったのかな」:歩
 STOP;
 # IMG:aruku_laugh2.png:center
 # MSG:「こっちに来たのは正解だったね。人も少ないし、景色も綺麗だし」:歩
